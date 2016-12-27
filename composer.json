@@ -1,0 +1,37 @@
+{
+  "name": "hendridm/wordpress-base-plugin",
+  "type": "wordpress-plugin",
+  "description": "A starter template for WordPress plugins",
+  "keywords": ["wordpress", "plugin", "boilerplate", "carbonfields"],
+  "homepage": "https://2lab.net",
+  "license": "GPL-2.0",
+  "authors": [
+    {
+      "name": "Daniel M. Hendricks",
+      "homepage": "https://danhendricks.com",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/hendridm/wordpress-base-plugin/issues/",
+    "wiki": "https://github.com/hendridm/wordpress-base-plugin/wiki/",
+    "source": "https://github.com/hendridm/wordpress-base-plugin/"
+  },
+  "require": {
+    "php": ">=5.3.2",
+    "mnsami/composer-custom-directory-installer": "*",
+    "htmlburger/carbon-fields": "*",
+    "composer/installers": "*"
+  },
+  "extra":{
+    "installer-paths":{
+      "./vendor/carbon-fields": ["htmlburger/carbon-fields"]
+    }
+  },
+  "minimum-stability": "dev",
+  "autoload": {
+    "psr-4": {
+      "Nimbium\\MyPlugin\\": "src/"
+    }
+  }
+}

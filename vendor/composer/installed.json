@@ -1,0 +1,276 @@
+[
+    {
+        "name": "mnsami/composer-custom-directory-installer",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/mnsami/composer-custom-directory-installer.git",
+            "reference": "8cc82e0c5801cc3bf53ba452afdcaa5c6ff645a5"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/mnsami/composer-custom-directory-installer/zipball/8cc82e0c5801cc3bf53ba452afdcaa5c6ff645a5",
+            "reference": "8cc82e0c5801cc3bf53ba452afdcaa5c6ff645a5",
+            "shasum": ""
+        },
+        "require": {
+            "composer-plugin-api": "^1.0",
+            "php": ">=5.3"
+        },
+        "time": "2016-05-25 08:26:02",
+        "type": "composer-plugin",
+        "extra": {
+            "class": [
+                "Composer\\CustomDirectoryInstaller\\LibraryPlugin",
+                "Composer\\CustomDirectoryInstaller\\PearPlugin",
+                "Composer\\CustomDirectoryInstaller\\PluginPlugin"
+            ],
+            "branch-alias": {
+                "dev-master": "1.1.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Composer\\CustomDirectoryInstaller": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Mina Nabil Sami",
+                "email": "mina.nsami@gmail.com"
+            }
+        ],
+        "description": "A composer plugin, to help install packages of different types in custom paths.",
+        "keywords": [
+            "composer",
+            "composer-installer",
+            "composer-plugin"
+        ]
+    },
+    {
+        "name": "composer/installers",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/composer/installers.git",
+            "reference": "87933d75bdab747400138a7e0381760bb9b64dde"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/composer/installers/zipball/87933d75bdab747400138a7e0381760bb9b64dde",
+            "reference": "87933d75bdab747400138a7e0381760bb9b64dde",
+            "shasum": ""
+        },
+        "require": {
+            "composer-plugin-api": "^1.0"
+        },
+        "replace": {
+            "roundcube/plugin-installer": "*",
+            "shama/baton": "*"
+        },
+        "require-dev": {
+            "composer/composer": "1.0.*@dev",
+            "phpunit/phpunit": "4.1.*"
+        },
+        "time": "2016-12-23 18:55:51",
+        "type": "composer-plugin",
+        "extra": {
+            "class": "Composer\\Installers\\Plugin",
+            "branch-alias": {
+                "dev-master": "1.0-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Composer\\Installers\\": "src/Composer/Installers"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Kyle Robinson Young",
+                "email": "kyle@dontkry.com",
+                "homepage": "https://github.com/shama"
+            }
+        ],
+        "description": "A multi-framework Composer library installer",
+        "homepage": "https://composer.github.io/installers/",
+        "keywords": [
+            "Craft",
+            "Dolibarr",
+            "Hurad",
+            "ImageCMS",
+            "Kanboard",
+            "MODX Evo",
+            "Mautic",
+            "OXID",
+            "Plentymarkets",
+            "Porto",
+            "RadPHP",
+            "SMF",
+            "Thelia",
+            "WolfCMS",
+            "agl",
+            "aimeos",
+            "annotatecms",
+            "attogram",
+            "bitrix",
+            "cakephp",
+            "chef",
+            "cockpit",
+            "codeigniter",
+            "concrete5",
+            "croogo",
+            "dokuwiki",
+            "drupal",
+            "elgg",
+            "expressionengine",
+            "fuelphp",
+            "grav",
+            "installer",
+            "joomla",
+            "kohana",
+            "laravel",
+            "lithium",
+            "magento",
+            "mako",
+            "mediawiki",
+            "modulework",
+            "moodle",
+            "phpbb",
+            "piwik",
+            "ppi",
+            "puppet",
+            "reindex",
+            "roundcube",
+            "shopware",
+            "silverstripe",
+            "symfony",
+            "typo3",
+            "wordpress",
+            "yawik",
+            "zend",
+            "zikula"
+        ]
+    },
+    {
+        "name": "htmlburger/carbon-fields",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/htmlburger/carbon-fields.git",
+            "reference": "4b03dd3b2bcbd216576aa1d2d40f7ed94232bf26"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/htmlburger/carbon-fields/zipball/4b03dd3b2bcbd216576aa1d2d40f7ed94232bf26",
+            "reference": "4b03dd3b2bcbd216576aa1d2d40f7ed94232bf26",
+            "shasum": ""
+        },
+        "require": {
+            "composer/installers": "~1.0"
+        },
+        "time": "2016-12-21 13:43:00",
+        "type": "wordpress-plugin",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Carbon_Fields\\": "core/"
+            },
+            "files": [
+                "carbon-fields.php",
+                "core/functions.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "GPL-2.0"
+        ],
+        "authors": [
+            {
+                "name": "htmlBurger",
+                "email": "wordpress@htmlburger.com",
+                "homepage": "https://htmlburger.com/",
+                "role": "Developer"
+            },
+            {
+                "name": "Marin Atanasov",
+                "email": "contact@marinatanasov.com",
+                "homepage": "http://marinatanasov.com/",
+                "role": "Developer"
+            },
+            {
+                "name": "Siyan Panayotov",
+                "homepage": "http://siyanpanayotov.com/",
+                "role": "Developer"
+            },
+            {
+                "name": "Georgi Stoyanov",
+                "email": "stoyanov.gs@gmail.com",
+                "role": "Developer"
+            },
+            {
+                "name": "Stanimir Panchev",
+                "email": "Stan4omir@gmail.com",
+                "role": "Developer"
+            },
+            {
+                "name": "Peter Petrov",
+                "email": "peter.petrov89@gmail.com",
+                "role": "Developer"
+            },
+            {
+                "name": "Plamen Kostadinov",
+                "email": "pkostadinov.2create@gmail.com",
+                "homepage": "http://plasmen.info/",
+                "role": "Developer"
+            },
+            {
+                "name": "Stanimir Stoyanov",
+                "email": "stanimir.k.stoyanov@gmail.com",
+                "role": "Developer"
+            },
+            {
+                "name": "Georgi Popov",
+                "homepage": "http://magadanski.com/",
+                "role": "Developer"
+            },
+            {
+                "name": "German Velchev",
+                "email": "germozy@gmail.com",
+                "role": "Developer"
+            },
+            {
+                "name": "Rashko Petrov",
+                "email": "brutalenemy666@gmail.com",
+                "homepage": "http://errorfactory.com/",
+                "role": "Developer"
+            },
+            {
+                "name": "Miroslav Mitev",
+                "email": "mmitev.2create@gmail.com",
+                "role": "Developer"
+            },
+            {
+                "name": "Kaloyan Ivanov",
+                "email": "kaloyanxivanov@gmail.com",
+                "homepage": "http://vilepixels.com/",
+                "role": "Developer"
+            }
+        ],
+        "description": "WordPress developer-friendly custom fields for post types, taxonomy terms, users, comments, widgets, options and more.",
+        "homepage": "http://carbonfields.net/"
+    }
+]
