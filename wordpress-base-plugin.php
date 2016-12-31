@@ -28,8 +28,6 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-define("_PLUGIN_NAMESPACE", 'Nimbium\MyPlugin');
-
 require( __DIR__ . '/vendor/autoload.php' );
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
