@@ -57,7 +57,7 @@ class AdminPages {
             */
         );
 
-        // Add side metabox [TODO]
+        // Add side metabox
         /*
         Container::make('post_meta', 'Custom Data')
             ->show_on_post_type('post')
