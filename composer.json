@@ -1,5 +1,5 @@
 {
-  "name": "hendridm/wordpress-base-plugin",
+  "name": "dmhendricks/wordpress-base-plugin",
   "type": "wordpress-plugin",
   "description": "A starter template for WordPress plugins",
   "keywords": ["wordpress", "plugin", "boilerplate", "carbonfields"],
@@ -13,9 +13,9 @@
     }
   ],
   "support": {
-    "issues": "https://github.com/hendridm/wordpress-base-plugin/issues/",
-    "wiki": "https://github.com/hendridm/wordpress-base-plugin/wiki/",
-    "source": "https://github.com/hendridm/wordpress-base-plugin/"
+    "issues": "https://github.com/dmhendricks/wordpress-base-plugin/issues/",
+    "wiki": "https://github.com/dmhendricks/wordpress-base-plugin/wiki/",
+    "source": "https://github.com/dmhendricks/wordpress-base-plugin/"
   },
   "require": {
     "php": ">=5.3.2",
