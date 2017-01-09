@@ -35,6 +35,7 @@ include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 new \Nimbium\MyPlugin\Plugin(array(
 	'data' => get_plugin_data(__FILE__),
 	'path' => realpath(plugin_dir_path(__FILE__)).DIRECTORY_SEPARATOR,
-	'url' => plugin_dir_url(__FILE__)
+	'url' => plugin_dir_url(__FILE__),
+	'prefix' => 'myplugin_'
 ));
 ?>
