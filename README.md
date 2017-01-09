@@ -20,3 +20,13 @@ This is a base WordPress plugin featuring namespace autoloading and integration 
 1. Download and extrtact ZIP archive from [GitHub](https://github.com/dmhendricks/https://github.com/dmhendricks/wordpress-base-plugin)
 2. Upload to wp-content/plugins/ folder
 3. Activate through wp-admin/plugin.php page.
+
+## Credits
+
+Please support [humans.txt](http://humanstxt.org/). It's an initiative for knowing the people behind a web site. It's an unobtrusive text file that contains information about the different people who have contributed to building the web site.
+
+	Carbon Fields: http://carbonfields.net/
+	Author: htmlBurger.com
+	Twitter: @htmlburger
+	URL: https://htmlburger.com/
+	Location: London, England
