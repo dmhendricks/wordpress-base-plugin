@@ -3,68 +3,50 @@ namespace Nimbium\MyPlugin;
 
 class Plugin {
 
-    public $settings;
+    public static $settings;
 
-    public function __construct($_settings)
-    {
-        $this->settings = $_settings;
-        $this->init();
-    }
+    public function __construct() { }
 
-    private function init() {
-        // Enqueue scripts
-        //$this->enqueue_scripts();
+    public static function init($_settings) {
+        self::$settings = $_settings;
 
         // Enqueue scripts
-        $this->overrides();
+        //new EnqueueScripts();
+
+        // Core plugin logic
+        new Core();
 
         // Deploy settings page(s)
-        $this->admin_pages();
+        new AdminPages();
 
         // Deploy custom meta boxes
-        $this->meta_boxes();
+        //new MetaBoxes();
 
         // Deploy widgets
-        //$this->widgets();
+        //new Widgets();
 
         // Deploy shortcodes
-        $this->shortcodes();
+        //new Shortcodes();
 
-    }
-
-    private function enqueue_scripts() {
-        return new \Nimbium\MyPlugin\EnqueueScripts($this->settings);
-    }
-
-    private function overrides() {
-        return new \Nimbium\MyPlugin\Overrides($this->settings);
-    }
-
-    private function admin_pages() {
-        return new \Nimbium\MyPlugin\AdminPages($this->settings);
-    }
-
-    private function meta_boxes() {
-        return new \Nimbium\MyPlugin\MetaBoxes($this->settings);
-    }
-
-    private function widgets() {
-        // [TODO]
-        /*
-        add_action('widgets_init', function() {
-            register_widget('Nimbium\MyPlugin\WidgetLoader');
-        });
-        */
-    }
-
-    private function shortcodes() {
-        return new \Nimbium\MyPlugin\Shortcodes($this->settings);
     }
 
     /*
-    public static function get_plugin_config() {
-        return $this->settings;
+    private function widgets() {
+
+        add_action('widgets_init', function() {
+            register_widget('Nimbium\MyPlugin\WidgetLoader');
+        });
     }
     */
+
+    public static function set_option($_value) {
+      //self::$settings = array_merge_recursive(self::$settings, $_value);
+      self::$settings = Helpers::array_merge_recursive_distinct(self::$settings, $_value);
+
+    }
+
+    public static function get_option($_key = 'prefix') {
+      return self::$settings[$_key];
+    }
 
 }

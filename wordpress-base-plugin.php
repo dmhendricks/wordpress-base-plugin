@@ -4,7 +4,7 @@
  * Plugin Name:       WordPress Base Plugin
  * Plugin URI:        http://plugin-name.com/
  * Description:       A starter template for WordPress plugins
- * Version:           0.1.0
+ * Version:           0.1.1
  * Author:            Daniel M. Hendricks
  * Author URI:        https://danhendricks.com/
  * License:           GPLv2 or later
@@ -32,7 +32,7 @@ require( __DIR__ . '/vendor/autoload.php' );
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
 // Initialize plugin
-new \Nimbium\MyPlugin\Plugin(array(
+\Nimbium\MyPlugin\Plugin::init(array(
 	'data' => get_plugin_data(__FILE__),
 	'path' => realpath(plugin_dir_path(__FILE__)).DIRECTORY_SEPARATOR,
 	'url' => plugin_dir_url(__FILE__),
