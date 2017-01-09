@@ -1,6 +1,6 @@
 # WordPress Base Plugin
 
-**Warning:** This is _experimental_ and _unstable_ and is not intended to be used in a production environment.
+**Note:** This plugin is currently _under development_ and is subject to bugs and regular changes.
 
 ## Description
 
