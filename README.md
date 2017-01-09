@@ -10,7 +10,7 @@ This is a base WordPress plugin featuring namespace autoloading and integration 
 
 ### Composer
 
-1. Clone a copy from from [GitHub](https://github.com/dmhendricks/https://github.com/dmhendricks/wordpress-base-plugin)
+1. Clone a copy from from [GitHub](https://github.com/dmhendricks/wordpress-base-plugin)
 2. Delete `/vendor` folder
 3. Modify `composer.json` to suit your needs
 4. Run `composer install` to install dependencies and autoload namespace
