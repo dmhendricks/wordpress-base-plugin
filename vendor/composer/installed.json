@@ -171,18 +171,18 @@
         "source": {
             "type": "git",
             "url": "https://github.com/htmlburger/carbon-fields.git",
-            "reference": "4b03dd3b2bcbd216576aa1d2d40f7ed94232bf26"
+            "reference": "7a4f07d6b87f9d21da441b932b4964d27e039b90"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/htmlburger/carbon-fields/zipball/4b03dd3b2bcbd216576aa1d2d40f7ed94232bf26",
-            "reference": "4b03dd3b2bcbd216576aa1d2d40f7ed94232bf26",
+            "url": "https://api.github.com/repos/htmlburger/carbon-fields/zipball/7a4f07d6b87f9d21da441b932b4964d27e039b90",
+            "reference": "7a4f07d6b87f9d21da441b932b4964d27e039b90",
             "shasum": ""
         },
         "require": {
             "composer/installers": "~1.0"
         },
-        "time": "2016-12-21 13:43:00",
+        "time": "2017-01-10 15:54:51",
         "type": "wordpress-plugin",
         "installation-source": "source",
         "autoload": {
@@ -267,6 +267,11 @@
                 "name": "Kaloyan Ivanov",
                 "email": "kaloyanxivanov@gmail.com",
                 "homepage": "http://vilepixels.com/",
+                "role": "Developer"
+            },
+            {
+                "name": "Atanas Angelov",
+                "email": "atanas.angelov.dev@gmail.com",
                 "role": "Developer"
             }
         ],
