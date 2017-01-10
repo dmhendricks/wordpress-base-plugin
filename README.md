@@ -1,7 +1,5 @@
 # WordPress Base Plugin
 
-**Note:** This plugin is currently _under development_ and is subject to bugs and regular changes.
-
 ## Description
 
 This is a base WordPress plugin featuring namespace autoloading and integration with [Carbon Fields](https://github.com/htmlburger/carbon-fields). It is intended to be used as a starting point for creating quick WordPress plugins.
