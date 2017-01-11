@@ -1,5 +1,5 @@
 <?php
-namespace Nimbium\WordPressTools;
+namespace Nimbium\MyPlugin;
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
 
