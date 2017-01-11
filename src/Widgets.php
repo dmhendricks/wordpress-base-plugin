@@ -5,12 +5,11 @@ use Carbon_Fields\Field;
 
 class Widgets extends Page {
 
-    public function __construct()
-    {
-        $this->build();
+    public static function create() {
+        $this->add_sample_widget();
     }
 
-    public function build() {
+    private static function add_sample_widget() {
         // https://carbonfields.net/docs/containers-widgets/
 
         $this->setup('Plugin Widget - Example', 'Displays a block with title/text', array(

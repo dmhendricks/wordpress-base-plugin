@@ -5,12 +5,11 @@ use Carbon_Fields\Field;
 
 class MetaBoxes extends Plugin {
 
-    public function __construct()
-    {
+    public static function create {
         $this->build_sample_meta_box();
     }
 
-    private function build_sample_meta_box() {
+    private static function build_sample_meta_box() {
 
         Container::make('post_meta', 'Sample Meta Box')
             ->show_on_post_type('post')

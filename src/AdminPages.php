@@ -5,12 +5,7 @@ use Carbon_Fields\Field;
 
 class AdminPages extends Plugin {
 
-    public function __construct()
-    {
-        $this->load();
-    }
-
-    public function load() {
+    public static function create() {
         // Carbon Fields Docs: https://carbonfields.net/docs/containers-theme-options/
 
         Container::make('theme_options', parent::get_option('data')['Name'])

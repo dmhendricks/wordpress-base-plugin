@@ -1,8 +1,6 @@
 === WordPress Base Plugin ===
-Version: 0.1.2
 Contributors: hendridm
 Tags: wordpress,base,plugin,boilerplate,composer,carbonfields
-Plugin URI: https://github.com/dmhendricks/wordpress-base-plugin
 Donate link: https://paypal.me/danielhendricks
 Requires at least: 4.0
 Tested up to: 4.7

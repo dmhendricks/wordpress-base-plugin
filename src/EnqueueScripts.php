@@ -3,13 +3,13 @@ namespace Nimbium\MyPlugin;
 
 class EnqueueScripts extends Plugin {
 
-    public function __construct()
+    public static function load()
     {
-        $this->enqueue_admin_scripts();
+        self::enqueue_admin_scripts();
     }
 
     // Enqueue admin scripts
-    public function enqueue_admin_scripts() {
+    private static function enqueue_admin_scripts() {
 
         // Only load script(s) on edit pages
         if( strstr($_SERVER['REQUEST_URI'], '/post-new.php') || strstr($_SERVER['REQUEST_URI'], '/post.php') ) {

@@ -11,22 +11,22 @@ class Plugin {
         self::$settings = $_settings;
 
         // Enqueue scripts
-        //new EnqueueScripts();
+        EnqueueScripts::load();
 
         // Core plugin logic
-        new Core();
+        Core::load();
 
         // Deploy settings page(s)
-        new AdminPages();
+        AdminPages::create();
 
         // Deploy custom meta boxes
-        //new MetaBoxes();
+        //MetaBoxes::create();
 
         // Deploy widgets
-        //new Widgets();
+        //Widgets::create();
 
         // Deploy shortcodes
-        //new Shortcodes();
+        //Shortcodes::create();
 
     }
 
@@ -40,9 +40,7 @@ class Plugin {
     */
 
     public static function set_option($_value) {
-      //self::$settings = array_merge_recursive(self::$settings, $_value);
       self::$settings = Helpers::array_merge_recursive_distinct(self::$settings, $_value);
-
     }
 
     public static function get_option($_key = 'prefix') {
