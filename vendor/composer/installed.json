@@ -165,24 +165,42 @@
         ]
     },
     {
+        "name": "jashkenas/underscore",
+        "version": "master",
+        "version_normalized": "9999999-dev",
+        "dist": {
+            "type": "zip",
+            "url": "https://github.com/jashkenas/underscore/archive/1.8.3.zip",
+            "reference": "master",
+            "shasum": null
+        },
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "classmap": [
+                "."
+            ]
+        }
+    },
+    {
         "name": "htmlburger/carbon-fields",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
         "source": {
             "type": "git",
             "url": "https://github.com/htmlburger/carbon-fields.git",
-            "reference": "7a4f07d6b87f9d21da441b932b4964d27e039b90"
+            "reference": "d4c0f9b72e0edbcd0c5d6eabde01882491b97994"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/htmlburger/carbon-fields/zipball/7a4f07d6b87f9d21da441b932b4964d27e039b90",
-            "reference": "7a4f07d6b87f9d21da441b932b4964d27e039b90",
+            "url": "https://api.github.com/repos/htmlburger/carbon-fields/zipball/d4c0f9b72e0edbcd0c5d6eabde01882491b97994",
+            "reference": "d4c0f9b72e0edbcd0c5d6eabde01882491b97994",
             "shasum": ""
         },
         "require": {
             "composer/installers": "~1.0"
         },
-        "time": "2017-01-10 15:54:51",
+        "time": "2017-01-12 08:50:16",
         "type": "wordpress-plugin",
         "installation-source": "source",
         "autoload": {
