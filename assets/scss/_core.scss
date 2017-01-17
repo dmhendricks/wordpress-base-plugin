@@ -1,0 +1,23 @@
+/*
+ * Core Site Style - Example
+ */
+
+a {
+  color: $link-color;
+
+  &:hover {
+    color: $link-color-hover;
+  }
+}
+
+h1 {
+
+  &.site-title {
+    font-family: $font-family-serif;
+
+    a {
+      text-decoration: underline;
+    }
+  }
+
+}

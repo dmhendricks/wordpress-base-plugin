@@ -1,0 +1,30 @@
+/*
+ * Core Site Style - Example
+ */
+/* line 5, ../scss/_core.scss */
+a {
+  color: #663399;
+}
+/* line 8, ../scss/_core.scss */
+a:hover {
+  color: #9966CC;
+}
+
+/* line 15, ../scss/_core.scss */
+h1.site-title {
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+/* line 18, ../scss/_core.scss */
+h1.site-title a {
+  text-decoration: underline;
+}
+
+/*
+ * Media Queries - Example
+ */
+@media (max-width: 575px) {
+  /* line 6, ../scss/_media-queries.scss */
+  body {
+    font-size: 115%;
+  }
+}
