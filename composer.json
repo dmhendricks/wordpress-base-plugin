@@ -17,10 +17,28 @@
     "wiki": "https://github.com/dmhendricks/wordpress-base-plugin/wiki/",
     "source": "https://github.com/dmhendricks/wordpress-base-plugin/"
   },
+  "repositories": [
+      {
+          "type": "package",
+          "package": {
+            "name": "jashkenas/underscore",
+            "version": "master",
+            "dist": {
+              "type": "zip",
+              "url": "https://github.com/jashkenas/underscore/archive/1.8.3.zip",
+              "reference": "master"
+            },
+            "autoload": {
+                "classmap": ["."]
+            }
+        }
+      }
+  ],
   "require": {
     "php": ">=5.3.2",
     "mnsami/composer-custom-directory-installer": "*",
     "htmlburger/carbon-fields": "*",
+    "jashkenas/underscore": "dev-master",
     "composer/installers": "*"
   },
   "extra":{
