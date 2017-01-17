@@ -4,6 +4,8 @@
 
 This is a base WordPress plugin featuring namespace autoloading and integration with [Carbon Fields](https://github.com/htmlburger/carbon-fields). It is intended to be used as a starting point for creating quick WordPress plugins.
 
+It may also be used as the means of [separating custom code](http://www.billerickson.net/core-functionality-plugin/) from the theme.
+
 ## Installation
 
 ### Composer
