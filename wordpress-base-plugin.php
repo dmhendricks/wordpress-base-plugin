@@ -32,11 +32,11 @@ if(!defined('ABSPATH')) exit;
 require( __DIR__ . '/vendor/autoload.php' );
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
-// Initialize plugin
+// Initialize plugin - Change to use your own namespace
 \Nimbium\MyPlugin\Plugin::init(array(
 	'data' => get_plugin_data(__FILE__),
 	'path' => realpath(plugin_dir_path(__FILE__)).DIRECTORY_SEPARATOR,
 	'url' => plugin_dir_url(__FILE__),
-	'prefix' => 'myplugin_'
+	'prefix' => 'myplugin_' // Change to your own unique field prefix
 ));
 ?>
