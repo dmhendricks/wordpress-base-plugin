@@ -1,0 +1,12 @@
+Do not edit the CSS files in the directory - they are automatically
+generated/compiled with SASS. Doing so may result in your changes being
+overwritten.
+
+To make changes to style, modify the appropriate file in the ../scss directory
+and use a SASS compiler to generate the CSS file(s).
+
+A good compiler is Koala (http://koala-app.com/). Just point it to the ../scss
+folder, make your changes to the SCSS file(s), and click compile. It will
+automatically generate the CSS file(s) here.
+
+(This only applies if SASS is being used to manage and compile CSS output.)
