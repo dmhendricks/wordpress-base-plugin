@@ -23,21 +23,13 @@ class Plugin {
         //MetaBoxes::create();
 
         // Deploy widgets
+        // $widgets = new Widgets();
         //Widgets::create();
 
         // Deploy shortcodes
         //Shortcodes::create();
 
     }
-
-    /*
-    private function widgets() {
-
-        add_action('widgets_init', function() {
-            register_widget('Nimbium\MyPlugin\WidgetLoader');
-        });
-    }
-    */
 
     /**
       * Add/update theme option in current settings array.
