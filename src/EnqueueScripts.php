@@ -39,7 +39,7 @@ class EnqueueScripts extends Plugin {
         	add_action( 'admin_enqueue_scripts', function() {
 
                 // Load custom JavaScript in admin
-                wp_enqueue_style( 'wordpress-base-plugin', plugins_url('/assets/js/wordpress-base-admin.js', dirname(__FILE__)) );
+                wp_enqueue_script( 'wordpress-base-plugin', plugins_url('/assets/js/wordpress-base-admin.js', dirname(__FILE__)) );
 
         	});
 
@@ -66,7 +66,7 @@ class EnqueueScripts extends Plugin {
       if(!defined('WP_ENV')) return $plugin_version;
 
       try {
-        $script_version = WP_ENV == 'production' ? ($script_version ? $script_version : $plugin_version) : date("ymd-Gis", filemtime( plugin_dir_path( __FILE__ ) . $script ));
+        $script_version = in_array(WP_ENV, ['production', 'live']) ? ($script_version ? $script_version : $plugin_version) : date("ymd-Gis", filemtime( plugin_dir_path( __FILE__ ) . $script ));
       } catch (Exception $e) {
         $script_version = $plugin_version;
       }
