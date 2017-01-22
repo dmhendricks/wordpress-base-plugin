@@ -12,6 +12,10 @@ class ComposerStaticInit6532b275a86379c8219494770f119000
     );
 
     public static $prefixLengthsPsr4 = array (
+        'P' => 
+        array (
+            'PostTypes\\' => 10,
+        ),
         'N' => 
         array (
             'Nimbium\\MyPlugin\\' => 17,
@@ -24,6 +28,10 @@ class ComposerStaticInit6532b275a86379c8219494770f119000
     );
 
     public static $prefixDirsPsr4 = array (
+        'PostTypes\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/jjgrainger/posttypes/src',
+        ),
         'Nimbium\\MyPlugin\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',

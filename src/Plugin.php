@@ -19,6 +19,9 @@ class Plugin {
         // Deploy settings page(s)
         AdminPages::create();
 
+        // Create Custom Post Type(s)
+        CPT::create();
+
         // Deploy custom meta boxes
         //MetaBoxes::create();
 

@@ -38,6 +38,7 @@
     "php": ">=5.3.2",
     "mnsami/composer-custom-directory-installer": "*",
     "htmlburger/carbon-fields": "*",
+    "jjgrainger/posttypes": "*",
     "jashkenas/underscore": "dev-master",
     "composer/installers": "*"
   },

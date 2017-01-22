@@ -295,5 +295,45 @@
         ],
         "description": "WordPress developer-friendly custom fields for post types, taxonomy terms, users, comments, widgets, options and more.",
         "homepage": "http://carbonfields.net/"
+    },
+    {
+        "name": "jjgrainger/posttypes",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/jjgrainger/PostTypes.git",
+            "reference": "58243a8bc0f9964f83f720661e738413bc91da42"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/jjgrainger/PostTypes/zipball/58243a8bc0f9964f83f720661e738413bc91da42",
+            "reference": "58243a8bc0f9964f83f720661e738413bc91da42",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2016-08-19 16:03:31",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "PostTypes\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Joe Grainger",
+                "email": "hello@jjgrainger.co.uk",
+                "homepage": "http://jjgrainger.co.uk"
+            }
+        ],
+        "description": "Simple WordPress custom post types.",
+        "homepage": "https://github.com/jjgrainger/posttype"
     }
 ]
