@@ -25,8 +25,18 @@ It may also be used as the means of [separating custom code](http://www.billeric
 
 Please support [humans.txt](http://humanstxt.org/). It's an initiative for knowing the people behind a web site. It's an unobtrusive text file that contains information about the different people who have contributed to building the web site.
 
-	Carbon Fields: http://carbonfields.net/
+**Carbon Fields:**
+
+	URL: http://carbonfields.net/
 	Author: htmlBurger.com
 	Twitter: @htmlburger
-	URL: https://htmlburger.com/
+	Author URI: https://htmlburger.com/
 	Location: London, England
+
+**PostTypes:**
+
+	URL: https://github.com/jjgrainger/PostTypes
+	Author: Joe Grainger
+	Twitter: @jjgrainger
+	Author URI: https://jjgrainger.co.uk/
+	Location: Falmouth, England
