@@ -18,7 +18,7 @@
             "composer-plugin-api": "^1.0",
             "php": ">=5.3"
         },
-        "time": "2016-05-25 08:26:02",
+        "time": "2016-05-25T08:26:02+00:00",
         "type": "composer-plugin",
         "extra": {
             "class": [
@@ -60,12 +60,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/composer/installers.git",
-            "reference": "87933d75bdab747400138a7e0381760bb9b64dde"
+            "reference": "fda8fe5c90d7612927f4533dab7d54df6d345028"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/composer/installers/zipball/87933d75bdab747400138a7e0381760bb9b64dde",
-            "reference": "87933d75bdab747400138a7e0381760bb9b64dde",
+            "url": "https://api.github.com/repos/composer/installers/zipball/fda8fe5c90d7612927f4533dab7d54df6d345028",
+            "reference": "fda8fe5c90d7612927f4533dab7d54df6d345028",
             "shasum": ""
         },
         "require": {
@@ -79,7 +79,7 @@
             "composer/composer": "1.0.*@dev",
             "phpunit/phpunit": "4.1.*"
         },
-        "time": "2016-12-23 18:55:51",
+        "time": "2017-03-13T09:27:45+00:00",
         "type": "composer-plugin",
         "extra": {
             "class": "Composer\\Installers\\Plugin",
@@ -109,11 +109,13 @@
         "keywords": [
             "Craft",
             "Dolibarr",
+            "Eliasis",
             "Hurad",
             "ImageCMS",
             "Kanboard",
             "MODX Evo",
             "Mautic",
+            "Maya",
             "OXID",
             "Plentymarkets",
             "Porto",
@@ -139,9 +141,11 @@
             "fuelphp",
             "grav",
             "installer",
+            "itop",
             "joomla",
             "kohana",
             "laravel",
+            "lavalite",
             "lithium",
             "magento",
             "mako",
@@ -156,6 +160,7 @@
             "roundcube",
             "shopware",
             "silverstripe",
+            "sydes",
             "symfony",
             "typo3",
             "wordpress",
@@ -183,24 +188,64 @@
         }
     },
     {
+        "name": "jjgrainger/posttypes",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/jjgrainger/PostTypes.git",
+            "reference": "58243a8bc0f9964f83f720661e738413bc91da42"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/jjgrainger/PostTypes/zipball/58243a8bc0f9964f83f720661e738413bc91da42",
+            "reference": "58243a8bc0f9964f83f720661e738413bc91da42",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2016-08-19T16:03:31+00:00",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "PostTypes\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Joe Grainger",
+                "email": "hello@jjgrainger.co.uk",
+                "homepage": "http://jjgrainger.co.uk"
+            }
+        ],
+        "description": "Simple WordPress custom post types.",
+        "homepage": "https://github.com/jjgrainger/posttype"
+    },
+    {
         "name": "htmlburger/carbon-fields",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
         "source": {
             "type": "git",
             "url": "https://github.com/htmlburger/carbon-fields.git",
-            "reference": "d4c0f9b72e0edbcd0c5d6eabde01882491b97994"
+            "reference": "727d9eb8f2dab32af6c12804164bae3d65b94066"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/htmlburger/carbon-fields/zipball/d4c0f9b72e0edbcd0c5d6eabde01882491b97994",
-            "reference": "d4c0f9b72e0edbcd0c5d6eabde01882491b97994",
+            "url": "https://api.github.com/repos/htmlburger/carbon-fields/zipball/727d9eb8f2dab32af6c12804164bae3d65b94066",
+            "reference": "727d9eb8f2dab32af6c12804164bae3d65b94066",
             "shasum": ""
         },
         "require": {
             "composer/installers": "~1.0"
         },
-        "time": "2017-01-12 08:50:16",
+        "time": "2017-03-15T07:18:00+00:00",
         "type": "wordpress-plugin",
         "installation-source": "source",
         "autoload": {
@@ -295,45 +340,5 @@
         ],
         "description": "WordPress developer-friendly custom fields for post types, taxonomy terms, users, comments, widgets, options and more.",
         "homepage": "http://carbonfields.net/"
-    },
-    {
-        "name": "jjgrainger/posttypes",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/jjgrainger/PostTypes.git",
-            "reference": "58243a8bc0f9964f83f720661e738413bc91da42"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/jjgrainger/PostTypes/zipball/58243a8bc0f9964f83f720661e738413bc91da42",
-            "reference": "58243a8bc0f9964f83f720661e738413bc91da42",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.0"
-        },
-        "time": "2016-08-19 16:03:31",
-        "type": "library",
-        "installation-source": "source",
-        "autoload": {
-            "psr-4": {
-                "PostTypes\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Joe Grainger",
-                "email": "hello@jjgrainger.co.uk",
-                "homepage": "http://jjgrainger.co.uk"
-            }
-        ],
-        "description": "Simple WordPress custom post types.",
-        "homepage": "https://github.com/jjgrainger/posttype"
     }
 ]
