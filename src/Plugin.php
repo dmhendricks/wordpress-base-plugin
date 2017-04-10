@@ -5,8 +5,6 @@ class Plugin {
 
     public static $settings;
 
-    public function __construct() { }
-
     public static function init($_settings) {
         self::$settings = $_settings;
 

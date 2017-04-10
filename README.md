@@ -35,7 +35,7 @@ Please support [humans.txt](http://humanstxt.org/). It's an initiative for knowi
 
 **PostTypes:**
 
-	URL: https://github.com/jjgrainger/PostTypes
+	URL: https://github.com/jjgrainger/PostTypes/
 	Author: Joe Grainger
 	Twitter: @jjgrainger
 	Author URI: https://jjgrainger.co.uk/
