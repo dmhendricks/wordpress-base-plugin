@@ -1,7 +1,7 @@
 {
   "name": "dmhendricks/wordpress-base-plugin",
   "type": "wordpress-plugin",
-  "description": "A starter template for WordPress plugins",
+  "description": "A bloilerplate for WordPress plugins",
   "keywords": ["wordpress", "plugin", "boilerplate", "carbonfields"],
   "homepage": "https://2lab.net",
   "license": "GPL-2.0",
