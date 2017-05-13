@@ -21,21 +21,17 @@ class Plugin {
     // Core plugin logic
     new Core();
 
-    // Deploy settings page(s)
+    // Add admin settings page(s)
     new Settings();
 
     // Create Custom Post Type(s)
     // CPT::create();
 
-    // Deploy custom meta boxes
-    // MetaBoxes::create();
-
-    // Deploy widgets
-    // $widgets = new Widgets();
+    // Create custom widgets
     // Widgets::create();
 
     // Deploy shortcodes
-    // Shortcodes::create();
+    new Shortcodes;
 
   }
 
