@@ -8,6 +8,11 @@ It may also be used as the means of [separating custom code](http://www.billeric
 
 ## Installation
 
+### Clone Repository
+
+1. At command prompt, change to your `wp-content/plugins` directory.
+2. Close the repository: `git clone https://github.com/dmhendricks/wordpress-base-plugin.git`
+
 ### Composer
 
 1. Clone a copy from from [GitHub](https://github.com/dmhendricks/wordpress-base-plugin)
@@ -31,7 +36,6 @@ It may also be used as the means of [separating custom code](http://www.billeric
 #### 0.1.0 - December 26, 2016
 
 * Initial commit
-
 
 ## Credits
 
