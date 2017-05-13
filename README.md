@@ -18,8 +18,20 @@ It may also be used as the means of [separating custom code](http://www.billeric
 ### Manual Installation
 
 1. Download and extrtact ZIP archive from [GitHub](https://github.com/dmhendricks/https://github.com/dmhendricks/wordpress-base-plugin)
-2. Upload to wp-content/plugins/ folder
-3. Activate through wp-admin/plugin.php page.
+2. Upload to `wp-content/plugins/` folder
+3. Activate through WP Admin > Plugins page.
+
+## Change Log
+
+#### 0.1.1 - Pre-release
+
+* Refactored code
+* Added `is_production()` and `is_ajax()` methods
+
+#### 0.1.0 - December 26, 2016
+
+* Initial commit
+
 
 ## Credits
 
