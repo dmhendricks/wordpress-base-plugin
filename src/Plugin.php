@@ -11,7 +11,8 @@ class Plugin {
 
     // Set text domain and option prefix
     self::$textdomain = $_settings['textdomain'];
-    self::$prefix     = $_settings['prefix'].(is_multisite() && defined('TMC_SITE_ID') ? TMC_SITE_ID.'_' : '');
+    self::$prefix     = $_settings['prefix'];
+    //self::$prefix     = $_settings['prefix'].(is_multisite() && defined('WP_SITE_ID') ? WP_SITE_ID.'_' : '');
 
     self::$settings = $_settings;
 
