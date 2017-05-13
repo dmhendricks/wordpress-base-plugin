@@ -25,10 +25,10 @@ class Plugin {
     new Settings();
 
     // Create Custom Post Type(s)
-    // CPT::create();
+    new CPT();
 
     // Create custom widgets
-    // Widgets::create();
+    // new Widgets();
 
     // Deploy shortcodes
     new Shortcodes;
