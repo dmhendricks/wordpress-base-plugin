@@ -7,10 +7,10 @@ Tested up to: 4.7
 License: GPL-2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-This plugin is intended to be used as a starting point for creating quick WordPress plugins.
+This plugin is intended to be used as a boilerplate for creating quick WordPress plugins.
 
 == Description ==
-This is a base WordPress plugin featuring namespace autoloading and integration with [Carbon Fields](https://github.com/htmlburger/carbon-fields).
+This is a boilerplate WordPress plugin featuring namespace autoloading and integration with [Carbon Fields](https://github.com/htmlburger/carbon-fields).
 
 It is intended to be used as a starting point for creating quick WordPress plugins.
 

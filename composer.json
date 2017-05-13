@@ -52,5 +52,10 @@
     "psr-4": {
       "Nimbium\\MyPlugin\\": "src/"
     }
+  },
+  "scripts": {
+      "pre-autoload-dump": [
+        "rm -rf vendor/carbon-fields/.git*; rm -rf vendor/composer/installers/.git*; rm -rf vendor/jjgrainger/posttypes/.git*"
+      ]
   }
 }

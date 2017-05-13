@@ -2,11 +2,11 @@
 /**
  * @wordpress-plugin
  * Plugin Name:       WordPress Base Plugin
- * Plugin URI:        http://plugin-name.com/
- * Description:       A starter template for WordPress plugins
+ * Plugin URI:        https://github.com/dmhendricks/wordpress-base-plugin
+ * Description:       A boilerplate for WordPress plugins
  * Version:           0.1.0
  * Author:            Daniel M. Hendricks
- * Author URI:        https://danhendricks.com/
+ * Author URI:        https://2lab.net
  * License:           GPL-2.0
  * License URI:       https://opensource.org/licenses/GPL-2.0
  * GitHub Plugin URI: githubusername/project-slug
@@ -35,7 +35,7 @@ require( __DIR__ . '/vendor/autoload.php' );
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
 // Initialize plugin - Change to use your own namespace
-\Nimbium\MyPlugin\Plugin::init(array(
+new \Nimbium\MyPlugin\Plugin(array(
 	'data' => get_plugin_data(__FILE__),
 	'path' => realpath(plugin_dir_path(__FILE__)).DIRECTORY_SEPARATOR,
 	'url' => plugin_dir_url(__FILE__),
