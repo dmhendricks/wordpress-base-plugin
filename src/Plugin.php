@@ -12,10 +12,10 @@ class Plugin {
       new EnqueueScripts();
 
       // Core plugin logic
-      // Core::load();
+      new Core();
 
       // Deploy settings page(s)
-      // AdminPages::create();
+      // Settings::create();
 
       // Create Custom Post Type(s)
       // CPT::create();
@@ -43,6 +43,15 @@ class Plugin {
       } else {
         return !in_array(WP_ENV, ['development', 'staging']);
       }
+    }
+
+    /**
+      * Returns true if request is via Ajax
+      *
+      * @return bool
+      */
+    public function is_ajax() {
+      return defined('DOING_AJAX') && DOING_AJAX;
     }
 
     /**

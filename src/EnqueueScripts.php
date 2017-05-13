@@ -4,6 +4,7 @@ namespace Nimbium\MyPlugin;
 class EnqueueScripts extends Plugin {
 
   function __construct() {
+
     add_action( 'wp_loaded', function() {
       $this->enqueue_frontend_scripts();
       $this->enqueue_admin_scripts();
