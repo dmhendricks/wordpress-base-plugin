@@ -5,6 +5,9 @@ use Carbon_Fields\Field;
 
 class Settings extends Plugin {
 
+  /**
+    * Create a options/settings page in WP Admin
+    */
   function __construct() {
     // Carbon Fields Docs: https://carbonfields.net/docs/containers-theme-options/
 
@@ -41,7 +44,7 @@ class Settings extends Plugin {
       )
 
       /*
-      // One page, no tabs
+      // One page, no tabs (Example)
       ->add_fields(array(
         Field::make('color', self::$prefix.'background_color', 'Background Color'),
         Field::make('image', self::$prefix.'background_image', 'Background Image')
@@ -49,7 +52,7 @@ class Settings extends Plugin {
       */
     );
 
-    // Add side metabox
+    // Add side metabox (Example)
     /*
     Container::make('post_meta', 'Custom Data')
       ->show_on_post_type('post')

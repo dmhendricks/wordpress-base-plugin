@@ -12,9 +12,7 @@ class Plugin {
     // Set text domain and option prefix
     self::$textdomain = $_settings['textdomain'];
     self::$prefix     = $_settings['prefix'];
-    //self::$prefix     = $_settings['prefix'].(is_multisite() && defined('WP_SITE_ID') ? WP_SITE_ID.'_' : '');
-
-    self::$settings = $_settings;
+    self::$settings   = $_settings;
 
     // Enqueue scripts
     new EnqueueScripts();
@@ -37,7 +35,9 @@ class Plugin {
   }
 
   /**
-    * Returns true if WP_ENV is anything other than 'development' or 'staging'
+    * Returns true if WP_ENV is anything other than 'development' or 'staging'.
+    *   Useful for determining whether or not to enqueue a minified or non-
+    *   minified script (which can be useful for debugging via browser).
     *
     * @return bool
     */
@@ -50,7 +50,7 @@ class Plugin {
   }
 
   /**
-    * Returns true if request is via Ajax
+    * Returns true if request is via Ajax.
     *
     * @return bool
     */
@@ -92,7 +92,9 @@ class Plugin {
     * (if exists), else return script name without (example: style.css vs style.min.css).
     *
     * @param string $script The relative (to the plugin folder) path to the script.
-    * @param bool $enable_minify Enables checking for minified version and returning that instead
+    * @param bool $return_minified If true and is_production() === true then will prefix the
+    *   extension with .min. NB! Due to performance reasons, I did not include logic to check
+    *   to see if the script_name.min.ext exists, so use only when you know it exists.
     * @param bool $return_url If true, returns full-qualified URL rather than filesystem path.
     *
     * @return string The URL or path to minified or regular $script.
@@ -110,7 +112,10 @@ class Plugin {
   }
 
   /**
-    * Returns absolute script url
+    * Returns absolute URL of $script.
+    *
+    * @param string $script The relative (to the plugin folder) path to the script.
+    * @param bool
     */
   public function get_script_url($script, $return_minified = false) {
     return $this->get_script_path($script, $return_minified, true);

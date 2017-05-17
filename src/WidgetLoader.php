@@ -9,28 +9,31 @@ class WidgetLoader extends Plugin {
 
     // Register widgets
     add_action( 'widgets_init', function() {
-      register_widget( new My_Widget_Class($this) );
+      register_widget( new My_Widget_Class() );
     });
 
   }
 
 }
 
+/**
+  * A simply widget that displays a text field (title) and textarea.
+  */
 class My_Widget_Class extends Widget {
 
-  function __construct($loader) {
+  function __construct() {
 
     $this->setup(__('Plugin Widget - Example'), 'Displays a block with title/text', array(
-      Field::make('text', $loader::$prefix.'widget_title', 'Title')->set_default_value('Hello World!'),
-      Field::make('textarea', $loader::$prefix.'widget_content', 'Content')->set_default_value('Lorem Ipsum dolor sit amet')
+      Field::make('text', WidgetLoader::$prefix.'widget_title', 'Title')->set_default_value('Hello World!'),
+      Field::make('textarea', WidgetLoader::$prefix.'widget_content', 'Content')->set_default_value('Lorem Ipsum dolor sit amet')
     ));
 
   }
 
   // Called when rendering the widget in the front-end
   function front_end($args, $instance) {
-    echo $args['before_title'] . $instance['title'] . $args['after_title'];
-    echo '<p>' . $instance['content'] . '</p>';
+    echo $args['before_title'] . $instance[WidgetLoader::$prefix.'widget_title'] . $args['after_title'];
+    echo '<p>' . $instance[WidgetLoader::$prefix.'widget_content'] . '</p>';
   }
 
 }

@@ -12,6 +12,9 @@ class Shortcodes extends Plugin {
 
   }
 
+  /**
+    * A short code the returns "Hello {$name}!", if provided
+    */
   private static function hello_world( $atts ) {
 		$atts = shortcode_atts(array(
 			'name' => 'world'
