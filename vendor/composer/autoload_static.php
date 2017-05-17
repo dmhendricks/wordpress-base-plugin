@@ -18,6 +18,7 @@ class ComposerStaticInit8715a9206a55df96030396c807b2198e
         ),
         'N' => 
         array (
+            'Nimbium\\MyPlugin\\Widgets\\' => 25,
             'Nimbium\\MyPlugin\\' => 17,
         ),
         'C' => 
@@ -31,6 +32,10 @@ class ComposerStaticInit8715a9206a55df96030396c807b2198e
         'PostTypes\\' => 
         array (
             0 => __DIR__ . '/..' . '/jjgrainger/posttypes/src',
+        ),
+        'Nimbium\\MyPlugin\\Widgets\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/Widgets',
         ),
         'Nimbium\\MyPlugin\\' => 
         array (

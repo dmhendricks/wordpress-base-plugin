@@ -41,7 +41,6 @@ class Core extends Plugin {
     }
 
     return $classes;
-
   }
 
   /**

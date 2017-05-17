@@ -29,7 +29,7 @@ class Plugin {
     new CPT();
 
     // Create custom widgets
-    // new Widgets();
+    new WidgetLoader();
 
     // Deploy shortcodes
     new Shortcodes;
