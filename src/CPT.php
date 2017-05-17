@@ -9,15 +9,15 @@ class CPT extends Plugin {
   function __construct() {
 
     // Sample Custom Post Type - Client
-    $this->CPT_client();
+    $this->add_post_type_client();
 
     // Hide unnecessary publishing options like Draft, visibility, etc.
-    //add_action( 'admin_head-post.php', array(&$this, 'hide_publishing_actions') );
-    //add_action( 'admin_head-post-new.php', array(&$this, 'hide_publishing_actions') );
+    add_action( 'admin_head-post.php', array(&$this, 'hide_publishing_actions') );
+    add_action( 'admin_head-post-new.php', array(&$this, 'hide_publishing_actions') );
 
   }
 
-  private function CPT_client() {
+  private function add_post_type_client() {
     // Reference: https://github.com/jjgrainger/PostTypes
 
     $options = [
@@ -65,7 +65,7 @@ class CPT extends Plugin {
 
   public function hide_publishing_actions() {
     global $post;
-    if( in_array($post->post_type, ['client', 'employee']) ) {
+    if( in_array($post->post_type, ['client']) ) {
       echo '<style type="text/css">
         #misc-publishing-actions,
         #minor-publishing-actions{
