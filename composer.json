@@ -50,8 +50,7 @@
   "minimum-stability": "dev",
   "autoload": {
     "psr-4": {
-      "Nimbium\\MyPlugin\\": "src/",
-      "Nimbium\\MyPlugin\\Widgets\\": "src/Widgets/"
+      "Nimbium\\MyPlugin\\": "src/"
     }
   },
   "scripts": {
