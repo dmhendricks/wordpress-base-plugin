@@ -39,7 +39,7 @@ new \Nimbium\MyPlugin\Plugin(array(
 	'data' => get_plugin_data(__FILE__),
 	'path' => realpath(plugin_dir_path(__FILE__)).DIRECTORY_SEPARATOR,
 	'url' => plugin_dir_url(__FILE__),
-	'textdomain' => 'thrive',
+	'textdomain' => 'my-plugin',
 	'object_cache_group' => 'my_plugin_cache',
 	'object_cache_expire' => 72, // In hours
 	'prefix' => 'myplugin_' // Change to your own unique field prefix
