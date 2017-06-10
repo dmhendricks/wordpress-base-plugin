@@ -1,71 +1,17 @@
 [
     {
-        "name": "mnsami/composer-custom-directory-installer",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/mnsami/composer-custom-directory-installer.git",
-            "reference": "8cc82e0c5801cc3bf53ba452afdcaa5c6ff645a5"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/mnsami/composer-custom-directory-installer/zipball/8cc82e0c5801cc3bf53ba452afdcaa5c6ff645a5",
-            "reference": "8cc82e0c5801cc3bf53ba452afdcaa5c6ff645a5",
-            "shasum": ""
-        },
-        "require": {
-            "composer-plugin-api": "^1.0",
-            "php": ">=5.3"
-        },
-        "time": "2016-05-25T08:26:02+00:00",
-        "type": "composer-plugin",
-        "extra": {
-            "class": [
-                "Composer\\CustomDirectoryInstaller\\LibraryPlugin",
-                "Composer\\CustomDirectoryInstaller\\PearPlugin",
-                "Composer\\CustomDirectoryInstaller\\PluginPlugin"
-            ],
-            "branch-alias": {
-                "dev-master": "1.1.x-dev"
-            }
-        },
-        "installation-source": "source",
-        "autoload": {
-            "psr-0": {
-                "Composer\\CustomDirectoryInstaller": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Mina Nabil Sami",
-                "email": "mina.nsami@gmail.com"
-            }
-        ],
-        "description": "A composer plugin, to help install packages of different types in custom paths.",
-        "keywords": [
-            "composer",
-            "composer-installer",
-            "composer-plugin"
-        ]
-    },
-    {
         "name": "composer/installers",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
         "source": {
             "type": "git",
             "url": "https://github.com/composer/installers.git",
-            "reference": "7a80a104e3da0a4dc0ce9a88fe09968b1b34aafb"
+            "reference": "ae73c5dfec9279bd4c35a49a49fcb6568aa8aba4"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/composer/installers/zipball/7a80a104e3da0a4dc0ce9a88fe09968b1b34aafb",
-            "reference": "7a80a104e3da0a4dc0ce9a88fe09968b1b34aafb",
+            "url": "https://api.github.com/repos/composer/installers/zipball/ae73c5dfec9279bd4c35a49a49fcb6568aa8aba4",
+            "reference": "ae73c5dfec9279bd4c35a49a49fcb6568aa8aba4",
             "shasum": ""
         },
         "require": {
@@ -79,7 +25,7 @@
             "composer/composer": "1.0.*@dev",
             "phpunit/phpunit": "4.1.*"
         },
-        "time": "2017-04-24T15:53:06+00:00",
+        "time": "2017-06-07T10:23:00+00:00",
         "type": "composer-plugin",
         "extra": {
             "class": "Composer\\Installers\\Plugin",
@@ -170,44 +116,80 @@
         ]
     },
     {
-        "name": "jashkenas/underscore",
-        "version": "master",
-        "version_normalized": "9999999-dev",
-        "dist": {
-            "type": "zip",
-            "url": "https://github.com/jashkenas/underscore/archive/1.8.3.zip",
-            "reference": "master",
-            "shasum": null
-        },
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "classmap": [
-                "."
-            ]
-        }
-    },
-    {
-        "name": "htmlburger/carbon-fields",
+        "name": "mnsami/composer-custom-directory-installer",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
         "source": {
             "type": "git",
-            "url": "https://github.com/htmlburger/carbon-fields.git",
-            "reference": "727d9eb8f2dab32af6c12804164bae3d65b94066"
+            "url": "https://github.com/mnsami/composer-custom-directory-installer.git",
+            "reference": "8cc82e0c5801cc3bf53ba452afdcaa5c6ff645a5"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/htmlburger/carbon-fields/zipball/727d9eb8f2dab32af6c12804164bae3d65b94066",
-            "reference": "727d9eb8f2dab32af6c12804164bae3d65b94066",
+            "url": "https://api.github.com/repos/mnsami/composer-custom-directory-installer/zipball/8cc82e0c5801cc3bf53ba452afdcaa5c6ff645a5",
+            "reference": "8cc82e0c5801cc3bf53ba452afdcaa5c6ff645a5",
+            "shasum": ""
+        },
+        "require": {
+            "composer-plugin-api": "^1.0",
+            "php": ">=5.3"
+        },
+        "time": "2016-05-25T08:26:02+00:00",
+        "type": "composer-plugin",
+        "extra": {
+            "class": [
+                "Composer\\CustomDirectoryInstaller\\LibraryPlugin",
+                "Composer\\CustomDirectoryInstaller\\PearPlugin",
+                "Composer\\CustomDirectoryInstaller\\PluginPlugin"
+            ],
+            "branch-alias": {
+                "dev-master": "1.1.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Composer\\CustomDirectoryInstaller": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Mina Nabil Sami",
+                "email": "mina.nsami@gmail.com"
+            }
+        ],
+        "description": "A composer plugin, to help install packages of different types in custom paths.",
+        "keywords": [
+            "composer",
+            "composer-installer",
+            "composer-plugin"
+        ]
+    },
+    {
+        "name": "htmlburger/carbon-fields",
+        "version": "v1.5",
+        "version_normalized": "1.5.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/htmlburger/carbon-fields.git",
+            "reference": "a518641bf431f967c522a6ae0757a2a8b68ecd63"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/htmlburger/carbon-fields/zipball/a518641bf431f967c522a6ae0757a2a8b68ecd63",
+            "reference": "a518641bf431f967c522a6ae0757a2a8b68ecd63",
             "shasum": ""
         },
         "require": {
             "composer/installers": "~1.0"
         },
-        "time": "2017-03-15T07:18:00+00:00",
+        "time": "2016-12-14T13:09:00+00:00",
         "type": "wordpress-plugin",
-        "installation-source": "source",
+        "installation-source": "dist",
         "autoload": {
             "psr-4": {
                 "Carbon_Fields\\": "core/"
@@ -291,95 +273,28 @@
                 "email": "kaloyanxivanov@gmail.com",
                 "homepage": "http://vilepixels.com/",
                 "role": "Developer"
-            },
-            {
-                "name": "Atanas Angelov",
-                "email": "atanas.angelov.dev@gmail.com",
-                "role": "Developer"
             }
         ],
         "description": "WordPress developer-friendly custom fields for post types, taxonomy terms, users, comments, widgets, options and more.",
         "homepage": "http://carbonfields.net/"
     },
     {
-        "name": "squizlabs/php_codesniffer",
-        "version": "2.9.x-dev",
-        "version_normalized": "2.9.9999999.9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-            "reference": "ee4bc198833988b32bba5cec0ddb5ef2c32598d8"
-        },
+        "name": "jashkenas/underscore",
+        "version": "1.8.3",
+        "version_normalized": "1.8.3.0",
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/ee4bc198833988b32bba5cec0ddb5ef2c32598d8",
-            "reference": "ee4bc198833988b32bba5cec0ddb5ef2c32598d8",
-            "shasum": ""
+            "url": "https://github.com/jashkenas/underscore/archive/1.8.3.zip",
+            "reference": "master",
+            "shasum": null
         },
-        "require": {
-            "ext-simplexml": "*",
-            "ext-tokenizer": "*",
-            "ext-xmlwriter": "*",
-            "php": ">=5.1.2"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "~4.0"
-        },
-        "time": "2017-05-09T00:20:33+00:00",
-        "bin": [
-            "scripts/phpcs",
-            "scripts/phpcbf"
-        ],
         "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.x-dev"
-            }
-        },
-        "installation-source": "source",
+        "installation-source": "dist",
         "autoload": {
             "classmap": [
-                "CodeSniffer.php",
-                "CodeSniffer/CLI.php",
-                "CodeSniffer/Exception.php",
-                "CodeSniffer/File.php",
-                "CodeSniffer/Fixer.php",
-                "CodeSniffer/Report.php",
-                "CodeSniffer/Reporting.php",
-                "CodeSniffer/Sniff.php",
-                "CodeSniffer/Tokens.php",
-                "CodeSniffer/Reports/",
-                "CodeSniffer/Tokenizers/",
-                "CodeSniffer/DocGenerators/",
-                "CodeSniffer/Standards/AbstractPatternSniff.php",
-                "CodeSniffer/Standards/AbstractScopeSniff.php",
-                "CodeSniffer/Standards/AbstractVariableSniff.php",
-                "CodeSniffer/Standards/IncorrectPatternException.php",
-                "CodeSniffer/Standards/Generic/Sniffs/",
-                "CodeSniffer/Standards/MySource/Sniffs/",
-                "CodeSniffer/Standards/PEAR/Sniffs/",
-                "CodeSniffer/Standards/PSR1/Sniffs/",
-                "CodeSniffer/Standards/PSR2/Sniffs/",
-                "CodeSniffer/Standards/Squiz/Sniffs/",
-                "CodeSniffer/Standards/Zend/Sniffs/"
+                "."
             ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "BSD-3-Clause"
-        ],
-        "authors": [
-            {
-                "name": "Greg Sherwood",
-                "role": "lead"
-            }
-        ],
-        "description": "PHP_CodeSniffer tokenizes PHP, JavaScript and CSS files and detects violations of a defined set of coding standards.",
-        "homepage": "http://www.squizlabs.com/php-codesniffer",
-        "keywords": [
-            "phpcs",
-            "standards"
-        ]
+        }
     },
     {
         "name": "jjgrainger/posttypes",
@@ -388,19 +303,21 @@
         "source": {
             "type": "git",
             "url": "https://github.com/jjgrainger/PostTypes.git",
-            "reference": "a52a23e2689e75ef11d8b2a68eff9fe4ce265bad"
+            "reference": "736c43ecf3e6272a1b18c3857ecea3ac4b030745"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/jjgrainger/PostTypes/zipball/a52a23e2689e75ef11d8b2a68eff9fe4ce265bad",
-            "reference": "a52a23e2689e75ef11d8b2a68eff9fe4ce265bad",
+            "url": "https://api.github.com/repos/jjgrainger/PostTypes/zipball/736c43ecf3e6272a1b18c3857ecea3ac4b030745",
+            "reference": "736c43ecf3e6272a1b18c3857ecea3ac4b030745",
             "shasum": ""
         },
         "require": {
-            "php": ">=5.3.0",
+            "php": ">=5.3.0"
+        },
+        "require-dev": {
             "squizlabs/php_codesniffer": "^2.8"
         },
-        "time": "2017-05-02T10:03:24+00:00",
+        "time": "2017-05-19T12:53:48+00:00",
         "type": "library",
         "installation-source": "source",
         "autoload": {

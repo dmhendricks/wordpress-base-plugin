@@ -7,8 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'PostTypes\\' => array($vendorDir . '/jjgrainger/posttypes/src'),
-    'Nimbium\\MyPlugin\\Widgets\\' => array($baseDir . '/src/Widgets'),
-    'Nimbium\\MyPlugin\\' => array($baseDir . '/src'),
+    'Nimbium\\MyPlugin\\' => array($baseDir . '/app'),
     'Composer\\Installers\\' => array($vendorDir . '/composer/installers/src/Composer/Installers'),
     'Carbon_Fields\\' => array($vendorDir . '/carbon-fields/core'),
 );
