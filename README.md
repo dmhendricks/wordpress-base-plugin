@@ -28,7 +28,11 @@ It may also be used as the means of [separating custom code](http://www.billeric
 
 ## Change Log
 
-#### 0.1.1 - Pre-release
+#### 0.1.2
+
+* Moved `/src` to `/app`
+
+#### 0.1.1
 
 * Refactored code
 * Added `is_production()` and `is_ajax()` methods

@@ -37,7 +37,7 @@
   "require": {
     "php": ">=5.3.2",
     "mnsami/composer-custom-directory-installer": "*",
-    "htmlburger/carbon-fields": "*",
+    "htmlburger/carbon-fields": "1.5",
     "jjgrainger/posttypes": "*",
     "jashkenas/underscore": ">=1.8.0",
     "composer/installers": "*"
@@ -50,7 +50,7 @@
   "minimum-stability": "dev",
   "autoload": {
     "psr-4": {
-      "Nimbium\\MyPlugin\\": "src/"
+      "Nimbium\\MyPlugin\\": "app/"
     }
   },
   "scripts": {
