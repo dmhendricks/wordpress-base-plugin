@@ -12,20 +12,8 @@ It may also be used as the means of [separating custom code](http://www.billeric
 
 1. At command prompt, change to your `wp-content/plugins` directory.
 2. Clone the repository: `git clone https://github.com/dmhendricks/wordpress-base-plugin.git`
-3. `cd `
-
-### Composer
-
-1. Clone a copy from from [GitHub](https://github.com/dmhendricks/wordpress-base-plugin)
-2. Delete `/vendor` folder
-3. Modify `composer.json` to suit your needs
-4. Run `composer install` to install dependencies and autoload namespace
-
-### Manual Installation
-
-1. Download and extrtact ZIP archive from [GitHub](https://github.com/dmhendricks/https://github.com/dmhendricks/wordpress-base-plugin)
-2. Upload to `wp-content/plugins/` folder
-3. Activate through WP Admin > Plugins page.
+3. `cd wordpress-base-plugin`
+4. `composer install`
 
 ## Change Log
 
