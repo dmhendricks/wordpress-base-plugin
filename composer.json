@@ -45,7 +45,7 @@
   },
   "extra":{
     "installer-paths":{
-      "./vendor/carbon-fields": ["htmlburger/carbon-fields"]
+      "./vendor/htmlburger/carbon-fields": ["htmlburger/carbon-fields"]
     }
   },
   "minimum-stability": "dev",
