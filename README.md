@@ -11,7 +11,8 @@ It may also be used as the means of [separating custom code](http://www.billeric
 ### Clone Repository
 
 1. At command prompt, change to your `wp-content/plugins` directory.
-2. Close the repository: `git clone https://github.com/dmhendricks/wordpress-base-plugin.git`
+2. Clone the repository: `git clone https://github.com/dmhendricks/wordpress-base-plugin.git`
+3. `cd `
 
 ### Composer
 
