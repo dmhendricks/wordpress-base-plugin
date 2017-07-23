@@ -17,6 +17,11 @@ It may also be used as the means of [separating custom code](http://www.billeric
 
 ## Change Log
 
+#### 0.2.0
+
+* Removed `./vendor` from repo.
+* Added [wpupdatephp/wp-update-php](https://github.com/WPupdatePHP/wp-update-php) as dependency
+
 #### 0.1.2
 
 * Moved `/src` to `/app`
@@ -26,7 +31,7 @@ It may also be used as the means of [separating custom code](http://www.billeric
 * Refactored code
 * Added `is_production()` and `is_ajax()` methods
 
-#### 0.1.0 - December 26, 2016
+#### 0.1.0
 
 * Initial commit
 

@@ -14,6 +14,16 @@ class Plugin {
     self::$prefix     = $_settings['prefix'];
     self::$settings   = $_settings;
 
+    // Initialize Carbon Fields and Check Loded Version
+    add_action( 'plugins_loaded', array( 'Carbon_Fields\\Carbon_Fields', 'boot' ) );
+    add_action( 'carbon_fields_loaded', array($this, 'load_plugin') );
+
+  }
+
+  public function load_plugin() {
+
+    if(!$this->verify_dependencies()) return;
+
     // Enqueue scripts
     new EnqueueScripts();
 
@@ -35,6 +45,27 @@ class Plugin {
   }
 
   /**
+    * Function to verify dependencies, such as if an outdated version of Carbon
+    *    Fields is detected.
+    *
+    * @return bool
+    */
+  private function verify_dependencies() {
+
+    $error = null;
+
+    if(!defined('\\Carbon_Fields\\VERSION')) {
+      $error = '<strong>' . self::$settings['data']['Name'] . ':</strong> ' . __('A fatal error occurred while trying to load dependencies.');
+    } else if( version_compare( \Carbon_Fields\VERSION, self::$settings['deps']['carbon_fields'], '<' ) ) {
+      $error = '<strong>' . self::$settings['data']['Name'] . ':</strong> ' . __('Unable to load. An outdated version of Carbon Fields has been loaded:' . ' ' . \Carbon_Fields\VERSION) . ' (&gt;= '.self::$settings['deps']['carbon_fields'] . ' ' . __('required') . ')';
+    }
+
+    if($error) Helpers::show_notice($error, 'error', false);
+    return !$error;
+
+  }
+
+  /**
     * Returns true if WP_ENV is anything other than 'development' or 'staging'.
     *   Useful for determining whether or not to enqueue a minified or non-
     *   minified script (which can be useful for debugging via browser).
@@ -42,11 +73,7 @@ class Plugin {
     * @return bool
     */
   public function is_production() {
-    if( !defined('WP_ENV') ) {
-      return true;
-    } else {
-      return !in_array(WP_ENV, ['development', 'staging']);
-    }
+    return ( !defined('WP_ENV') || (defined('WP_ENV') && !in_array(WP_ENV, ['development', 'staging']) ) );
   }
 
   /**
