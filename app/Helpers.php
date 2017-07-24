@@ -17,14 +17,10 @@ class Helpers extends Plugin {
     */
   public static function show_notice($msg, $type = 'error', $is_dismissible = false) {
 
-    if( is_admin() ) {
+    $class = 'notice notice-' . $type . ( $is_dismissible ? ' is-dismissible' : '' );
+    $msg = __( $msg, self::$settings['data']['TextDomain'] );
 
-      $class = 'notice notice-'.$type.($is_dismissible ? ' is-dismissible' : '');
-      $msg = __( $msg, self::$settings['data']['TextDomain'] );
-
-      printf( '<div class="%1$s"><p>%2$s</p></div>', $class, $msg );
-
-    }
+    printf( '<div class="%1$s"><p>%2$s</p></div>', $class, $msg );
 
   }
 

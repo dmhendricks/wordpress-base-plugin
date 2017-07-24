@@ -52,11 +52,11 @@ class Plugin {
     */
   private function verify_dependencies() {
 
-    $php_required = new \WPUpdatePhp( self::$settings['deps']['php'] );
-    $php_required->does_it_meet_required_php_version();
     $error = null;
 
-    if(!defined('\\Carbon_Fields\\VERSION')) {
+    if( version_compare( phpversion(), self::$settings['deps']['php'], '<' ) ) {
+      $error = '<strong>' . self::$settings['data']['Name'] . ':</strong> ' . __('This plugin is not supported on versions of PHP under' . ' ' . self::$settings['deps']['php'] . '.' );
+    } else if(!defined('\\Carbon_Fields\\VERSION')) {
       $error = '<strong>' . self::$settings['data']['Name'] . ':</strong> ' . __('A fatal error occurred while trying to load dependencies.');
     } else if( version_compare( \Carbon_Fields\VERSION, self::$settings['deps']['carbon_fields'], '<' ) ) {
       $error = '<strong>' . self::$settings['data']['Name'] . ':</strong> ' . __('Unable to load. An outdated version of Carbon Fields has been loaded:' . ' ' . \Carbon_Fields\VERSION) . ' (&gt;= '.self::$settings['deps']['carbon_fields'] . ' ' . __('required') . ')';
