@@ -5,12 +5,8 @@ class Core extends Plugin {
 
   function __construct() {
 
-    if(!is_admin() && !$this->is_ajax()) {
-
-      // Add page, post type and parent classes to <body> tag for selector targeting
-      add_filter( 'body_class', array(&$this, 'add_body_classes') );
-
-    }
+    // Add page, post type and parent classes to <body> tag for selector targeting
+    add_filter( 'body_class', array(&$this, 'add_body_classes') );
 
     // Remove Emoji code from header
     if(!$this->is_ajax()) add_filter( 'init', array(&$this, 'disable_wp_emojicons') );

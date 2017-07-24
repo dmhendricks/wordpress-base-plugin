@@ -52,7 +52,8 @@
   "autoload": {
     "psr-4": {
       "Nimbium\\MyPlugin\\": "app/"
-    }
+    },
+    "files": ["vendor/wpupdatephp/wp-update-php/src/WPUpdatePhp.php"]
   },
   "scripts": {
       "pre-autoload-dump": [

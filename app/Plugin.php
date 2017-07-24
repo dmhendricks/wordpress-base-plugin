@@ -52,6 +52,8 @@ class Plugin {
     */
   private function verify_dependencies() {
 
+    $php_required = new \WPUpdatePhp( self::$settings['deps']['php'] );
+    $php_required->does_it_meet_required_php_version();
     $error = null;
 
     if(!defined('\\Carbon_Fields\\VERSION')) {
