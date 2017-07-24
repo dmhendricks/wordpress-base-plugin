@@ -19,8 +19,8 @@ It may also be used as the means of [separating custom code](http://www.billeric
 
 #### 0.2.0
 
-* Removed `./vendor` from repo.
-* Added [wpupdatephp/wp-update-php](https://github.com/WPupdatePHP/wp-update-php) as dependency
+* Removed `./vendor` from repo
+* Added minimum PHP version check
 
 #### 0.1.2
 
