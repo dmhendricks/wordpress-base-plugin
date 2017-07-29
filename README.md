@@ -15,10 +15,18 @@ It may also be used as the means of [separating custom code](http://www.billeric
 3. `cd wordpress-base-plugin`
 4. `composer install`
 
+### TODO
+
+* Refactor code
+* Add/test/document object caching class
+* Update to comply with new Carbon Fields standards
+* Add task runner and related documentation
+
 ## Change Log
 
-#### 0.2.0
+#### 0.2.0 (unreleased)
 
+* Added experimental Cache class
 * Removed `./vendor` from repo
 * Added minimum PHP version check
 
