@@ -3,7 +3,7 @@ Contributors: hendridm
 Tags: wordpress,base,plugin,boilerplate,composer,carbonfields
 Donate link: https://paypal.me/danielhendricks
 Requires at least: 4.0
-Tested up to: 4.7
+Tested up to: 4.8
 License: GPL-2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
