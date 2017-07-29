@@ -15,7 +15,7 @@ It may also be used as the means of [separating custom code](http://www.billeric
 3. `cd wordpress-base-plugin`
 4. `composer install`
 
-### TODO
+## TODO
 
 * Refactor code
 * Add/test/document object caching class

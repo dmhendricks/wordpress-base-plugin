@@ -24,14 +24,14 @@ class Plugin {
 
     if(!$this->verify_dependencies()) return;
 
+    // Add admin settings page(s)
+    new Settings();
+
     // Enqueue scripts
     new EnqueueScripts();
 
     // Core plugin logic
     new Core();
-
-    // Add admin settings page(s)
-    new Settings();
 
     // Create Custom Post Type(s)
     new CPT();
