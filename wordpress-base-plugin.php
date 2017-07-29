@@ -9,7 +9,7 @@
  * Author URI:        https://2lab.net
  * License:           GPL-2.0
  * License URI:       https://opensource.org/licenses/GPL-2.0
- * GitHub Plugin URI: githubusername/project-slug
+ * GitHub Plugin URI: dmhendricks/wordpress-base-plugin
  */
 
 /*	Copyright 2017	  Daniel M. Hendricks (https://www.danhendricks.com/)
