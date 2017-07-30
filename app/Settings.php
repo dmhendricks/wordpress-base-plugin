@@ -14,8 +14,13 @@ class Settings extends Plugin {
     Container::make('theme_options', self::$settings['data']['Name'])
       ->set_page_parent('options-general.php')
       ->add_tab(__('General'), array(
-        Field::make('text', self::$prefix.'email', 'Your E-mail Address')->help_text('Example help text.'),
-        Field::make('text', self::$prefix.'phone', 'Phone Number'),
+        Field::make('text', self::$prefix.'front_page_title', 'Front Page Title Tag')
+          ->help_text('Setting this will override the <tt>&lt;title&gt;</tt> tag on the front page.'),
+        Field::make('text', self::$prefix.'email', 'Your E-mail Address')
+          ->set_attribute('type', 'email')
+          ->help_text('This input is an HTML5 <tt>email</tt> type.'),
+        Field::make('text', self::$prefix.'phone', 'Phone Number')
+          ->set_attribute('type', 'tel'),
         Field::make('date_time', self::$prefix.'date_time', 'Date & Time'),
         Field::make('checkbox', self::$prefix.'checkbox', 'Disable New Registrations')->set_option_value(1)->set_default_value(1),
         Field::make('radio', self::$prefix.'radio', 'Subtitle text style')
@@ -25,13 +30,13 @@ class Settings extends Plugin {
             'del' => 'Strike',
           )
         ),
-        Field::make('complex', self::$prefix.'slides')->add_fields(array(
+        Field::make('complex', self::$prefix.'slides', self::$settings['data']['Name'] . ' ' . __('Slides', self::$textdomain))->add_fields(array(
           Field::make('text', 'title'),
           Field::make('image', 'photo'),
         )),
         Field::make("select", self::$prefix."select", "Best Music")
           ->add_options(array(
-            'winning' => 'Matchbox Twenty',
+            'winning' => 'Andy Grammer',
             'losing' => 'Nickelback',
             'superstar' => 'Anything Armin van Buuren spins'
           ))
