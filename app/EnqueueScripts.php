@@ -25,15 +25,11 @@ class EnqueueScripts extends Plugin {
     */
   public function enqueue_frontend_scripts() {
 
-    // Example enqueuing remote scripts (http://select2.github.io/)
-    wp_enqueue_style( 'select2', '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css', null, '4.0.3' );
-    wp_enqueue_script( 'select2', '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js', array('jquery'), '4.0.3' );
-
     // Example enqueuing a script added from ZIP file via composer (http://underscorejs.org/)
     wp_enqueue_script( 'underscore', $this->get_script_url('vendor/jashkenas/underscore/underscore-min.js'), null, '1.8.3' );
 
     // Enqueuing custom CSS for child theme (Twentysixteen was used for testing)
-    wp_enqueue_style( 'child-style', $this->get_script_url('assets/css/site.css'), array('select2'), $this->get_script_version('assets/css/site.css') );
+    wp_enqueue_style( 'wordpress-base-plugin', $this->get_script_url('assets/css/site.css'), null, $this->get_script_version('assets/css/site.css') );
 
   }
 
