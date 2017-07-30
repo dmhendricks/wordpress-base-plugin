@@ -42,6 +42,7 @@ It may also be used as the means of [separating custom code](http://www.billeric
 * Renamed Helpers Class to Utils
 * Tested PHP 5.3 - 7.1 compatibility
 * Added minimum PHP version check
+* Added screenshot
 
 #### 0.1.2
 
@@ -60,7 +61,15 @@ It may also be used as the means of [separating custom code](http://www.billeric
 
 Please support [humans.txt](http://humanstxt.org/). It's an initiative for knowing the people behind a web site. It's an unobtrusive text file that contains information about the different people who have contributed to building the web site.
 
-**Carbon Fields:**
+**Hans-Helge Buerger**
+
+	Contrubutor: https://github.com/obstschale
+	URL: https://github.com/obstschale/wordpress-base-plugin
+	Twitter: @obstschale
+	Author URI: http://hanshelgebuerger.de
+	Location: Berlin, Germany
+
+**Carbon Fields**
 
 	URL: http://carbonfields.net/
 	Author: htmlBurger.com
@@ -68,10 +77,14 @@ Please support [humans.txt](http://humanstxt.org/). It's an initiative for knowi
 	Author URI: https://htmlburger.com/
 	Location: London, England
 
-**PostTypes:**
+**PostTypes**
 
 	URL: https://github.com/jjgrainger/PostTypes/
 	Author: Joe Grainger
 	Twitter: @jjgrainger
 	Author URI: https://jjgrainger.co.uk/
 	Location: Falmouth, England
+
+## Screenshot
+
+![Settings Page](https://raw.githubusercontent.com/dmhendricks/wordpress-base-plugin/master/assets/screenshot-1.png "Settings Page")
