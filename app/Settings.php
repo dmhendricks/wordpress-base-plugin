@@ -14,16 +14,23 @@ class Settings extends Plugin {
     Container::make('theme_options', self::$settings['data']['Name'])
       ->set_page_parent('options-general.php')
       ->add_tab(__('General'), array(
-        Field::make('text', self::$prefix.'front_page_title', 'Front Page Title Tag')
-          ->help_text('Setting this will override the <tt>&lt;title&gt;</tt> tag on the front page.'),
-        Field::make('checkbox', self::$prefix.'remove_emoji_code', 'Remove Emoji Code From Page Headers')
-        ->help_text('Checking this box will remove the default Emoji code from page headers.'),
+        Field::make('checkbox', self::$prefix.'remove_header_emojicons', 'Remove Emoji Code From Page Headers')
+          ->help_text('Checking this box will remove the default Emoji code from page headers.'),
+        Field::make( 'set', self::$prefix.'enqueue_font_awesome', __( 'Load Font Awesome from CDN', self::$textdomain))
+          ->help_text('Load <a href="http://fontawesome.io/" target="_blank">Font Awesome</a> from <a href="https://www.bootstrapcdn.com/fontawesome/" target="_blank">CDN</a>.')
+          ->add_options(array(
+            'frontend' => 'Frontend',
+            'backend' => 'Backend'
+          ))
+          ->set_default_value('backend'),
+        Field::make( 'separator', self::$prefix.'general_separator_examples', __('Example Fields', self::$textdomain) )
+          ->help_text('These fields are just provided as examples and are not used by any logic in the plugin.'),
+        Field::make('text', self::$prefix.'blog_title', __('Blog Title', self::$textdomain)),
         Field::make('text', self::$prefix.'email', 'Your E-mail Address')
           ->set_attribute('type', 'email')
           ->help_text('This input field is an HTML5 <tt>email</tt> type.'),
         Field::make('text', self::$prefix.'web_site_url', 'Web Site Address')
-          ->set_attribute('type', 'url')
-          ->set_default_value( site_url() )
+          ->set_attribute('type', 'url')->set_attribute( 'placeholder', site_url() )
           ->help_text('This input field is an HTML5 <tt>url</tt> type.'),
         Field::make('text', self::$prefix.'phone', 'Phone Number')
           ->set_attribute('type', 'tel'),

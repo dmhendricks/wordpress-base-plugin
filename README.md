@@ -11,9 +11,12 @@ It may also be used as the means of [separating custom code](http://www.billeric
 ### Clone Repository
 
 1. At command prompt, change to your `wp-content/plugins` directory.
-2. Clone the repository: `git clone https://github.com/dmhendricks/wordpress-base-plugin.git`
-3. `cd wordpress-base-plugin`
-4. `composer install`
+1. Close the repository: `git clone https://github.com/dmhendricks/wordpress-base-plugin.git`
+
+### Composer
+
+1. Modify `composer.json` to suit your needs
+1. Run `composer install` to install dependencies and autoload namespace
 
 ## Planned Features
 
@@ -34,6 +37,7 @@ It may also be used as the means of [separating custom code](http://www.billeric
 #### 0.2.0
 
 * Added experimental Cache class
+* Added example of loading Font Awesome if enabled in plugin settings
 * Removed `./vendor` from repo
 * Renamed Helpers Class to Utils
 * Tested PHP 5.3 - 7.1 compatibility
