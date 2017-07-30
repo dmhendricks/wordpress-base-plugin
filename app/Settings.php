@@ -16,14 +16,19 @@ class Settings extends Plugin {
       ->add_tab(__('General'), array(
         Field::make('text', self::$prefix.'front_page_title', 'Front Page Title Tag')
           ->help_text('Setting this will override the <tt>&lt;title&gt;</tt> tag on the front page.'),
+        Field::make('checkbox', self::$prefix.'remove_emoji_code', 'Remove Emoji Code From Page Headers')
+        ->help_text('Checking this box will remove the default Emoji code from page headers.'),
         Field::make('text', self::$prefix.'email', 'Your E-mail Address')
           ->set_attribute('type', 'email')
-          ->help_text('This input is an HTML5 <tt>email</tt> type.'),
+          ->help_text('This input field is an HTML5 <tt>email</tt> type.'),
+        Field::make('text', self::$prefix.'web_site_url', 'Web Site Address')
+          ->set_attribute('type', 'url')
+          ->set_default_value( site_url() )
+          ->help_text('This input field is an HTML5 <tt>url</tt> type.'),
         Field::make('text', self::$prefix.'phone', 'Phone Number')
           ->set_attribute('type', 'tel'),
         Field::make('date_time', self::$prefix.'date_time', 'Date & Time'),
-        Field::make('checkbox', self::$prefix.'checkbox', 'Disable New Registrations')->set_option_value(1)->set_default_value(1),
-        Field::make('radio', self::$prefix.'radio', 'Subtitle text style')
+        Field::make('radio', self::$prefix.'radio', 'Subtitle Font Style')
           ->add_options(array(
             'em' => 'Italic',
             'strong' => 'Bold',

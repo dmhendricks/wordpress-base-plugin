@@ -32,6 +32,7 @@ It may also be used as the means of [separating custom code](http://www.billeric
 
 * Added experimental Cache class
 * Removed `./vendor` from repo
+* Renamed Helpers Class to Utils
 * Added minimum PHP version check
 
 #### 0.1.2

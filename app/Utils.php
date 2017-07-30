@@ -3,7 +3,7 @@ namespace Nimbium\MyPlugin;
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
 
-class Helpers extends Plugin {
+class Utils extends Plugin {
 
   /**
     * Display a notice/message in WP Admin
