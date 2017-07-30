@@ -15,7 +15,7 @@ It may also be used as the means of [separating custom code](http://www.billeric
 3. `cd wordpress-base-plugin`
 4. `composer install`
 
-## Planned
+## Planned Features
 
 * Refactor code
 * Add/test/document object caching class
@@ -23,8 +23,11 @@ It may also be used as the means of [separating custom code](http://www.billeric
 * Add task runner, related documentation and update .gitignore and rearrange `./assets`
 * Fix i18n issues and create `.pot` language file
 * Add Ajax call example
+* Add encrypt/decrypt example
+* Add hidden `password` field with encrypted `hidden` field
 * Possibly add hooks
 * Possibly add TGMPA example
+* Test compatibility with WordPress 4.0 and higher
 
 ## Change Log
 
@@ -33,6 +36,7 @@ It may also be used as the means of [separating custom code](http://www.billeric
 * Added experimental Cache class
 * Removed `./vendor` from repo
 * Renamed Helpers Class to Utils
+* Tested PHP 5.3 - 7.1 compatibility
 * Added minimum PHP version check
 
 #### 0.1.2
