@@ -1,5 +1,7 @@
 <?php
 namespace Nimbium\MyPlugin;
+use Carbon_Fields\Container;
+use Carbon_Fields\Field;
 
 class Plugin {
 
@@ -64,6 +66,25 @@ class Plugin {
 
     if($error) Helpers::show_notice($error, 'error', false);
     return !$error;
+
+  }
+
+  /**
+    * Get Carbon Fields option, with object caching (if available)
+    *
+    * @return bool
+    */
+  public function get_plugin_option( $key, $cache = true, $source = null ) {
+
+    if( $cache ) {
+      // Attempt to get value from cache, else return value from database
+      return Cache::get_object( self::$prefix . $key, function() use (&$key, &$source) {
+        return carbon_get_theme_option( self::$prefix.$key );
+      });
+    } else {
+      // Return uncached value
+      return carbon_get_theme_option( self::$prefix.$key );
+    }
 
   }
 

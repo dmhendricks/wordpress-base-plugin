@@ -9,8 +9,11 @@ class Settings extends Plugin {
     * Create a options/settings page in WP Admin
     */
   function __construct() {
-    // Carbon Fields Docs: https://carbonfields.net/docs/containers-theme-options/
 
+    // Clear the cache when settings are saved
+    add_action('carbon_fields_theme_options_container_saved', array( $this, 'options_saved_hook' ) );
+
+    // Carbon Fields Docs: https://carbonfields.net/docs/containers-theme-options/
     Container::make('theme_options', self::$settings['data']['Name'])
       ->set_page_parent('options-general.php')
       ->add_tab(__('General'), array(
@@ -80,6 +83,16 @@ class Settings extends Plugin {
       )
     );
     */
+
+  }
+
+  /**
+    * Logic that is run when settings are saved.
+    */
+  public function options_saved_hook() {
+
+    // Clear the cache so that new settings are loaded
+    Cache::flush();
 
   }
 

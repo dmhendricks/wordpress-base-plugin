@@ -30,13 +30,14 @@ It may also be used as the means of [separating custom code](http://www.billeric
 * Add hidden `password` field with encrypted `hidden` field
 * Possibly add hooks
 * Possibly add TGMPA example
+* Allow loading Carbon Fields via [plugin](https://github.com/dmhendricks/carbon-fields-loader) rather than Composer dependency
 * Test compatibility with WordPress 4.0 and higher
 
 ## Change Log
 
 #### 0.2.0
 
-* Added experimental Cache class
+* Added Object Cache class
 * Added example of loading Font Awesome if enabled in plugin settings
 * Removed `./vendor` from repo
 * Renamed Helpers Class to Utils
