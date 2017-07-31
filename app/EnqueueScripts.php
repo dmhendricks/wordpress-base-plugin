@@ -25,8 +25,9 @@ class EnqueueScripts extends Plugin {
     */
   public function enqueue_frontend_scripts() {
 
-    // Example enqueuing a script added from ZIP file via composer (http://underscorejs.org/)
-    wp_enqueue_script( 'underscore', $this->get_script_url('vendor/jashkenas/underscore/underscore-min.js'), null, '1.8.3' );
+    // Enqueuing a script added from ZIP file via composer (http://hgoebl.github.io/mobile-detect.js/),
+    // purely as an example.
+    wp_enqueue_script( 'modile-detect', $this->get_script_url('vendor/hgoebl/mobile-detect/mobile-detect.min.js'), null, '1.3.6' );
 
     // Enqueuing custom CSS for child theme (Twentysixteen was used for testing)
     wp_enqueue_style( 'wordpress-base-plugin', $this->get_script_url('assets/css/site.css'), null, $this->get_script_version('assets/css/site.css') );

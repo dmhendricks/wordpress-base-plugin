@@ -23,27 +23,27 @@
     "source": "https://github.com/dmhendricks/wordpress-base-plugin/"
   },
   "repositories": [
-      {
-          "type": "package",
-          "package": {
-            "name": "jashkenas/underscore",
-            "version": "1.8.3",
-            "dist": {
-              "type": "zip",
-              "url": "https://github.com/jashkenas/underscore/archive/1.8.3.zip",
-              "reference": "master"
-            },
-            "autoload": {
-                "classmap": ["."]
-            }
+    {
+      "type": "package",
+      "package": {
+        "name": "hgoebl/mobile-detect",
+        "version": "1.3.6",
+        "dist": {
+          "type": "zip",
+          "url": "https://github.com/hgoebl/mobile-detect.js/archive/v1.3.6.zip",
+          "reference": "master"
+        },
+        "autoload": {
+            "classmap": ["."]
         }
       }
+    }
   ],
   "require": {
     "php": ">=5.4.0",
     "htmlburger/carbon-fields": "^2.0.0",
     "jjgrainger/posttypes": "dev-master",
-    "jashkenas/underscore": ">=1.8.0",
+    "hgoebl/mobile-detect": ">=1.3.0",
     "composer/installers": "~1.3.0"
   },
   "minimum-stability": "dev",
