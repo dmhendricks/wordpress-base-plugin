@@ -41,6 +41,9 @@ Once you have the source files:
 2. Run `composer install` to install dependencies and autoload namespace
 
 == Frequently Asked Questions ==
+= Q. Why do I get the error "Warning: require( ... /autoload.php): failed to open stream: No such file or directory" when I try to activate it?
+A. You need to use the command prompt and [run Composer](https://github.com/dmhendricks/wordpress-base-plugin#composer) before this plugin will work.
+
 = Q. What is Composer? =
 A. Composer is an application-level package manager for the PHP programming language that provides a standard format for managing dependencies of PHP software and required libraries.
 
