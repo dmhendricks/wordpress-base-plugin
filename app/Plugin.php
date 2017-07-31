@@ -56,7 +56,7 @@ class Plugin {
 
     $error = null;
 
-    if( version_compare( phpversion(), self::$settings['deps']['php'], '<' ) ) {
+    if( $this->is_php_version( self::$settings['deps']['php'], '<' ) ) {
       $error = '<strong>' . self::$settings['data']['Name'] . ':</strong> ' . __('This plugin is not supported on versions of PHP under' . ' ' . self::$settings['deps']['php'] . '.' );
     } else if(!defined('\\Carbon_Fields\\VERSION')) {
       $error = '<strong>' . self::$settings['data']['Name'] . ':</strong> ' . __('A fatal error occurred while trying to load dependencies.');
@@ -64,7 +64,7 @@ class Plugin {
       $error = '<strong>' . self::$settings['data']['Name'] . ':</strong> ' . __('Unable to load. An outdated version of Carbon Fields has been loaded:' . ' ' . \Carbon_Fields\VERSION) . ' (&gt;= '.self::$settings['deps']['carbon_fields'] . ' ' . __('required') . ')';
     }
 
-    if($error) Helpers::show_notice($error, 'error', false);
+    if($error) Utils::show_notice($error, 'error', false);
     return !$error;
 
   }
@@ -78,12 +78,13 @@ class Plugin {
 
     if( $cache ) {
       // Attempt to get value from cache, else return value from database
-      return Cache::get_object( self::$prefix . $key, function() use (&$key, &$source) {
-        return carbon_get_theme_option( self::$prefix.$key );
+      $prefix = self::$prefix; // For PHP 5.3 compatibility
+      return Cache::get_object( self::$prefix . $key, function() use (&$key, &$source, &$prefix) {
+        return carbon_get_theme_option( $prefix.$key );
       });
     } else {
       // Return uncached value
-      return carbon_get_theme_option( self::$prefix.$key );
+      return carbon_get_theme_option( $prefix.$key );
     }
 
   }
@@ -96,7 +97,7 @@ class Plugin {
     * @return bool
     */
   public function is_production() {
-    return ( !defined('WP_ENV') || (defined('WP_ENV') && !in_array(WP_ENV, ['development', 'staging']) ) );
+    return ( !defined( 'WP_ENV' ) || ( defined('WP_ENV' ) && !in_array( WP_ENV, array('development', 'staging') ) ) );
   }
 
   /**
@@ -106,6 +107,15 @@ class Plugin {
     */
   public function is_ajax() {
     return defined('DOING_AJAX') && DOING_AJAX;
+  }
+
+/**
+  * Wrapper for phpversion() and version_compare()
+  *
+  * @return bool
+  */
+  public function is_php_version( $version = '5.3', $operator = '>=' ) {
+    return version_compare( phpversion(), $version, $operator );
   }
 
   /**

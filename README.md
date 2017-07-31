@@ -6,6 +6,11 @@ This is a boilerplate WordPress plugin featuring namespace autoloading and integ
 
 It may also be used as the means of [separating custom code](http://www.billerickson.net/core-functionality-plugin/) from the theme.
 
+## Requirements
+
+* WordPress 4.0 or higher
+* PHP 5.4.0 or higher
+
 ## Installation
 
 ### Clone Repository
@@ -32,6 +37,8 @@ It may also be used as the means of [separating custom code](http://www.billeric
 * Possibly add TGMPA example
 * Allow loading Carbon Fields via [plugin](https://github.com/dmhendricks/carbon-fields-loader) rather than Composer dependency
 * Test compatibility with WordPress 4.0 and higher
+* Remove closing ?> tags per [recommendation](https://github.com/dmhendricks/wordpress-base-plugin/issues/1)
+* Add uninstall.php
 
 ## Change Log
 
@@ -40,8 +47,9 @@ It may also be used as the means of [separating custom code](http://www.billeric
 * Added Object Cache class
 * Added example of loading Font Awesome if enabled in plugin settings
 * Removed `./vendor` from repo
-* Renamed Helpers Class to Utils
-* Tested PHP 5.3 - 7.1 compatibility
+* Renamed Helpers class to Utils
+* Tested PHP 5.4 - 7.1 compatibility
+* Fixed various PHP 5.3 issues; bumped minimum suggested version to 5.4.0
 * Added minimum PHP version check
 * Added screenshot
 

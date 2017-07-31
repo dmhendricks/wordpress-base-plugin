@@ -47,12 +47,12 @@ class Cache extends Plugin {
     */
   public static function flush($ID = null, $post = null) {
 
-    $result = ['success' => true];
+    $result = array('success' => true);
 
     try {
       wp_cache_flush();
     } catch (Exception $e) {
-      $result = ['success' => false, 'message' => $e->getMessage()];
+      $result = array('success' => false, 'message' => $e->getMessage());
     }
 
     if( defined('DOING_AJAX') && DOING_AJAX ) {

@@ -20,7 +20,7 @@ class CPT extends Plugin {
   private function add_post_type_client() {
     // Reference: https://github.com/jjgrainger/PostTypes
 
-    $options = [
+    $options = array(
       'supports' => array('title'),
       'labels' => array(
         'menu_name' => 'Client List'
@@ -31,7 +31,7 @@ class CPT extends Plugin {
       'show_in_nav_menus' => false,
       'rewrite' => false,
       'has_archive' => false
-    ];
+    );
 
     $cpt = new \PostTypes\PostType(
       array(
@@ -65,7 +65,7 @@ class CPT extends Plugin {
 
   public function hide_publishing_actions() {
     global $post;
-    if( in_array($post->post_type, ['client']) ) {
+    if( in_array($post->post_type, array('client')) ) {
       echo '<style type="text/css">
         #misc-publishing-actions,
         #minor-publishing-actions{
