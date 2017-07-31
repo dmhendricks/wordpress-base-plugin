@@ -6,10 +6,18 @@ This is a boilerplate WordPress plugin featuring namespace autoloading and integ
 
 It may also be used as the means of [separating custom code](http://www.billerickson.net/core-functionality-plugin/) from the theme.
 
+## Features
+
+* Namespaces, PSR-4, dependency autoloading
+* Object caching helper
+* [Many more to come...](#planned-features)
+
 ## Requirements
 
 * WordPress 4.0 or higher
-* PHP 5.4.0 or higher
+* PHP 5.4 or higher*
+
+*PHP 5.3 will work if all of your dependencies are compatible.*
 
 ## Installation
 
@@ -37,7 +45,6 @@ It may also be used as the means of [separating custom code](http://www.billeric
 * Possibly add TGMPA example
 * Allow loading Carbon Fields via [plugin](https://github.com/dmhendricks/carbon-fields-loader) rather than Composer dependency
 * Test compatibility with WordPress 4.0 and higher
-* Remove closing ?> tags per [recommendation](https://github.com/dmhendricks/wordpress-base-plugin/issues/1)
 * Add uninstall.php
 
 ## Change Log
@@ -46,6 +53,7 @@ It may also be used as the means of [separating custom code](http://www.billeric
 
 * Added Object Cache class
 * Added example of loading Font Awesome if enabled in plugin settings
+* Removed closing ?> tags ([obstschale](https://github.com/dmhendricks/wordpress-base-plugin/issues/1))
 * Removed `./vendor` from repo
 * Renamed Helpers class to Utils
 * Tested PHP 5.4 - 7.1 compatibility
@@ -53,12 +61,9 @@ It may also be used as the means of [separating custom code](http://www.billeric
 * Added minimum PHP version check
 * Added screenshot
 
-#### 0.1.2
-
-* Moved `/src` to `/app`
-
 #### 0.1.1
 
+* Moved `/src` to `/app`
 * Refactored code
 * Added `is_production()` and `is_ajax()` methods
 

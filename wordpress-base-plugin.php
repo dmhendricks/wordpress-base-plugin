@@ -45,4 +45,3 @@ new \Nimbium\MyPlugin\Plugin(array(
 	'deps' => array('php' => '5.4.0', 'carbon_fields' => '2.0.0'), // Optional
 	'prefix' => 'myplugin_' // Change to your own unique field prefix
 ));
-?>
