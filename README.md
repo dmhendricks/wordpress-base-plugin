@@ -9,15 +9,15 @@ It may also be used as the means of [separating custom code](http://www.billeric
 ## Features
 
 * Namespaces, PSR-4, dependency autoloading
-* Object caching helper
+* Object caching helper class [Usage examples](https://github.com/dmhendricks/wordpress-base-plugin/wiki#caching)
 * [Many more to come...](#planned-features)
 
 ## Requirements
 
 * WordPress 4.0 or higher
-* PHP 5.4 or higher*
+* PHP 5.4 or higher
 
-*PHP 5.3 will work if all of your dependencies are compatible.*
+*PHP 5.3 will work IF all of your dependencies are compatible.*
 
 ## Installation
 
@@ -31,13 +31,13 @@ It may also be used as the means of [separating custom code](http://www.billeric
 1. Modify `composer.json` to suit your needs
 1. Run `composer install` to install dependencies and autoload namespace
 
-## Planned Features
+## TODO / Planned Features
 
 * Refactor code
 * Add/test/document object caching class
 * Add activation/deactivation/uninstall hooks
 * Update to comply with new Carbon Fields standards
-* Add task runner, related documentation and update .gitignore and rearrange `./assets`
+* **Add task runner**, related documentation, update .gitignore and rearrange `./assets`
 * Fix i18n issues and create `.pot` language file
 * Create means to autogenerate language file
 * Add Ajax call example
@@ -49,18 +49,18 @@ It may also be used as the means of [separating custom code](http://www.billeric
 * Add wordpress-settings-api-class example(s)
 * Allow loading Carbon Fields via [plugin](https://github.com/dmhendricks/carbon-fields-loader) rather than Composer dependency
 * Test compatibility with WordPress 4.0 and higher
-* Add uninstall.php
 
 ## Change Log
 
 #### 0.2.0
 
-* Added Object Cache class
+* Added object cache helper class
 * Added example of loading Font Awesome if enabled in plugin settings
 * Removed closing ?> tags ([obstschale](https://github.com/dmhendricks/wordpress-base-plugin/issues/1))
 * Removed `./vendor` from repo
 * Renamed Helpers class to Utils
 * Tested PHP 5.4 - 7.1 compatibility
+* Localized many strings
 * Fixed various PHP 5.3 issues; bumped minimum suggested version to 5.4.0
 * Added minimum PHP version check
 * Renamed namespace to `VendorName\MyPlugin`
