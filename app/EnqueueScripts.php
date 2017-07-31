@@ -1,5 +1,5 @@
 <?php
-namespace Nimbium\MyPlugin;
+namespace VendorName\MyPlugin;
 
 class EnqueueScripts extends Plugin {
 

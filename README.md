@@ -35,14 +35,18 @@ It may also be used as the means of [separating custom code](http://www.billeric
 
 * Refactor code
 * Add/test/document object caching class
+* Add activation/deactivation/uninstall hooks
 * Update to comply with new Carbon Fields standards
 * Add task runner, related documentation and update .gitignore and rearrange `./assets`
 * Fix i18n issues and create `.pot` language file
+* Create means to autogenerate language file
 * Add Ajax call example
 * Add encrypt/decrypt example
 * Add hidden `password` field with encrypted `hidden` field
-* Possibly add hooks
+* Possibly add hooks (maybe to assist in consolidation of multiple settings pages?)
 * Possibly add TGMPA example
+* Possible add Customizer example
+* Add wordpress-settings-api-class example(s)
 * Allow loading Carbon Fields via [plugin](https://github.com/dmhendricks/carbon-fields-loader) rather than Composer dependency
 * Test compatibility with WordPress 4.0 and higher
 * Add uninstall.php
@@ -59,6 +63,7 @@ It may also be used as the means of [separating custom code](http://www.billeric
 * Tested PHP 5.4 - 7.1 compatibility
 * Fixed various PHP 5.3 issues; bumped minimum suggested version to 5.4.0
 * Added minimum PHP version check
+* Renamed namespace to `VendorName\MyPlugin`
 * Added screenshot
 
 #### 0.1.1

@@ -6,7 +6,7 @@
  * Description:       A boilerplate for WordPress plugins
  * Version:           0.2.0
  * Author:            Daniel M. Hendricks
- * Author URI:        https://2lab.net
+ * Author URI:        https://www.danhendricks.com
  * License:           GPL-2.0
  * License URI:       https://opensource.org/licenses/GPL-2.0
  * GitHub Plugin URI: dmhendricks/wordpress-base-plugin
@@ -35,7 +35,7 @@ require( __DIR__ . '/vendor/autoload.php' );
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
 // Initialize plugin - Change to use your own namespace
-new \Nimbium\MyPlugin\Plugin(array(
+new \VendorName\MyPlugin\Plugin(array(
 	'data' => get_plugin_data(__FILE__),
 	'path' => realpath(plugin_dir_path(__FILE__)).DIRECTORY_SEPARATOR,
 	'url' => plugin_dir_url(__FILE__),

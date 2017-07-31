@@ -49,7 +49,7 @@
   "minimum-stability": "dev",
   "autoload": {
     "psr-4": {
-      "Nimbium\\MyPlugin\\": "app/"
+      "VendorName\\MyPlugin\\": "app/"
     }
   },
   "scripts": {

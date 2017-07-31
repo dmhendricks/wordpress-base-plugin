@@ -1,5 +1,5 @@
 <?php
-namespace Nimbium\MyPlugin;
+namespace VendorName\MyPlugin;
 use Carbon_Fields\Widget;
 use Carbon_Fields\Field;
 

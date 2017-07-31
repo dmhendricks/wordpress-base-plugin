@@ -1,5 +1,5 @@
 <?php
-namespace Nimbium\MyPlugin;
+namespace VendorName\MyPlugin;
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
 use PostTypes;
