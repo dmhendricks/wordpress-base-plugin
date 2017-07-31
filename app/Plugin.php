@@ -109,8 +109,20 @@ class Plugin {
     return defined('DOING_AJAX') && DOING_AJAX;
   }
 
+  /**
+    * A wrapper for the plugin's data fiala prefix as defined in $settings
+    *
+    * @return string Prefix
+    */
+  public function prefix( $field_name = null ) {
+    if( $field_name ) {
+      return self::$prefix . $field_name;
+    }
+    return self::$prefix;
+  }
+
 /**
-  * Wrapper for phpversion() and version_compare()
+  * Wrapper for phpversion() and version_compare(), intended for legacy support.
   *
   * @return bool
   */
@@ -179,35 +191,6 @@ class Plugin {
     */
   public function get_script_url($script, $return_minified = false) {
     return $this->get_script_path($script, $return_minified, true);
-  }
-
-  /**
-    * Merges two array, eliminating duplicates
-    *
-    * array_merge_recursive_distinct does not change the datatypes of the values in the arrays.
-    * Matching keys' values in the second array overwrite those in the first array, as is the
-    * case with array_merge().
-    *
-    * @param array $array1
-    * @param array $array2
-    * @return array
-    * @author Daniel <daniel (at) danielsmedegaardbuus (dot) dk>
-    * @author Gabriel Sobrinho <gabriel (dot) sobrinho (at) gmail (dot) com>
-    */
-  private function array_merge_recursive_distinct( array &$array1, array &$array2 ) {
-    // Credit: http://php.net/manual/en/function.array-merge-recursive.php#92195
-    $merged = $array1;
-
-    foreach ( $array2 as $key => &$value )
-    {
-      if ( is_array ( $value ) && isset ( $merged [$key] ) && is_array ( $merged [$key] ) ) {
-        $merged [$key] = self::array_merge_recursive_distinct ( $merged [$key], $value );
-      } else {
-        $merged [$key] = $value;
-      }
-    }
-
-    return $merged;
   }
 
 }

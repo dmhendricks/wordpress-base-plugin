@@ -25,6 +25,37 @@ class Utils extends Plugin {
   }
 
   /**
+    * Merges two array, eliminating duplicates
+    *
+    * array_merge_recursive_distinct does not change the datatypes of the values in the arrays.
+    * Matching keys' values in the second array overwrite those in the first array, as is the
+    * case with array_merge().
+    *
+    * @param array $array1
+    * @param array $array2
+    * @return array
+    * @author Daniel <daniel (at) danielsmedegaardbuus (dot) dk>
+    * @author Gabriel Sobrinho <gabriel (dot) sobrinho (at) gmail (dot) com>
+    * @see http://php.net/manual/en/function.array-merge-recursive.php#92195 Source
+    */
+  private function array_merge_recursive_distinct( array &$array1, array &$array2 ) {
+
+    $merged = $array1;
+
+    foreach ( $array2 as $key => &$value )
+    {
+      if ( is_array ( $value ) && isset ( $merged [$key] ) && is_array ( $merged [$key] ) ) {
+        $merged [$key] = self::array_merge_recursive_distinct ( $merged [$key], $value );
+      } else {
+        $merged [$key] = $value;
+      }
+    }
+
+    return $merged;
+
+  }
+
+  /**
     * Get the slug of the current page/post
     *
     * Return the slug of the current page/post.
