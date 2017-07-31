@@ -12,7 +12,12 @@ This plugin is intended to be used as a boilerplate for creating quick WordPress
 == Description ==
 This is a boilerplate WordPress plugin featuring namespace autoloading and integration with [Carbon Fields](https://github.com/htmlburger/carbon-fields).
 
-It is intended to be used as a starting point for creating quick WordPress plugins.
+It is intended to be used as a starting point for quickly creating WordPress plugins.
+
+= Requirements =
+
+* WordPress 4.0 or higher
+* PHP 5.4 or higher
 
 == Installation ==
 
@@ -20,14 +25,20 @@ It is intended to be used as a starting point for creating quick WordPress plugi
 
 1. Download the ZIP distribution from Github.
 2. Extract to your plugin folder.
-3. Activate the plugin in WordPress admin.
-4. Go to Settings > WordPress Base Plugin to see a sample settings page.
+3. Configure & run Composer.
 
-= Git Clone =
+= Clone Repository =
 
-1. Clone the plugin from the GitHub repo to your WordPress plugins folder.
-3. Activate the plugin in WordPress admin.
-4. Go to Settings > WordPress Base Plugin to see a sample settings page.
+1. At command prompt, change to your `wp-content/plugins` directory.
+2. Close the repository: `git clone https://github.com/dmhendricks/wordpress-base-plugin.git`
+3. Configure & run Composer.
+
+= Composer =
+
+Once you have the source files:
+
+1. Modify `composer.json` to suit your needs
+2. Run `composer install` to install dependencies and autoload namespace
 
 == Frequently Asked Questions ==
 = Q. What is Composer? =
@@ -37,5 +48,19 @@ A. Composer is an application-level package manager for the PHP programming lang
 1. Settings Page
 
 == Changelog ==
+= 0.2.0 =
+* Added Object Cache class
+* Added example of loading Font Awesome if enabled in plugin settings
+* Removed `./vendor` from repo
+* Renamed Helpers Class to Utils
+* Tested PHP 5.4 - 7.1 compatibility
+* Added minimum PHP version check
+* Added screenshot
+* Moved `/src` to `/app`
+
+= 0.1.1 =
+* Refactored code
+* Added `is_production()` and `is_ajax()` methods
+
 = 0.1.0 =
-* Initial release
+* Initial commit
