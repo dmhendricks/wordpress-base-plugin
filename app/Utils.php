@@ -17,10 +17,14 @@ class Utils extends Plugin {
     */
   public static function show_notice($msg, $type = 'error', $is_dismissible = false) {
 
-    $class = 'notice notice-' . $type . ( $is_dismissible ? ' is-dismissible' : '' );
-    $msg = __( $msg, self::$settings['data']['TextDomain'] );
+    add_action( 'admin_notices', function() use (&$msg, &$type, &$is_dismissible) {
 
-    printf( '<div class="%1$s"><p>%2$s</p></div>', $class, $msg );
+      $class = 'notice notice-' . $type . ( $is_dismissible ? ' is-dismissible' : '' );
+      $msg = __( $msg, self::$settings['data']['TextDomain'] );
+
+      printf( '<div class="%1$s"><p>%2$s</p></div>', $class, $msg );
+
+    });
 
   }
 
