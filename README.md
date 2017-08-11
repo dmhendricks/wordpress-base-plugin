@@ -9,15 +9,14 @@ It may also be used as the means of [separating custom code](http://www.billeric
 ## Features
 
 * Namespaces, PSR-4, dependency autoloading
-* Object caching helper class [Usage examples](https://github.com/dmhendricks/wordpress-base-plugin/wiki#caching)
+* PHP and dependency version checking
+* Object caching helper class - [Usage Examples](https://github.com/dmhendricks/wordpress-base-plugin/wiki#caching)
 * [Many more to come...](#planned-features)
 
 ## Requirements
 
 * WordPress 4.0 or higher
 * PHP 5.4 or higher
-
-*PHP 5.3 will work IF all of your dependencies are compatible.*
 
 ## Installation
 
@@ -33,35 +32,33 @@ It may also be used as the means of [separating custom code](http://www.billeric
 
 ## TODO / Planned Features
 
-* Refactor code
-* Add/test/document object caching class
+* Fix i18n issues and create means to easily generate `.pot` language file
 * Add activation/deactivation/uninstall hooks
-* Update to comply with new Carbon Fields standards
 * **Add task runner**, related documentation, update .gitignore and rearrange `./assets`
-* Fix i18n issues and create `.pot` language file
-* Create means to autogenerate language file
 * Add Ajax call example
-* Add encrypt/decrypt example
-* Add hidden `password` field with encrypted `hidden` field
-* Possibly add hooks (maybe to assist in consolidation of multiple settings pages?)
+* Add encrypt/decrypt example. Allow specifying custom salt, else default to WordPress.
+* Add `password` field with encrypted `hidden` field
+* Add wordpress-settings-api-class example
 * Possibly add TGMPA example
-* Possible add Customizer example
-* Add wordpress-settings-api-class example(s)
+* Added GitHub update checker example
+* Possibly add Customizer example
+* Ability to create dynamic CSS/JS files based on settings
 * Allow loading Carbon Fields via [plugin](https://github.com/dmhendricks/carbon-fields-loader) rather than Composer dependency
-* Test compatibility with WordPress 4.0 and higher
 
 ## Change Log
 
 #### 0.2.0
 
+This is the last version that is compatible with PHP 5.3 (_If_ all of your dependencies are compatible). Future releases will require PHP 5.4 or higher.
+
+* Significantly refactored dependency checking
+* Properly hooked admin notices
 * Added object cache helper class
-* Added example of loading Font Awesome if enabled in plugin settings
 * Removed closing ?> tags ([obstschale](https://github.com/dmhendricks/wordpress-base-plugin/issues/1))
 * Removed `./vendor` from repo
 * Renamed Helpers class to Utils
-* Tested PHP 5.4 - 7.1 compatibility
 * Localized many strings
-* Fixed various PHP 5.3 issues; bumped minimum suggested version to 5.4.0
+* Fixed various PHP 5.3 issues
 * Added minimum PHP version check
 * Renamed namespace to `VendorName\MyPlugin`
 * Added screenshot
