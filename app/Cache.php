@@ -18,17 +18,17 @@ class Cache extends Plugin {
     $object_cache_expire = self::$settings['object_cache_expire'] ?: 86400; // Default to 24 hours of null
 
     // Set key variable
-    $object_cache_key = self::$prefix . '_' . $key . ( is_multisite() ? '_' . get_current_blog_id() : '' );
+    $object_cache_key =  $key . ( is_multisite() ? '_' . get_current_blog_id() : '' );
 
     // Try to get the value of the cache
     $result = wp_cache_get( $object_cache_key, $object_cache_group );
-    if( is_serialized($result) ) $result = unserialize($result);
+    if( $result && is_serialized( $result ) ) $result = unserialize($result);
 
     // If result wasn't found/returned and/or caching is disabled, set & return the value from $callback
-    if(!$result) {
+    if(true || !$result) {
       $result = $callback();
-      if( is_array( $result ) || is_object( $result ) ) $result = serialize( $result );
-      wp_cache_set( $object_cache_key, $result, $object_cache_group, $object_cache_expire);
+      if( is_array( $result ) || is_object( $result ) ) $set_result = serialize( $result );
+      wp_cache_set( $object_cache_key, $set_result, $object_cache_group, $object_cache_expire);
     }
 
     return $result;
@@ -58,7 +58,7 @@ class Cache extends Plugin {
 
     if( defined('DOING_AJAX') && DOING_AJAX ) {
       echo json_encode($result);
-      wp_die();
+      die();
     }
     return $result['success'];
 
