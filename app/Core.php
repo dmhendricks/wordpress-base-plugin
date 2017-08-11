@@ -6,7 +6,7 @@ class Core extends Plugin {
   function __construct() {
 
     // Add page, post type and parent classes to <body> tag for selector targeting
-    add_filter( 'body_class', array(&$this, 'add_body_classes') );
+    add_filter( 'body_class', array( &$this, 'add_body_classes' ) );
 
     // Remove Emoji code from header
     if( $this->get_plugin_option( 'remove_header_emojicons' ) ) {
@@ -23,19 +23,20 @@ class Core extends Plugin {
     *
     * @param array $classes An array of *current* body_class classes
     * @return array Modified array of body classes including new ones
+    * @since 0.1.0
     */
   public function add_body_classes($classes) {
     $parent_slug = Utils::get_parent_slug(true);
     $categories = is_single() ? Utils::get_post_categories(true) : array();
 
     // Add page, parent and post-type classes, if available
-    $classes[] = 'page-'.Utils::get_page_slug();
-    if($parent_slug) $classes[] = 'parent-'.$parent_slug;
-    $classes[] = 'post-type-'.get_post_type();
+    $classes[] = 'page-' . Utils::get_page_slug();
+    if($parent_slug) $classes[] = 'parent-' . $parent_slug;
+    $classes[] = 'post-type-' . get_post_type();
 
     // Add category slugs
     foreach($categories as $cat) {
-      $classes[] = 'category-'.$cat;
+      $classes[] = 'category-' . $cat;
     }
 
     return $classes;

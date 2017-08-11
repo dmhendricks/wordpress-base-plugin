@@ -12,8 +12,8 @@ class CPT extends Plugin {
     $this->add_post_type_client();
 
     // Hide unnecessary publishing options like Draft, visibility, etc.
-    add_action( 'admin_head-post.php', array(&$this, 'hide_publishing_actions') );
-    add_action( 'admin_head-post-new.php', array(&$this, 'hide_publishing_actions') );
+    add_action( 'admin_head-post.php', array( $this, 'hide_publishing_actions' ) );
+    add_action( 'admin_head-post-new.php', array( $this, 'hide_publishing_actions' ) );
 
   }
 
@@ -47,17 +47,17 @@ class CPT extends Plugin {
     Container::make('post_meta', 'Client Details')
       ->show_on_post_type($cpt->postTypeName)
       ->add_fields(array(
-        Field::make('text', self::$prefix.'name', 'Name'),
-        Field::make('text', self::$prefix.'company', 'Company'),
+        Field::make('text', $this->prefix( 'name' ), 'Name'),
+        Field::make('text', $this->prefix( 'company' ), 'Company'),
       )
     );
 
     Container::make('post_meta', 'Contact Info')
       ->show_on_post_type($cpt->postTypeName)
       ->add_fields(array(
-        Field::make('text', self::$prefix.'url', 'Web Site'),
-        Field::make('text', self::$prefix.'phone', 'Phone Number'),
-        Field::make('textarea', self::$prefix.'address', "Services")->set_rows(4)
+        Field::make('text', $this->prefix( 'url' ), 'Web Site'),
+        Field::make('text', $this->prefix( 'phone' ), 'Phone Number'),
+        Field::make('textarea', $this->prefix( 'address' ), 'Services')->set_rows(4)
       )
     );
 

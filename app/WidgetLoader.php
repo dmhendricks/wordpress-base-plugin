@@ -5,7 +5,11 @@ use Carbon_Fields\Field;
 
 class WidgetLoader extends Plugin {
 
+  public static $prefix;
+
   function __construct() {
+
+    self::$prefix = $this->prefix();
 
     // Register widgets
     add_action( 'widgets_init', function() {
