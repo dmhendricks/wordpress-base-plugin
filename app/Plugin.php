@@ -131,7 +131,7 @@ class Plugin {
       $notices = '<ul><li>' . implode( "</li>\n<li>", $notices ) . '</li></ul>';
 
       if( $args['echo'] ) {
-        Utils::show_notice($notices, self::$textdomain, 'error', false);
+        Utils::show_notice($notices, 'error', false);
         return false;
       } else {
         return $notices;

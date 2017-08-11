@@ -17,7 +17,6 @@ class Utils extends Plugin {
     */
   public static function show_notice( $msg, $type = 'error', $is_dismissible = false ) {
 
-    $msg = $this->translate( $msg );
     add_action( 'admin_notices', function() use (&$msg, &$type, &$is_dismissible) {
 
       $class = 'notice notice-' . $type . ( $is_dismissible ? ' is-dismissible' : '' );
