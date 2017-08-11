@@ -13,18 +13,43 @@ class Utils extends Plugin {
     *    error, warning, success, info
     * @param bool $is_dismissible Specify whether or not the user may dismiss
     *    the notice.
-    * @return null
+    * @since 2.0.0
     */
-  public static function show_notice($msg, $type = 'error', $is_dismissible = false) {
+  public static function show_notice( $msg, $type = 'error', $is_dismissible = false ) {
 
+    $msg = $this->translate( $msg );
     add_action( 'admin_notices', function() use (&$msg, &$type, &$is_dismissible) {
 
       $class = 'notice notice-' . $type . ( $is_dismissible ? ' is-dismissible' : '' );
-      $msg = __( $msg, self::$settings['data']['TextDomain'] );
-
       printf( '<div class="%1$s"><p>%2$s</p></div>', $class, $msg );
 
     });
+
+  }
+
+  /**
+    * Combine function attributes with known attributes and fill in defaults when needed.
+    *
+    * @param array  $pairs     Entire list of supported attributes and their defaults.
+    * @param array  $atts      User defined attributes in shortcode tag.
+    * @return array Combined and filtered attribute list.
+    * @link https://core.trac.wordpress.org/browser/tags/4.8/src/wp-includes/shortcodes.php#L540 Original source
+    * @since 0.2.0
+    */
+  public static function set_default_atts( $pairs, $atts ) {
+
+    $atts = (array)$atts;
+    $result = array();
+
+    foreach ($pairs as $name => $default) {
+      if ( array_key_exists($name, $atts) ) {
+        $result[$name] = $atts[$name];
+      } else {
+        $result[$name] = $default;
+      }
+    }
+
+    return $result;
 
   }
 
