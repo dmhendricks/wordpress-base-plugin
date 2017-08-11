@@ -36,12 +36,12 @@ include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
 // Initialize plugin - Change to use your own namespace
 new \VendorName\MyPlugin\Plugin(array(
-	'data' => get_plugin_data(__FILE__),
-	'path' => realpath(plugin_dir_path(__FILE__)).DIRECTORY_SEPARATOR,
-	'url' => plugin_dir_url(__FILE__),
-	'textdomain' => 'my-plugin',
+	'data' => get_plugin_data( __FILE__ ),
+	'path' => realpath( plugin_dir_path( __FILE__ ) ) . DIRECTORY_SEPARATOR,
+	'url' => plugin_dir_url( __FILE__ ),
 	'object_cache_group' => 'my_plugin_cache',
 	'object_cache_expire' => 72, // In hours
-	'deps' => array('php' => '5.4.0', 'carbon_fields' => '2.0.0'), // Optional
+	'deps' => array( 'php' => '5.4.0', 'carbon_fields' => '2.0.0' ),
+	'plugin_file' => plugin_basename( __FILE__ ),
 	'prefix' => 'myplugin_' // Change to your own unique field prefix
 ));
