@@ -49,7 +49,6 @@ It may also be used as the means of [separating custom code](http://www.billeric
 * Add GitHub update class (GitHub Updater 7 is destroying my memory consumption)
 * Add Customizer example
 * Add dynamically-created CSS/JS files based on settings
-* Allow loading Carbon Fields via [plugin](https://github.com/dmhendricks/carbon-fields-loader) rather than Composer dependency
 
 ## Change Log
 
@@ -60,6 +59,7 @@ Release changes are noted on the [Releases](https://github.com/dmhendricks/wordp
 * Bumped minimum PHP version check to 5.4
 * Added initial `plugin.json` for configuration
 * Fixed caching expiration bug
+* Removed Carbon Fields as dependency in favor of [plugin](https://github.com/dmhendricks/carbon-fields-loader)
 
 ## Credits
 
