@@ -3,7 +3,7 @@ Contributors: hendridm
 Tags: wordpress,base,plugin,boilerplate,composer,carbonfields
 Donate link: https://paypal.me/danielhendricks
 Requires at least: 4.0
-Tested up to: 4.8
+Tested up to: 4.8.1
 License: GPL-2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -49,21 +49,3 @@ A. Composer is an application-level package manager for the PHP programming lang
 
 == Screenshots ==
 1. Settings Page
-
-== Changelog ==
-= 0.2.0 =
-* Added Object Cache class
-* Added example of loading Font Awesome if enabled in plugin settings
-* Removed `./vendor` from repo
-* Renamed Helpers Class to Utils
-* Tested PHP 5.4 - 7.1 compatibility
-* Added minimum PHP version check
-* Added screenshot
-* Moved `/src` to `/app`
-
-= 0.1.1 =
-* Refactored code
-* Added `is_production()` and `is_ajax()` methods
-
-= 0.1.0 =
-* Initial commit
