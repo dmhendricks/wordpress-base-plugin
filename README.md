@@ -51,6 +51,10 @@ It may also be used as the means of [separating custom code](http://www.billeric
 
 Release changes are noted on the [Releases](https://github.com/dmhendricks/wordpress-base-plugin/releases) page.
 
+#### Branch: `master`
+
+* Bumped minimum PHP version check to 5.4
+
 ## Credits
 
 Please support [humans.txt](http://humanstxt.org/). It's an initiative for knowing the people behind a web site. It's an unobtrusive text file that contains information about the different people who have contributed to building the web site.

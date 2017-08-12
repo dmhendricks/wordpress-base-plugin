@@ -65,8 +65,8 @@ class Plugin {
     // Perform core plugin logic
     new Core();
 
-    // Create custom post types - dependency requires PHP 5.4 or higher
-    //new CPT();
+    // Create custom post types
+    new CPT();
 
     // Load custom widgets
     new WidgetLoader();

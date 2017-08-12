@@ -41,7 +41,7 @@ new \VendorName\MyPlugin\Plugin(array(
 	'url' => plugin_dir_url( __FILE__ ),
 	'object_cache_group' => 'my_plugin_cache',
 	'object_cache_expire' => 72, // In hours
-	'deps' => array( 'php' => '5.3.0', 'carbon_fields' => '2.0.0' ),
+	'deps' => array( 'php' => '5.4.0', 'carbon_fields' => '2.0.0' ),
 	'plugin_file' => plugin_basename( __FILE__ ),
 	'prefix' => 'myplugin_' // Change to your own unique field prefix
 ));
