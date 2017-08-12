@@ -13,9 +13,9 @@ class Cache extends Plugin {
     */
   public static function get_object( $key = null, $callback ) {
 
-    $object_cache_group = isset( self::$settings['object_cache_group']) && self::$settings['object_cache_group'] ?: sanitize_title( self::$settings['data']['Name'] );
+    $object_cache_group = isset( self::$settings['object_cache']['group'] ) && self::$settings['object_cache']['group'] ? self::$settings['object_cache']['group'] : sanitize_title( self::$settings['data']['Name'] );
     if( is_multisite() ) $object_cache_group .= '_' . get_current_blog_id();
-    $object_cache_expire = self::$settings['object_cache_expire'] ?: 86400; // Default to 24 hours of null
+    $object_cache_expire = ( isset( self::$settings['object_cache']['expire_hours'] ) && is_int( self::$settings['object_cache']['expire_hours'] ) ? self::$settings['object_cache']['expire_hours'] : 24 ) * 86400; // Default to 24 hours
 
     // Set key variable
     $object_cache_key =  $key . ( is_multisite() ? '_' . get_current_blog_id() : '' );
@@ -25,7 +25,7 @@ class Cache extends Plugin {
     if( $result && is_serialized( $result ) ) $result = unserialize($result);
 
     // If result wasn't found/returned and/or caching is disabled, set & return the value from $callback
-    if(true || !$result) {
+    if( !$result ) {
       $result = $callback();
       if( is_array( $result ) || is_object( $result ) ) $set_result = serialize( $result );
       wp_cache_set( $object_cache_key, $set_result, $object_cache_group, $object_cache_expire);

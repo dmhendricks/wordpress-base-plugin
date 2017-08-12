@@ -59,6 +59,7 @@ Release changes are noted on the [Releases](https://github.com/dmhendricks/wordp
 
 * Bumped minimum PHP version check to 5.4
 * Added initial `plugin.json` for configuration
+* Fixed caching expiration bug
 
 ## Credits
 
