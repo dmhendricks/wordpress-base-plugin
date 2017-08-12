@@ -59,6 +59,9 @@ class Plugin {
     if( !$this->verify_dependencies( 'carbon_fields' ) ) return;
 
     // Add admin settings page(s)
+    new TGMPA();
+
+    // Add admin settings page(s)
     new Settings();
 
     // Enqueue scripts and stylesheets
