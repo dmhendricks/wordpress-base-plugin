@@ -1,0 +1,11 @@
+{
+  "prefix": "myplugin_",
+  "object_cache": {
+    "group": "my_plugin_cache",
+    "expire": 72
+  },
+  "dependencies": {
+    "php": "5.4.0",
+    "carbon_fields": "2.0"
+  },
+}

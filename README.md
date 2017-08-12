@@ -1,5 +1,5 @@
 [![Author](https://img.shields.io/badge/author-Daniel%20M.%20Hendricks-blue.svg)](https://www.danhendricks.com)
-[![GitHub license](https://img.shields.io/badge/license-GPLv2-blue.svg)](https://raw.githubusercontent.com/dmhendricks/wordpress-base-plugin/master/LICENSE)
+[![GitHub License](https://img.shields.io/badge/license-GPLv2-green.svg)](https://raw.githubusercontent.com/dmhendricks/wordpress-base-plugin/master/LICENSE)
 [![Twitter](https://img.shields.io/twitter/url/https/github.com/dmhendricks/wordpress-base-plugin.svg?style=social)](https://twitter.com/intent/tweet?text=Wow:&url=%5Bobject%20Object%5D)
 
 # WordPress Base Plugin
@@ -58,6 +58,7 @@ Release changes are noted on the [Releases](https://github.com/dmhendricks/wordp
 #### Branch: `master`
 
 * Bumped minimum PHP version check to 5.4
+* Added initial `plugin.json` for configuration
 
 ## Credits
 
