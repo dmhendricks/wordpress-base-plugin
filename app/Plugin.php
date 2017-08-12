@@ -2,6 +2,7 @@
 namespace VendorName\MyPlugin;
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
+use Config;
 
 class Plugin {
 
@@ -10,9 +11,11 @@ class Plugin {
 
   function __construct( $_settings ) {
 
-    // Set text domain and option prefix
+    // Initialize plugin settings
+    $plugin_config = new Config\Config( $_settings['path'] . 'plugin.json' );
     self::$textdomain = $_settings['data']['TextDomain'];
-    self::$settings = $_settings;
+    self::$settings = array_merge( $_settings, $plugin_config->get() );
+    //var_dump(self::$settings); exit;
 
     // Verify dependecies and load plugin logic
     register_activation_hook( self::$settings['plugin_file'], array( $this, 'activate' ) );
@@ -89,8 +92,8 @@ class Plugin {
     */
   private function verify_dependencies( $deps = true, $args = array() ) {
 
-    if( is_bool( $deps ) && $deps ) $deps = self::$settings['deps'];
-    if( !is_array( $deps ) ) $deps = array( $deps => self::$settings['deps'][$deps] );
+    if( is_bool( $deps ) && $deps ) $deps = self::$settings['dependencies'];
+    if( !is_array( $deps ) ) $deps = array( $deps => self::$settings['dependencies'][$deps] );
 
     $args = Utils::set_default_atts( array(
       'echo' => true,
@@ -106,7 +109,7 @@ class Plugin {
         case 'php':
 
           if( version_compare( phpversion(), $version, '<' ) ) {
-            $notices[] = __( 'This plugin is not supported on versions of PHP below', self::$textdomain ) . ' ' . self::$settings['deps']['php'] . '.' ;
+            $notices[] = __( 'This plugin is not supported on versions of PHP below', self::$textdomain ) . ' ' . self::$settings['dependencies']['php'] . '.' ;
           }
           break;
 
@@ -116,7 +119,7 @@ class Plugin {
           if( !$args['activate'] && !defined('\\Carbon_Fields\\VERSION') ) {
             $notices[] = __( 'An unknown error occurred while trying to load the Carbon Fields framework.', self::$textdomain );
           } else if ( defined('\\Carbon_Fields\\VERSION') && version_compare( \Carbon_Fields\VERSION, $version, '<' ) ) {
-            $notices[] = __( 'An outdated version of Carbon Fields has been detected:', self::$textdomain ) . ' ' . \Carbon_Fields\VERSION . ' (&gt;= '.self::$settings['deps']['carbon_fields'] . ' ' . __( 'required', self::$textdomain ) . ').' . ' <strong>' . self::$settings['data']['Name'] . '</strong> ' . __( 'deactivated.', self::$textdomain ) ;
+            $notices[] = __( 'An outdated version of Carbon Fields has been detected:', self::$textdomain ) . ' ' . \Carbon_Fields\VERSION . ' (&gt;= '.self::$settings['dependencies']['carbon_fields'] . ' ' . __( 'required', self::$textdomain ) . ').' . ' <strong>' . self::$settings['data']['Name'] . '</strong> ' . __( 'deactivated.', self::$textdomain ) ;
           }
           break;
 
