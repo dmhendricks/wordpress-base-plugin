@@ -1,3 +1,7 @@
+[![Author](https://img.shields.io/badge/author-Daniel%20M.%20Hendricks-blue.svg)](https://www.danhendricks.com)
+[![GitHub license](https://img.shields.io/badge/license-GPLv2-blue.svg)](https://raw.githubusercontent.com/dmhendricks/wordpress-base-plugin/master/LICENSE)
+[![Twitter](https://img.shields.io/twitter/url/https/github.com/dmhendricks/wordpress-base-plugin.svg?style=social)](https://twitter.com/intent/tweet?text=Wow:&url=%5Bobject%20Object%5D)
+
 # WordPress Base Plugin
 
 ## Description
@@ -42,7 +46,7 @@ It may also be used as the means of [separating custom code](http://www.billeric
 * Add `password` field with encrypted `hidden` field
 * Add [wordpress-settings-api-class](https://github.com/tareq1988/wordpress-settings-api-class) example
 * Add [TGMPA](http://tgmpluginactivation.com/) example
-* Add GitHub update class
+* Add GitHub update class (GitHub Updater 7 is destroying my memory consumption)
 * Add Customizer example
 * Add dynamically-created CSS/JS files based on settings
 * Allow loading Carbon Fields via [plugin](https://github.com/dmhendricks/carbon-fields-loader) rather than Composer dependency
