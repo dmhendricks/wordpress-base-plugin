@@ -168,4 +168,29 @@ class Utils extends Plugin {
       return $return;
   }
 
+  /**
+    * Encrypts string using WP_ENCRYPT_KEY as salt if defined, else SECURE_AUTH_KEY.
+    *
+    * @param string $str String to encrypt
+    * @return string Encrypted string
+    * @since 0.3.0
+    */
+  public static function encrypt( $str ) {
+    $salt = defined( 'WP_ENCRYPT_KEY' ) && WP_ENCRYPT_KEY ? WP_ENCRYPT_KEY : SECURE_AUTH_KEY;
+    return openssl_encrypt($str, self::$settings['encrypt_method'], $salt);
+  }
+
+  /**
+    * Decrypts encrypted string
+    *
+    * @param string $str String to decrypt
+    * @return string Decrypted string
+    * @since 0.3.0
+    * @see Utils::encrypt()
+    */
+  public static function decrypt( $str ) {
+    $salt = defined( 'WP_ENCRYPT_KEY' ) && WP_ENCRYPT_KEY ? WP_ENCRYPT_KEY : SECURE_AUTH_KEY;
+    return openssl_decrypt($str, self::$settings['encrypt_method'], $salt);
+  }
+
 }

@@ -15,7 +15,6 @@ class Plugin {
     $plugin_config = new Config\Config( $_settings['path'] . 'plugin.json' );
     self::$textdomain = $_settings['data']['TextDomain'];
     self::$settings = array_merge( $_settings, $plugin_config->get() );
-    //var_dump(self::$settings); exit;
 
     // Verify dependecies and load plugin logic
     register_activation_hook( self::$settings['plugin_file'], array( $this, 'activate' ) );
