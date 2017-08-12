@@ -8,10 +8,11 @@ It may also be used as the means of [separating custom code](http://www.billeric
 
 ## Features
 
-* Namespaces, PSR-4, dependency autoloading
-* PHP and dependency version checking
-* Object caching helper class - [Usage Examples](https://github.com/dmhendricks/wordpress-base-plugin/wiki#caching)
-* [Many more to come...](#planned-features)
+* Namespaces & dependency autoloading
+* Dependency version checking (PHP, Carbon Fields)
+* Object caching (when available) - [Usage Examples](https://github.com/dmhendricks/wordpress-base-plugin/wiki#caching)
+* Shortcodes, widgets and custom post type (via [PostTypes](https://github.com/jjgrainger/PostTypes/)) examples
+* [More to come...](#planned-features)
 
 ## Requirements
 
@@ -30,48 +31,25 @@ It may also be used as the means of [separating custom code](http://www.billeric
 1. Modify `composer.json` to suit your needs
 1. Run `composer install` to install dependencies and autoload namespace
 
-## TODO / Planned Features
+## Planned Features & TODO
 
-* Fix i18n issues and create means to easily generate `.pot` language file
-* Add activation/deactivation/uninstall hooks
-* **Add task runner**, related documentation, update .gitignore and rearrange `./assets`
+* Fix i18n issues, add `gulp-wp-pot` support
+* Add deactivation/uninstall hooks
+* Add task runner, related documentation, update .gitignore and rearrange `./assets`
+* Improve configuration management
 * Add Ajax call example
 * Add encrypt/decrypt example. Allow specifying custom salt, else default to WordPress.
 * Add `password` field with encrypted `hidden` field
-* Add wordpress-settings-api-class example
-* Possibly add TGMPA example
-* Added GitHub update checker example
-* Possibly add Customizer example
-* Ability to create dynamic CSS/JS files based on settings
+* Add [wordpress-settings-api-class](https://github.com/tareq1988/wordpress-settings-api-class) example
+* Add [TGMPA](http://tgmpluginactivation.com/) example
+* Add GitHub update class
+* Add Customizer example
+* Add dynamically-created CSS/JS files based on settings
 * Allow loading Carbon Fields via [plugin](https://github.com/dmhendricks/carbon-fields-loader) rather than Composer dependency
 
 ## Change Log
 
-#### 0.2.0
-
-This is the last version that is compatible with PHP 5.3 (_If_ all of your dependencies are compatible). Future releases will require PHP 5.4 or higher.
-
-* Significantly refactored dependency checking
-* Properly hooked admin notices
-* Added object cache helper class
-* Removed closing ?> tags ([obstschale](https://github.com/dmhendricks/wordpress-base-plugin/issues/1))
-* Removed `./vendor` from repo
-* Renamed Helpers class to Utils
-* Localized many strings
-* Fixed various PHP 5.3 issues
-* Added minimum PHP version check
-* Renamed namespace to `VendorName\MyPlugin`
-* Added screenshot
-
-#### 0.1.1
-
-* Moved `/src` to `/app`
-* Refactored code
-* Added `is_production()` and `is_ajax()` methods
-
-#### 0.1.0
-
-* Initial commit
+Release changes are noted on the [Releases](https://github.com/dmhendricks/wordpress-base-plugin/releases) page.
 
 ## Credits
 
