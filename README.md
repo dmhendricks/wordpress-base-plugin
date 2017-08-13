@@ -57,12 +57,7 @@ Release changes are noted on the [Releases](https://github.com/dmhendricks/wordp
 
 #### Branch: `master`
 
-* Bumped minimum PHP version check to 5.4
-* Added `plugin.json` for configuration
-* Fixed caching expiration bug
-* Removed Carbon Fields as dependency in favor of [plugin](https://github.com/dmhendricks/carbon-fields-loader) loader
-* Added Utils::encrypt/decrypt helpers, `WP_ENCRYPT_KEY` constant ([wiki](https://github.com/dmhendricks/wordpress-base-plugin/wiki/Configuration-Constants))
-* Added [TGMPA](http://tgmpluginactivation.com/) example
+_No changes since last release._
 
 ## Credits
 
