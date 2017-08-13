@@ -5,10 +5,16 @@ use Carbon_Fields\Field;
 
 class Settings extends Plugin {
 
+  private $settings_api;
+  protected $settings_containers;
+
   /**
     * Create a options/settings page in WP Admin
     */
   function __construct() {
+
+    // Initialize array that will hold Carbon Fields Container objects
+    $this->settings_containers = array();
 
     // Flush the cache when settings are saved
     add_action('carbon_fields_theme_options_container_saved', array( $this, 'options_saved_hook' ) );
@@ -16,19 +22,25 @@ class Settings extends Plugin {
     // Create tabbed plugin options page (Settings > Plugin Name)
     $this->create_tabbed_options_page();
 
+    // Register uninstall hook to delete settings
+    if( $this->get_plugin_option( 'uninstall_remove_settings' ) ) {
+      register_uninstall_hook( self::$settings['plugin_file'], array( $this, 'plugin_settings_uninstall' ) );
+    }
+
   }
 
   /**
     * Create a tabbed options/settings page in WP Admin
     *
-    * @see https://carbonfields.net/docs/containers-theme-options/ Carbon Fields Theme Options
+    * @link https://carbonfields.net/docs/containers-theme-options/ Carbon Fields Theme Options
     */
   private function create_tabbed_options_page() {
 
     // Carbon Fields Docs: https://carbonfields.net/docs/containers-theme-options/
-    Container::make('theme_options', self::$settings['data']['Name'])
+    $container = Container::make( 'theme_options', self::$settings['data']['Name'] )
       ->set_page_parent('options-general.php')
       ->add_tab( __('General', self::$textdomain), array(
+        Field::make('checkbox', $this->prefix('uninstall_remove_settings'), __('Delete Plugin Settings On Uninstall', self::$textdomain) ),
         Field::make('checkbox', $this->prefix('remove_header_emojicons'), __('Remove Emoji Code From Page Headers', self::$textdomain) )
           ->help_text( __('Checking this box will remove the default Emoji code from page headers.', self::$textdomain) ),
         Field::make( 'set', $this->prefix('enqueue_font_awesome'), __('Load Font Awesome from CDN', self::$textdomain) )
@@ -80,6 +92,9 @@ class Settings extends Plugin {
       )
     );
 
+    // Store container and fields for register_uninstall_hook
+    $this->settings_containers[] = $container;
+
   }
 
   /**
@@ -94,6 +109,27 @@ class Settings extends Plugin {
         Field::make('image', $this->prefix('profile_pic'), __('Profile Pic', self::$textdomain) )
       )
     );
+
+    // Store container and fields for register_uninstall_hook
+    $this->settings_containers[] = $container;
+
+  }
+
+  /**
+    * Plugin uninstall hook callback. Removes Carbon Fields settings on
+    *    plugin removal
+    *
+    * @since 0.3.0
+    */
+  public function plugin_settings_uninstall() {
+
+    foreach( $this->settings_containers as $container ) {
+
+      foreach ( $container->get_fields() as $field ) {
+        $field->delete();
+      }
+
+    }
 
   }
 

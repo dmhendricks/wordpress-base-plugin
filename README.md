@@ -46,12 +46,10 @@ This plugin loads many of its defaults & settings from `plugin.json`. See [Confi
 ## Planned Features & TODO
 
 * Fix i18n issues, add `gulp-wp-pot` support
-* Add deactivation/uninstall hooks
 * Add task runner, related documentation, update .gitignore and rearrange `./assets`
 * Improve configuration management
 * Add Ajax call example
-* Add encrypt/decrypt example.
-* Add `password` field with encrypted `hidden` field
+* Add encrypt/decrypt example (`password` field with encrypted `hidden` field)
 * Add [wordpress-settings-api-class](https://github.com/tareq1988/wordpress-settings-api-class) example
 * Add GitHub update class (GitHub Updater 7 is destroying my memory consumption)
 * Add Customizer example
@@ -65,6 +63,7 @@ Release changes are noted on the [Releases](https://github.com/dmhendricks/wordp
 #### Branch: `master`
 
 * Added `Utils::is_json()` function to test for valid syntax
+* Added `register_uninstall_hook` to delete settings when plugin uninstalled
 
 ## Credits
 
