@@ -173,7 +173,7 @@ class Utils extends Plugin {
     *
     * @param string $str String to encrypt
     * @return string Encrypted string
-    * @since 0.3.0
+    * @since 0.2.1
     */
   public static function encrypt( $str ) {
     $salt = defined( 'WP_ENCRYPT_KEY' ) && WP_ENCRYPT_KEY ? WP_ENCRYPT_KEY : SECURE_AUTH_KEY;
@@ -185,7 +185,7 @@ class Utils extends Plugin {
     *
     * @param string $str String to decrypt
     * @return string Decrypted string
-    * @since 0.3.0
+    * @since 0.2.1
     * @see Utils::encrypt()
     */
   public static function decrypt( $str ) {

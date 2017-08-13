@@ -12,7 +12,7 @@ class TGMPA extends Plugin {
 
   /**
     * Uses the TGMPA library to check for required/recommended plugins.
-    * @since 0.3.0
+    * @since 0.2.1
     * @link http://tgmpluginactivation.com/configuration/ Configuring TGMPA
     */
   public function register_required_plugins() {

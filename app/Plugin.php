@@ -58,7 +58,7 @@ class Plugin {
 
     if( !$this->verify_dependencies( 'carbon_fields' ) ) return;
 
-    // Add admin settings page(s)
+    // Add TGM plugin activation notices for required/recommended plugins
     new TGMPA();
 
     // Add admin settings page(s)

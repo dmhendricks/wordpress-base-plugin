@@ -1,5 +1,6 @@
 {
   "prefix": "myplugin_",
+  "short_name": "Base Plugin",
   "object_cache": {
     "group": "my_plugin_cache",
     "expire_hours": 72
