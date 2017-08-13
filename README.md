@@ -16,12 +16,14 @@ It may also be used as the means of [separating custom code](http://www.billeric
 * Dependency version checking (PHP, Carbon Fields)
 * Object caching (when available) - [Usage Examples](https://github.com/dmhendricks/wordpress-base-plugin/wiki#caching)
 * Shortcodes, widgets and custom post type (via [PostTypes](https://github.com/jjgrainger/PostTypes/)) examples
+* Optional configuration [Constants](https://github.com/dmhendricks/wordpress-base-plugin/wiki/Configuration-&-Constants) (more are planned)
 * [More to come...](#planned-features)
 
 ## Requirements
 
 * WordPress 4.0 or higher
 * PHP 5.4 or higher
+* [Carbon Fields](https://github.com/htmlburger/carbon-fields) 2.0 or higher (see [Dependencies](https://github.com/dmhendricks/wordpress-base-plugin/wiki#dependencies) for more info)
 
 ## Installation
 
@@ -36,6 +38,10 @@ It may also be used as the means of [separating custom code](http://www.billeric
 1. Run `composer install` to install dependencies and autoload namespace
 
 **Note:** `hgoebl/mobile-detect` is just loaded as an example. Feel free to remove it.
+
+## Plugin Settings
+
+This plugin loads many of its defaults & settings from `plugin.json`. See [Configuration & Constants](https://github.com/dmhendricks/wordpress-base-plugin/wiki/Configuration-&-Constants#pluginjson) for more information.
 
 ## Planned Features & TODO
 
