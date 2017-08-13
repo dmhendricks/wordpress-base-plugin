@@ -50,6 +50,7 @@ It may also be used as the means of [separating custom code](http://www.billeric
 * Add GitHub update class (GitHub Updater 7 is destroying my memory consumption)
 * Add Customizer example
 * Add dynamically-created CSS/JS files based on settings
+* Move Cache class to external dependency
 
 ## Change Log
 
@@ -57,7 +58,7 @@ Release changes are noted on the [Releases](https://github.com/dmhendricks/wordp
 
 #### Branch: `master`
 
-_No changes since last release._
+* Added `Utils::is_json()` function to test for valid syntax
 
 ## Credits
 
