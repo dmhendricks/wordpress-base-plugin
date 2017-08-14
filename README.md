@@ -50,7 +50,6 @@ This plugin loads many of its defaults & settings from `plugin.json`. See [Confi
 * Improve configuration management
 * Add Ajax call example
 * Add encrypt/decrypt example (`password` field with encrypted `hidden` field)
-* Add [wordpress-settings-api-class](https://github.com/tareq1988/wordpress-settings-api-class) example
 * Add GitHub update class (GitHub Updater 7 is destroying my memory consumption)
 * Add Customizer example
 * Add dynamically-created CSS/JS files based on settings
@@ -63,19 +62,12 @@ Release changes are noted on the [Releases](https://github.com/dmhendricks/wordp
 #### Branch: `master`
 
 * Added `Utils::is_json()` function to test for valid syntax
-* Added `register_uninstall_hook` to delete settings when plugin uninstalled
+* Added `register_uninstall_hook` to delete Carbon Fields settings when plugin uninstalled
+* Added [wordpress-settings-api-class](https://github.com/tareq1988/wordpress-settings-api-class) settings page example
 
 ## Credits
 
 Please support [humans.txt](http://humanstxt.org/). It's an initiative for knowing the people behind a web site. It's an unobtrusive text file that contains information about the different people who have contributed to building the web site.
-
-**Hans-Helge Buerger**
-
-	Contrubutor: https://github.com/obstschale
-	URL: https://github.com/obstschale/wordpress-base-plugin
-	Twitter: @obstschale
-	Author URI: http://hanshelgebuerger.de
-	Location: Berlin, Germany
 
 **Carbon Fields**
 
@@ -92,6 +84,14 @@ Please support [humans.txt](http://humanstxt.org/). It's an initiative for knowi
 	Twitter: @jjgrainger
 	Author URI: https://jjgrainger.co.uk/
 	Location: Falmouth, England
+
+**Carbon Fields**
+
+	URL: https://github.com/tareq1988/wordpress-settings-api-class
+	Author: Tareq Hasan
+	Twitter: @tareq_cse
+	Author URI: https://tareq.co/
+	Location: Dhaka, Bangladesh
 
 ## Screenshot
 

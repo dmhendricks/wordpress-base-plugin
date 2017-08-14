@@ -61,8 +61,11 @@ class Plugin {
     // Add TGM plugin activation notices for required/recommended plugins
     new TGMPA();
 
-    // Add admin settings page(s)
-    new Settings();
+    // Add admin settings page using Carbon Fields framework
+    new Settings\Settings_Carbon();
+
+    // Alternatively, add admin settings page using wordpress-settings-api-class
+    new Settings\Settings_WPSAC();
 
     // Enqueue scripts and stylesheets
     new EnqueueScripts();

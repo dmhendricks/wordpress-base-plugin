@@ -1,16 +1,20 @@
 <?php
-namespace VendorName\MyPlugin;
+namespace VendorName\MyPlugin\Settings;
+use VendorName\MyPlugin\Plugin;
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
 
-class Settings extends Plugin {
+/**
+  * An class to create a settings page for the plugin in WP Admin using Carbon Fields
+  *
+  * @link https://carbonfields.net/docs/containers-theme-options/ Carbon Fields Theme Options
+  * @since 0.1.0
+  */
+class Settings_Carbon extends Plugin {
 
   private $settings_api;
   protected $settings_containers;
 
-  /**
-    * Create a options/settings page in WP Admin
-    */
   function __construct() {
 
     // Initialize array that will hold Carbon Fields Container objects
@@ -32,7 +36,7 @@ class Settings extends Plugin {
   /**
     * Create a tabbed options/settings page in WP Admin
     *
-    * @link https://carbonfields.net/docs/containers-theme-options/ Carbon Fields Theme Options
+    * @since 0.1.0
     */
   private function create_tabbed_options_page() {
 
@@ -99,6 +103,8 @@ class Settings extends Plugin {
 
   /**
     * Create a single options/settings page in WP Admin
+    *
+    * @since 0.1.0
     */
   private function create_single_options_page() {
 

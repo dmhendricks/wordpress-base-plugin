@@ -14,7 +14,7 @@
     {
       "name": "Hans-Helge Buerger",
       "homepage": "https://hanshelgebuerger.de",
-      "role": "Developer"
+      "role": "Contrubutor"
     }
   ],
   "support": {
@@ -51,7 +51,8 @@
   "minimum-stability": "dev",
   "autoload": {
     "psr-4": {
-      "VendorName\\MyPlugin\\": "app/"
+      "VendorName\\MyPlugin\\": "app/",
+      "VendorName\\MyPlugin\\Settings\\": "app/Settings/"
     }
   },
   "scripts": {
