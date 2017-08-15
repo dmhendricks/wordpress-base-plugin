@@ -12,7 +12,7 @@ class Plugin {
   function __construct( $_settings ) {
 
     // Initialize plugin settings
-    $plugin_config = new Config\Config( $_settings['path'] . 'plugin.json' );
+    $plugin_config = new Config\Config( $_settings['path'] . 'wordpress-plugin.json' );
     self::$textdomain = $_settings['data']['TextDomain'];
     self::$settings = array_merge( $_settings, $plugin_config->get() );
 
