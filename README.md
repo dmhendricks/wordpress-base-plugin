@@ -86,7 +86,7 @@ Please support [humans.txt](http://humanstxt.org/). It's an initiative for knowi
 	Author URI: https://jjgrainger.co.uk/
 	Location: Falmouth, England
 
-**Carbon Fields**
+**WordPress Settings API Class**
 
 	URL: https://github.com/tareq1988/wordpress-settings-api-class
 	Author: Tareq Hasan
