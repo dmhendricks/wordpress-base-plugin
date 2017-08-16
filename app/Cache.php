@@ -17,18 +17,23 @@ class Cache extends Plugin {
     if( is_multisite() ) $object_cache_group .= '_' . get_current_blog_id();
     $object_cache_expire = ( isset( self::$settings['object_cache']['expire_hours'] ) && is_int( self::$settings['object_cache']['expire_hours'] ) ? self::$settings['object_cache']['expire_hours'] : 24 ) * 86400; // Default to 24 hours
 
+    $cache_disabled = defined( 'WBP_DISABLE_CACHE' ) && WBP_DISABLE_CACHE;
+    $result = null;
+
     // Set key variable
     $object_cache_key =  $key . ( is_multisite() ? '_' . get_current_blog_id() : '' );
 
     // Try to get the value of the cache
-    $result = wp_cache_get( $object_cache_key, $object_cache_group );
-    if( $result && is_serialized( $result ) ) $result = unserialize($result);
+    if( !$cache_disabled ) {
+      $result = wp_cache_get( $object_cache_key, $object_cache_group );
+      if( $result && is_serialized( $result ) ) $result = unserialize($result);
+    }
 
     // If result wasn't found/returned and/or caching is disabled, set & return the value from $callback
     if( !$result ) {
       $result = $callback();
       if( is_array( $result ) || is_object( $result ) ) $set_result = serialize( $result );
-      wp_cache_set( $object_cache_key, $set_result, $object_cache_group, $object_cache_expire);
+      if( !$cache_disabled ) wp_cache_set( $object_cache_key, $set_result, $object_cache_group, $object_cache_expire);
     }
 
     return $result;
