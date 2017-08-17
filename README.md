@@ -22,7 +22,7 @@ It may also be used as the means of [separating custom code](http://www.billeric
 ## Requirements
 
 * WordPress 4.0 or higher
-* PHP 5.4 or higher
+* PHP 5.6 or higher
 * [Carbon Fields](https://github.com/htmlburger/carbon-fields) 2.0 or higher (see [Dependencies](https://github.com/dmhendricks/wordpress-base-plugin/wiki#dependencies) for more info)
 
 ## Installation
