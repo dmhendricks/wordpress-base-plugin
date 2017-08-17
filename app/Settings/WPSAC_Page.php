@@ -1,6 +1,6 @@
 <?php
-namespace VendorName\MyPlugin\Settings;
-use VendorName\MyPlugin\Plugin;
+namespace VendorName\PluginName\Settings;
+use VendorName\PluginName\Plugin;
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
 
@@ -10,7 +10,7 @@ use Carbon_Fields\Field;
   * @link https://github.com/tareq1988/wordpress-settings-api-class wordpress-settings-api-class
   * @since 0.3.0
   */
-class Settings_WPSAC extends Plugin {
+class WPSAC_Page extends Plugin {
 
   private $settings_api;
 

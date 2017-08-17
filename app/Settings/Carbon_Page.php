@@ -1,6 +1,6 @@
 <?php
-namespace VendorName\MyPlugin\Settings;
-use VendorName\MyPlugin\Plugin;
+namespace VendorName\PluginName\Settings;
+use VendorName\PluginName\Plugin;
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
 
@@ -10,7 +10,7 @@ use Carbon_Fields\Field;
   * @link https://carbonfields.net/docs/containers-theme-options/ Carbon Fields Theme Options
   * @since 0.1.0
   */
-class Settings_Carbon extends Plugin {
+class Carbon_Page extends Plugin {
 
   private $settings_api;
   protected $settings_containers;
