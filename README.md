@@ -67,6 +67,7 @@ Release changes are noted on the [Releases](https://github.com/dmhendricks/wordp
 * Added `register_uninstall_hook` to delete Carbon Fields settings when plugin uninstalled
 * Added [wordpress-settings-api-class](https://github.com/tareq1988/wordpress-settings-api-class) settings page example
 * Added `WBP_DISABLE_CACHE` constant
+* Added `VERSION` constant ([info](https://github.com/dmhendricks/wordpress-base-plugin/wiki/Configuration-&-Constants#defined-by-plugin))
 
 ## Credits
 

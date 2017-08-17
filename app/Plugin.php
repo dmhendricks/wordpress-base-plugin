@@ -16,6 +16,9 @@ class Plugin {
     self::$textdomain = $_settings['data']['TextDomain'];
     self::$settings = array_merge( $_settings, $plugin_config->get() );
 
+    // Define plugin version constant
+    if ( !defined( __NAMESPACE__ . '\VERSION' ) ) define( __NAMESPACE__ . '\VERSION', $_settings['data']['Version'] );
+
     // Verify dependecies and load plugin logic
     register_activation_hook( self::$settings['plugin_file'], array( $this, 'activate' ) );
     add_action( 'plugins_loaded', array( $this, 'init' ) );
