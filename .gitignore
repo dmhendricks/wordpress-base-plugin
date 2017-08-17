@@ -62,7 +62,7 @@ assets/bower_components/*
 #######
 node_modules
 
-# Miscellaneous #
-#################
-
-/dev/
+# Development #
+###############
+dev/
+languages/*.*
