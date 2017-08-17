@@ -45,7 +45,6 @@ This plugin loads many of its defaults & settings from `plugin.json`. See [Confi
 
 ## Planned Features & TODO
 
-* Fix i18n issues, add `gulp-wp-pot` support
 * Add task runner, related documentation, update .gitignore and rearrange `./assets`
 * Improve configuration management
 * Add Ajax call example
@@ -53,7 +52,7 @@ This plugin loads many of its defaults & settings from `plugin.json`. See [Confi
 * Add GitHub update class (GitHub Updater 7 is destroying my memory consumption)
 * Add Customizer example
 * Add dynamically-created CSS/JS files based on settings
-* Move Cache class to external dependency
+* Move Cache class as separate dependency
 
 ## Change Log
 
@@ -63,6 +62,7 @@ Release changes are noted on the [Releases](https://github.com/dmhendricks/wordp
 
 * Bumped minimum PHP version check to 5.6
 * Split out settings pages, shortcodes, CPT a& widgets into separate files/classes (thanks [obstschale](https://github.com/obstschale/wordpress-base-plugin))
+* Added `wp-pot-cli` to `package.json` to create `.pot` translation file
 * Added `Utils::is_json()` function to test for valid syntax
 * Added `register_uninstall_hook` to delete Carbon Fields settings when plugin uninstalled
 * Added [wordpress-settings-api-class](https://github.com/tareq1988/wordpress-settings-api-class) settings page example

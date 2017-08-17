@@ -1,0 +1,234 @@
+# Copyright (C) 2017 wordpress-base-plugin
+# This file is distributed under the same license as the wordpress-base-plugin package.
+msgid ""
+msgstr ""
+"Project-Id-Version: wordpress-base-plugin\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../app/Plugin.php:117
+msgid "This plugin is not supported on versions of PHP below"
+msgstr ""
+
+#: ../app/Plugin.php:125
+msgid "An unknown error occurred while trying to load the Carbon Fields framework."
+msgstr ""
+
+#: ../app/Plugin.php:127
+msgid "An outdated version of Carbon Fields has been detected:"
+msgstr ""
+
+#: ../app/Plugin.php:127
+msgid "required"
+msgstr ""
+
+#: ../app/Plugin.php:127
+msgid "deactivated."
+msgstr ""
+
+#: ../app/PostTypes/Clients.php:58
+msgid "Name"
+msgstr ""
+
+#: ../app/PostTypes/Clients.php:59
+msgid "Company"
+msgstr ""
+
+#: ../app/PostTypes/Clients.php:55
+msgid "Client Details"
+msgstr ""
+
+#: ../app/PostTypes/Clients.php:65
+msgid "Web Site"
+msgstr ""
+
+#: ../app/PostTypes/Clients.php:66, ../app/Settings/Carbon_Page.php:65
+msgid "Phone Number"
+msgstr ""
+
+#: ../app/PostTypes/Clients.php:67
+msgid "Address"
+msgstr ""
+
+#: ../app/Settings/Carbon_Page.php:91
+msgid "Miscellaneous"
+msgstr ""
+
+#: ../app/Settings/Carbon_Page.php:92
+msgid "Foreground Color"
+msgstr ""
+
+#: ../app/Settings/Carbon_Page.php:93
+msgid "Default Image"
+msgstr ""
+
+#: ../app/Settings/Carbon_Page.php:94
+msgid "File Upload"
+msgstr ""
+
+#: ../app/Settings/Carbon_Page.php:45
+msgid "General"
+msgstr ""
+
+#: ../app/Settings/Carbon_Page.php:46
+msgid "Delete Plugin Settings On Uninstall"
+msgstr ""
+
+#: ../app/Settings/Carbon_Page.php:48
+msgid "Checking this box will remove the default Emoji code from page headers."
+msgstr ""
+
+#: ../app/Settings/Carbon_Page.php:47
+msgid "Remove Emoji Code From Page Headers"
+msgstr ""
+
+#: ../app/Settings/Carbon_Page.php:52
+msgid "Frontend"
+msgstr ""
+
+#: ../app/Settings/Carbon_Page.php:53
+msgid "Backend"
+msgstr ""
+
+#: ../app/Settings/Carbon_Page.php:50
+msgid "Load <a href=\"http://fontawesome.io/\" target=\"_blank\">Font Awesome</a> from <a href=\"https://www.bootstrapcdn.com/fontawesome/\" target=\"_blank\">CDN</a>."
+msgstr ""
+
+#: ../app/Settings/Carbon_Page.php:49
+msgid "Load Font Awesome from CDN"
+msgstr ""
+
+#: ../app/Settings/Carbon_Page.php:57
+msgid "These fields are just provided as examples and are not used by any logic in the plugin."
+msgstr ""
+
+#: ../app/Settings/Carbon_Page.php:56
+msgid "Example Fields"
+msgstr ""
+
+#: ../app/Settings/Carbon_Page.php:58
+msgid "Blog Title"
+msgstr ""
+
+#: ../app/Settings/Carbon_Page.php:61
+msgid "This input field is an HTML5 <tt>email</tt> type."
+msgstr ""
+
+#: ../app/Settings/Carbon_Page.php:59
+msgid "Your E-mail Address"
+msgstr ""
+
+#: ../app/Settings/Carbon_Page.php:64
+msgid "This input field is an HTML5 <tt>url</tt> type."
+msgstr ""
+
+#: ../app/Settings/Carbon_Page.php:62
+msgid "Web Site Address"
+msgstr ""
+
+#: ../app/Settings/Carbon_Page.php:67
+msgid "Date & Time"
+msgstr ""
+
+#: ../app/Settings/Carbon_Page.php:70
+msgid "Disabled"
+msgstr ""
+
+#: ../app/Settings/Carbon_Page.php:71
+msgid "Top (Default)"
+msgstr ""
+
+#: ../app/Settings/Carbon_Page.php:72
+msgid "Left"
+msgstr ""
+
+#: ../app/Settings/Carbon_Page.php:68
+msgid "Menu Position"
+msgstr ""
+
+#: ../app/Settings/Carbon_Page.php:75
+msgid "Slides"
+msgstr ""
+
+#: ../app/Settings/Carbon_Page.php:81
+msgid "Asia"
+msgstr ""
+
+#: ../app/Settings/Carbon_Page.php:82
+msgid "Africa"
+msgstr ""
+
+#: ../app/Settings/Carbon_Page.php:83
+msgid "Europe"
+msgstr ""
+
+#: ../app/Settings/Carbon_Page.php:84
+msgid "North America"
+msgstr ""
+
+#: ../app/Settings/Carbon_Page.php:85
+msgid "South America"
+msgstr ""
+
+#: ../app/Settings/Carbon_Page.php:86
+msgid "Australia"
+msgstr ""
+
+#: ../app/Settings/Carbon_Page.php:87
+msgid "Antarctica"
+msgstr ""
+
+#: ../app/Settings/Carbon_Page.php:79
+msgid "Favorite Continent"
+msgstr ""
+
+#: ../app/Settings/Carbon_Page.php:113
+msgid "Your Name"
+msgstr ""
+
+#: ../app/Settings/Carbon_Page.php:114
+msgid "Profile Pic"
+msgstr ""
+
+#: ../app/Settings/WPSAC_Page.php:45, ../app/Settings/WPSAC_Page.php:59
+msgid "Settings"
+msgstr ""
+
+#: ../app/Settings/WPSAC_Page.php:78
+msgid "Blog Name"
+msgstr ""
+
+#: ../app/Settings/WPSAC_Page.php:79
+msgid "Enter a title for your blog"
+msgstr ""
+
+#: ../app/Settings/WPSAC_Page.php:99
+msgid "A simple radio button example."
+msgstr ""
+
+#: ../app/Shortcodes/HelloShortcode.php:29
+msgid "Hello"
+msgstr ""
+
+#: ../app/Widgets/ExampleWidget.php:15
+msgid "Plugin Widget - Example"
+msgstr ""
+
+#: ../app/Widgets/ExampleWidget.php:16
+msgid "Displays a block with title/text"
+msgstr ""
+
+#: ../app/Widgets/ExampleWidget.php:17
+msgid "Title"
+msgstr ""
+
+#: ../app/Widgets/ExampleWidget.php:19
+msgid "Content"
+msgstr ""

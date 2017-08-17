@@ -52,7 +52,7 @@ class Clients extends Plugin {
     $cpt->icon('dashicons-star-filled');
 
     // Add fields
-    Container::make( 'post_meta', __(' Client Details', self::$textdomain ) )
+    Container::make( 'post_meta', __('Client Details', self::$textdomain ) )
       ->show_on_post_type( $cpt->postTypeName )
       ->add_fields( array(
         Field::make( 'text', $this->prefix( 'name' ), __( 'Name', self::$textdomain ) ),

@@ -1,0 +1,11 @@
+{
+  "name": "wordpress-base-plugin",
+  "author": "Daniel M. Hendricks",
+  "license": "GPL-2.0",
+  "scripts": {
+    "translate": "wp-pot -s 'app/**/*.php' -o './languages/wordpress-base-plugin.pot' -p 'wordpress-base-plugin'"
+  },
+  "devDependencies": {
+    "wp-pot-cli": "^1.0"
+  }
+}
