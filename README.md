@@ -15,6 +15,7 @@ It may also be used as the means of [separating custom code](http://www.billeric
 * Namespaces & dependency autoloading
 * Version checking (PHP, Carbon Fields)
 * Object caching (where available) - [Usage Examples](https://github.com/dmhendricks/wordpress-base-plugin/wiki#caching)
+* Automatic translation file (`.pot`) creation. See [Translation](https://github.com/dmhendricks/wordpress-base-plugin/wiki#translation).
 * Shortcodes, widgets and custom post type (via [PostTypes](https://github.com/jjgrainger/PostTypes/)) examples
 * Optional configuration [Constants](https://github.com/dmhendricks/wordpress-base-plugin/wiki/Configuration-&-Constants)
 * [More to come...](#planned-features)
@@ -61,7 +62,7 @@ Release changes are noted on the [Releases](https://github.com/dmhendricks/wordp
 #### Branch: `master`
 
 * Bumped minimum PHP version check to 5.6
-* Split out settings pages, shortcodes, CPT a& widgets into separate files/classes (thanks [obstschale](https://github.com/obstschale/wordpress-base-plugin))
+* Split out settings pages, shortcodes, CPT & widgets into separate files/classes (thanks [obstschale](https://github.com/obstschale/wordpress-base-plugin))
 * Added `wp-pot-cli` to `package.json` to create `.pot` translation file
 * Added `Utils::is_json()` function to test for valid syntax
 * Added `register_uninstall_hook` to delete Carbon Fields settings when plugin uninstalled
