@@ -12,7 +12,6 @@ use Carbon_Fields\Field;
   */
 class Carbon_Page extends Plugin {
 
-  private $settings_api;
   protected $settings_containers;
 
   function __construct() {

@@ -52,7 +52,8 @@
   "autoload": {
     "psr-4": {
       "VendorName\\PluginName\\": "app/",
-      "VendorName\\PluginName\\Settings\\": "app/Settings/"
+      "VendorName\\PluginName\\Settings\\": "app/Settings/",
+      "VendorName\\PluginName\\PostTypes\\": "app/PostTypes/"
     }
   },
   "scripts": {

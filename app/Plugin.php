@@ -74,7 +74,7 @@ class Plugin {
     new Core();
 
     // Create custom post types
-    new CPT();
+    new PostTypes\Clients();
 
     // Load custom widgets
     new WidgetLoader();
