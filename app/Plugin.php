@@ -80,7 +80,7 @@ class Plugin {
     new WidgetLoader();
 
     // Load shortcodes
-    new Shortcodes();
+    new Shortcodes\ShortcodeLoader();
 
   }
 

@@ -53,7 +53,8 @@
     "psr-4": {
       "VendorName\\PluginName\\": "app/",
       "VendorName\\PluginName\\Settings\\": "app/Settings/",
-      "VendorName\\PluginName\\PostTypes\\": "app/PostTypes/"
+      "VendorName\\PluginName\\PostTypes\\": "app/PostTypes/",
+      "VendorName\\PluginName\\Shortcodes\\": "app/Shortcodes/"
     }
   },
   "scripts": {

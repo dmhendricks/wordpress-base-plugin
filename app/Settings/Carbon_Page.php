@@ -14,7 +14,7 @@ class Carbon_Page extends Plugin {
 
   protected $settings_containers;
 
-  function __construct() {
+  public function __construct() {
 
     // Initialize array that will hold Carbon Fields Container objects
     $this->settings_containers = array();
