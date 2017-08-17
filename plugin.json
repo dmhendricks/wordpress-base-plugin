@@ -1,0 +1,13 @@
+{
+  "prefix": "myplugin_",
+  "short_name": "Base Plugin",
+  "object_cache": {
+    "group": "my_plugin_cache",
+    "expire_hours": 72
+  },
+  "dependencies": {
+    "php": "5.6",
+    "carbon_fields": "2.0"
+  },
+  "encrypt_method": "AES-128-ECB"
+}
