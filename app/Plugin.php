@@ -77,7 +77,7 @@ class Plugin {
     new PostTypes\Clients();
 
     // Load custom widgets
-    new WidgetLoader();
+    new Widgets\WidgetLoader();
 
     // Load shortcodes
     new Shortcodes\ShortcodeLoader();

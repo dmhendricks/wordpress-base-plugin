@@ -13,10 +13,10 @@ It may also be used as the means of [separating custom code](http://www.billeric
 ## Features
 
 * Namespaces & dependency autoloading
-* Dependency version checking (PHP, Carbon Fields)
-* Object caching (when available) - [Usage Examples](https://github.com/dmhendricks/wordpress-base-plugin/wiki#caching)
+* Version checking (PHP, Carbon Fields)
+* Object caching (where available) - [Usage Examples](https://github.com/dmhendricks/wordpress-base-plugin/wiki#caching)
 * Shortcodes, widgets and custom post type (via [PostTypes](https://github.com/jjgrainger/PostTypes/)) examples
-* Optional configuration [Constants](https://github.com/dmhendricks/wordpress-base-plugin/wiki/Configuration-&-Constants) (more are planned)
+* Optional configuration [Constants](https://github.com/dmhendricks/wordpress-base-plugin/wiki/Configuration-&-Constants)
 * [More to come...](#planned-features)
 
 ## Requirements
@@ -61,6 +61,8 @@ Release changes are noted on the [Releases](https://github.com/dmhendricks/wordp
 
 #### Branch: `master`
 
+* Bumped minimum PHP version check to 5.6
+* Split out settings pages, shortcodes, CPT a& widgets into separate files/classes (thanks [obstschale](https://github.com/obstschale/wordpress-base-plugin))
 * Added `Utils::is_json()` function to test for valid syntax
 * Added `register_uninstall_hook` to delete Carbon Fields settings when plugin uninstalled
 * Added [wordpress-settings-api-class](https://github.com/tareq1988/wordpress-settings-api-class) settings page example
