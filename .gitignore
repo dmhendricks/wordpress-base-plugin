@@ -61,3 +61,8 @@ assets/bower_components/*
 # NPM #
 #######
 node_modules
+
+# Miscellaneous #
+#################
+
+/dev/

@@ -50,7 +50,6 @@ This plugin loads many of its defaults & settings from `plugin.json`. See [Confi
 * Improve configuration management
 * Add Ajax call example
 * Add encrypt/decrypt example (`password` field with encrypted `hidden` field)
-* Add GitHub update class (GitHub Updater 7 is destroying my memory consumption)
 * Add Customizer example
 * Add dynamically-created CSS/JS files based on settings
 * Move Cache class as separate dependency
