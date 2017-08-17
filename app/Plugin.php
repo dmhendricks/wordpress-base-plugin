@@ -1,5 +1,5 @@
 <?php
-namespace VendorName\MyPlugin;
+namespace VendorName\PluginName;
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
 use Config;
@@ -62,10 +62,10 @@ class Plugin {
     new TGMPA();
 
     // Add admin settings page using Carbon Fields framework
-    new Settings\Settings_Carbon();
+    new Settings\Carbon_Page();
 
     // Alternatively, add admin settings page using wordpress-settings-api-class
-    new Settings\Settings_WPSAC();
+    new Settings\WPSAC_Page();
 
     // Enqueue scripts and stylesheets
     new EnqueueScripts();

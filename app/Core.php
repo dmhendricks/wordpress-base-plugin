@@ -1,5 +1,5 @@
 <?php
-namespace VendorName\MyPlugin;
+namespace VendorName\PluginName;
 
 class Core extends Plugin {
 

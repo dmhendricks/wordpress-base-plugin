@@ -1,5 +1,5 @@
 <?php
-namespace VendorName\MyPlugin;
+namespace VendorName\PluginName;
 use Carbon_Fields\Widget;
 use Carbon_Fields\Field;
 

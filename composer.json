@@ -51,8 +51,8 @@
   "minimum-stability": "dev",
   "autoload": {
     "psr-4": {
-      "VendorName\\MyPlugin\\": "app/",
-      "VendorName\\MyPlugin\\Settings\\": "app/Settings/"
+      "VendorName\\PluginName\\": "app/",
+      "VendorName\\PluginName\\Settings\\": "app/Settings/"
     }
   },
   "scripts": {
