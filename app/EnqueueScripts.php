@@ -27,9 +27,6 @@ class EnqueueScripts extends Plugin {
     */
   public function enqueue_frontend_scripts() {
 
-    // Purely as an example, enqueuing a script added from ZIP file via composer (http://hgoebl.github.io/mobile-detect.js/)
-    wp_enqueue_script( 'modile-detect', $this->get_script_url('vendor/hgoebl/mobile-detect/mobile-detect.min.js'), null, '1.3.6' );
-
     // Enqueuing custom CSS for child theme (Twentysixteen was used for testing)
     wp_enqueue_style( 'wordpress-base-plugin', $this->get_script_url('assets/css/site.css'), null, $this->get_script_version('assets/css/site.css') );
 
@@ -40,7 +37,7 @@ class EnqueueScripts extends Plugin {
     */
   public function enqueue_admin_scripts() {
 
-    wp_enqueue_script( 'wordpress-base-plugin', $this->get_script_url('assets/js/wordpress-base-admin.js'), array('jquery'), $this->get_script_version('assets/js/wordpress-base-admin.js')  );
+    wp_enqueue_script( 'wordpress-base-plugin', $this->get_script_url('assets/js/wordpress-base-plugin-admin.js'), array('jquery'), $this->get_script_version('assets/js/wordpress-base-plugin-admin.js')  );
 
   }
 
