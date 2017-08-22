@@ -193,16 +193,4 @@ class Utils extends Plugin {
     return openssl_decrypt($str, self::$settings['encrypt_method'], $salt);
   }
 
-  /**
-    * Checks whether a JSON string has valid syntax
-    *
-    * @param string $json The JSON string to test
-    * @return bool
-    * @since 0.3.0
-    */
-  public static function is_json( $json ) {
-    json_decode($string);
-    return (json_last_error() == JSON_ERROR_NONE);
-  }
-
 }
