@@ -1,5 +1,6 @@
 <?php
 namespace VendorName\PluginName;
+use WordPress_ToolKit\ObjectCache;
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
 use Config;
@@ -8,6 +9,7 @@ class Plugin {
 
   public static $settings;
   public static $textdomain;
+  protected static $cache;
 
   function __construct( $_settings ) {
 
@@ -18,6 +20,9 @@ class Plugin {
 
     // Define plugin version constant
     if ( !defined( __NAMESPACE__ . '\VERSION' ) ) define( __NAMESPACE__ . '\VERSION', $_settings['data']['Version'] );
+
+    // Initialize ObjectCache
+    self::$cache = new ObjectCache( self::$settings );
 
     // Verify dependecies and load plugin logic
     register_activation_hook( self::$settings['plugin_file'], array( $this, 'activate' ) );
@@ -170,7 +175,7 @@ class Plugin {
 
     if( $cache ) {
       // Attempt to get value from cache, else fetch value from database
-      return Cache::get_object( $key, function() use ( &$key ) {
+      return self::$cache->get_object( $key, function() use ( &$key ) {
         return carbon_get_theme_option( $key );
       });
     } else {

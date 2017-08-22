@@ -1,5 +1,6 @@
 [![Author](https://img.shields.io/badge/author-Daniel%20M.%20Hendricks-blue.svg)](https://www.danhendricks.com)
 [![GitHub License](https://img.shields.io/badge/license-GPLv2-green.svg)](https://raw.githubusercontent.com/dmhendricks/wordpress-base-plugin/master/LICENSE)
+[![Total Downloads](https://img.shields.io/packagist/dt/PHLAK/Config.svg)](https://packagist.org/packages/PHLAK/Config)
 [![Twitter](https://img.shields.io/twitter/url/https/github.com/dmhendricks/wordpress-base-plugin.svg?style=social)](https://twitter.com/danielhendricks)
 
 # WordPress Base Plugin
@@ -38,7 +39,10 @@ It may also be used as the means of [separating custom code](http://www.billeric
 1. Modify `composer.json` to suit your needs
 1. Run `composer install` to install dependencies and autoload namespace
 
-**Note:** `hgoebl/mobile-detect` is just loaded as an example. Feel free to remove it.
+### Next Steps
+
+See the [Getting Started](https://github.com/dmhendricks/wordpress-base-plugin/wiki#getting-started) documentation.
+
 
 ## Plugin Settings
 
@@ -47,12 +51,14 @@ This plugin loads many of its defaults & settings from `plugin.json`. See [Confi
 ## Planned Features & TODO
 
 * Add task runner, related documentation, update .gitignore and rearrange `./assets`
-* Improve configuration management
-* Add Ajax call example
+* Add external class library for common features
+	* Improve configuration management
+	* Add ability to modify plugin meta in Plugins list
+	* Move Cache class as separate dependency
+	* Add Ajax call example
 * Add encrypt/decrypt example (`password` field with encrypted `hidden` field)
 * Add Customizer example
 * Add dynamically-created CSS/JS files based on settings
-* Move Cache class as separate dependency
 
 ## Change Log
 
@@ -66,8 +72,9 @@ Release changes are noted on the [Releases](https://github.com/dmhendricks/wordp
 * Added `Utils::is_json()` function to test for valid syntax
 * Added `register_uninstall_hook` to delete Carbon Fields settings when plugin uninstalled
 * Added [wordpress-settings-api-class](https://github.com/tareq1988/wordpress-settings-api-class) settings page example
-* Added `WBP_DISABLE_CACHE` constant
+* Added `WPTK_DISABLE_CACHE` constant
 * Added `VERSION` constant ([info](https://github.com/dmhendricks/wordpress-base-plugin/wiki/Configuration-&-Constants#defined-by-plugin))
+* Added [wordpress-toolkit](https://github.com/dmhendricks/wordpress-toolkit) as dependency
 
 ## Credits
 

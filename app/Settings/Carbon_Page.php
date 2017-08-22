@@ -144,7 +144,7 @@ class Carbon_Page extends Plugin {
   public function options_saved_hook() {
 
     // Clear the cache so that new settings are loaded
-    Cache::flush();
+    self::$cache->flush();
 
   }
 
