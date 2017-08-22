@@ -3,7 +3,7 @@ namespace VendorName\PluginName;
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
 
-class Utils extends Plugin {
+class Helpers extends Plugin {
 
   /**
     * Display a notice/message in WP Admin
@@ -177,7 +177,7 @@ class Utils extends Plugin {
     */
   public static function encrypt( $str ) {
     $salt = defined( 'WP_ENCRYPT_KEY' ) && WP_ENCRYPT_KEY ? WP_ENCRYPT_KEY : SECURE_AUTH_KEY;
-    return openssl_encrypt($str, self::$settings['encrypt_method'], $salt);
+    return openssl_encrypt($str, self::$config->get( 'encrypt_method' ), $salt);
   }
 
   /**
@@ -186,11 +186,11 @@ class Utils extends Plugin {
     * @param string $str String to decrypt
     * @return string Decrypted string
     * @since 0.2.1
-    * @see Utils::encrypt()
+    * @see Helpers::encrypt()
     */
   public static function decrypt( $str ) {
     $salt = defined( 'WP_ENCRYPT_KEY' ) && WP_ENCRYPT_KEY ? WP_ENCRYPT_KEY : SECURE_AUTH_KEY;
-    return openssl_decrypt($str, self::$settings['encrypt_method'], $salt);
+    return openssl_decrypt($str, self::$config->get( 'encrypt_method' ), $salt);
   }
 
 }

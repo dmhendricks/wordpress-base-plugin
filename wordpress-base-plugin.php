@@ -36,10 +36,5 @@ if(!defined('ABSPATH')) die();
 require( __DIR__ . '/vendor/autoload.php' );
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
-// Initialize plugin - Change to use your own namespace
-new \VendorName\PluginName\Plugin( array(
-	'data' => get_plugin_data( __FILE__ ),
-	'path' => trailingslashit( realpath( plugin_dir_path( __FILE__ ) ) ),
-	'url' => plugin_dir_url( __FILE__ ),
-	'plugin_file' => plugin_basename( __FILE__ )
-) );
+// Initialize plugin
+new \VendorName\PluginName\Plugin();

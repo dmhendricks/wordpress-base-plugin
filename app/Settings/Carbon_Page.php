@@ -27,7 +27,7 @@ class Carbon_Page extends Plugin {
 
     // Register uninstall hook to delete settings
     if( $this->get_plugin_option( 'uninstall_remove_settings' ) ) {
-      register_uninstall_hook( self::$settings['plugin_file'], array( $this, 'plugin_settings_uninstall' ) );
+      register_uninstall_hook( self::$config->get( 'plugin/identifier' ), array( $this, 'plugin_settings_uninstall' ) );
     }
 
   }
@@ -40,7 +40,7 @@ class Carbon_Page extends Plugin {
   private function create_tabbed_options_page() {
 
     // Carbon Fields Docs: https://carbonfields.net/docs/containers-theme-options/
-    $container = Container::make( 'theme_options', self::$settings['data']['Name'] )
+    $container = Container::make( 'theme_options', self::$config->get( 'plugin/meta/Name' ) )
       ->set_page_parent('options-general.php')
       ->add_tab( __('General', self::$textdomain), array(
         Field::make('checkbox', $this->prefix('uninstall_remove_settings'), __('Delete Plugin Settings On Uninstall', self::$textdomain) ),
@@ -72,7 +72,7 @@ class Carbon_Page extends Plugin {
             'left' => __('Left', self::$textdomain)
           ))
           ->set_default_value('top'),
-        Field::make('complex', $this->prefix('slides'), self::$settings['data']['Name'] . ' ' . __('Slides', self::$textdomain))->add_fields(array(
+        Field::make('complex', $this->prefix('slides'), self::$config->get( 'plugin/meta/Name' ) . ' ' . __('Slides', self::$textdomain))->add_fields(array(
           Field::make('text', 'title'),
           Field::make('image', 'photo'),
         )),
@@ -107,11 +107,11 @@ class Carbon_Page extends Plugin {
     */
   private function create_single_options_page() {
 
-    Container::make('theme_options', self::$settings['data']['Name'])
+    Container::make( 'theme_options', self::$config->get( 'plugin/meta/Name' ) )
       ->set_page_parent('options-general.php')
-      ->add_fields(array(
-        Field::make('text', $this->prefix('your_name'), __('Your Name', self::$textdomain) ),
-        Field::make('image', $this->prefix('profile_pic'), __('Profile Pic', self::$textdomain) )
+      ->add_fields( array(
+        Field::make( 'text', $this->prefix('your_name'), __( 'Your Name', self::$textdomain) ),
+        Field::make( 'image', $this->prefix('profile_pic'), __('Profile Pic', self::$textdomain) )
       )
     );
 

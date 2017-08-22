@@ -66,14 +66,15 @@ Release changes are noted on the [Releases](https://github.com/dmhendricks/wordp
 #### Branch: `master`
 
 * Bumped minimum PHP version check to 5.6
+* Drastically refactored configuration management
 * Split out settings pages, shortcodes, CPT & widgets into separate files/classes (thanks [obstschale](https://github.com/obstschale/wordpress-base-plugin))
 * Added `wp-pot-cli` to `package.json` to create `.pot` translation file
-* Added `Utils::is_json()` function to test for valid syntax
 * Added `register_uninstall_hook` to delete Carbon Fields settings when plugin uninstalled
 * Added [wordpress-settings-api-class](https://github.com/tareq1988/wordpress-settings-api-class) settings page example
 * Added `WPTK_DISABLE_CACHE` constant
 * Added `VERSION` constant ([info](https://github.com/dmhendricks/wordpress-base-plugin/wiki/Configuration-&-Constants#defined-by-plugin))
 * Added [wordpress-toolkit](https://github.com/dmhendricks/wordpress-toolkit) as dependency
+* Renamed `Utils` class to `Helpers`
 
 ## Credits
 

@@ -67,7 +67,7 @@ class EnqueueScripts extends Plugin {
     * @since 0.1.0
     */
   public function get_script_version($script, $return_minified = false, $script_version = null) {
-    $version = $script_version ?: self::$settings['data']['Version'];
+    $version = $script_version ?: self::$config->get( 'plugin/meta/Version' );
     if($this->is_production()) return $version;
 
     $script = $this->get_script_path($script, $return_minified);
@@ -102,7 +102,7 @@ class EnqueueScripts extends Plugin {
       $script = implode('.', $script_parts) . '.min.' . $script_extension;
     }
 
-    return self::$settings[$return_url ? 'url' : 'path'] . $script;
+    return self::$config->get( $return_url ? 'plugin/url' : 'plugin/path' ) . $script;
   }
 
   /**

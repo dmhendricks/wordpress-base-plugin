@@ -42,7 +42,7 @@ class WPSAC_Page extends Plugin {
     * @since 0.3.0
     */
   public function wpsac_admin_menu() {
-    add_options_page( self::$settings['short_name'], self::$settings['short_name'] . ' ' . __( 'Settings', self::$textdomain ) . ' (WPSAC)', 'manage_options', sanitize_title( self::$settings['data']['Name'] ), array( $this, 'create_wpsac_settings_page' ) );
+    add_options_page( self::$config->get( 'short_name' ), self::$config->get( 'short_name' ) . ' ' . __( 'Settings', self::$textdomain ) . ' (WPSAC)', 'manage_options', sanitize_title( self::$config->get( 'plugin/meta/Name' ) ), array( $this, 'create_wpsac_settings_page' ) );
   }
 
   /**
@@ -56,7 +56,7 @@ class WPSAC_Page extends Plugin {
 
       array(
           'id'    => $this->prefix( 'general' ),
-          'title' => self::$settings['short_name'] . ' ' . __( 'Settings', self::$textdomain ) . ' (WPSAC)'
+          'title' => self::$config->get( 'short_name' ) . ' ' . __( 'Settings', self::$textdomain ) . ' (WPSAC)'
       )
     );
 

@@ -1,31 +1,45 @@
 <?php
 namespace VendorName\PluginName;
 use WordPress_ToolKit\ObjectCache;
+use WordPress_ToolKit\ConfigRegistry;
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
 use Config;
 
 class Plugin {
 
-  public static $settings;
   public static $textdomain;
   protected static $cache;
+  protected static $config;
 
-  function __construct( $_settings ) {
+  function __construct() {
 
     // Initialize plugin settings
-    $plugin_config = new Config\Config( $_settings['path'] . 'plugin.json' );
-    self::$textdomain = $_settings['data']['TextDomain'];
-    self::$settings = array_merge( $_settings, $plugin_config->get() );
+
+    // Get plugin path, URL, identifier and slug
+    $plugin_data['path'] = plugin_dir_path( __DIR__ );
+    $plugin_data['slug'] = end( explode( '/', trim( $plugin_data['path'], '/' ) ) );
+    $plugin_data['file'] = end( explode( '/', debug_backtrace()[0]['file'] ) );
+    $plugin_data = array( 'plugin' => array(
+      'identifier' => $plugin_data['slug'] . DIRECTORY_SEPARATOR . $plugin_data['file'],
+      'slug' => $plugin_data['slug'],
+      'path' => $plugin_data['path'],
+      'url' => plugin_dir_url( __DIR__ ),
+      'meta' => get_plugin_data( $plugin_data['path'] . $plugin_data['file'] )
+    ));
+
+    self::$config = new ConfigRegistry( $plugin_data['plugin']['path'] . 'plugin.json' );
+    self::$config = self::$config->merge( new ConfigRegistry( $plugin_data ) );
+    self::$textdomain = self::$config->get( 'plugin/meta/Name' ) ?: self::$config->get( 'plugin/slug' );
 
     // Define plugin version constant
-    if ( !defined( __NAMESPACE__ . '\VERSION' ) ) define( __NAMESPACE__ . '\VERSION', $_settings['data']['Version'] );
+    if ( !defined( __NAMESPACE__ . '\VERSION' ) ) define( __NAMESPACE__ . '\VERSION', self::$config->get( 'plugin/meta/Version' ) );
 
     // Initialize ObjectCache
-    self::$cache = new ObjectCache( self::$settings );
+    self::$cache = new ObjectCache( self::$config );
 
     // Verify dependecies and load plugin logic
-    register_activation_hook( self::$settings['plugin_file'], array( $this, 'activate' ) );
+    register_activation_hook( self::$config->get( 'plugin/identifier' ), array( $this, 'activate' ) );
     add_action( 'plugins_loaded', array( $this, 'init' ) );
 
   }
@@ -105,10 +119,10 @@ class Plugin {
     */
   private function verify_dependencies( $deps = true, $args = array() ) {
 
-    if( is_bool( $deps ) && $deps ) $deps = self::$settings['dependencies'];
-    if( !is_array( $deps ) ) $deps = array( $deps => self::$settings['dependencies'][$deps] );
+    if( is_bool( $deps ) && $deps ) $deps = self::$config->get( 'dependencies' );
+    if( !is_array( $deps ) ) $deps = array( $deps => self::$config->get( 'dependencies/' . $deps ) );
 
-    $args = Utils::set_default_atts( array(
+    $args = Helpers::set_default_atts( array(
       'echo' => true,
       'activate' => true
     ), $args);
@@ -122,7 +136,7 @@ class Plugin {
         case 'php':
 
           if( version_compare( phpversion(), $version, '<' ) ) {
-            $notices[] = __( 'This plugin is not supported on versions of PHP below', self::$textdomain ) . ' ' . self::$settings['dependencies']['php'] . '.' ;
+            $notices[] = __( 'This plugin is not supported on versions of PHP below', self::$textdomain ) . ' ' . self::$config->get( 'dependencies/php' ) . '.' ;
           }
           break;
 
@@ -132,7 +146,7 @@ class Plugin {
           if( !$args['activate'] && !defined('\\Carbon_Fields\\VERSION') ) {
             $notices[] = __( 'An unknown error occurred while trying to load the Carbon Fields framework.', self::$textdomain );
           } else if ( defined('\\Carbon_Fields\\VERSION') && version_compare( \Carbon_Fields\VERSION, $version, '<' ) ) {
-            $notices[] = __( 'An outdated version of Carbon Fields has been detected:', self::$textdomain ) . ' ' . \Carbon_Fields\VERSION . ' (&gt;= '.self::$settings['dependencies']['carbon_fields'] . ' ' . __( 'required', self::$textdomain ) . ').' . ' <strong>' . self::$settings['data']['Name'] . '</strong> ' . __( 'deactivated.', self::$textdomain ) ;
+            $notices[] = __( 'An outdated version of Carbon Fields has been detected:', self::$textdomain ) . ' ' . \Carbon_Fields\VERSION . ' (&gt;= ' . self::$config->get( 'dependencies/carbon_fields' ) . ' ' . __( 'required', self::$textdomain ) . ').' . ' <strong>' . self::$config->get( 'plugin/meta/Name' ) . '</strong> ' . __( 'deactivated.', self::$textdomain ) ;
           }
           break;
 
@@ -142,12 +156,12 @@ class Plugin {
 
     if( $notices ) {
 
-      deactivate_plugins( self::$settings['plugin_file'] );
+      deactivate_plugins( self::$config->get( 'plugin/identifier' ) );
 
       $notices = '<ul><li>' . implode( "</li>\n<li>", $notices ) . '</li></ul>';
 
       if( $args['echo'] ) {
-        Utils::show_notice($notices, 'error', false);
+        Helpers::show_notice($notices, 'error', false);
         return false;
       } else {
         return $notices;
@@ -211,14 +225,14 @@ class Plugin {
   }
 
   /**
-    * A wrapper for the plugin's data fiala prefix as defined in $settings
+    * A wrapper for the plugin's data fiala prefix as defined in $config
     *
     * @param string|null $str The string/field to prefix
     * @return string Prefixed string/field value
     * @since 0.2.0
     */
   public function prefix( $field_name = null ) {
-    return $field_name !== null ? self::$settings['prefix'] . $field_name : self::$settings['prefix'];
+    return $field_name !== null ? self::$config->get( 'prefix' ) . $field_name : self::$config->get( 'prefix' );
   }
 
   /**
