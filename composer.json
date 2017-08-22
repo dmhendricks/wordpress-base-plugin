@@ -28,7 +28,7 @@
     "jjgrainger/posttypes": "dev-master",
     "tgmpa/tgm-plugin-activation": "^2.6.0",
     "tareq1988/wordpress-settings-api-class": "dev-master",
-    "hgoebl/mobile-detect": ">=1.3.0",
+    "dmhendricks/wordpress-toolkit": "dev-master",
     "composer/installers": "~1.3.0"
   },
   "minimum-stability": "dev",
@@ -36,10 +36,5 @@
     "psr-4": {
       "VendorName\\PluginName\\": "app/"
     }
-  },
-  "scripts": {
-      "pre-autoload-dump": [
-        "find ./vendor -name '.git' -exec rm -rf {} +"
-      ]
   }
 }
