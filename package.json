@@ -2,10 +2,17 @@
   "name": "wordpress-base-plugin",
   "author": "Daniel M. Hendricks",
   "license": "GPL-2.0",
+  "config": {
+    "slug": "wordpress-base-plugin",
+    "namespace": "VendorName\\PluginName"
+  },
   "scripts": {
-    "translate": "wp-pot -s 'app/**/*.php' -o './languages/wordpress-base-plugin.pot' -p 'wordpress-base-plugin'"
+    "translate": "wp-pot -s 'app/**/*.php' -o ./languages/$npm_package_config_slug.pot -p $npm_package_config_slug",
+    "rename": "replace $npm_package_name $npm_package_config_slug . -r --exclude='node_modules,vendor,package.json'; replace 'VendorName\\\\PluginName' $npm_package_config_namespace . -r --exclude='node_modules,vendor,package.json'; renamer -v --find $npm_package_name --replace $npm_package_config_slug *.*; renamer -v --find $npm_package_name --replace $npm_package_config_slug ./assets/js/**;"
   },
   "devDependencies": {
-    "wp-pot-cli": "^1.0"
+    "wp-pot-cli": "^1.0",
+    "replace": "^0.3.0",
+    "renamer": "^0.6.0"
   }
 }
