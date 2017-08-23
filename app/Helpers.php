@@ -27,33 +27,7 @@ class Helpers extends Plugin {
   }
 
   /**
-    * Combine function attributes with known attributes and fill in defaults when needed.
-    *
-    * @param array  $pairs     Entire list of supported attributes and their defaults.
-    * @param array  $atts      User defined attributes in shortcode tag.
-    * @return array Combined and filtered attribute list.
-    * @link https://core.trac.wordpress.org/browser/tags/4.8/src/wp-includes/shortcodes.php#L540 Original source
-    * @since 0.2.0
-    */
-  public static function set_default_atts( $pairs, $atts ) {
-
-    $atts = (array)$atts;
-    $result = array();
-
-    foreach ($pairs as $name => $default) {
-      if ( array_key_exists($name, $atts) ) {
-        $result[$name] = $atts[$name];
-      } else {
-        $result[$name] = $default;
-      }
-    }
-
-    return $result;
-
-  }
-
-  /**
-    * Merges two array, eliminating duplicates
+    * Merges two arrays, eliminating duplicates
     *
     * array_merge_recursive_distinct does not change the datatypes of the values in the arrays.
     * Matching keys' values in the second array overwrite those in the first array, as is the
@@ -166,31 +140,6 @@ class Helpers extends Plugin {
       }
 
       return $return;
-  }
-
-  /**
-    * Encrypts string using WP_ENCRYPT_KEY as salt if defined, else SECURE_AUTH_KEY.
-    *
-    * @param string $str String to encrypt
-    * @return string Encrypted string
-    * @since 0.2.1
-    */
-  public static function encrypt( $str ) {
-    $salt = defined( 'WP_ENCRYPT_KEY' ) && WP_ENCRYPT_KEY ? WP_ENCRYPT_KEY : SECURE_AUTH_KEY;
-    return openssl_encrypt($str, self::$config->get( 'encrypt_method' ), $salt);
-  }
-
-  /**
-    * Decrypts encrypted string
-    *
-    * @param string $str String to decrypt
-    * @return string Decrypted string
-    * @since 0.2.1
-    * @see Helpers::encrypt()
-    */
-  public static function decrypt( $str ) {
-    $salt = defined( 'WP_ENCRYPT_KEY' ) && WP_ENCRYPT_KEY ? WP_ENCRYPT_KEY : SECURE_AUTH_KEY;
-    return openssl_decrypt($str, self::$config->get( 'encrypt_method' ), $salt);
   }
 
 }

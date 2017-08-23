@@ -2,6 +2,7 @@
 namespace VendorName\PluginName;
 use WordPress_ToolKit\ObjectCache;
 use WordPress_ToolKit\ConfigRegistry;
+use WordPress_ToolKit\Helpers\ArrayHelper;
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
 use Config;
@@ -122,7 +123,7 @@ class Plugin {
     if( is_bool( $deps ) && $deps ) $deps = self::$config->get( 'dependencies' );
     if( !is_array( $deps ) ) $deps = array( $deps => self::$config->get( 'dependencies/' . $deps ) );
 
-    $args = Helpers::set_default_atts( array(
+    $args = ArrayHelper::set_default_atts( array(
       'echo' => true,
       'activate' => true
     ), $args);
@@ -196,31 +197,6 @@ class Plugin {
       // Return uncached value
       return carbon_get_theme_option( $key );
     }
-
-  }
-
-  /**
-    * Return constant, if defined (with filter validation, if specified)
-    *
-    * Example usage:
-    *    echo $this->get_const( 'DB_HOST' ); // MySQL host name
-    *    echo $this->get_const( 'MY_BOOLEAN_CONST', FILTER_VALIDATE_BOOLEAN );
-    *       // null if undefined, true if valid boolean, else false
-    *
-    * @param string $const The name of constant to retrieve.
-    * @param const $filter_validate filter_var() filter to apply (optional).
-    *    Valid values: http://php.net/manual/en/filter.filters.validate.php
-    * @return mixed Value of constant if specified, else null.
-    * @since 0.2.0
-    */
-  public static function get_const( $const, $filter_validate = null ) {
-
-    if( !defined( $const ) ) {
-      return null;
-    } else if( $filter_validate ) {
-      return filter_var( constant( $const ), $filter_validate);
-    }
-    return constant( $const );
 
   }
 
