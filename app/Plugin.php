@@ -9,8 +9,8 @@ use Config;
 class Plugin {
 
   public static $textdomain;
+  public static $config;
   protected static $cache;
-  protected static $config;
 
   function __construct() {
 

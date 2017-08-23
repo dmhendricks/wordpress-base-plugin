@@ -51,7 +51,6 @@ This plugin loads many of its defaults & settings from `plugin.json`. See [Confi
 
 * Add task runner, related documentation, update .gitignore and rearrange `./assets`
 * Add external class library for common features
-	* Improve configuration management
 	* Add ability to modify plugin meta in Plugins list
 	* Move Cache class as separate dependency
 	* Add Ajax call example
