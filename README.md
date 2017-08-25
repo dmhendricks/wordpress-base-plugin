@@ -14,7 +14,7 @@ It may also be used as the means of [separating custom code](http://www.billeric
 
 * Namespaces & dependency autoloading
 * Version checking (PHP, Carbon Fields)
-* [Gulp](https://gulpjs.com/) for JavaScript/SASS processing & minification (documentation coming soon)
+* [Gulp](https://gulpjs.com/) for JavaScript/SASS processing & minification (see [Gulp](https://github.com/dmhendricks/wordpress-base-plugin/wiki#gulp) notes)
 * Object caching (where available) - [Usage Examples](https://github.com/dmhendricks/wordpress-base-plugin/wiki#caching)
 * Automatic translation file (`.pot`) creation. See [Translation](https://github.com/dmhendricks/wordpress-base-plugin/wiki#translation).
 * Shortcodes, widgets and custom post type (via [PostTypes](https://github.com/jjgrainger/PostTypes/)) examples
