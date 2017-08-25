@@ -14,10 +14,11 @@ It may also be used as the means of [separating custom code](http://www.billeric
 
 * Namespaces & dependency autoloading
 * Version checking (PHP, Carbon Fields)
+* [Gulp](https://gulpjs.com/) for JavaScript/SASS processing & minification (documentation coming soon)
 * Object caching (where available) - [Usage Examples](https://github.com/dmhendricks/wordpress-base-plugin/wiki#caching)
 * Automatic translation file (`.pot`) creation. See [Translation](https://github.com/dmhendricks/wordpress-base-plugin/wiki#translation).
 * Shortcodes, widgets and custom post type (via [PostTypes](https://github.com/jjgrainger/PostTypes/)) examples
-* Optional configuration [Constants](https://github.com/dmhendricks/wordpress-base-plugin/wiki/Configuration-&-Constants)
+* Configuration registry (documentation coming soon) and optional `wp-config.php` [Constants](https://github.com/dmhendricks/wordpress-base-plugin/wiki/Configuration-&-Constants)
 * [More to come...](#planned-features)
 
 ## Requirements
@@ -40,8 +41,7 @@ It may also be used as the means of [separating custom code](http://www.billeric
 
 ### Next Steps
 
-See the [Getting Started](https://github.com/dmhendricks/wordpress-base-plugin/wiki#getting-started) documentation.
-
+See the [Getting Started](https://github.com/dmhendricks/wordpress-base-plugin/wiki#getting-started) documentation for further steps.
 
 ## Plugin Settings
 
@@ -49,14 +49,12 @@ This plugin loads many of its defaults & settings from `plugin.json`. See [Confi
 
 ## Planned Features & TODO
 
-* Add task runner, related documentation, update .gitignore and rearrange `./assets`
-* Add external class library for common features
-	* Add ability to modify plugin meta in Plugins list
-	* Move Cache class as separate dependency
-	* Add Ajax call example
+* Update documentation to reflect recent changes
 * Add encrypt/decrypt example (`password` field with encrypted `hidden` field)
 * Add Customizer example
 * Add dynamically-created CSS/JS files based on settings
+* Use [Bower](https://bower.io/) to manage vendor scripts and move `./src/js/vendor` to `./src/components`
+* Use [TGMPA](http://tgmpluginactivation.com/) for Carbon Fields dependency checking
 
 ## Change Log
 
@@ -65,6 +63,7 @@ Release changes are noted on the [Releases](https://github.com/dmhendricks/wordp
 #### Branch: `master`
 
 * Bumped minimum PHP version check to 5.6
+* Added [Gulp](https://gulpjs.com/) for task automation (SASS, JS processing)
 * Drastically refactored configuration management
 * Split out settings pages, shortcodes, CPT & widgets into separate files/classes (thanks [obstschale](https://github.com/obstschale/wordpress-base-plugin))
 * Added `wp-pot-cli` to `package.json` to create `.pot` translation file
@@ -74,6 +73,7 @@ Release changes are noted on the [Releases](https://github.com/dmhendricks/wordp
 * Added `VERSION` constant ([info](https://github.com/dmhendricks/wordpress-base-plugin/wiki/Configuration-&-Constants#defined-by-plugin))
 * Added [wordpress-toolkit](https://github.com/dmhendricks/wordpress-toolkit) as dependency
 * Renamed `Utils` class to `Helpers`
+* Added "Clear Cache" link to admin bar dropdown
 
 ## Credits
 
@@ -86,6 +86,14 @@ Please support [humans.txt](http://humanstxt.org/). It's an initiative for knowi
 	Twitter: @htmlburger
 	Author URI: https://htmlburger.com/
 	Location: London, England
+
+**WPGulp**
+
+	URL: https://labs.ahmadawais.com/WPGulp/
+	Author: Ahmad Awais
+	Twitter: @mrahmadawais
+	Author URI: https://ahmadawais.com/
+	Location: Asal, Pakistan
 
 **PostTypes**
 

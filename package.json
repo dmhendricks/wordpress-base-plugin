@@ -4,13 +4,27 @@
   "license": "GPL-2.0",
   "config": {
     "slug": "wordpress-base-plugin",
-    "namespace": "VendorName\\PluginName"
+    "namespace": "VendorName\\PluginName",
+    "javascript_object": "WPBP_NS"
   },
   "scripts": {
     "translate": "wp-pot -s 'app/**/*.php' -o ./languages/$npm_package_config_slug.pot -p $npm_package_config_slug",
-    "rename": "replace $npm_package_name $npm_package_config_slug . -r --exclude='node_modules,vendor,package.json'; replace 'VendorName\\\\PluginName' $npm_package_config_namespace . -r --exclude='node_modules,vendor,package.json'; renamer -v --find $npm_package_name --replace $npm_package_config_slug *.*; renamer -v --find $npm_package_name --replace $npm_package_config_slug ./assets/js/**;"
+    "rename": "replace $npm_package_name $npm_package_config_slug . -r --exclude='node_modules,vendor,package.json'; replace 'VendorName\\\\PluginName' $npm_package_config_namespace . -r --exclude='node_modules,vendor,package.json'; replace 'WPBP_NS' $npm_package_config_javascript_object . -r --include='assets,src'; renamer -v --find $npm_package_name --replace $npm_package_config_slug *.*; renamer -v --find $npm_package_name --replace $npm_package_config_slug ./assets/js/**;"
   },
   "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-concat": "^2.5.2",
+    "gulp-filter": "^4.0.0",
+    "gulp-line-ending-corrector": "^1.0.1",
+    "gulp-merge-media-queries": "^0.2.1",
+    "gulp-notify": "^2.2.0",
+    "gulp-rename": "^1.2.0",
+    "gulp-sass": "^2.2.0",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-uglify": "^1.5.3",
+    "gulp-uglifycss": "^1.0.6",
+    "gulp-sort": "^2.0.0",
     "wp-pot-cli": "^1.0",
     "replace": "^0.3.0",
     "renamer": "^0.6.0"

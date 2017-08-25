@@ -39,7 +39,6 @@ config.rb
 
 # Composer #
 ############
-vendor/
 !assets/js/vendor/
 wpcs/
 composer.lock
@@ -62,6 +61,9 @@ assets/bower_components/*
 #######
 node_modules
 
-# Development #
-###############
-dev/
+# Development - Remove if you want them included in your own plugin repo #
+##########################################################################
+vendor/
+assets/css/**/*.css
+assets/css/**/*.map
+assets/js/**/*.js

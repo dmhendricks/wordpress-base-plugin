@@ -1,0 +1,17 @@
+/*
+ * @preserve:  WP Admin style
+ */
+
+@import "variables";
+
+/*
+#wpadminbar {
+  background-color: $admin-bar-color;
+}
+*/
+
+#wp-admin-bar-my-account {
+  > .ab-item {
+    color: #FFFF99 !important;
+  }
+}

@@ -1,5 +1,0 @@
-(function($) {
-
-    // TODO
-
-})(jQuery);

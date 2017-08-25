@@ -1,7 +1,3 @@
-/*
- * Core Site Style - Example
- */
-
 a {
   color: $link-color;
 
@@ -13,7 +9,7 @@ a {
 h1 {
 
   &.site-title {
-    font-family: $font-family-serif;
+    font-family: $font-family-base;
 
     a {
       text-decoration: underline;
