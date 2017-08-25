@@ -44,6 +44,7 @@ class Carbon_Page extends Plugin {
       ->set_page_parent('options-general.php')
       ->add_tab( __('General', self::$textdomain), array(
         Field::make('checkbox', $this->prefix('uninstall_remove_settings'), __('Delete Plugin Settings On Uninstall', self::$textdomain) ),
+        Field::make('checkbox', $this->prefix('admin_bar_add_clear_cache'), __('Add "Clear Cache" Link to Admin Bar Dropdown Menu', self::$textdomain) )->set_default_value(true),
         Field::make('checkbox', $this->prefix('remove_header_emojicons'), __('Remove Emoji Code From Page Headers', self::$textdomain) )
           ->help_text( __('Checking this box will remove the default Emoji code from page headers.', self::$textdomain) ),
         Field::make( 'set', $this->prefix('enqueue_font_awesome'), __('Load Font Awesome from CDN', self::$textdomain) )

@@ -7,11 +7,13 @@ class EnqueueScripts extends Plugin {
 
     // TODO: Put back font awesome
 
-    // Enqueue frontend and backend scripts
+    // Enqueue frontend/backend scripts and global JavaScript variables
+    add_action( 'wp_head', array( $this, 'inject_javascript_settings' ) );
+    add_action( 'admin_head', array( $this, 'inject_javascript_settings' ) );
     add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_scripts') );
     add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts') );
 
-    // Load Font Awesome from CDN, if enabled in Settings Page
+    // Example - Load Font Awesome from CDN, if enabled in Settings Page
     $enqueue_font_awesome = $this->get_plugin_option( 'enqueue_font_awesome' );
     if( $enqueue_font_awesome ) {
       if( in_array( 'frontend', $enqueue_font_awesome) )
@@ -24,29 +26,75 @@ class EnqueueScripts extends Plugin {
 
   /**
     * Enqueue scripts used on frontend of site
+    * @since 0.1.0
     */
   public function enqueue_frontend_scripts() {
 
+    // Enqueue script dependencies
+    $this->enqueue_vendor_scripts();
+
     // Enqueuing custom CSS for child theme (Twentysixteen was used for testing)
-    wp_enqueue_style( 'wordpress-base-plugin', $this->get_script_url('assets/css/site.css'), null, $this->get_script_version('assets/css/site.css') );
+    wp_enqueue_style( 'wordpress-base-plugin', $this->get_script_url('assets/css/wordpress-base-plugin.css'), null, $this->get_script_version('assets/css/wordpress-base-plugin.css') );
+
+    // Enqueue frontend JavaScript
+    wp_enqueue_script( 'wordpress-base-plugin', $this->get_script_url('assets/js/wordpress-base-plugin.js'), array('jquery', 'wordpress-base-plugin-vendor'), $this->get_script_version('assets/js/wordpress-base-plugin.js'), true );
+    wp_localize_script( 'wordpress-base-plugin', 'wpbp_ajax_filter_params', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
 
   }
 
   /**
     * Enqueue scripts used in WP admin interface
+    * @since 0.1.0
     */
   public function enqueue_admin_scripts() {
 
-    wp_enqueue_script( 'wordpress-base-plugin', $this->get_script_url('assets/js/wordpress-base-plugin-admin.js'), array('jquery'), $this->get_script_version('assets/js/wordpress-base-plugin-admin.js')  );
+    // Enqueue script dependencies
+    $this->enqueue_vendor_scripts();
+
+    // Enqueuing custom CSS for child theme (Twentysixteen was used for testing)
+    wp_enqueue_style( 'wordpress-base-plugin', $this->get_script_url('assets/css/wordpress-base-plugin-admin.css'), null, $this->get_script_version('assets/css/wordpress-base-plugin-admin.css') );
+
+    // Enqueue WP Admin JavaScript
+    wp_enqueue_script( 'wordpress-base-plugin-admin', $this->get_script_url('assets/js/wordpress-base-plugin-admin.js'), array('jquery', 'wordpress-base-plugin-vendor'), $this->get_script_version('assets/js/wordpress-base-plugin-admin.js'), true );
+    wp_localize_script( 'wordpress-base-plugin-admin', 'wpbp_ajax_filter_params', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
+
+  }
+
+  /**
+    * Enqueue vendor scripts compiled from src/js/vendor
+    * @since 0.3.0
+    */
+  private function enqueue_vendor_scripts() {
+
+    // Enqueue common (frontend/backend) JavaScript
+    wp_enqueue_script( 'wordpress-base-plugin-vendor', $this->get_script_url('assets/js/wordpress-base-plugin-vendor.js'), array('jquery'), $this->get_script_version('assets/js/wordpress-base-plugin-vendor.js'), true );
 
   }
 
   /**
     * Enqueue Font Awesome
+    * @since 0.1.0
     */
   public function enqueue_font_awesome() {
 
     wp_enqueue_style( 'font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', null, '4.7.0' );
+
+  }
+
+  /**
+    * Add global JavaScript settings variables. You can add any variables/settings
+    *    that you want to make available to your JavaScripts
+    * @since 0.3.0
+    */
+  public function inject_javascript_settings() {
+
+    $javascript_variables = array(
+      'admin_bar_add_clear_cache' => $this->get_plugin_option( 'admin_bar_add_clear_cache' ),
+      'admin_bar_add_clear_cache_success' => __( 'WordPress cache has been cleared.', self::$textdomain ),
+      'show_clear_cache_link' => current_user_can( 'manage_options' )
+    );
+
+    echo "<script>var _wpbp_plugin_settings = JSON.parse('" . json_encode( $javascript_variables ) . "');</script>";
 
   }
 
@@ -93,7 +141,7 @@ class EnqueueScripts extends Plugin {
     * @return string The URL or path to minified or regular $script.
     * @since 0.1.0
     */
-  public function get_script_path($script, $return_minified = false, $return_url = false) {
+  public function get_script_path($script, $return_minified = true, $return_url = false) {
     $script = trim($script, '/');
     if($return_minified && strpos($script, '.') && $this->is_production()) {
       $script_parts = explode('.', $script);

@@ -1,16 +1,30 @@
 <?php
 namespace VendorName\PluginName;
+//use WordPress_ToolKit\ObjectCache;
 
 class Core extends Plugin {
 
   function __construct() {
 
-    // Add page, post type and parent classes to <body> tag for selector targeting
+    // Example - Add page, post type and parent classes to <body> tag for selector targeting
     add_filter( 'body_class', array( &$this, 'add_body_classes' ) );
 
-    // Remove Emoji code from header
+    // Example - Remove Emoji code from header
     if( $this->get_plugin_option( 'remove_header_emojicons' ) ) {
       if(!$this->is_ajax()) add_filter( 'init', array( $this, 'disable_wp_emojicons' ) );
+    }
+
+    /**
+      * Example - Ajax call for when "Clear Cache" is clicked from the admin bar dropdown.
+      *
+      * Note: If this Ajax call was intended to be available to those who are not
+      *    logged in, you would need to uncommend the 'wp_ajax_nopriv_clear_object_cache_ajax'
+      *    hook.
+      */
+    if( current_user_can( 'manage_options' ) && $this->get_plugin_option( 'admin_bar_add_clear_cache' ) ) {
+      add_action( 'admin_bar_menu', array( $this, 'admin_bar_add_clear_cache' ), 900 );
+      //add_action( 'wp_ajax_nopriv_clear_object_cache_ajax', array( self::$cache, 'flush' ) );
+      add_action( 'wp_ajax_clear_object_cache_ajax', array( self::$cache, 'flush' ) );
     }
 
   }
@@ -57,6 +71,41 @@ class Core extends Plugin {
     add_filter( 'tiny_mce_plugins', function( $plugins) {
       return is_array($plugins) ? array_diff($plugins, array('wpemoji')) : $plugins;
     });
+
+  }
+
+  /**
+    * Add "Clear Cache" link to admin bar dropdown
+    * @since 0.3.0
+    */
+  public function admin_bar_add_clear_cache( $wp_admin_bar ) {
+
+  	$args = array(
+  		'id'     => 'clear_object_cache',
+  		'title'	 =>	__( 'Clear Cache', self::$textdomain ),
+      'parent' => 'site-name',
+      'href'   => '#'
+  	);
+  	$wp_admin_bar->add_node( $args );
+
+  }
+
+  /**
+    * Ajax handler for 'clear_object_cache_ajax' call.
+    * @since 0.3.0
+    */
+  public function clear_object_cache_ajax() {
+
+    $result = ['success' => true];
+
+    try {
+      self::$cache->flush();
+    } catch (Exception $e) {
+      $result = ['success' => false, 'message' => $e->getMessage()];
+    }
+
+    echo json_encode( $result );
+    wp_die();
 
   }
 
