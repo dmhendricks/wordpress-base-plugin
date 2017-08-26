@@ -15,10 +15,10 @@ It may also be used as the means of [separating custom code](http://www.billeric
 * Namespaces & dependency autoloading
 * Version checking (PHP, Carbon Fields)
 * [Gulp](https://gulpjs.com/) for JavaScript/SASS processing & minification (see [Gulp](https://github.com/dmhendricks/wordpress-base-plugin/wiki#gulp) notes)
-* Object caching (where available) - [Usage Examples](https://github.com/dmhendricks/wordpress-toolkit/wiki#objectcache)
+* Object caching (where available; [usage examples](https://github.com/dmhendricks/wordpress-toolkit/wiki/ObjectCache))
 * Automatic translation file (`.pot`) creation. See [Translation](https://github.com/dmhendricks/wordpress-base-plugin/wiki#translation).
 * Shortcodes, widgets and custom post type (via [PostTypes](https://github.com/jjgrainger/PostTypes/)) examples
-* Configuration registry (documentation coming soon) and optional `wp-config.php` [Constants](https://github.com/dmhendricks/wordpress-base-plugin/wiki/Configuration-&-Constants)
+* Configuration registry ([docs](https://github.com/dmhendricks/wordpress-toolkit/wiki/ConfigRegistry)) and optional `wp-config.php` [Constants](https://github.com/dmhendricks/wordpress-base-plugin/wiki/Configuration-&-Constants)
 * [More to come...](#planned-features)
 
 ## Requirements
