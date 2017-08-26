@@ -53,6 +53,7 @@ This plugin loads many of its defaults & settings from `plugin.json`. See [Confi
 * Add encrypt/decrypt example (`password` field with encrypted `hidden` field)
 * Add Customizer example
 * Add dynamically-created CSS/JS files based on settings
+* Add gulp task to package plugin as zip file
 * Use [Bower](https://bower.io/) to manage vendor scripts and move `./src/js/vendor` to `./src/components`
 * Use [TGMPA](http://tgmpluginactivation.com/) for Carbon Fields dependency checking
 
