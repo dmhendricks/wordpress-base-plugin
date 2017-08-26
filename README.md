@@ -15,7 +15,7 @@ It may also be used as the means of [separating custom code](http://www.billeric
 * Namespaces & dependency autoloading
 * Version checking (PHP, Carbon Fields)
 * [Gulp](https://gulpjs.com/) for JavaScript/SASS processing & minification (see [Gulp](https://github.com/dmhendricks/wordpress-base-plugin/wiki#gulp) notes)
-* Object caching (where available) - [Usage Examples](https://github.com/dmhendricks/wordpress-base-plugin/wiki#caching)
+* Object caching (where available) - [Usage Examples](https://github.com/dmhendricks/wordpress-toolkit/wiki#objectcache)
 * Automatic translation file (`.pot`) creation. See [Translation](https://github.com/dmhendricks/wordpress-base-plugin/wiki#translation).
 * Shortcodes, widgets and custom post type (via [PostTypes](https://github.com/jjgrainger/PostTypes/)) examples
 * Configuration registry (documentation coming soon) and optional `wp-config.php` [Constants](https://github.com/dmhendricks/wordpress-base-plugin/wiki/Configuration-&-Constants)
@@ -73,7 +73,7 @@ Release changes are noted on the [Releases](https://github.com/dmhendricks/wordp
 * Added `VERSION` constant ([info](https://github.com/dmhendricks/wordpress-base-plugin/wiki/Configuration-&-Constants#defined-by-plugin))
 * Added [wordpress-toolkit](https://github.com/dmhendricks/wordpress-toolkit) as dependency
 * Renamed `Utils` class to `Helpers`
-* Added "Clear Cache" link to admin bar dropdown
+* Added Ajax example "Clear Cache" link to admin bar dropdown
 
 ## Credits
 
