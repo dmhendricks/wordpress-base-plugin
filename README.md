@@ -78,7 +78,7 @@ This plugin loads many of its defaults & settings from `plugin.json`. See [Confi
 
 ## Planned Features & TODO
 
-#### Before 3.0 Pre-Release
+#### Before 0.3.0 Pre-Release
 
 * Update documentation to reflect recent changes
 * Add gulp task to package plugin as ZIP file; move NPM scripts to gulp tasks
