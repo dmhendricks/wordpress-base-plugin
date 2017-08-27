@@ -25,9 +25,11 @@ It may also be used as the means of [separating custom code](http://www.billeric
 
 * WordPress 4.0 or higher
 * PHP 5.6 or higher
-* [Carbon Fields](https://github.com/htmlburger/carbon-fields) 2.0 or higher (see [Dependencies](https://github.com/dmhendricks/wordpress-base-plugin/wiki#dependencies) for more info)
+* [Carbon Fields](https://github.com/htmlburger/carbon-fields) 2.0 or higher (see [here](https://github.com/dmhendricks/wordpress-base-plugin/wiki#carbon-fields) for more info)
 
 ## Installation
+
+If you need tips on installing Node.js, Composer, Gulp & Bower, see [Installing Dependencies](https://github.com/dmhendricks/wordpress-base-plugin/wiki#installing-dependencies).
 
 ### Clone Repository
 
@@ -38,6 +40,12 @@ It may also be used as the means of [separating custom code](http://www.billeric
 
 1. Modify `composer.json` to suit your needs.
 1. Run `composer install` to install dependencies and autoload namespace.
+
+If you want to install Carbon Fields as a [dependency](https://github.com/dmhendricks/wordpress-base-plugin/wiki#carbon-fields) rather than via a [loader plugin](https://github.com/dmhendricks/carbon-fields-loader):
+
+```
+$ composer require htmlburger/carbon-fields
+```
 
 ### NPM
 
