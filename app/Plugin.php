@@ -64,7 +64,11 @@ class Plugin {
     */
   public function init() {
 
-    add_action( 'after_setup_theme', array( 'Carbon_Fields\\Carbon_Fields', 'boot' ) );
+    if( class_exists( 'Carbon_Fields\\Carbon_Fields' ) ) {
+      add_action( 'after_setup_theme', array( 'Carbon_Fields\\Carbon_Fields', 'boot' ) );
+    } else {
+      new TGMPA();
+    }
 
     if( $this->verify_dependencies( 'carbon_fields' ) === true ) {
       add_action( 'carbon_fields_loaded', array( $this, 'load_plugin' ));
