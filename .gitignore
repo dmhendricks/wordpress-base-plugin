@@ -49,7 +49,7 @@ package-lock.json
 
 # Bower #
 #########
-assets/bower_components/*
+assets/components/
 
 # Codekit #
 ###########

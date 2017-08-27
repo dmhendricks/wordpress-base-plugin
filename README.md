@@ -14,7 +14,7 @@ It may also be used as the means of [separating custom code](http://www.billeric
 
 * Namespaces & dependency autoloading
 * Version checking (PHP, Carbon Fields)
-* [Gulp](https://gulpjs.com/) for JavaScript/SASS processing & minification (see [Gulp](https://github.com/dmhendricks/wordpress-base-plugin/wiki#gulp) notes)
+* Powered by [Composer](https://getcomposer.org/), [Gulp](https://gulpjs.com/) and [Bower](https://bower.io/)
 * Object caching (where available; [usage examples](https://github.com/dmhendricks/wordpress-toolkit/wiki/ObjectCache))
 * Automatic translation file (`.pot`) creation. See [Translation](https://github.com/dmhendricks/wordpress-base-plugin/wiki#translation).
 * Shortcodes, widgets and custom post type (via [PostTypes](https://github.com/jjgrainger/PostTypes/)) examples
@@ -36,8 +36,29 @@ It may also be used as the means of [separating custom code](http://www.billeric
 
 ### Composer
 
-1. Modify `composer.json` to suit your needs
-1. Run `composer install` to install dependencies and autoload namespace
+1. Modify `composer.json` to suit your needs.
+1. Run `composer install` to install dependencies and autoload namespace.
+
+### NPM
+
+1. Modify `package.json` to suit your needs. Specifically, change the `config` section.
+1. Run `npm install` to install dependencies.
+
+### Bower
+
+This step is only necessary for the "Clear Cache" Ajax example. Whether or not you choose to use Bower is up to you. Alternatively, you may put JavaScript dependencies in `src/vendor` and enqueue `assets/js/wordpress-base-plugin-vendor.js` as needed.
+
+```
+$ bower install
+```
+
+### Gulp
+
+Using Gulp is also optional (but recommended). If you wish to try the base plugin with all of its examples, you will need to run Gulp to process the JavaScripts:
+
+```
+$ gulp
+```
 
 ### Next Steps
 
@@ -49,13 +70,17 @@ This plugin loads many of its defaults & settings from `plugin.json`. See [Confi
 
 ## Planned Features & TODO
 
+#### Before 3.0 Pre-Release
+
 * Update documentation to reflect recent changes
-* Add encrypt/decrypt example (`password` field with encrypted `hidden` field)
+* Add gulp task to package plugin as ZIP file; move NPM scripts to gulp tasks
+* Use [TGMPA](http://tgmpluginactivation.com/) for Carbon Fields dependency checking
+* Simplify/clean-up version checking in general
+
+#### Future Releases
+
 * Add Customizer example
 * Add dynamically-created CSS/JS files based on settings
-* Add gulp task to package plugin as zip file
-* Use [Bower](https://bower.io/) to manage vendor scripts and move `./src/js/vendor` to `./src/components`
-* Use [TGMPA](http://tgmpluginactivation.com/) for Carbon Fields dependency checking
 
 ## Change Log
 
@@ -65,6 +90,7 @@ Release changes are noted on the [Releases](https://github.com/dmhendricks/wordp
 
 * Bumped minimum PHP version check to 5.6
 * Added [Gulp](https://gulpjs.com/) for task automation (SASS, JS processing)
+* Added [Bower](https://bower.io/) to (optionally) load third-party scripts
 * Drastically refactored configuration management
 * Split out settings pages, shortcodes, CPT & widgets into separate files/classes (thanks [obstschale](https://github.com/obstschale/wordpress-base-plugin))
 * Added `wp-pot-cli` to `package.json` to create `.pot` translation file
