@@ -47,27 +47,6 @@ If you want to install Carbon Fields as a [dependency](https://github.com/dmhend
 $ composer require htmlburger/carbon-fields
 ```
 
-### NPM
-
-1. Modify `package.json` to suit your needs. Specifically, change the `config` section.
-1. Run `npm install` to install dependencies.
-
-### Bower
-
-This step is only necessary for the "Clear Cache" Ajax example. Whether or not you choose to use Bower is up to you. Alternatively, you may put JavaScript dependencies in `src/vendor` and enqueue `assets/js/wordpress-base-plugin-vendor.js` as needed.
-
-```
-$ bower install
-```
-
-### Gulp
-
-Using Gulp is also optional (but recommended). If you wish to try the base plugin with all of its examples, you will need to run Gulp to process the JavaScripts:
-
-```
-$ gulp
-```
-
 ### Next Steps
 
 See the [Getting Started](https://github.com/dmhendricks/wordpress-base-plugin/wiki#getting-started) documentation for further steps.
@@ -80,7 +59,6 @@ This plugin loads many of its defaults & settings from `plugin.json`. See [Confi
 
 #### Before 0.3.0 Pre-Release
 
-* Update documentation to reflect recent changes
 * Add gulp task to package plugin as ZIP file; move NPM scripts to gulp tasks
 * Use [TGMPA](http://tgmpluginactivation.com/) for Carbon Fields dependency checking
 * Simplify/clean-up version checking in general
