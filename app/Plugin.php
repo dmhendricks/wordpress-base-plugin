@@ -115,6 +115,10 @@ class Plugin {
     * Function to verify dependencies, such as if an outdated version of Carbon
     *    Fields is detected.
     *
+    * Normally, we wouldn't be so persistant about checking for dependencies and
+    *    I would just pass it off to TGMPA, however, if they have an ancient version
+    *    of Carbon Fields loaded (via plugin or dependency), it causes problems.
+    *
     * @param string|array|bool $deps A string (single) or array of deps to check. `true`
     *    checks all defined dependencies.
     * @param array $args An array of arguments.

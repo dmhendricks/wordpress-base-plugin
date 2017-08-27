@@ -59,9 +59,8 @@ This plugin loads many of its defaults & settings from `plugin.json`. See [Confi
 
 #### Before 0.3.0 Pre-Release
 
-* Add gulp task to package plugin as ZIP file; move NPM scripts to gulp tasks
-* Use [TGMPA](http://tgmpluginactivation.com/) for Carbon Fields dependency checking
-* Simplify/clean-up version checking in general
+* Add gulp task to package plugin as ZIP file
+* Move NPM scripts to gulp tasks
 
 #### Future Releases
 
