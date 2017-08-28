@@ -11,12 +11,14 @@
  * @version 1.0.3
  */
 
+var pkg = require('./package.json');
+
 /**
  * Configuration
  *
  * In paths you can add <<glob or array of globs>>. Edit the variables as per your project requirements.
  */
-var project             = 'wordpress-base-plugin'; // Project slug
+var project             = pkg.name; // Project slug
 var cssOutputStyle      = 'expanded'; // Values: compact, compressed, nested, expanded
 var cssOutputCoumments  = false; // Output SASS source/line numbers in compiled CSS files
 
@@ -57,9 +59,15 @@ var jsTasks = [
   }
 ];
 
-// Arrays to hold created task info
-var tasks_css = [];
-var tasks_js = [];
+
+/* Define strings to replace using 'gelp rename', defined in the config section of package.json */
+var renameStrings = [
+  [ 'dmhendricks\/wordpress-base-plugin', pkg.config.username + '/' + pkg.name ], // Git/Composer identifier
+	[ 'wordpress-base-plugin', pkg.name ], // Plugin slug
+	[ 'VendorName\\PluginName', pkg.config.php_namespace ], // PHP namespace for your plugin
+  [ 'VendorName\\\\PluginName', pkg.config.php_namespace.replace(/\\/g, '\\\\') ], // Rename Composer namespace
+	[ 'WPBP_NS', pkg.config.javascript_object ] // Unique JavaScript object for your plugin
+];
 
 /**
  * Browsers for which you want to enable autoprefixing.
@@ -84,6 +92,7 @@ const AUTOPREFIXER_BROWSERS = [
  * Load gulp plugins and pass them semantic names.
  */
 var gulp         = require('gulp');
+var pkg          = require('./package.json');
 
 // CSS-related plugins
 var sass         = require('gulp-sass'); // Gulp pluign for Sass compilation.
@@ -96,11 +105,19 @@ var concat       = require('gulp-concat'); // Concatenates JS files
 var uglify       = require('gulp-uglify'); // Minifies JS files
 
 // Utility related plugins.
-var rename       = require('gulp-rename'); // Renames files E.g. style.css -> style.min.css
+var rename       = require('gulp-rename'); // Renames files (ex: style.css -> style.min.css)
+var replace      = require('gulp-batch-replace'); // Replace strings inside files
 var lineec       = require('gulp-line-ending-corrector'); // Consistent Line Endings for non UNIX systems. Gulp Plugin for Line Ending Corrector (A utility that makes sure your files have consistent line endings)
 var filter       = require('gulp-filter'); // Enables you to work on a subset of the original files by filtering them using globbing.
 var sourcemaps   = require('gulp-sourcemaps'); // Maps code in a compressed file (E.g. style.css) back to it’s original position in a source file (E.g. structure.scss, which was later combined with other css files to generate style.css)
-var notify       = require('gulp-notify'); // Sends message notification to you
+var notify       = require('gulp-notify'); // Displays notification message
+var batchRename  = require('gulp-simple-rename'); // Rename files with wildcard
+var vinylPaths   = require('vinyl-paths');
+var del          = require('del'); // Delete files that are renamed
+
+/* Arrays to hold created task info */
+var tasks_css = [];
+var tasks_js = [];
 
 /**
  * Style tasks
@@ -207,6 +224,22 @@ gulp.task( 'default', object_property_to_array( tasks_js, 'id', tasks_css ), fun
   tasks_js.forEach( function( task ) {
     gulp.watch( task.watch, [ task.id ] );
   });
+
+});
+
+/**
+ * Task to rename files and variables
+ */
+gulp.task( 'rename', function () {
+
+  return gulp.src( [ './**/*.php', './*.json', './**/*.js', './**/*.scss', './*.txt', '!./node_modules/**', '!./vendor/**', '!./.git/**', '!./languages/**', '!./*lock*', '!./gulpfile.js' ] )
+    .pipe( replace( renameStrings ) )
+    .pipe( vinylPaths( del ) )
+    .pipe( batchRename( function (path) {
+      return path.replace( /wordpress-base-plugin/, pkg.name );
+    } ) )
+    .pipe( gulp.dest( './' ) )
+    .pipe( notify( { message: 'TASK: "rename" completed.', onLast: true } ) );
 
 });
 

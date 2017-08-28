@@ -39,7 +39,7 @@ config.rb
 
 # Composer #
 ############
-!assets/js/vendor/
+!src/js/vendor/
 wpcs/
 composer.lock
 
@@ -63,6 +63,9 @@ node_modules
 
 # Development - Remove if you want them included in your own plugin repo #
 ##########################################################################
+languages/*.pot
+languages/*.po
+languages/*.mo
 vendor/
 assets/css/**/*.css
 assets/css/**/*.map

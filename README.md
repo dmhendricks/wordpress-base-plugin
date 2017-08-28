@@ -21,6 +21,9 @@ It may also be used as the means of [separating custom code](http://www.billeric
 * Configuration registry ([docs](https://github.com/dmhendricks/wordpress-toolkit/wiki/ConfigRegistry)) and optional `wp-config.php` [Constants](https://github.com/dmhendricks/wordpress-base-plugin/wiki/Configuration-&-Constants)
 * [More to come...](#planned-features)
 
+**Note:** Gulp and Bower are optional, but handy. If you do not wish to use them, you can delete the references.
+
+
 ## Requirements
 
 * WordPress 4.0 or higher
@@ -57,10 +60,9 @@ This plugin loads many of its defaults & settings from `plugin.json`. See [Confi
 
 ## Planned Features & TODO
 
-#### Before 0.3.0 Pre-Release
+#### 0.3.0 Pre-Release
 
 * Add gulp task to package plugin as ZIP file
-* Move NPM scripts to gulp tasks
 
 #### Future Releases
 
@@ -75,6 +77,7 @@ Release changes are noted on the [Releases](https://github.com/dmhendricks/wordp
 
 * Bumped minimum PHP version check to 5.6
 * Added [Gulp](https://gulpjs.com/) for task automation (SASS, JS processing)
+	* Added `gulp rename` task ([notes](https://github.com/dmhendricks/wordpress-base-plugin/wiki#rename-files-and-strings))
 * Added [Bower](https://bower.io/) to (optionally) load third-party scripts
 * Drastically refactored configuration management
 * Split out settings pages, shortcodes, CPT & widgets into separate files/classes (thanks [obstschale](https://github.com/obstschale/wordpress-base-plugin))
