@@ -6,7 +6,7 @@
 
 ## Description
 
-This is a boilerplate WordPress plugin featuring namespace autoloading and integration with [Carbon Fields](https://github.com/htmlburger/carbon-fields). It is intended to be used as a starting point for creating quick WordPress plugins. It contains several examples and dependencies to get you started.
+This is a boilerplate WordPress plugin featuring namespace autoloading and integration with [Carbon Fields](https://github.com/htmlburger/carbon-fields). It is intended to be used as a starting point for creating WordPress plugins. It contains several examples and dependencies to get you started.
 
 It may also be used as the means of [separating custom code](http://www.billerickson.net/core-functionality-plugin/) from the theme.
 
@@ -16,7 +16,7 @@ It may also be used as the means of [separating custom code](http://www.billeric
 * Version checking (PHP, Carbon Fields)
 * Powered by [Composer](https://getcomposer.org/), [Gulp](https://gulpjs.com/) and [Bower](https://bower.io/)
 * Object caching (where available; [usage examples](https://github.com/dmhendricks/wordpress-toolkit/wiki/ObjectCache))
-* Automatic translation file (`.pot`) creation. See [Translation](https://github.com/dmhendricks/wordpress-base-plugin/wiki#translation).
+* Automatic translation file (`.pot`) creation. See [Translation](https://github.com/dmhendricks/wordpress-base-plugin/wiki/Translation).
 * Shortcodes, widgets and custom post type (via [PostTypes](https://github.com/jjgrainger/PostTypes/)) examples
 * Configuration registry ([docs](https://github.com/dmhendricks/wordpress-toolkit/wiki/ConfigRegistry)) and optional `wp-config.php` [Constants](https://github.com/dmhendricks/wordpress-base-plugin/wiki/Configuration-&-Constants)
 * [More to come...](#planned-features)
@@ -28,46 +28,27 @@ It may also be used as the means of [separating custom code](http://www.billeric
 
 * WordPress 4.0 or higher
 * PHP 5.6 or higher
-* [Carbon Fields](https://github.com/htmlburger/carbon-fields) 2.0 or higher (see [here](https://github.com/dmhendricks/wordpress-base-plugin/wiki#carbon-fields) for more info)
+* [Carbon Fields](https://github.com/htmlburger/carbon-fields) 2.0 or higher (see the wiki section [Carbon Fields](https://github.com/dmhendricks/wordpress-base-plugin/wiki#carbon-fields) for more info)
 
 ## Installation
 
-If you need tips on installing Node.js, Composer, Gulp & Bower, see [Installing Dependencies](https://github.com/dmhendricks/wordpress-base-plugin/wiki#installing-dependencies).
+If you need tips on installing Node.js, Composer, Gulp & Bower, see [Installing Dependencies](https://github.com/dmhendricks/wordpress-base-plugin/wiki/Installing-Dependencies).
 
 ### Clone Repository
 
 1. At command prompt, change to your `wp-content/plugins` directory.
-1. Close the repository: `git clone https://github.com/dmhendricks/wordpress-base-plugin.git`
-
-### Composer
-
-1. Modify `composer.json` to suit your needs.
-1. Run `composer install` to install dependencies and autoload namespace.
-
-If you want to install Carbon Fields as a [dependency](https://github.com/dmhendricks/wordpress-base-plugin/wiki#carbon-fields) rather than via a [loader plugin](https://github.com/dmhendricks/carbon-fields-loader):
-
-```
-$ composer require htmlburger/carbon-fields
-```
+1. Clone the repository: `git clone https://github.com/dmhendricks/wordpress-base-plugin.git`
+1. Renamed the newly created `wordpress-base-plugin` directory to your own plugin slug.
 
 ### Next Steps
 
 See the [Getting Started](https://github.com/dmhendricks/wordpress-base-plugin/wiki#getting-started) documentation for further steps.
 
-## Plugin Settings
-
-This plugin loads many of its defaults & settings from `plugin.json`. See [Configuration & Constants](https://github.com/dmhendricks/wordpress-base-plugin/wiki/Configuration-&-Constants#pluginjson) for more information.
-
 ## Planned Features & TODO
-
-#### 0.3.0 Pre-Release
-
-* Add gulp task to package plugin as ZIP file
-
-#### Future Releases
 
 * Add Customizer example
 * Add dynamically-created CSS/JS files based on settings
+* Add encrypted text field example
 
 ## Change Log
 
@@ -77,18 +58,19 @@ Release changes are noted on the [Releases](https://github.com/dmhendricks/wordp
 
 * Bumped minimum PHP version check to 5.6
 * Added [Gulp](https://gulpjs.com/) for task automation (SASS, JS processing)
-	* Added `gulp rename` task ([notes](https://github.com/dmhendricks/wordpress-base-plugin/wiki#rename-files-and-strings))
+	* Added `gulp rename` task ([notes](https://github.com/dmhendricks/wordpress-base-plugin/wiki#node-packages--renaming-stringsfiles))
 * Added [Bower](https://bower.io/) to (optionally) load third-party scripts
 * Drastically refactored configuration management
 * Split out settings pages, shortcodes, CPT & widgets into separate files/classes (thanks [obstschale](https://github.com/obstschale/wordpress-base-plugin))
 * Added `wp-pot-cli` to `package.json` to create `.pot` translation file
+* Added `npm run zip` to package plugin as ZIP file
 * Added `register_uninstall_hook` to delete Carbon Fields settings when plugin uninstalled
+* Added Ajax example "Clear Cache" link to admin bar dropdown
 * Added [wordpress-settings-api-class](https://github.com/tareq1988/wordpress-settings-api-class) settings page example
 * Added `WPTK_DISABLE_CACHE` constant
-* Added `VERSION` constant ([info](https://github.com/dmhendricks/wordpress-base-plugin/wiki/Configuration-&-Constants#defined-by-plugin))
+* Added `VERSION` constant ([info](https://github.com/dmhendricks/wordpress-base-plugin/wiki/Configuration-&-Constants))
 * Added [wordpress-toolkit](https://github.com/dmhendricks/wordpress-toolkit) as dependency
 * Renamed `Utils` class to `Helpers`
-* Added Ajax example "Clear Cache" link to admin bar dropdown
 
 ## Credits
 
@@ -117,14 +99,6 @@ Please support [humans.txt](http://humanstxt.org/). It's an initiative for knowi
 	Twitter: @jjgrainger
 	Author URI: https://jjgrainger.co.uk/
 	Location: Falmouth, England
-
-**WordPress Settings API Class**
-
-	URL: https://github.com/tareq1988/wordpress-settings-api-class
-	Author: Tareq Hasan
-	Twitter: @tareq_cse
-	Author URI: https://tareq.co/
-	Location: Dhaka, Bangladesh
 
 ## Screenshot
 
