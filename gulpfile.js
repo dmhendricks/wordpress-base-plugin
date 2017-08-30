@@ -27,6 +27,7 @@ var jsSourcePath        = './src/js/'; // Path to source JavaScript files
 var styleDestination    = './assets/css/'; // Path to place the compiled CSS file
 var jsDestination       = './assets/js/'; // Path to place the compiled CSS file
 var styleMapPath        = './'; // Path to place the map files
+var distZipFile         = project + '.zip'; // The destination file for the ZIP task
 
 /* Define the main CSS files to watch */
 var styleTasks = [
@@ -58,7 +59,6 @@ var jsTasks = [
     name: 'vendor',
   }
 ];
-
 
 /* Define strings to replace using 'gelp rename', defined in the config section of package.json */
 var renameStrings = [
@@ -112,7 +112,7 @@ var filter       = require('gulp-filter'); // Enables you to work on a subset of
 var sourcemaps   = require('gulp-sourcemaps'); // Maps code in a compressed file (E.g. style.css) back to it’s original position in a source file (E.g. structure.scss, which was later combined with other css files to generate style.css)
 var notify       = require('gulp-notify'); // Displays notification message
 var batchRename  = require('gulp-simple-rename'); // Rename files with wildcard
-var vinylPaths   = require('vinyl-paths');
+var vinylPaths   = require('vinyl-paths'); // Return each path in a stream
 var del          = require('del'); // Delete files that are renamed
 
 /* Arrays to hold created task info */
