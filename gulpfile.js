@@ -7,8 +7,8 @@
  *      3. Watches files for changes in CSS or JS.
  *      4. Corrects the line endings {@link https://www.npmjs.com/package/gulp-line-ending-corrector}.
  *
- * @author Ahmad Awais (@ahmadawais)
- * @version 1.0.3
+ * @author Daniel M. Hendricks (@danielhendricks)
+ * @since 0.3.0
  */
 
 var pkg = require('./package.json');
