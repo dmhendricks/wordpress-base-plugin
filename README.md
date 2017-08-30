@@ -56,21 +56,7 @@ Release changes are noted on the [Releases](https://github.com/dmhendricks/wordp
 
 #### Branch: `master`
 
-* Bumped minimum PHP version check to 5.6
-* Added [Gulp](https://gulpjs.com/) for task automation (SASS, JS processing)
-	* Added `gulp rename` task ([notes](https://github.com/dmhendricks/wordpress-base-plugin/wiki#node-packages--renaming-stringsfiles))
-* Added [Bower](https://bower.io/) to (optionally) load third-party scripts
-* Drastically refactored configuration management
-* Split out settings pages, shortcodes, CPT & widgets into separate files/classes (thanks [obstschale](https://github.com/obstschale/wordpress-base-plugin))
-* Added `wp-pot-cli` to `package.json` to create `.pot` translation file
-* Added `npm run zip` to package plugin as ZIP file
-* Added `register_uninstall_hook` to delete Carbon Fields settings when plugin uninstalled
-* Added Ajax example "Clear Cache" link to admin bar dropdown
-* Added [wordpress-settings-api-class](https://github.com/tareq1988/wordpress-settings-api-class) settings page example
-* Added `WPTK_DISABLE_CACHE` constant
-* Added `VERSION` constant ([info](https://github.com/dmhendricks/wordpress-base-plugin/wiki/Configuration-&-Constants))
-* Added [wordpress-toolkit](https://github.com/dmhendricks/wordpress-toolkit) as dependency
-* Renamed `Utils` class to `Helpers`
+* None
 
 ## Credits
 
