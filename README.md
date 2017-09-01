@@ -34,6 +34,11 @@ It may also be used as the means of [separating custom code](http://www.billeric
 
 If you need tips on installing Node.js, Composer, Gulp & Bower, see [Installing Dependencies](https://github.com/dmhendricks/wordpress-base-plugin/wiki/Installing-Dependencies).
 
+#### The short version:
+
+1. Change the four variables in [package.json](https://github.com/dmhendricks/wordpress-base-plugin/wiki#setting-initial-variables).
+1. Run: `npm install; gulp rename; composer update`
+
 ### Clone Repository
 
 1. At command prompt, change to your `wp-content/plugins` directory.

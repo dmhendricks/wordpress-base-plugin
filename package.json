@@ -32,6 +32,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/dmhendricks/my-plugin.git"
+    "url": "git://github.com/dmhendricks/wordpress-base-plugin.git"
   }
 }
