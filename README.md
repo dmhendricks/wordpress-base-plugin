@@ -37,7 +37,7 @@ If you need tips on installing Node.js, Composer, Gulp & Bower, see [Installing 
 #### The short version:
 
 1. Change the four variables in [package.json](https://github.com/dmhendricks/wordpress-base-plugin/wiki#setting-initial-variables).
-1. Run `npm install; gulp rename; composer update`
+1. Run `npm install; gulp rename; composer install`
 
 ### Clone Repository
 
