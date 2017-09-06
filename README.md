@@ -1,5 +1,7 @@
 [![Author](https://img.shields.io/badge/author-Daniel%20M.%20Hendricks-blue.svg)](https://www.danhendricks.com)
-[![GitHub License](https://img.shields.io/badge/license-GPLv2-green.svg)](https://raw.githubusercontent.com/dmhendricks/wordpress-base-plugin/master/LICENSE)
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://paypal.me/danielhendricks)
+[![WP Engine](https://f001.backblazeb2.com/file/hendricks/images/badge/wpengine.svg)](http://bit.ly/WPEnginePlans)
+[![GitHub License](https://img.shields.io/badge/license-GPLv2-yellow.svg)](https://raw.githubusercontent.com/dmhendricks/wordpress-base-plugin/master/LICENSE)
 [![Twitter](https://img.shields.io/twitter/url/https/github.com/dmhendricks/wordpress-base-plugin.svg?style=social)](https://twitter.com/danielhendricks)
 
 # WordPress Base Plugin
@@ -9,6 +11,14 @@
 This is a boilerplate WordPress plugin featuring namespace autoloading and integration with [Carbon Fields](https://github.com/htmlburger/carbon-fields). It is intended to be used as a starting point for creating WordPress plugins. It contains several examples and dependencies to get you started.
 
 It may also be used as the means of [separating custom code](http://www.billerickson.net/core-functionality-plugin/) from the theme.
+
+### Contributing
+
+Here are some ways that you can contribute:
+
+* Suggest improvements and/or code them.
+* Test the translation mechanisms - they have not been extensively tested yet.
+* [Report bugs](https://github.com/dmhendricks/wordpress-base-plugin/issues) and/or incompatibilities
 
 ## Features
 
@@ -55,6 +65,8 @@ See the [Getting Started](https://github.com/dmhendricks/wordpress-base-plugin/w
 * Add Customizer example
 * Add dynamically-created CSS/JS files based on settings
 * Add encrypted text field example
+* Add [phpdotenv](https://github.com/vlucas/phpdotenv) support
+* Move `get_script_version()`, `get_script_path()` and `get_script_url()` to Helpers
 
 ## Change Log
 
