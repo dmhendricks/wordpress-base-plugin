@@ -75,6 +75,7 @@ Release changes are noted on the [Releases](https://github.com/dmhendricks/wordp
 #### Branch: `master`
 
 * Added quick start documentation
+* Fixed bug with setting translation text domain
 
 ## Credits
 

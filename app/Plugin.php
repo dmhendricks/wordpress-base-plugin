@@ -31,7 +31,7 @@ class Plugin {
 
     self::$config = new ConfigRegistry( $plugin_data['plugin']['path'] . 'plugin.json' );
     self::$config = self::$config->merge( new ConfigRegistry( $plugin_data ) );
-    self::$textdomain = self::$config->get( 'plugin/meta/Name' ) ?: self::$config->get( 'plugin/slug' );
+    self::$textdomain = self::$config->get( 'plugin/meta/TextDomain' ) ?: self::$config->get( 'plugin/slug' );
 
     // Define plugin version constant
     if ( !defined( __NAMESPACE__ . '\VERSION' ) ) define( __NAMESPACE__ . '\VERSION', self::$config->get( 'plugin/meta/Version' ) );
