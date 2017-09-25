@@ -47,9 +47,9 @@ class Helpers extends Plugin {
     foreach ( $array2 as $key => &$value )
     {
       if ( is_array ( $value ) && isset ( $merged [$key] ) && is_array ( $merged [$key] ) ) {
-        $merged [$key] = self::array_merge_recursive_distinct ( $merged [$key], $value );
+        $merged[$key] = self::array_merge_recursive_distinct ( $merged[$key], $value );
       } else {
-        $merged [$key] = $value;
+        $merged[$key] = $value;
       }
     }
 
@@ -67,18 +67,18 @@ class Helpers extends Plugin {
     *   else $post global is used instead
     * @return string The slug of the specified/current post
     */
-  public static function get_page_slug($post_id = null) {
+  public static function get_page_slug( $post_id = null ) {
       global $post;
 
-      $_slug = $post_id ? get_post($post_id)->post_name : $post->post_name;
+      $_slug = $post_id ? get_post( $post_id )->post_name : $post->post_name;
 
-      if(is_front_page()) {
+      if( is_front_page() ) {
           $_slug = 'front';
-      } else if(is_search()) {
+      } else if( is_search() ) {
           $_slug = 'search';
-      } else if(is_archive()) {
+      } else if( is_archive() ) {
           $_slug = 'archive';
-      } else if(is_single()) {
+      } else if( is_single() ) {
           $_slug = 'single';
       }
 
@@ -98,18 +98,18 @@ class Helpers extends Plugin {
     *   else $post global is used instead
     * @return string The parent slug of the specified post, if availaable
     */
-  public static function get_parent_slug($include_self_as_parent_if_root = false, $post_id = null) {
+  public static function get_parent_slug( $include_self_as_parent_if_root = false, $post_id = null ) {
       global $post;
-      $post_id = $post_id ? $post_id : $post->ID;
+      $post_id = $post_id ? $post_id : @$post->ID;
 
-      if (is_page()) {
-          if(get_post($post_id)->post_parent) {
-              @$parent = end(get_post_ancestors($post_id));
+      if ( is_page() ) {
+          if( get_post( $post_id )->post_parent ) {
+              $parent = @end( get_post_ancestors( $post_id ) ) ;
           } else {
               $parent = $post->ID;
           }
-          $post_data = get_post($parent, ARRAY_A);
-          if($include_self_as_parent_if_root || $post_data['post_name'] != self::get_page_slug($post_id)) return $post_data['post_name'];
+          $post_data = get_post( $parent, ARRAY_A );
+          if( $include_self_as_parent_if_root || $post_data['post_name'] != self::get_page_slug( $post_id ) ) return $post_data['post_name'];
       }
       return array();
   }
@@ -129,17 +129,83 @@ class Helpers extends Plugin {
       global $post;
       $return = array();
 
-      @$post_id = $post_id ? $post_id : $post->ID;
-      if(!$post_id) return $return;
+      $post_id = $post_id ? $post_id : @$post->ID;
+      if( !$post_id ) return $return;
 
-      $categories = get_the_category($post_id);
-      if(!$categories) return $return;
+      $categories = get_the_category( $post_id );
+      if( !$categories ) return $return;
 
-      foreach($categories as $cat) {
+      foreach( $categories as $cat ) {
         $return[] = $as_slugs ? $cat->slug : $cat->name;
       }
 
       return $return;
+  }
+
+  /**
+    * Returns script ?ver= version based on environment (WP_ENV)
+    *
+    * If WP_ENV is not defined or equals anything other than 'development' or 'staging'
+    * returns $script_version (if defined) else plugin verson. If WP_ENV is defined
+    * as 'development' or 'staging', returns string representing file last modification
+    * date (to discourage browser during development).
+    *
+    * @param string $script The filesystem path (relative to the script location of
+    *    calling script) to return the version for.
+    * @param string $script_version (optional) The version that will be returned if
+    *    WP_ENV is defined as anything other than 'development' or 'staging'.
+    *
+    * @return string
+    * @since 0.1.0
+    */
+  public function get_script_version( $script, $return_minified = false, $script_version = null ) {
+    $version = $script_version ?: self::$config->get( 'plugin/meta/Version' );
+    if( self::is_production() ) return $version;
+
+    $script = $this->get_script_path( $script, $return_minified );
+    if( file_exists($script) ) {
+      $version = date( "ymd-Gis", filemtime( $script ) );
+    }
+
+    return $version;
+  }
+
+  /**
+    * Returns script path or URL, either regular or minified (if exists).
+    *
+    * If in production mode or if @param $force_minify == true, inserts '.min' to the filename
+    * (if exists), else return script name without (example: style.css vs style.min.css).
+    *
+    * @param string $script The relative (to the plugin folder) path to the script.
+    * @param bool $return_minified If true and is_production() === true then will prefix the
+    *   extension with .min. NB! Due to performance reasons, I did not include logic to check
+    *   to see if the script_name.min.ext exists, so use only when you know it exists.
+    * @param bool $return_url If true, returns full-qualified URL rather than filesystem path.
+    *
+    * @return string The URL or path to minified or regular $script.
+    * @since 0.1.0
+    */
+  public function get_script_path( $script, $return_minified = true, $return_url = false ) {
+    $script = trim( $script, '/' );
+    if( $return_minified && strpos( $script, '.' ) && $this->is_production() ) {
+      $script_parts = explode( '.', $script );
+      $script_extension = end( $script_parts );
+      array_pop( $script_parts );
+      $script = implode( '.', $script_parts ) . '.min.' . $script_extension;
+    }
+
+    return self::$config->get( $return_url ? 'plugin/url' : 'plugin/path' ) . $script;
+  }
+
+  /**
+    * Returns absolute URL of $script.
+    *
+    * @param string $script The relative (to the plugin folder) path to the script.
+    * @param bool
+    * @since 0.1.0
+    */
+  public function get_script_url( $script, $return_minified = false ) {
+    return self::get_script_path( $script, $return_minified, true );
   }
 
 }
