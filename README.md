@@ -27,9 +27,9 @@ Here are some ways that you can contribute:
 * Powered by [Composer](https://getcomposer.org/), [Gulp](https://gulpjs.com/) and [Bower](https://bower.io/)
 * Object caching (where available; [usage examples](https://github.com/dmhendricks/wordpress-toolkit/wiki/ObjectCache))
 * Automatic translation file (`.pot`) creation. See [Translation](https://github.com/dmhendricks/wordpress-base-plugin/wiki/Translation).
-* Shortcodes, widgets and custom post type (via [PostTypes](https://github.com/jjgrainger/PostTypes/)) examples
-* Configuration registry ([docs](https://github.com/dmhendricks/wordpress-toolkit/wiki/ConfigRegistry)) and optional `wp-config.php` [Constants](https://github.com/dmhendricks/wordpress-base-plugin/wiki/Configuration-&-Constants)
-* [More to come...](#planned-features)
+* Shortcodes, widgets (via [Carbon Fields](https://carbonfields.net)) and custom post types (via [PostTypes](https://github.com/jjgrainger/PostTypes/)) examples
+* Configuration registry ([docs](https://github.com/dmhendricks/wordpress-toolkit/wiki/ConfigRegistry)) and optional `wp-config.php` [constants](https://github.com/dmhendricks/wordpress-base-plugin/wiki/Configuration-&-Constants)
+* [More to come...](#future-plans)
 
 **Note:** Gulp and Bower are optional, but handy. If you do not wish to use them, you can delete the references.
 
@@ -38,7 +38,7 @@ Here are some ways that you can contribute:
 
 * WordPress 4.0 or higher
 * PHP 5.6 or higher
-* [Carbon Fields](https://github.com/htmlburger/carbon-fields) 2.0 or higher (see the wiki section [Carbon Fields](https://github.com/dmhendricks/wordpress-base-plugin/wiki#carbon-fields) for more info)
+* [Carbon Fields](https://github.com/htmlburger/carbon-fields) 2.0 or higher (see the wiki section [Carbon Fields](https://github.com/dmhendricks/wordpress-base-plugin/wiki#carbon-fields) for more info).
 
 ## Installation
 
@@ -60,13 +60,15 @@ If you need tips on installing Node.js, Composer, Gulp & Bower, see [Installing 
 
 See the [Getting Started](https://github.com/dmhendricks/wordpress-base-plugin/wiki#getting-started) documentation for further steps.
 
-## Planned Features & TODO
+## Future Plans
 
 * Add Customizer example
 * Add dynamically-created CSS/JS files based on settings
-* Add encrypted text field example
+* Refactor the Plugin class for better organization and self-documentation
+* Create decent documentation and perform cleanup on the [wordpress-toolkit](https://github.com/dmhendricks/wordpress-toolkit) dependency
 * Add [phpdotenv](https://github.com/vlucas/phpdotenv) support
-* Move `get_script_version()`, `get_script_path()` and `get_script_url()` to Helpers
+* Add encrypted text field example
+* Add some useful Carbon Fields CSS classes
 
 ## Change Log
 
@@ -74,8 +76,7 @@ Release changes are noted on the [Releases](https://github.com/dmhendricks/wordp
 
 #### Branch: `master`
 
-* Added quick start documentation
-* Fixed bug with setting translation text domain
+* None since release
 
 ## Credits
 
