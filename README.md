@@ -1,6 +1,7 @@
-[![Author](https://img.shields.io/badge/author-Daniel%20M.%20Hendricks-blue.svg)](https://www.danhendricks.com)
+[![Author](https://img.shields.io/badge/author-Daniel%20M.%20Hendricks-lightgrey.svg?colorB=9900cc )](https://www.danhendricks.com)
+[![Latest Version](https://img.shields.io/github/release/dmhendricks/wordpress-base-plugin.svg)](https://github.com/dmhendricks/wordpress-base-plugin/releases)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://paypal.me/danielhendricks)
-[![WP Engine](https://f001.backblazeb2.com/file/hendricks/images/badge/wpengine.svg)](http://bit.ly/WPEnginePlans)
+[![WP Engine](https://img.shields.io/badge/WP%20Engine-Compatible-orange.svg)](http://bit.ly/WPEnginePlans)
 [![GitHub License](https://img.shields.io/badge/license-GPLv2-yellow.svg)](https://raw.githubusercontent.com/dmhendricks/wordpress-base-plugin/master/LICENSE)
 [![Twitter](https://img.shields.io/twitter/url/https/github.com/dmhendricks/wordpress-base-plugin.svg?style=social)](https://twitter.com/danielhendricks)
 
@@ -66,7 +67,7 @@ See the [Getting Started](https://github.com/dmhendricks/wordpress-base-plugin/w
 * Add dynamically-created CSS/JS files based on settings
 * Refactor the Plugin class for better organization and self-documentation
 * Create decent documentation and perform cleanup on the [wordpress-toolkit](https://github.com/dmhendricks/wordpress-toolkit) dependency
-* Add [phpdotenv](https://github.com/vlucas/phpdotenv) support
+* Add [phpdotenv](https://github.com/etelford/phpdotenv) support
 * Add encrypted text field example
 * Add some useful Carbon Fields CSS classes
 
