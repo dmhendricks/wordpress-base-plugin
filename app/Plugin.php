@@ -17,8 +17,8 @@ class Plugin {
   function __construct() {
 
     // Get plugin properties and meta data
-    $plugin_obj = new PluginTools();
-    $plugin_data = $plugin_obj->get_current_plugin_data( null, ARRAY_A );
+    $plugin_obj = new PluginTools( __DIR__ );
+    $plugin_data = $plugin_obj->get_current_plugin_data( ARRAY_A );
 
     self::$config = new ConfigRegistry( $plugin_data['path'] . 'plugin.json' );
     self::$config = self::$config->merge( new ConfigRegistry( [ 'plugin' => $plugin_data ] ) );
