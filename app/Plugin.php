@@ -2,6 +2,7 @@
 namespace VendorName\PluginName;
 use WordPress_ToolKit\ObjectCache;
 use WordPress_ToolKit\ConfigRegistry;
+use WordPress_ToolKit\PluginTools;
 use WordPress_ToolKit\Helpers\ArrayHelper;
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
@@ -15,25 +16,15 @@ class Plugin {
 
   function __construct() {
 
-    // Initialize plugin settings
+    // Get plugin properties and meta data
+    $plugin_obj = new PluginTools();
+    $plugin_data = $plugin_obj->get_current_plugin_data( null, ARRAY_A );
 
-    // Get plugin path, URL, identifier and slug
-    $plugin_data['path'] = plugin_dir_path( __DIR__ );
-    $plugin_data['slug'] = end( explode( '/', trim( $plugin_data['path'], '/' ) ) );
-    $plugin_data['file'] = end( explode( '/', debug_backtrace()[0]['file'] ) );
-    $plugin_data = array( 'plugin' => array(
-      'identifier' => $plugin_data['slug'] . DIRECTORY_SEPARATOR . $plugin_data['file'],
-      'slug' => $plugin_data['slug'],
-      'path' => $plugin_data['path'],
-      'url' => plugin_dir_url( __DIR__ ),
-      'meta' => get_plugin_data( $plugin_data['path'] . $plugin_data['file'] )
-    ));
-
-    self::$config = new ConfigRegistry( $plugin_data['plugin']['path'] . 'plugin.json' );
-    self::$config = self::$config->merge( new ConfigRegistry( $plugin_data ) );
+    self::$config = new ConfigRegistry( $plugin_data['path'] . 'plugin.json' );
+    self::$config = self::$config->merge( new ConfigRegistry( [ 'plugin' => $plugin_data ] ) );
     self::$textdomain = self::$config->get( 'plugin/meta/TextDomain' ) ?: self::$config->get( 'plugin/slug' );
 
-    // Define plugin version constant
+    // Define plugin VERSION constant
     if ( !defined( __NAMESPACE__ . '\VERSION' ) ) define( __NAMESPACE__ . '\VERSION', self::$config->get( 'plugin/meta/Version' ) );
 
     // Initialize ObjectCache
