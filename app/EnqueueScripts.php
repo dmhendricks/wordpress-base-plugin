@@ -5,8 +5,6 @@ class EnqueueScripts extends Plugin {
 
   function __construct() {
 
-    // TODO: Put back font awesome
-
     // Enqueue frontend/backend scripts and global JavaScript variables
     add_action( 'wp_head', array( $this, 'inject_javascript_settings' ) );
     add_action( 'admin_head', array( $this, 'inject_javascript_settings' ) );

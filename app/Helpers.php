@@ -162,7 +162,7 @@ class Helpers extends Plugin {
     $version = $script_version ?: self::$config->get( 'plugin/meta/Version' );
     if( self::is_production() ) return $version;
 
-    $script = $this->get_script_path( $script, $return_minified );
+    $script = self::get_script_path( $script, $return_minified );
     if( file_exists($script) ) {
       $version = date( "ymd-Gis", filemtime( $script ) );
     }
