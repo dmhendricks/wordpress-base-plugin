@@ -28,7 +28,8 @@
   "minimum-stability": "dev",
   "autoload": {
     "psr-4": {
-      "VendorName\\PluginName\\": "app/"
+      "VendorName\\PluginName\\": "app/",
+      "Carbon_Fields\\Datastore\\Datastore\\": "app/Datastores/"
     }
   }
 }

@@ -1,6 +1,7 @@
 <?php
 namespace VendorName\PluginName\Settings;
 use VendorName\PluginName\Plugin;
+use Carbon_Fields\Datastore\Datastore\Serialized_Theme_Options_Datastore;
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
 
@@ -73,10 +74,13 @@ class Carbon_Page extends Plugin {
             'left' => __('Left', self::$textdomain)
           ))
           ->set_default_value('top'),
-        Field::make('complex', $this->prefix('slides'), self::$config->get( 'plugin/meta/Name' ) . ' ' . __('Slides', self::$textdomain))->add_fields(array(
-          Field::make('text', 'title'),
-          Field::make('image', 'photo'),
-        )),
+        Field::make('complex', $this->prefix('slides'), self::$config->get( 'plugin/meta/Name' ) . ' ' . __('Slides', self::$textdomain))
+          ->set_datastore( new Serialized_Theme_Options_Datastore() )
+          ->add_fields(array(
+            Field::make('text', 'title'),
+            Field::make('image', 'photo'),
+          )
+        ),
         Field::make('select', $this->prefix('select_dropdown'), __('Favorite Continent', self::$textdomain) )
           ->add_options(array(
             'aria' => __('Asia', self::$textdomain),

@@ -10,8 +10,8 @@ class Clients extends Plugin {
   public function __construct() {
 
     // Sample Custom Post Type - Client
-    add_action( 'carbon_fields_loaded', array( $this, 'add_post_type_client' ) );
-    //$this->add_post_type_client();
+    //add_action( 'carbon_fields_loaded', array( $this, 'add_post_type_client' ) );
+    $this->add_post_type_client();
 
     // Hide unnecessary publishing options like Draft, visibility, etc.
     add_action( 'admin_head-post.php', array( $this, 'hide_publishing_actions' ) );
