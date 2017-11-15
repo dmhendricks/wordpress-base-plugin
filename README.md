@@ -78,6 +78,7 @@ Release changes are noted on the [Releases](https://github.com/dmhendricks/wordp
 #### Branch: `master`
 
 * Added Carbon Fields [Serialized Datastore](https://github.com/dmhendricks/wordpress-base-plugin/wiki/Features-&-Customization#serialized-data-store) example
+* Fixed bugs with example widget scope
 
 ## Credits
 
