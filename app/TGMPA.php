@@ -29,7 +29,7 @@ class TGMPA extends Plugin {
   			'slug'               => 'carbon-fields-loader', // The plugin slug (typically the folder name).
   			'source'             => 'https://github.com/dmhendricks/carbon-fields-loader/archive/master.zip', // The plugin source.
   			'required'           => true, // If false, the plugin is only 'recommended' instead of required.
-  			'version'            => '2.0.0', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
+  			'version'            => '2.1.0', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
   			'force_activation'   => true // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
   		)
 
@@ -51,7 +51,14 @@ class TGMPA extends Plugin {
   		'capability'   => 'edit_theme_options',     // Capability needed to view plugin install page, should be a capability associated with the parent menu used.
   		'has_notices'  => true,                     // Show admin notices or not.
   		'dismissable'  => true,                     // If false, a user cannot dismiss the nag message.
-  		'is_automatic' => true                      // Automatically activate plugins after installation or not.
+  		'is_automatic' => true,                     // Automatically activate plugins after installation or not.
+      'strings'      => array(
+  			'notice_can_install_required' => _n_noop(
+					'This plugin has the following dependency: %1$s.',
+					'This plugin has the following dependencies: %1$s.',
+					self::$textdomain
+				),
+  		)
   	);
 
   	tgmpa( $plugins, $config );
