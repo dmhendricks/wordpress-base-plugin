@@ -8,7 +8,7 @@ use Carbon_Fields\Widget;
  * A simple widget that displays a text field (title) and textarea.
  * @since 0.3.0
  */
-class ExampleWidget extends Widget {
+class ExampleWidget extends Carbon_Fields\Widget {
 
   public function __construct() {
 
@@ -29,8 +29,8 @@ class ExampleWidget extends Widget {
    */
   public function front_end( $args, $instance ) {
 
-    echo $args['before_title'] . $instance[$this->prefix( 'widget_title' )] . $args['after_title'];
-    echo '<p>' . $instance[$this->prefix( 'widget_content')] . '</p>';
+    echo $args[ 'before_title' ] . $instance[ Plugin::prefix( 'widget_title' ) ] . $args[ 'after_title' ];
+    echo '<p>' . $instance[ Plugin::prefix( 'widget_content') ] . '</p>';
 
   }
 
