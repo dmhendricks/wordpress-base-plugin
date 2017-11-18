@@ -158,7 +158,7 @@ class Helpers extends Plugin {
     * @return string
     * @since 0.1.0
     */
-  public function get_script_version( $script, $return_minified = false, $script_version = null ) {
+  public static function get_script_version( $script, $return_minified = false, $script_version = null ) {
     $version = $script_version ?: self::$config->get( 'plugin/meta/Version' );
     if( self::is_production() ) return $version;
 
@@ -185,9 +185,9 @@ class Helpers extends Plugin {
     * @return string The URL or path to minified or regular $script.
     * @since 0.1.0
     */
-  public function get_script_path( $script, $return_minified = true, $return_url = false ) {
+  public static function get_script_path( $script, $return_minified = true, $return_url = false ) {
     $script = trim( $script, '/' );
-    if( $return_minified && strpos( $script, '.' ) && $this->is_production() ) {
+    if( $return_minified && strpos( $script, '.' ) && self::is_production() ) {
       $script_parts = explode( '.', $script );
       $script_extension = end( $script_parts );
       array_pop( $script_parts );
@@ -204,7 +204,7 @@ class Helpers extends Plugin {
     * @param bool
     * @since 0.1.0
     */
-  public function get_script_url( $script, $return_minified = false ) {
+  public static function get_script_url( $script, $return_minified = false ) {
     return self::get_script_path( $script, $return_minified, true );
   }
 

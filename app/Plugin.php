@@ -62,7 +62,7 @@ class Plugin {
     }
 
     if( $this->verify_dependencies( 'carbon_fields' ) === true ) {
-      add_action( 'carbon_fields_loaded', array( $this, 'load_plugin' ));
+      add_action( 'carbon_fields_fields_registered', array( $this, 'load_plugin' ));
     }
 
   }
@@ -206,7 +206,7 @@ class Plugin {
     * @return string Prefixed string/field value
     * @since 0.2.0
     */
-  public function prefix( $field_name = null ) {
+  public static function prefix( $field_name = null ) {
     return $field_name !== null ? self::$config->get( 'prefix' ) . $field_name : self::$config->get( 'prefix' );
   }
 
@@ -218,7 +218,7 @@ class Plugin {
     * @return bool
     * @since 0.1.0
     */
-  public function is_production() {
+  public static function is_production() {
     return ( !defined( 'WP_ENV' ) || ( defined('WP_ENV' ) && !in_array( WP_ENV, array('development', 'staging') ) ) );
   }
 

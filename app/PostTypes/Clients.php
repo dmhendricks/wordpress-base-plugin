@@ -53,14 +53,14 @@ class Clients extends Plugin {
 
     // Add fields
     Container::make( 'post_meta', __('Client Details', self::$textdomain ) )
-      ->show_on_post_type( $cpt->postTypeName )
+      ->show_on_post_type( $cpt->name )
       ->add_fields( array(
         Field::make( 'text', $this->prefix( 'name' ), __( 'Name', self::$textdomain ) ),
         Field::make( 'text', $this->prefix( 'company' ), __( 'Company', self::$textdomain ) ),
       )
     );
     Container::make( 'post_meta', 'Contact Info' )
-      ->show_on_post_type( $cpt->postTypeName )
+      ->show_on_post_type( $cpt->name )
       ->add_fields( array(
         Field::make( 'text', $this->prefix( 'url' ), __( 'Web Site', self::$textdomain ) ),
         Field::make( 'text', $this->prefix( 'phone' ), __( 'Phone Number', self::$textdomain ) ),

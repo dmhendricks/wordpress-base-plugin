@@ -20,7 +20,7 @@
   "require": {
     "php": ">=5.6.0",
     "jjgrainger/posttypes": "dev-master",
-    "tgmpa/tgm-plugin-activation": "^2.6.0",
+    "tgmpa/tgm-plugin-activation": "^2.6.1",
     "tareq1988/wordpress-settings-api-class": "dev-master",
     "dmhendricks/wordpress-toolkit": "dev-master",
     "composer/installers": "^1.4.0"

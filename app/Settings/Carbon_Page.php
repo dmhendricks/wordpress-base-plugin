@@ -113,7 +113,7 @@ class Carbon_Page extends Plugin {
     */
   private function create_single_options_page() {
 
-    Container::make( 'theme_options', self::$config->get( 'plugin/meta/Name' ) )
+    $container = Container::make( 'theme_options', self::$config->get( 'plugin/meta/Name' ) )
       ->set_page_parent( 'options-general.php' )
       ->add_fields( array(
         Field::make( 'text', $this->prefix( 'your_name' ), __( 'Your Name', self::$textdomain ) ),
