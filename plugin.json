@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "php": "5.6",
-    "carbon_fields": "2.1.0"
+    "carbon_fields": "2.1.1"
   },
   "encrypt_method": "AES-128-ECB"
 }

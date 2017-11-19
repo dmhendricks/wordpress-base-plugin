@@ -4,16 +4,16 @@ use Carbon_Fields\Field\Field;
 use Carbon_Fields\Datastore\Datastore;
 
 /**
- * Stores serialized values in the database
- */
+  * Stores serialized values in the database
+  * @see https://carbonfields.net/docs/guides-serialized-datastore/
+  * @since 0.3.1
+  */
 class Serialized_Theme_Options_Datastore extends Datastore {
 
     /**
      * Initialization tasks for concrete datastores.
      **/
-    public function init() {
-
-    }
+    public function init() { }
 
     protected function get_key_for_field( Field $field ) {
         $key = '_' . $field->get_base_name();

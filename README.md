@@ -11,7 +11,7 @@
 
 This is a boilerplate WordPress plugin featuring namespace autoloading and integration with [Carbon Fields](https://github.com/htmlburger/carbon-fields). It is intended to be used as a starting point for creating WordPress plugins. It contains several examples and dependencies to get you started.
 
-It may also be used as the means of [separating custom code](http://www.billerickson.net/core-functionality-plugin/) from the theme.
+It may also be used as the means of [separating custom code](http://www.billerickson.net/core-functionality-plugin/) from the theme or [extending a child theme](https://www.wp-code.com/wordpress-snippets/wordpress-grandchildren-themes/).
 
 ### Contributing
 
@@ -77,9 +77,7 @@ Release changes are noted on the [Releases](https://github.com/dmhendricks/wordp
 
 #### Branch: `master`
 
-* Added Carbon Fields [Serialized Datastore](https://github.com/dmhendricks/wordpress-base-plugin/wiki/Features-&-Customization#serialized-data-store) example
-* Fixed bugs with example widget scope
-* Updated compatibility for Carbon Fields 2.1.1
+* None since release
 
 ## Credits
 
