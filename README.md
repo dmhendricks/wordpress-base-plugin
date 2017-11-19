@@ -7,6 +7,14 @@
 
 # WordPress Base Plugin
 
+- [Documentation](https://github.com/dmhendricks/wordpress-base-plugin/wiki/)
+- [Features](#features)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Future Plans](#future-plans)
+- [Change Log](#change-log)
+- [Credits](#credits)
+
 ## Description
 
 This is a boilerplate WordPress plugin featuring namespace autoloading and integration with [Carbon Fields](https://github.com/htmlburger/carbon-fields). It is intended to be used as a starting point for creating WordPress plugins. It contains several examples and dependencies to get you started.
@@ -77,7 +85,7 @@ Release changes are noted on the [Releases](https://github.com/dmhendricks/wordp
 
 #### Branch: `master`
 
-* None since release
+* Fixed non-static deprecation notice
 
 ## Credits
 

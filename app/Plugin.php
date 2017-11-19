@@ -184,7 +184,7 @@ class Plugin {
     * @since 0.2.0
     *
     */
-  public function get_plugin_option( $key, $cache = true ) {
+  public static function get_plugin_option( $key, $cache = true ) {
     $key = $this->prefix( $key );
 
     if( $cache ) {
