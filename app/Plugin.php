@@ -185,7 +185,7 @@ class Plugin {
     *
     */
   public static function get_plugin_option( $key, $cache = true ) {
-    $key = $this->prefix( $key );
+    $key = self::prefix( $key );
 
     if( $cache ) {
       // Attempt to get value from cache, else fetch value from database

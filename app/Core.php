@@ -45,11 +45,11 @@ class Core extends Plugin {
 
     // Add page, parent and post-type classes, if available
     $classes[] = 'page-' . Helpers::get_page_slug();
-    if($parent_slug) $classes[] = 'parent-' . $parent_slug;
+    if( $parent_slug ) $classes[] = 'parent-' . $parent_slug;
     $classes[] = 'post-type-' . get_post_type();
 
     // Add category slugs
-    foreach($categories as $cat) {
+    foreach( $categories as $cat ) {
       $classes[] = 'category-' . $cat;
     }
 
