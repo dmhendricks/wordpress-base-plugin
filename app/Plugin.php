@@ -202,12 +202,15 @@ class Plugin {
   /**
     * A wrapper for the plugin's data fiala prefix as defined in $config
     *
-    * @param string|null $str The string/field to prefix
+    * @param string|null $field_name The string/field to prefix
+    * @param string $before String to add before the prefix
+    * @param string $after String to add after the prefix
     * @return string Prefixed string/field value
     * @since 0.2.0
     */
-  public static function prefix( $field_name = null ) {
-    return $field_name !== null ? self::$config->get( 'prefix' ) . $field_name : self::$config->get( 'prefix' );
+  public static function prefix( $field_name = null, $before = '', $after = '_' ) {
+    $prefix = $before . self::$config->get( 'prefix' ) . $after;
+    return $field_name !== null ? $prefix . $field_name : $prefix;
   }
 
   /**
