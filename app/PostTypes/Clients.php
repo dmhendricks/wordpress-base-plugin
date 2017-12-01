@@ -10,7 +10,6 @@ class Clients extends Plugin {
   public function __construct() {
 
     // Sample Custom Post Type - Client
-    //add_action( 'carbon_fields_loaded', array( $this, 'add_post_type_client' ) );
     $this->add_post_type_client();
 
     // Hide unnecessary publishing options like Draft, visibility, etc.
@@ -49,10 +48,12 @@ class Clients extends Plugin {
         'slug' => 'client'
       ), $options
     );
+
     $cpt->icon('dashicons-star-filled');
+    $cpt->register();
 
     // Add fields
-    Container::make( 'post_meta', __('Client Details', self::$textdomain ) )
+    Container::make( 'post_meta', __( 'Client Details', self::$textdomain ) )
       ->show_on_post_type( $cpt->name )
       ->add_fields( array(
         Field::make( 'text', $this->prefix( 'name' ), __( 'Name', self::$textdomain ) ),
@@ -64,7 +65,8 @@ class Clients extends Plugin {
       ->add_fields( array(
         Field::make( 'text', $this->prefix( 'url' ), __( 'Web Site', self::$textdomain ) ),
         Field::make( 'text', $this->prefix( 'phone' ), __( 'Phone Number', self::$textdomain ) ),
-        Field::make( 'textarea', $this->prefix( 'address' ), __( 'Address', self::$textdomain ) )->set_rows( 4 )
+        Field::make( 'textarea', $this->prefix( 'address' ), __( 'Address', self::$textdomain ) )
+          ->set_rows( 4 )
       )
     );
 
