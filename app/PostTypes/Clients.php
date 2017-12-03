@@ -26,11 +26,10 @@ class Clients extends Plugin {
     */
   public function add_post_type_client() {
 
+    $labels = [ 'menu_name' => 'Client List' ];
+
     $options = array(
       'supports'            => array('title'),
-      'labels'              => array(
-        'menu_name' => 'Client List'
-      ),
       'exclude_from_search' => true,
       'publicly_queryable'  => true,
       'show_ui'             => true,
@@ -46,7 +45,7 @@ class Clients extends Plugin {
         'singular' => 'Client',
         'plural' => 'Clients',
         'slug' => 'client'
-      ), $options
+      ), $options, $labels
     );
 
     $cpt->icon('dashicons-star-filled');
