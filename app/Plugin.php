@@ -188,12 +188,14 @@ class Plugin {
     *   cache flushed appropriately.
     *
     * @param string $key The name of the option key
+    * @param bool $cache Whether or not to attempt to get cached value
     * @return mixed The value of specified Carbon Fields option key
     * @link https://carbonfields.net/docs/containers-usage/ Carbon Fields containers
     * @since 0.2.0
     *
     */
   public static function get_plugin_option( $key, $cache = true ) {
+
     $key = self::prefix( $key );
 
     if( $cache ) {
@@ -205,6 +207,38 @@ class Plugin {
       // Return uncached value
       return carbon_get_theme_option( $key );
     }
+
+  }
+
+  /**
+    * Get plugin option from WordPress Settings API Class, with object caching
+    *   (if available).
+    *
+    * @param string $key The name of the option key
+    * @param string $group_id The group_id of the settings page, as specified
+    *   in WPSAC_Page class
+    * @param bool $cache Whether or not to attempt to get cached value
+    * @return string The value of specified option key
+    * @link https://github.com/tareq1988/wordpress-settings-api-class WPSAC options
+    * @since 0.3.2
+    *
+    */
+  public static function get_wpsac_plugin_option( $key, $group_id = 'options', $cache = true ) {
+
+    $key = self::prefix( $key );
+    $options = array();
+
+    if( $cache ) {
+      // Attempt to get value from cache, else fetch value from database
+      $options = self::$cache->get_object( $key, function() use ( &$key, &$group_id ) {
+        return get_option( self::prefix( $group_id ) );
+      });
+    } else {
+      // Return uncached value
+      $options = get_option( self::prefix( $group_id ) );
+    }
+
+    return isset( $options[ $key ] ) ? $options[ $key ] : null;
 
   }
 

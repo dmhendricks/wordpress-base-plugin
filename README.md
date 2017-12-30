@@ -88,6 +88,8 @@ Release changes are noted on the [Releases](https://github.com/dmhendricks/wordp
 
 * Fixed non-static deprecation notice
 * Added support for before/after strings to prefix()
+* Added version check for wordpress-toolkit
+* Added get_wpsac_plugin_option() example to Plugin class
 
 ## Credits
 

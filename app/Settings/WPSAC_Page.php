@@ -13,11 +13,15 @@ use Carbon_Fields\Field;
 class WPSAC_Page extends Plugin {
 
   private $settings_api;
+  private $section_id = 'options';
 
   function __construct() {
 
     $this->settings_api = new \WeDevs_Settings_API();
     $this->settings_fields = array();
+
+    // Process saved options on submit
+    if( isset( $_POST['option_page'] ) && $_POST['option_page'] == $this->prefix( $this->section_id ) ) $this->options_container_saved();
 
     // Create a settings page using wordpress-settings-api-class (Settings > Settings API)
     add_action( 'admin_init', array( $this, 'wpsac_admin_init' ) );
@@ -31,6 +35,10 @@ class WPSAC_Page extends Plugin {
     * @since 0.3.0
     */
   public function wpsac_admin_init() {
+
+    // Flush cache when settings saved
+    if( isset( $_POST['option_page'] ) && $_POST['option_page'] == $this->prefix( $this->section_id ) ) self::$cache->flush();
+
     $this->settings_api->set_sections( $this->get_settings_sections() );
     $this->settings_api->set_fields( $this->get_settings_fields() );
     $this->settings_api->admin_init();
@@ -55,7 +63,7 @@ class WPSAC_Page extends Plugin {
     $sections = array(
 
       array(
-          'id'    => $this->prefix( 'general' ),
+          'id'    => $this->prefix( $this->section_id ),
           'title' => self::$config->get( 'short_name' ) . ' ' . __( 'Settings', self::$textdomain ) . ' (WPSAC)'
       )
     );
@@ -72,7 +80,7 @@ class WPSAC_Page extends Plugin {
   public function get_settings_fields() {
 
     $settings_fields = array(
-      $this->prefix( 'general' ) => array(
+      $this->prefix( $this->section_id ) => array(
         array(
           'name'              => $this->prefix( 'blog_name' ),
           'label'             => __( 'Blog Name', self::$textdomain ),
@@ -122,6 +130,19 @@ class WPSAC_Page extends Plugin {
     $this->settings_api->show_navigation();
     $this->settings_api->show_forms();
     echo '</div>';
+
+  }
+
+  /**
+    * When settings saved, run optional code to process. This is not elegant,
+    *   but WPSAC doesn't have an options saved hook.
+    *
+    * @since 0.3.2
+    */
+  private function options_container_saved() {
+
+    // Example - If we wanted to saved the "blog_name" field as an MD5 hash:
+    //$_POST[ $this->prefix( $this->section_id ) ][ $this->prefix( 'blog_name' ) ] = md5( $this->prefix( 'blog_name' ) );
 
   }
 
