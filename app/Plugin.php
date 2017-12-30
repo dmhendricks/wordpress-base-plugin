@@ -140,6 +140,15 @@ class Plugin {
           }
           break;
 
+        case 'wordpress-toolkit':
+
+          $wordpress_toolkit_version = defined( '\WordPress_ToolKit\VERSION' ) ? \WordPress_ToolKit\VERSION : null;
+
+          if( !$wordpress_toolkit_version || version_compare( $wordpress_toolkit_version, $version, '<' ) ) {
+            $notices[] = sprintf( __( 'Unable to activate %s. An outdated version of WordPress ToolKit has been detected: %s (&gt;= %s required)', self::$textdomain ), self::$config->get( 'plugin/meta/Name' ), $wordpress_toolkit_version, $version );
+          }
+          break;
+
         case 'carbon_fields':
 
           //if( defined('\\Carbon_Fields\\VERSION') || ( defined('\\Carbon_Fields\\VERSION') && version_compare( \Carbon_Fields\VERSION, $version, '<' ) ) ) {
