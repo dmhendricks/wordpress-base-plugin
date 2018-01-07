@@ -86,6 +86,7 @@ Release changes are noted on the [Releases](https://github.com/dmhendricks/wordp
 
 #### Branch: `master`
 
+* Replaced Carbon Fields Loader dependency with [official plugin](https://carbonfields.net/release-archive/)
 * Fixed non-static deprecation notice
 * Added support for before/after strings to prefix()
 * Added version check for wordpress-toolkit
