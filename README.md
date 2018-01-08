@@ -39,6 +39,7 @@ Here are some ways that you can contribute:
 * Automatic translation file (`.pot`) creation. See [Translation](https://github.com/dmhendricks/wordpress-base-plugin/wiki/Translation).
 * Shortcodes, widgets (via [Carbon Fields](https://carbonfields.net)) and custom post types (via [PostTypes](https://github.com/jjgrainger/PostTypes/)) examples
 * Configuration registry ([docs](https://github.com/dmhendricks/wordpress-toolkit/wiki/ConfigRegistry)) and optional `wp-config.php` [constants](https://github.com/dmhendricks/wordpress-base-plugin/wiki/Configuration-&-Constants)
+* Adding options to Customizer example
 * [More to come...](#future-plans)
 
 **Note:** Gulp and Bower are optional, but handy. If you do not wish to use them, you can delete the references.
@@ -72,8 +73,7 @@ See the [Getting Started](https://github.com/dmhendricks/wordpress-base-plugin/w
 
 ## Future Plans
 
-* Add Customizer example
-* Refactor the Plugin base class for better organization and self-documentation
+* Refactor the Plugin base class
 * Add [phpdotenv](https://github.com/etelford/phpdotenv) support
 * Add some Carbon Fields CSS helper classes
 
@@ -85,37 +85,11 @@ Release changes are noted on the [Releases](https://github.com/dmhendricks/wordp
 
 * Replaced Carbon Fields Loader dependency with [official plugin](https://carbonfields.net/release-archive/)
 * Fixed non-static deprecation notice
-* Added support for before/after strings to prefix()
-* Added version check for wordpress-toolkit
-* Added get_wpsac_plugin_option() example to Plugin class
-
-## Credits
-
-Please support [humans.txt](http://humanstxt.org/). It's an initiative for knowing the people behind a web site. It's an unobtrusive text file that contains information about the different people who have contributed to building the web site.
-
-**Carbon Fields**
-
-	URL: http://carbonfields.net/
-	Author: htmlBurger.com
-	Twitter: @htmlburger
-	Author URI: https://htmlburger.com/
-	Location: London, England
-
-**WPGulp**
-
-	URL: https://labs.ahmadawais.com/WPGulp/
-	Author: Ahmad Awais
-	Twitter: @mrahmadawais
-	Author URI: https://ahmadawais.com/
-	Location: Asal, Pakistan
-
-**PostTypes**
-
-	URL: https://github.com/jjgrainger/PostTypes/
-	Author: Joe Grainger
-	Twitter: @jjgrainger
-	Author URI: https://jjgrainger.co.uk/
-	Location: Falmouth, England
+* Added support for before/after strings to `prefix()`
+* Added version check for `wordpress-toolkit`
+* Added `get_wpsac_plugin_option()` example to Plugin class
+* Updated JS injection to use wordpress-toolkit [ScriptObject](https://github.com/dmhendricks/wordpress-toolkit/wiki/ScriptObject)
+* Added Customizer options example (via [inc2734/wp-customizer-framework](https://github.com/inc2734/wp-customizer-framework))
 
 ## Screenshot
 

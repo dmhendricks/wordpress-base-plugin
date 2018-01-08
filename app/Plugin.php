@@ -85,6 +85,9 @@ class Plugin {
     // Alternatively, add admin settings page using wordpress-settings-api-class
     new Settings\WPSAC_Page();
 
+    // Add Customizer panels and options
+    new Settings\Customizer_Options();
+
     // Enqueue scripts and stylesheets
     new EnqueueScripts();
 
