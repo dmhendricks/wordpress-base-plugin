@@ -73,12 +73,9 @@ See the [Getting Started](https://github.com/dmhendricks/wordpress-base-plugin/w
 ## Future Plans
 
 * Add Customizer example
-* Add dynamically-created CSS/JS files based on settings
-* Refactor the Plugin class for better organization and self-documentation
-* Create decent documentation and perform cleanup on the [wordpress-toolkit](https://github.com/dmhendricks/wordpress-toolkit) dependency
+* Refactor the Plugin base class for better organization and self-documentation
 * Add [phpdotenv](https://github.com/etelford/phpdotenv) support
-* Add encrypted text field example
-* Add some useful Carbon Fields CSS classes
+* Add some Carbon Fields CSS helper classes
 
 ## Change Log
 

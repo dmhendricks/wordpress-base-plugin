@@ -1,15 +1,17 @@
 <?php
 namespace VendorName\PluginName;
+use WordPress_ToolKit\ScriptObject;
 
 class EnqueueScripts extends Plugin {
 
   function __construct() {
 
-    // Enqueue frontend/backend scripts and global JavaScript variables
-    add_action( 'wp_head', array( $this, 'inject_javascript_settings' ) );
-    add_action( 'admin_head', array( $this, 'inject_javascript_settings' ) );
+    // Enqueue frontend/backend scripts
     add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_scripts') );
     add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts') );
+
+    // Inject plugin settings into page head
+    $this->inject_javascript_settings();
 
     // Example - Load Font Awesome from CDN, if enabled in Settings Page
     $enqueue_font_awesome = $this->get_plugin_option( 'enqueue_font_awesome' );
@@ -80,19 +82,25 @@ class EnqueueScripts extends Plugin {
   }
 
   /**
-    * Add global JavaScript settings variables. You can add any variables/settings
-    *    that you want to make available to your JavaScripts
+    * Inject JavaScript settings into header. You can add any variables/settings
+    *    that you want to make available to your JavaScripts.
     * @since 0.3.0
     */
-  public function inject_javascript_settings() {
+  private function inject_javascript_settings() {
 
-    $javascript_variables = array(
-      'admin_bar_add_clear_cache' => $this->get_plugin_option( 'admin_bar_add_clear_cache' ),
-      'admin_bar_add_clear_cache_success' => __( 'WordPress cache has been cleared.', self::$textdomain ),
-      'show_clear_cache_link' => current_user_can( 'manage_options' )
+    $args = array(
+      'variable_name' => $this->prefix( 'plugin_settings', '_' ),
+      'target' => ['wp', 'admin']
     );
 
-    echo "<script>var _wpbp_plugin_settings = JSON.parse('" . json_encode( $javascript_variables ) . "');</script>";
+    $values = array(
+      'admin_bar_add_clear_cache' => $this->get_plugin_option( 'admin_bar_add_clear_cache' ),
+      'admin_bar_add_clear_cache_success' => __( 'WordPress cache has been cleared.', self::$textdomain ),
+      'show_clear_cache_link' => current_user_can( 'manage_options' ),
+    );
+
+    $js = new \WordPress_ToolKit\ScriptObject( $values );
+    $js->injectJS( $args );
 
   }
 

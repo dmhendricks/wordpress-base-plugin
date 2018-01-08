@@ -19,7 +19,7 @@
 		      },
 		      success: function(result)
 		      {
-            alert( result.success ? _wpbp_plugin_settings['admin_bar_add_clear_cache_success'] : 'Error: ' + result.message );
+            alert( result.success ? _myplugin_plugin_settings['admin_bar_add_clear_cache_success'] : 'Error: ' + result.message );
 		      }
 		  });
 
@@ -28,7 +28,7 @@
   }
 
   // Bind event to clear theme cache Admin Bar link
-  if( typeof _wpbp_plugin_settings !== 'undefined' && _wpbp_plugin_settings['show_clear_cache_link'] && _wpbp_plugin_settings['admin_bar_add_clear_cache'] ) {
+  if( typeof _myplugin_plugin_settings !== 'undefined' && _myplugin_plugin_settings['show_clear_cache_link'] && _myplugin_plugin_settings['admin_bar_add_clear_cache'] ) {
     $( '#wpadminbar' ).waitUntilExists(function() {
       $('#wp-admin-bar-clear_object_cache').on( 'click', function( event ) {
     		event.preventDefault();
