@@ -40,7 +40,7 @@ config.rb
 # Composer #
 ############
 !src/js/vendor/
-wpcs/
+yarn.lock
 composer.lock
 
 # Gulp #
