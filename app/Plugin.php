@@ -60,17 +60,17 @@ class Plugin {
     // Enqueue scripts and stylesheets
     new EnqueueScripts();
 
-    // Perform core plugin logic
-    new Core();
-
     // Create custom post types
-    new PostTypes\Clients();
+    new PostTypes\PostTypes_Loader();
 
     // Load custom widgets
-    new Widgets\WidgetLoader();
+    new Widgets\Widget_Loader();
 
     // Load shortcodes
     new Shortcodes\Shortcode_Loader();
+
+    // Perform core plugin logic
+    new Core();
 
   }
 

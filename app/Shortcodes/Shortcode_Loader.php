@@ -21,9 +21,9 @@ class Shortcode_Loader extends Plugin {
 
       $shortcode = new $shortcodeClass();
       if( $shortcode instanceof ShortcodeInterface ) {
-          new $shortcode();
+        new $shortcode();
       } else {
-          // Log or show error notices
+        // Log or show error notices
       }
 
     }
