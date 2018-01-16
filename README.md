@@ -47,7 +47,7 @@ Here are some ways that you can contribute:
 
 ## Requirements
 
-* WordPress 4.0 or higher
+* WordPress 4.6 or higher
 * PHP 5.6 or higher
 * [Carbon Fields](https://github.com/htmlburger/carbon-fields) 2.0 or higher (see the wiki section [Carbon Fields](https://github.com/dmhendricks/wordpress-base-plugin/wiki#carbon-fields) for more info).
 
@@ -85,15 +85,7 @@ Release changes are noted on the [Releases](https://github.com/dmhendricks/wordp
 
 #### Branch: `master`
 
-* Replaced Carbon Fields Loader dependency with [official plugin](https://carbonfields.net/release-archive/)
-* Fixed non-static deprecation notice
-* Added support for before/after strings to `prefix()`
-* Added version check for `wordpress-toolkit`
-* Added `get_wpsac_plugin_option()` example to Plugin class
-* Updated JS injection to use wordpress-toolkit [ScriptObject](https://github.com/dmhendricks/wordpress-toolkit/wiki/ScriptObject)
-* Added Customizer options example (via [inc2734/wp-customizer-framework](https://github.com/inc2734/wp-customizer-framework))
-* Added various Carbon Fields custom CSS classes
-* Bumped NPM dependency versions
+* None since release
 
 ## Screenshot
 

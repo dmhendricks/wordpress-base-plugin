@@ -2,9 +2,9 @@
 Contributors: hendridm
 Tags: wordpress,base,plugin,boilerplate,composer,carbonfields
 Donate link: https://paypal.me/danielhendricks
-Requires at least: 4.0
-Tested up to: 4.9
-Stable tag: 0.3.1
+Requires at least: 4.6
+Tested up to: 4.9.1
+Stable tag: 0.4.0
 License: GPL-2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
