@@ -17,7 +17,7 @@ class Helpers extends Plugin {
     */
   public static function show_notice( $msg, $type = 'error', $is_dismissible = false ) {
 
-    add_action( 'admin_notices', function() use (&$msg, &$type, &$is_dismissible) {
+    add_action( 'admin_notices', function() use ( &$msg, &$type, &$is_dismissible ) {
 
       $class = 'notice notice-' . $type . ( $is_dismissible ? ' is-dismissible' : '' );
       printf( '<div class="%1$s"><p>%2$s</p></div>', $class, $msg );

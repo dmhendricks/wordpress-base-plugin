@@ -29,7 +29,7 @@ class Clients extends Plugin {
     $labels = [ 'menu_name' => 'Client List' ];
 
     $options = array(
-      'supports'            => array('title'),
+      'supports'            => array( 'title' ),
       'exclude_from_search' => true,
       'publicly_queryable'  => true,
       'show_ui'             => true,
@@ -48,7 +48,7 @@ class Clients extends Plugin {
       ), $options, $labels
     );
 
-    $cpt->icon('dashicons-star-filled');
+    $cpt->icon( 'dashicons-star-filled' );
     $cpt->register();
 
     // Add fields

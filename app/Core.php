@@ -101,7 +101,7 @@ class Core extends Plugin {
     try {
       self::$cache->flush();
     } catch (Exception $e) {
-      $result = ['success' => false, 'message' => $e->getMessage()];
+      $result = [ 'success' => false, 'message' => $e->getMessage() ];
     }
 
     echo json_encode( $result );

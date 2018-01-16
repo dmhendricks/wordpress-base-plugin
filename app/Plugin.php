@@ -268,7 +268,7 @@ class Plugin {
     * @since 0.1.0
     */
   public static function is_production() {
-    return ( !defined( 'WP_ENV' ) || ( defined('WP_ENV' ) && !in_array( WP_ENV, array('development', 'staging') ) ) );
+    return ( !defined( 'WP_ENV' ) || ( defined('WP_ENV' ) && !in_array( WP_ENV, array( 'development', 'staging' ) ) ) );
   }
 
   /**
@@ -278,7 +278,7 @@ class Plugin {
     * @since 0.1.0
     */
   public function is_ajax() {
-    return defined('DOING_AJAX') && DOING_AJAX;
+    return defined( 'DOING_AJAX' ) && DOING_AJAX;
   }
 
 }

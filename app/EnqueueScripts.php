@@ -7,8 +7,8 @@ class EnqueueScripts extends Plugin {
   function __construct() {
 
     // Enqueue frontend/backend scripts
-    add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_scripts') );
-    add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts') );
+    add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_scripts' ) );
+    add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
 
     // Inject plugin settings into page head
     $this->inject_javascript_settings();
@@ -19,7 +19,7 @@ class EnqueueScripts extends Plugin {
       if( in_array( 'frontend', $enqueue_font_awesome) )
         add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_font_awesome' ) );
       if( in_array( 'backend', $enqueue_font_awesome) )
-        add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_font_awesome') );
+        add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_font_awesome' ) );
     }
 
   }
@@ -90,7 +90,7 @@ class EnqueueScripts extends Plugin {
 
     $args = array(
       'variable_name' => $this->prefix( 'plugin_settings', '_' ),
-      'target' => ['wp', 'admin']
+      'target' => [ 'wp', 'admin' ]
     );
 
     $values = array(
