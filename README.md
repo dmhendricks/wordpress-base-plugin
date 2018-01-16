@@ -17,7 +17,7 @@
 
 ## Description
 
-This is a boilerplate WordPress plugin featuring namespace autoloading and integration with [Carbon Fields](https://github.com/htmlburger/carbon-fields). It is intended to be used as a starting point for creating WordPress plugins. It contains several examples and dependencies to get you started.
+This is a boilerplate WordPress plugin featuring namespace autoloading and [Carbon Fields](https://carbonfields.net/) examples. It is intended to be used as a starting point for creating WordPress plugins. It contains several examples and dependencies to get you started.
 
 It may also be used as the means of [separating custom code](http://www.billerickson.net/core-functionality-plugin/) from the theme or [extending a child theme](https://www.wp-code.com/wordpress-snippets/wordpress-grandchildren-themes/).
 
@@ -39,7 +39,7 @@ Here are some ways that you can contribute:
 * Automatic translation file (`.pot`) creation. See [Translation](https://github.com/dmhendricks/wordpress-base-plugin/wiki/Translation).
 * Shortcodes, widgets (via [Carbon Fields](https://carbonfields.net)) and custom post types (via [PostTypes](https://github.com/jjgrainger/PostTypes/)) examples
 * Configuration registry ([docs](https://github.com/dmhendricks/wordpress-toolkit/wiki/ConfigRegistry)) and optional `wp-config.php` [constants](https://github.com/dmhendricks/wordpress-base-plugin/wiki/Configuration-&-Constants)
-* Adding options to Customizer example
+* Customizer options
 * [More to come...](#future-plans)
 
 **Note:** Gulp and Bower are optional, but handy. If you do not wish to use them, you can delete the references.
@@ -57,7 +57,7 @@ If you need tips on installing Node.js, Composer, Gulp & Bower, see [Installing 
 
 #### The short version:
 
-1. Clone repository to `plugins`
+1. Clone repository to your `plugins` directory
 1. Change the four variables in [package.json](https://github.com/dmhendricks/wordpress-base-plugin/wiki#setting-initial-variables)
 1. Run `npm install; gulp rename; composer install`
 
@@ -74,6 +74,7 @@ See the [Getting Started](https://github.com/dmhendricks/wordpress-base-plugin/w
 ## Future Plans
 
 * Refactor the Plugin and Loader classes
+* Add plugin uninstall hook
 * Add [phpdotenv](https://github.com/etelford/phpdotenv) support
 * Switch to npm and WebPack for frontend dependency management
 
@@ -90,7 +91,7 @@ Release changes are noted on the [Releases](https://github.com/dmhendricks/wordp
 * Added `get_wpsac_plugin_option()` example to Plugin class
 * Updated JS injection to use wordpress-toolkit [ScriptObject](https://github.com/dmhendricks/wordpress-toolkit/wiki/ScriptObject)
 * Added Customizer options example (via [inc2734/wp-customizer-framework](https://github.com/inc2734/wp-customizer-framework))
-* Added Carbon Fields custom CSS classes
+* Added various Carbon Fields custom CSS classes
 
 ## Screenshot
 
