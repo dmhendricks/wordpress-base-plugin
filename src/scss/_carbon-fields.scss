@@ -1,0 +1,134 @@
+/*
+ * Carbon Fields style
+ */
+
+div[id^='carbon_fields_container_'] {
+
+  // Change the default Carbon Fields H3 header font size
+  div.carbon-separator {
+    h3 {
+      font-size: 1.6em !important;
+    }
+  }
+
+  // Add a background globe icon to URL input fields
+  .carbon-fields-custom-field-url, .carbon-fields-custom-field-email, .carbon-fields-custom-field-tel {
+
+    input {
+      padding-left: 29px;
+    }
+
+    .field-holder {
+
+      &:before {
+        position: absolute;
+        font-family: 'dashicons';
+        color: #D4D4D4;
+        font-size: 1.2em;
+        padding: 5px 8px;
+      }
+
+    }
+
+  }
+
+  // Input field background dashicons
+  .carbon-fields-custom-field-url {
+    .field-holder:before {
+      content: '\f319';
+    }
+  }
+
+  .carbon-fields-custom-field-email {
+    .field-holder:before {
+      content: '\f466';
+    }
+  }
+
+  .carbon-fields-custom-field-tel {
+    .field-holder:before {
+      content: '\f525';
+    }
+  }
+
+}
+
+// Custom Carbon Custom Field Classes
+@media (min-width: 783px) {
+
+  div[id^='carbon_fields_container_'] {
+
+    // Radio buttons - horizontal alignment
+    .carbon-fields-custom-radio-horizontal {
+      li {
+        float: left;
+        padding-right: .75rem;
+      }
+      div {
+        clear: left;
+      }
+      &:after {
+        clear: both;
+      }
+
+      .carbon-help-text {
+        clear: left;
+      }
+    }
+
+    // Text input field width
+    .carbon-fields-custom-input-tiny {
+      input, select {
+        width: 55px;
+      }
+    }
+
+    .carbon-fields-custom-input-smaller {
+      input, select {
+        width: 180px;
+        max-width: 100%;
+      }
+    }
+
+    .carbon-fields-custom-input-small {
+      input, select {
+        width: 225px;
+        max-width: 100%;
+      }
+    }
+
+    .carbon-fields-custom-input-medium {
+      input, select {
+        width: 355px;
+        max-width: 100%;
+      }
+    }
+
+    .carbon-fields-custom-input-large {
+      input, select {
+        width: 575px;
+        max-width: 100%;
+      }
+    }
+
+    .carbon-fields-custom-input--1-2 {
+      input, select {
+        width: 50%;
+      }
+    }
+
+    .carbon-fields-custom-input--1-3 {
+      input, select {
+        width: 33%;
+      }
+    }
+
+    .carbon-fields-custom-input--2-3 {
+      input, select {
+        width: 66%;
+      }
+    }
+
+  }
+
+}

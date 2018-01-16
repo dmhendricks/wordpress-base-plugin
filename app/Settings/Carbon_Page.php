@@ -58,23 +58,36 @@ class Carbon_Page extends Plugin {
         ),
         Field::make( 'separator', $this->prefix( 'general_separator_examples' ), __( 'Example Fields', self::$textdomain ) )
           ->help_text( __( 'These fields are just provided as examples and are not used by any logic in the plugin.', self::$textdomain ) ),
-        Field::make( 'text', $this->prefix( 'blog_title' ), __( 'Blog Title', self::$textdomain ) ),
+        Field::make( 'text', $this->prefix( 'blog_title' ), __( 'Blog Title', self::$textdomain ) )
+          ->set_classes( 'carbon-fields-custom-input--1-2' ),
         Field::make( 'text', $this->prefix( 'email' ), __( 'Your E-mail Address', self::$textdomain ) )
           ->set_attribute( 'type', 'email' )
+          ->set_classes( 'carbon-fields-custom-field-email carbon-fields-custom-input--1-3' )
           ->help_text( __( 'This input field is an HTML5 <tt>email</tt> type.', self::$textdomain ) ),
         Field::make( 'text', $this->prefix( 'web_site_url' ), __( 'Web Site Address', self::$textdomain ) )
-          ->set_attribute( 'type', 'url' )->set_attribute( 'placeholder', site_url() )
-          ->help_text( __( 'This input field is an HTML5 <tt>url</tt> type.', self::$textdomain ) ),
+          ->set_attribute( 'type', 'url' )
+          ->set_attribute( 'placeholder', site_url() )
+          ->set_classes( 'carbon-fields-custom-field-url' )
+          ->help_text( __( 'This input field is an HTML5 <tt>url</tt> type. It is also wrapped in a <tt>.carbon-fields-custom-field-url</tt> CSS class to add a background globe dashicon.', self::$textdomain ) ),
         Field::make( 'text', $this->prefix( 'phone' ), __( 'Phone Number', self::$textdomain ) )
+          ->set_classes( 'carbon-fields-custom-field-tel carbon-fields-custom-input-smaller' )
           ->set_attribute( 'type', 'tel' ),
         Field::make( 'date_time', $this->prefix( 'date_time' ), __( 'Date & Time', self::$textdomain ) ),
-        Field::make( 'radio', $this->prefix( 'radio_buttons' ), __( 'Menu Position', self::$textdomain ) )
+        Field::make( 'radio', $this->prefix( 'menu_position' ), __( 'Menu Position', self::$textdomain ) )
           ->add_options(array(
             'none' => __( 'Disabled', self::$textdomain ),
             'top' => __( 'Top (Default)', self::$textdomain ),
             'left' => __( 'Left', self::$textdomain )
           ))
           ->set_default_value( 'top' ),
+        Field::make( 'radio', $this->prefix( 'search_position' ), __( 'Search Box Location', self::$textdomain ) )
+          ->add_options(array(
+            'header' => __( 'Header', self::$textdomain ),
+            'side' => __( 'Sidebar', self::$textdomain ),
+            'flyout' => __( 'Flyout Menu', self::$textdomain )
+          ))
+          ->set_classes( 'carbon-fields-custom-radio-horizontal' )
+          ->help_text( __( 'Example of horizontally-aligned radio buttons.', self::$textdomain ) ),
         Field::make( 'complex', $this->prefix( 'slides' ), self::$config->get( 'plugin/meta/Name' ) . ' ' . __( 'Slides', self::$textdomain ) )
           ->set_datastore( new Serialized_Theme_Options_Datastore() )
           ->add_fields( array(
@@ -83,6 +96,7 @@ class Carbon_Page extends Plugin {
           )
         ),
         Field::make( 'select', $this->prefix( 'select_dropdown' ), __( 'Favorite Continent', self::$textdomain ) )
+          ->set_classes( 'carbon-fields-custom-input-small' )
           ->add_options(array(
             'aria' => __( 'Asia', self::$textdomain ),
             'africa' => __( 'Africa', self::$textdomain ),

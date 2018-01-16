@@ -73,9 +73,8 @@ See the [Getting Started](https://github.com/dmhendricks/wordpress-base-plugin/w
 
 ## Future Plans
 
-* Refactor the Plugin base class
+* Refactor the Plugin and Loader classes
 * Add [phpdotenv](https://github.com/etelford/phpdotenv) support
-* Add some Carbon Fields CSS helper classes
 * Switch to npm and WebPack for frontend dependency management
 
 ## Change Log
@@ -91,6 +90,7 @@ Release changes are noted on the [Releases](https://github.com/dmhendricks/wordp
 * Added `get_wpsac_plugin_option()` example to Plugin class
 * Updated JS injection to use wordpress-toolkit [ScriptObject](https://github.com/dmhendricks/wordpress-toolkit/wiki/ScriptObject)
 * Added Customizer options example (via [inc2734/wp-customizer-framework](https://github.com/inc2734/wp-customizer-framework))
+* Added Carbon Fields custom CSS classes
 
 ## Screenshot
 
