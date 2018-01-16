@@ -8,7 +8,7 @@ use Carbon_Fields\Widget;
  * A simple widget that displays a text field (title) and textarea.
  * @since 0.3.0
  */
-class ExampleWidget extends Widget {
+class Example_Widget extends Widget {
 
   public function __construct() {
 
