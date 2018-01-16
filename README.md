@@ -75,6 +75,7 @@ See the [Getting Started](https://github.com/dmhendricks/wordpress-base-plugin/w
 
 * Refactor the Plugin and Loader classes
 * Add plugin uninstall hook
+* Add support for Gulp 4.0
 * Add [phpdotenv](https://github.com/etelford/phpdotenv) support
 * Switch to npm and WebPack for frontend dependency management
 
@@ -92,6 +93,7 @@ Release changes are noted on the [Releases](https://github.com/dmhendricks/wordp
 * Updated JS injection to use wordpress-toolkit [ScriptObject](https://github.com/dmhendricks/wordpress-toolkit/wiki/ScriptObject)
 * Added Customizer options example (via [inc2734/wp-customizer-framework](https://github.com/inc2734/wp-customizer-framework))
 * Added various Carbon Fields custom CSS classes
+* Bumped NPM dependency versions
 
 ## Screenshot
 
