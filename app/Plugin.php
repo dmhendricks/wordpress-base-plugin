@@ -37,37 +37,6 @@ class Plugin {
   }
 
   /**
-    * Check plugin dependencies on activation.
-    *
-    * @since 0.2.0
-    */
-  public function activate() {
-
-    $dependency_check = $this->verify_dependencies( true, array( 'activate' => true, 'echo' => false ) );
-    if( $dependency_check !== true ) die( $dependency_check );
-
-  }
-
-  /**
-    * Initialize Carbon Fields and load plugin logic
-    *
-    * @since 0.2.0
-    */
-  public function init() {
-
-    if( class_exists( 'Carbon_Fields\\Carbon_Fields' ) ) {
-      add_action( 'after_setup_theme', array( 'Carbon_Fields\\Carbon_Fields', 'boot' ) );
-    } else {
-      new TGMPA();
-    }
-
-    if( $this->verify_dependencies( 'carbon_fields' ) === true ) {
-      add_action( 'carbon_fields_fields_registered', array( $this, 'load_plugin' ));
-    }
-
-  }
-
-  /**
     * Load plugin classes
     *
     * @since 0.2.0
@@ -102,6 +71,37 @@ class Plugin {
 
     // Load shortcodes
     new Shortcodes\ShortcodeLoader();
+
+  }
+
+  /**
+    * Check plugin dependencies on activation.
+    *
+    * @since 0.2.0
+    */
+  public function activate() {
+
+    $dependency_check = $this->verify_dependencies( true, array( 'activate' => true, 'echo' => false ) );
+    if( $dependency_check !== true ) die( $dependency_check );
+
+  }
+
+  /**
+    * Initialize Carbon Fields and load plugin logic
+    *
+    * @since 0.2.0
+    */
+  public function init() {
+
+    if( class_exists( 'Carbon_Fields\\Carbon_Fields' ) ) {
+      add_action( 'after_setup_theme', array( 'Carbon_Fields\\Carbon_Fields', 'boot' ) );
+    } else {
+      new TGMPA();
+    }
+
+    if( $this->verify_dependencies( 'carbon_fields' ) === true ) {
+      add_action( 'carbon_fields_fields_registered', array( $this, 'load_plugin' ));
+    }
 
   }
 
