@@ -70,7 +70,7 @@ class Plugin {
     new Widgets\WidgetLoader();
 
     // Load shortcodes
-    new Shortcodes\ShortcodeLoader();
+    new Shortcodes\Shortcode_Loader();
 
   }
 

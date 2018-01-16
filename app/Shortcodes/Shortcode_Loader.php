@@ -2,7 +2,7 @@
 namespace VendorName\PluginName\Shortcodes;
 use VendorName\PluginName\Plugin;
 
-class ShortcodeLoader extends Plugin {
+class Shortcode_Loader extends Plugin {
 
   /**
    * @var array Shortcode class name to register
@@ -13,7 +13,8 @@ class ShortcodeLoader extends Plugin {
   public function __construct() {
 
     $this->shortcodes = array(
-      HelloShortcode::class
+      Hello_Shortcode::class,
+      CurrentYear_Shortcode::class
     );
 
     foreach( $this->shortcodes as $shortcodeClass ) {
@@ -22,7 +23,7 @@ class ShortcodeLoader extends Plugin {
       if( $shortcode instanceof ShortcodeInterface ) {
           new $shortcode();
       } else {
-          // You could log not added shortcodes here
+          // Log or show error notices
       }
 
     }
