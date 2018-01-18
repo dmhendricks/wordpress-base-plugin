@@ -8,7 +8,7 @@ use Carbon_Fields\Container;
 use Carbon_Fields\Field;
 use Config;
 
-class Plugin {
+class Plugin extends \WordPress_ToolKit\ToolKit {
 
   public static $textdomain;
   public static $config;
@@ -246,20 +246,6 @@ class Plugin {
   }
 
   /**
-    * A wrapper for the plugin's data fiala prefix as defined in $config
-    *
-    * @param string|null $field_name The string/field to prefix
-    * @param string $before String to add before the prefix
-    * @param string $after String to add after the prefix
-    * @return string Prefixed string/field value
-    * @since 0.2.0
-    */
-  public static function prefix( $field_name = null, $before = '', $after = '_' ) {
-    $prefix = $before . self::$config->get( 'prefix' ) . $after;
-    return $field_name !== null ? $prefix . $field_name : $prefix;
-  }
-
-  /**
     * Returns true if WP_ENV is anything other than 'development' or 'staging'.
     *   Useful for determining whether or not to enqueue a minified or non-
     *   minified script (which can be useful for debugging via browser).
@@ -269,16 +255,6 @@ class Plugin {
     */
   public static function is_production() {
     return ( !defined( 'WP_ENV' ) || ( defined('WP_ENV' ) && !in_array( WP_ENV, array( 'development', 'staging' ) ) ) );
-  }
-
-  /**
-    * Returns true if request is via Ajax.
-    *
-    * @return bool
-    * @since 0.1.0
-    */
-  public function is_ajax() {
-    return defined( 'DOING_AJAX' ) && DOING_AJAX;
   }
 
 }

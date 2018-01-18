@@ -85,7 +85,8 @@ Release changes are noted on the [Releases](https://github.com/dmhendricks/wordp
 
 #### Branch: `master`
 
-* None since release
+* Extended base class as WordPress Toolkit
+* Moved `is_ajax()` and `prefix()` methods to wordpress-toolkit
 
 ## Screenshot
 
