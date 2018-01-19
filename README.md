@@ -87,6 +87,7 @@ Release changes are noted on the [Releases](https://github.com/dmhendricks/wordp
 
 * Extended base class as WordPress Toolkit
 * Moved `is_ajax()` and `prefix()` methods to wordpress-toolkit
+* Updated Composer license to conform to new [SPDX](https://spdx.org/licenses/) identifiers
 
 ## Screenshot
 

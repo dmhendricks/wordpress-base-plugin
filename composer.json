@@ -2,10 +2,9 @@
   "name": "dmhendricks/wordpress-base-plugin",
   "type": "wordpress-plugin",
   "description": "A bloilerplate for WordPress plugins",
-  "version": "0.4.0",
   "keywords": ["wordpress", "plugin", "boilerplate", "carbonfields"],
   "homepage": "https://2lab.net",
-  "license": "GPL-2.0",
+  "license": "GPL-2.0-or-later",
   "authors": [
     {
       "name": "Daniel M. Hendricks",
@@ -25,7 +24,8 @@
     "tareq1988/wordpress-settings-api-class": "dev-master",
     "dmhendricks/wordpress-toolkit": "dev-master",
     "inc2734/wp-customizer-framework": "^2.3",
-    "composer/installers": "^1.5.0"
+    "vlucas/phpdotenv": "^2.4",
+    "composer/installers": "^1.5"
   },
   "minimum-stability": "dev",
   "autoload": {
