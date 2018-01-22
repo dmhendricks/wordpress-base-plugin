@@ -66,12 +66,11 @@ var renameStrings = [
   [ 'VendorName\\PluginName', pkg.config.php_namespace ], // PHP namespace for your plugin
   [ 'VendorName\\\\PluginName', pkg.config.php_namespace.replace( /\\/g, '\\\\' ) ], // Rename Composer namespace
   [ 'wordpress-base-plugin', pkg.name ], // Plugin slug
-  [ 'wordpress_base_plugin', pkg.name.replace( '-', '_' ) ], // Plugin underscored slug
-  [ 'WPBP_NS', pkg.config.prefix.toUpperCase() + '_NS' ], // Unique JavaScript object for your plugin
+  [ 'wordpress_base_plugin', pkg.name.replace( /-/g, '_' ) ], // Plugin underscored slug
+  [ 'WPBP', pkg.config.prefix.toUpperCase() ], // Unique JavaScript object for your plugin
   [ 'wpbp', pkg.config.prefix ], // Replace remaining plugin prefixes
   [ 'WordPress Base Plugin', pkg.config.plugin_name ], // Replace plugin long name
   [ 'My Plugin', pkg.config.plugin_short_name ] // Replace plugin short name
-
 ];
 
 /**
@@ -237,7 +236,7 @@ gulp.task( 'default', object_property_to_array( tasks_js, 'id', tasks_css ), fun
  */
 gulp.task( 'rename', function () {
 
-  return gulp.src( [ './**/*.php', './*.json', './**/*.js', './**/*.scss', './*.txt', '!./node_modules/**', '!./vendor/**', '!./.git/**', '!./languages/**', '!./*lock*', '!./gulpfile.js' ] )
+  return gulp.src( [ './**/*.php', './*.json', './**/*.js', './**/*.scss', './*.txt', './*.md', '!./node_modules/**', '!./vendor/**', '!./.git/**', '!./languages/**', '!./*lock*', '!./gulpfile.js' ] )
     .pipe( replace( renameStrings ) )
     .pipe( vinylPaths( del ) )
     .pipe( batchRename( function (path) {
