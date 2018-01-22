@@ -2,37 +2,33 @@
 namespace VendorName\PluginName;
 use WordPress_ToolKit\ObjectCache;
 use WordPress_ToolKit\ConfigRegistry;
-use WordPress_ToolKit\PluginTools;
 use WordPress_ToolKit\Helpers\ArrayHelper;
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
-use Config;
 
 class Plugin extends \WordPress_ToolKit\ToolKit {
 
   public static $textdomain;
-  public static $config;
   protected static $cache;
 
   function __construct() {
 
-    // Get plugin properties and meta data
-    $plugin_obj = new PluginTools( __DIR__ );
-    $plugin_data = $plugin_obj->get_current_plugin_data( ARRAY_A );
+    // Load plugin configuration
+    $this->init( dirname( __DIR__ ), trailingslashit( dirname( __DIR__ ) ) . 'plugin.json' );
+    self::$config->merge( new ConfigRegistry( [ 'plugin' => $this->get_current_plugin_meta( ARRAY_A ) ] ) );
 
-    self::$config = new ConfigRegistry( $plugin_data['path'] . 'plugin.json' );
-    self::$config = self::$config->merge( new ConfigRegistry( [ 'plugin' => $plugin_data ] ) );
+    // Set Text Domain
     self::$textdomain = self::$config->get( 'plugin/meta/TextDomain' ) ?: self::$config->get( 'plugin/slug' );
 
-    // Define plugin VERSION constant
+    // Define plugin version
     if ( !defined( __NAMESPACE__ . '\VERSION' ) ) define( __NAMESPACE__ . '\VERSION', self::$config->get( 'plugin/meta/Version' ) );
 
     // Initialize ObjectCache
     self::$cache = new ObjectCache( self::$config );
 
-    // Verify dependecies and load plugin logic
+    // Load dependecies and load plugin logic
     register_activation_hook( self::$config->get( 'plugin/identifier' ), array( $this, 'activate' ) );
-    add_action( 'plugins_loaded', array( $this, 'init' ) );
+    add_action( 'plugins_loaded', array( $this, 'load_dependencies' ) );
 
   }
 
@@ -91,7 +87,7 @@ class Plugin extends \WordPress_ToolKit\ToolKit {
     *
     * @since 0.2.0
     */
-  public function init() {
+  public function load_dependencies() {
 
     if( class_exists( 'Carbon_Fields\\Carbon_Fields' ) ) {
       add_action( 'after_setup_theme', array( 'Carbon_Fields\\Carbon_Fields', 'boot' ) );
@@ -197,7 +193,7 @@ class Plugin extends \WordPress_ToolKit\ToolKit {
     * @since 0.2.0
     *
     */
-  public static function get_plugin_option( $key, $cache = true ) {
+  public static function get_carbon_plugin_option( $key, $cache = true ) {
 
     $key = self::prefix( $key );
 
@@ -243,18 +239,6 @@ class Plugin extends \WordPress_ToolKit\ToolKit {
 
     return isset( $options[ $key ] ) ? $options[ $key ] : null;
 
-  }
-
-  /**
-    * Returns true if WP_ENV is anything other than 'development' or 'staging'.
-    *   Useful for determining whether or not to enqueue a minified or non-
-    *   minified script (which can be useful for debugging via browser).
-    *
-    * @return bool
-    * @since 0.1.0
-    */
-  public static function is_production() {
-    return ( !defined( 'WP_ENV' ) || ( defined('WP_ENV' ) && !in_array( WP_ENV, array( 'development', 'staging' ) ) ) );
   }
 
 }

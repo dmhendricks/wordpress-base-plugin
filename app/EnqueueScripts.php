@@ -14,7 +14,7 @@ class EnqueueScripts extends Plugin {
     $this->inject_javascript_settings();
 
     // Example - Load Font Awesome from CDN, if enabled in Settings Page
-    $enqueue_font_awesome = $this->get_plugin_option( 'enqueue_font_awesome' );
+    $enqueue_font_awesome = $this->get_carbon_plugin_option( 'enqueue_font_awesome' );
     if( $enqueue_font_awesome ) {
       if( in_array( 'frontend', $enqueue_font_awesome) )
         add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_font_awesome' ) );
@@ -94,7 +94,7 @@ class EnqueueScripts extends Plugin {
     );
 
     $values = array(
-      'admin_bar_add_clear_cache' => $this->get_plugin_option( 'admin_bar_add_clear_cache' ),
+      'admin_bar_add_clear_cache' => $this->get_carbon_plugin_option( 'admin_bar_add_clear_cache' ),
       'admin_bar_add_clear_cache_success' => __( 'WordPress cache has been cleared.', self::$textdomain ),
       'show_clear_cache_link' => current_user_can( 'manage_options' ),
     );

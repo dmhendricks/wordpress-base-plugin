@@ -27,7 +27,7 @@ class Carbon_Page extends Plugin {
     $this->create_tabbed_options_page();
 
     // Register uninstall hook to delete settings
-    if( $this->get_plugin_option( 'uninstall_remove_settings' ) ) {
+    if( $this->get_carbon_plugin_option( 'uninstall_remove_settings' ) ) {
       register_uninstall_hook( self::$config->get( 'plugin/identifier' ), array( $this, 'plugin_settings_uninstall' ) );
     }
 

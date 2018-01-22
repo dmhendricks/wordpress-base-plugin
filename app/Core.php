@@ -10,7 +10,7 @@ class Core extends Plugin {
     add_filter( 'body_class', array( &$this, 'add_body_classes' ) );
 
     // Example - Remove Emoji code from header
-    if( $this->get_plugin_option( 'remove_header_emojicons' ) ) {
+    if( $this->get_carbon_plugin_option( 'remove_header_emojicons' ) ) {
       if(!$this->is_ajax()) add_filter( 'init', array( $this, 'disable_wp_emojicons' ) );
     }
 
@@ -21,7 +21,7 @@ class Core extends Plugin {
       *    logged in, you would need to uncommend the 'wp_ajax_nopriv_clear_object_cache_ajax'
       *    hook.
       */
-    if( current_user_can( 'manage_options' ) && $this->get_plugin_option( 'admin_bar_add_clear_cache' ) ) {
+    if( current_user_can( 'manage_options' ) && $this->get_carbon_plugin_option( 'admin_bar_add_clear_cache' ) ) {
       add_action( 'admin_bar_menu', array( $this, 'admin_bar_add_clear_cache' ), 900 );
       //add_action( 'wp_ajax_nopriv_clear_object_cache_ajax', array( self::$cache, 'flush' ) );
       add_action( 'wp_ajax_clear_object_cache_ajax', array( self::$cache, 'flush' ) );
