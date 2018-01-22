@@ -60,13 +60,18 @@ var jsTasks = [
   }
 ];
 
-/* Define strings to replace using 'gelp rename', defined in the config section of package.json */
+/* Define strings to replace using 'gulp rename', defined in the config section of package.json */
 var renameStrings = [
   [ 'dmhendricks\/wordpress-base-plugin', pkg.config.username + '/' + pkg.name ], // Git/Composer identifier
-	[ 'wordpress-base-plugin', pkg.name ], // Plugin slug
-	[ 'VendorName\\PluginName', pkg.config.php_namespace ], // PHP namespace for your plugin
-  [ 'VendorName\\\\PluginName', pkg.config.php_namespace.replace(/\\/g, '\\\\') ], // Rename Composer namespace
-	[ 'WPBP_NS', pkg.config.javascript_object ] // Unique JavaScript object for your plugin
+  [ 'VendorName\\PluginName', pkg.config.php_namespace ], // PHP namespace for your plugin
+  [ 'VendorName\\\\PluginName', pkg.config.php_namespace.replace( /\\/g, '\\\\' ) ], // Rename Composer namespace
+  [ 'wordpress-base-plugin', pkg.name ], // Plugin slug
+  [ 'wordpress_base_plugin', pkg.name.replace( '-', '_' ) ], // Plugin underscored slug
+  [ 'WPBP_NS', pkg.config.prefix.toUpperCase() + '_NS' ], // Unique JavaScript object for your plugin
+  [ 'wpbp', pkg.config.prefix ], // Replace remaining plugin prefixes
+  [ 'WordPress Base Plugin', pkg.config.plugin_name ], // Replace plugin long name
+  [ 'My Plugin', pkg.config.plugin_short_name ] // Replace plugin short name
+
 ];
 
 /**

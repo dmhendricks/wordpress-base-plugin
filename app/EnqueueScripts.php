@@ -38,7 +38,7 @@ class EnqueueScripts extends Plugin {
 
     // Enqueue frontend JavaScript
     wp_enqueue_script( 'wordpress-base-plugin', Helpers::get_script_url( 'assets/js/wordpress-base-plugin.js' ), array( 'jquery', 'jquery-waituntilexists' ), Helpers::get_script_version( 'assets/js/wordpress-base-plugin.js' ), true );
-    wp_localize_script( 'wordpress-base-plugin', 'wpbp_ajax_filter_params', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
+    wp_localize_script( 'wordpress-base-plugin', $this->prefix( 'ajax_filter_params' ), array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
 
   }
 
@@ -56,7 +56,7 @@ class EnqueueScripts extends Plugin {
 
     // Enqueue WP Admin JavaScript
     wp_enqueue_script( 'wordpress-base-plugin-admin', Helpers::get_script_url( 'assets/js/wordpress-base-plugin-admin.js' ), array('jquery', 'jquery-waituntilexists'), Helpers::get_script_version( 'assets/js/wordpress-base-plugin-admin.js' ), true );
-    wp_localize_script( 'wordpress-base-plugin-admin', 'wpbp_ajax_filter_params', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
+    wp_localize_script( 'wordpress-base-plugin-admin', $this->prefix( 'ajax_filter_params' ), array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
 
   }
 

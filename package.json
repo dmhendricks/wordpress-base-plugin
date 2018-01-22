@@ -3,9 +3,11 @@
   "author": "Daniel M. Hendricks",
   "license": "GPL-2.0",
   "config": {
+    "plugin_name": "WordPress Base Plugin",
+    "plugin_short_name": "Base Plugin",
     "username": "dmhendricks",
     "php_namespace": "VendorName\\PluginName",
-    "javascript_object": "WPBP_NS"
+    "prefix": "wpbp"
   },
   "scripts": {
     "translate": "wp-pot -s 'app/**/*.php' -o ./languages/$npm_package_name.pot -p $npm_package_config_slug",

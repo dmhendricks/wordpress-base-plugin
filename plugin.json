@@ -1,8 +1,8 @@
 {
-  "prefix": "myplugin",
+  "prefix": "wpbp",
   "short_name": "My Plugin",
   "object_cache": {
-    "group": "my_plugin_cache",
+    "group": "wordpress_base_plugin_cache",
     "expire_hours": 72
   },
   "dependencies": {
