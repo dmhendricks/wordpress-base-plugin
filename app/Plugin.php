@@ -33,7 +33,7 @@ class Plugin extends \WordPress_ToolKit\ToolKit {
   }
 
   /**
-    * Load plugin classes
+    * Load plugin classes - Modify as needed, remove features that you don't need.
     *
     * @since 0.2.0
     */
