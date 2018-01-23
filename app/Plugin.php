@@ -9,7 +9,6 @@ use Carbon_Fields\Field;
 class Plugin extends \WordPress_ToolKit\ToolKit {
 
   public static $textdomain;
-  protected static $cache;
 
   function __construct() {
 
@@ -22,9 +21,6 @@ class Plugin extends \WordPress_ToolKit\ToolKit {
 
     // Define plugin version
     if ( !defined( __NAMESPACE__ . '\VERSION' ) ) define( __NAMESPACE__ . '\VERSION', self::$config->get( 'plugin/meta/Version' ) );
-
-    // Initialize ObjectCache
-    self::$cache = new ObjectCache( self::$config );
 
     // Load dependecies and load plugin logic
     register_activation_hook( self::$config->get( 'plugin/identifier' ), array( $this, 'activate' ) );

@@ -86,7 +86,7 @@ Release changes are noted on the [Releases](https://github.com/dmhendricks/wordp
 #### Branch: `master`
 
 * Extended base class as WordPress Toolkit; simplified base class configuration init
-* Moved `is_ajax()` and `prefix()` methods to wordpress-toolkit
+* Moved `is_ajax()`/`prefix()` methods, `CacheObject()` init to wordpress-toolkit
 * Updated Composer license to conform to new [SPDX](https://spdx.org/licenses/) identifiers
 * Added [phpdotenv](https://github.com/etelford/phpdotenv) support ([reference](https://github.com/dmhendricks/wordpress-toolkit/wiki/ToolKit#environment))
 

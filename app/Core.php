@@ -11,7 +11,7 @@ class Core extends Plugin {
 
     // Example - Remove Emoji code from header
     if( $this->get_carbon_plugin_option( 'remove_header_emojicons' ) ) {
-      if(!$this->is_ajax()) add_filter( 'init', array( $this, 'disable_wp_emojicons' ) );
+      if( !$this->is_ajax() ) add_filter( 'init', array( $this, 'disable_wp_emojicons' ) );
     }
 
     /**
