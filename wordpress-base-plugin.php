@@ -9,8 +9,8 @@
  * Author URI:        https://www.danhendricks.com
  * License:           GPL-2.0
  * License URI:       https://opensource.org/licenses/GPL-2.0
- * Text Domain: 			wordpress-base-plugin
- * Domain Path: 			languages
+ * Text Domain:       wordpress-base-plugin
+ * Domain Path:       languages
  * GitHub Plugin URI: dmhendricks/wordpress-base-plugin
  */
 
