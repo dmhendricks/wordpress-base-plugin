@@ -40,6 +40,7 @@ Here are some ways that you can contribute:
 * Shortcodes, widgets (via [Carbon Fields](https://carbonfields.net)) and custom post types (via [PostTypes](https://github.com/jjgrainger/PostTypes/)) examples
 * Configuration registry ([docs](https://github.com/dmhendricks/wordpress-toolkit/wiki/ConfigRegistry)) and optional `wp-config.php` [constants](https://github.com/dmhendricks/wordpress-base-plugin/wiki/Configuration-&-Constants)
 * Customizer options
+* Define environmental variables via `.env` files ([reference](https://github.com/dmhendricks/wordpress-toolkit/wiki/ToolKit#environment))
 * [More to come...](#future-plans)
 
 **Note:** Gulp and Bower are optional, but handy. If you do not wish to use them, you can delete the references.
@@ -74,9 +75,8 @@ See the [Getting Started](https://github.com/dmhendricks/wordpress-base-plugin/w
 ## Future Plans
 
 * Refactor the Plugin and Loader classes
-* Add plugin uninstall hook
+* Add plugin uninstall support
 * Add support for Gulp 4.0
-* Add [phpdotenv](https://github.com/etelford/phpdotenv) support
 * Switch to npm and WebPack for frontend dependency management
 
 ## Change Log
@@ -85,9 +85,10 @@ Release changes are noted on the [Releases](https://github.com/dmhendricks/wordp
 
 #### Branch: `master`
 
-* Extended base class as WordPress Toolkit
+* Extended base class as WordPress Toolkit; simplified base class configuration init
 * Moved `is_ajax()` and `prefix()` methods to wordpress-toolkit
 * Updated Composer license to conform to new [SPDX](https://spdx.org/licenses/) identifiers
+* Added [phpdotenv](https://github.com/etelford/phpdotenv) support ([reference](https://github.com/dmhendricks/wordpress-toolkit/wiki/ToolKit#environment))
 
 ## Screenshot
 
