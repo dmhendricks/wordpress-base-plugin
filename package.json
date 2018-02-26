@@ -11,7 +11,8 @@
   },
   "scripts": {
     "translate": "wp-pot -s 'app/**/*.php' -o ./languages/$npm_package_name.pot -p $npm_package_config_slug",
-    "zip": "zip -q -r ../$npm_package_name.zip * -x 'node_modules/*' '.git*' './src/*' './.*' './package*.*' './composer.*' './*.md' './*.bak' './bower.json' './gulpfile.js' "
+    "zip": "zip -q -r ../$npm_package_name.zip * -x 'node_modules/*' '.git*' './src/*' './.*' './package*.*' './composer.*' './*.md' './*.bak' './bower.json' './gulpfile.js' ",
+    "zip-dev": "zip -q -r ../$npm_package_name.zip * -x 'node_modules/*' '.git*' '.DS_Store' './*.bak' "
   },
   "devDependencies": {
     "gulp": "^3.9.1",
