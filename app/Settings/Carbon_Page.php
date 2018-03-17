@@ -6,7 +6,7 @@ use Carbon_Fields\Container;
 use Carbon_Fields\Field;
 
 /**
-  * An class to create a settings page for the plugin in WP Admin using Carbon Fields
+  * A class to create a settings page for the plugin in WP Admin using Carbon Fields
   *
   * @link https://carbonfields.net/docs/containers-theme-options/ Carbon Fields Theme Options
   * @since 0.1.0
