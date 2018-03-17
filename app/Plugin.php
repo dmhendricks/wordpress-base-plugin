@@ -206,6 +206,40 @@ class Plugin extends \WordPress_ToolKit\ToolKit {
   }
 
   /**
+    * Get Carbon Fields network container option (if multisite enabled)
+    *
+    * @param string $key The name of the option key
+    * @param string $container The name of the Carbon Fields network container
+    * @param bool $cache Whether or not to attempt to get cached value
+    * @param int $site_id The network site ID to use - default: SITE_ID_CURRENT_SITE
+    * @return mixed The value of specified Carbon Fields option key
+    * @link https://carbonfields.net/docs/containers-usage/ Carbon Fields containers
+    * @since 0.4.1
+    *
+    */
+  public static function get_carbon_network_option( $key, $container = null, $cache = true, $site_id = null ) {
+
+    if( !$site_id ) {
+      if( !defined( 'SITE_ID_CURRENT_SITE' ) ) return null;
+      $site_id = SITE_ID_CURRENT_SITE;
+    }
+
+    if( !$container ) $container = self::$config->get( 'network/default_options_container' );
+    $key = self::prefix( $key );
+
+    if( $cache ) {
+      // Attempt to get value from cache, else fetch value from database
+      return self::$cache->get_object( $key, function() use ( &$key ) {
+        return carbon_get_network_option( $site_id, $key, $container );
+      });
+    } else {
+      // Return uncached value
+      return carbon_get_network_option( $site_id, $key, $container );
+    }
+
+  }
+
+  /**
     * Get plugin option from WordPress Settings API Class, with object caching
     *   (if available).
     *
