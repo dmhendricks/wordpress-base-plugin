@@ -86,12 +86,14 @@ Release changes are noted on the [Releases](https://github.com/dmhendricks/wordp
 
 #### Branch: `master`
 
+* Set Carbon Fields minimum version to 2.2 (required for multisite example)
 * Extended base class as WordPress Toolkit; simplified base class configuration init
 * Moved `is_ajax()`/`prefix()` methods, `CacheObject()` init to wordpress-toolkit
 * Updated Composer license to conform to new [SPDX](https://spdx.org/licenses/) identifiers
 * Added [phpdotenv](https://github.com/etelford/phpdotenv) support ([reference](https://github.com/dmhendricks/wordpress-toolkit/wiki/ToolKit#environment))
 * Added `npm run zip-dev` to create installable ZIP including necessary development files
 * Added [Network Admin options page](https://github.com/dmhendricks/wordpress-base-plugin/blob/master/app/Settings/Network_Settings_Page.php) example
+* Modified `show_notice()` to allow displaying notices in Network Admin; add additional CSS classes and element ID
 
 ## Screenshot
 

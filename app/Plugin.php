@@ -168,7 +168,7 @@ class Plugin extends \WordPress_ToolKit\ToolKit {
       $notices = '<ul><li>' . implode( "</li>\n<li>", $notices ) . '</li></ul>';
 
       if( $args['echo'] ) {
-        Helpers::show_notice($notices, 'error', false);
+        Helpers::show_notice( $notices, [ 'type' => 'error', 'dismissible' => false ] );
         return false;
       } else {
         return $notices;

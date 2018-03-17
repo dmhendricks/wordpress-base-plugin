@@ -1,5 +1,6 @@
 <?php
 namespace VendorName\PluginName;
+use WordPress_ToolKit\Helpers\ArrayHelper;
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
 
@@ -8,21 +9,45 @@ class Helpers extends Plugin {
   /**
     * Display a notice/message in WP Admin
     *
-    * @param string $msg The message to display.
-    * @param string $type The type of notice. Valid values:
-    *    error, warning, success, info
-    * @param bool $is_dismissible Specify whether or not the user may dismiss
-    *    the notice.
+    * @param string $msg The message to display
+    * @param string $args Configuration options
     * @since 2.0.0
     */
-  public static function show_notice( $msg, $type = 'error', $is_dismissible = false ) {
+  public static function show_notice( $msg, $args = array() ) {
 
-    add_action( 'admin_notices', function() use ( &$msg, &$type, &$is_dismissible ) {
+    $args = ArrayHelper::set_default_atts( array(
+      'type' => 'success', // 'error', 'warning', 'success', 'info'
+      'dismissible' => true, // notice is dismissible
+      'scope' => true, // 'admin', 'network', true (both)
+      'class' => null, // additional CSS classes to add to notice
+      'id' => null // container element ID
+    ), $args);
 
-      $class = 'notice notice-' . $type . ( $is_dismissible ? ' is-dismissible' : '' );
-      printf( '<div class="%1$s"><p>%2$s</p></div>', $class, $msg );
+    // Merge CSS classes
+    if( !is_array( $args['class'] ) ) $args['class'] = explode( ' ', $args['class'] );
+    $classes = array_merge([
+      'notice',
+      'notice-' . $args['type']
+    ], $args['class'] );
+    if( $args['dismissible'] ) $classes[] = 'is-dismissible';
+    $classes = implode( ' ', array_filter( $classes ) );
 
-    });
+    // Set ID string, if specified
+    $element_id = $args['id'] ? ' id="' . $args['id'] . '"' : '';
+
+    // Display message in WP Admin
+    if( $args['scope'] === true || $args['scope'] == 'admin' ) {
+      add_action( 'admin_notices', function() use ( &$classes, &$element_id, &$msg ) {
+        printf( '<div class="%1$s"%2$s><p>%3$s</p></div>', $classes, $element_id, $msg );
+      });
+    }
+
+    // Display message in Network Admin
+    if( $args['scope'] === true || $args['scope'] == 'network' ) {
+      add_action( 'network_admin_notices', function() use ( &$classes, &$element_id, &$msg ) {
+        printf( '<div class="%1$s"%2$s><p>%3$s</p></div>', $classes, $element_id, $msg );
+      });
+    }
 
   }
 
