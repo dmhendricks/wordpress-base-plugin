@@ -43,6 +43,9 @@ class Plugin extends \WordPress_ToolKit\ToolKit {
     // Add admin settings page using Carbon Fields framework
     new Settings\Carbon_Page();
 
+    // Add a settings page to the Network Admin (requires multisite)
+    if ( is_multisite() ) new Settings\Network_Settings_Page();
+
     // Alternatively, add admin settings page using wordpress-settings-api-class
     new Settings\WPSAC_Page();
 
@@ -214,7 +217,7 @@ class Plugin extends \WordPress_ToolKit\ToolKit {
     * @param int $site_id The network site ID to use - default: SITE_ID_CURRENT_SITE
     * @return mixed The value of specified Carbon Fields option key
     * @link https://carbonfields.net/docs/containers-usage/ Carbon Fields containers
-    * @since 0.4.1
+    * @since 0.5.0
     *
     */
   public static function get_carbon_network_option( $key, $container = null, $cache = true, $site_id = null ) {

@@ -11,7 +11,12 @@ class Core extends Plugin {
 
     // Example - Remove Emoji code from header
     if( $this->get_carbon_plugin_option( 'remove_header_emojicons' ) ) {
-      if( !$this->is_ajax() ) add_filter( 'init', array( $this, 'disable_wp_emojicons' ) );
+      if( !$this->is_ajax() ) add_filter( 'init', array( &$this, 'disable_wp_emojicons' ) );
+    }
+
+    // Multisite Example - Change WP Admin footer text
+    if( is_multisite() && trim( $this->get_carbon_network_option( 'network_site_footer' ) ) ) {
+      add_filter( 'admin_footer_text', array( &$this, 'set_admin_footer_text' ) );
     }
 
     /**
@@ -72,6 +77,17 @@ class Core extends Plugin {
       return is_array($plugins) ? array_diff($plugins, array('wpemoji')) : $plugins;
     });
 
+  }
+
+  /**
+    * Set WP Admin footer text (multisite only)
+    *
+    * @param string Default footer text
+    * @return string Modified footer text
+    * @since 0.5.0
+    */
+  public function set_admin_footer_text( $footer_text ) {
+    return trim( $this->get_carbon_network_option( 'network_site_footer' ) ) ?: $footer_text;
   }
 
   /**

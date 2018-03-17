@@ -38,7 +38,7 @@ Here are some ways that you can contribute:
 * Object caching (where available; [usage examples](https://github.com/dmhendricks/wordpress-toolkit/wiki/ObjectCache))
 * Easy installable ZIP file generation: `npm run zip`
 * Automatic translation file (`.pot`) creation. See [Translation](https://github.com/dmhendricks/wordpress-base-plugin/wiki/Translation).
-* Shortcodes, widgets (via [Carbon Fields](https://carbonfields.net)) and custom post types (via [PostTypes](https://github.com/jjgrainger/PostTypes/)) examples
+* Network/multi-site options, shortcodes, widgets (via [Carbon Fields](https://carbonfields.net)) and custom post types (via [PostTypes](https://github.com/jjgrainger/PostTypes/)) examples
 * Configuration registry ([docs](https://github.com/dmhendricks/wordpress-toolkit/wiki/ConfigRegistry)) and optional `wp-config.php` [constants](https://github.com/dmhendricks/wordpress-base-plugin/wiki/Configuration-&-Constants)
 * Customizer options
 * Define environmental variables via `.env` files ([reference](https://github.com/dmhendricks/wordpress-toolkit/wiki/ToolKit#environment))
@@ -90,6 +90,8 @@ Release changes are noted on the [Releases](https://github.com/dmhendricks/wordp
 * Moved `is_ajax()`/`prefix()` methods, `CacheObject()` init to wordpress-toolkit
 * Updated Composer license to conform to new [SPDX](https://spdx.org/licenses/) identifiers
 * Added [phpdotenv](https://github.com/etelford/phpdotenv) support ([reference](https://github.com/dmhendricks/wordpress-toolkit/wiki/ToolKit#environment))
+* Added `npm run zip-dev` to create installable ZIP including necessary development files
+* Added Network/Multi-site options page example
 
 ## Screenshot
 
