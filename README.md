@@ -12,9 +12,8 @@
 - [Features](#features)
 - [Requirements](#requirements)
 - [Installation](#installation)
-- [Future Plans](#future-plans)
+- [Future Goals](#future-goals)
 - [Change Log](#change-log)
-- [Credits](#credits)
 
 ## Description
 
