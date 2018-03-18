@@ -49,9 +49,9 @@ Here are some ways that you can contribute:
 
 ## Requirements
 
-* WordPress 4.6 or higher
+* WordPress 4.7 or higher
 * PHP 5.6 or higher
-* [Carbon Fields](https://github.com/htmlburger/carbon-fields) 2.0 or higher (see the wiki section [Carbon Fields](https://github.com/dmhendricks/wordpress-base-plugin/wiki#carbon-fields) for more info).
+* [Carbon Fields](https://github.com/htmlburger/carbon-fields) 2.0 or higher (2.2 or higher for multisite example; see the wiki section [Carbon Fields](https://github.com/dmhendricks/wordpress-base-plugin/wiki#carbon-fields) for more info).
 
 ## Installation
 
