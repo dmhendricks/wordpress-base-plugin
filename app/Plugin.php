@@ -9,11 +9,12 @@ use Carbon_Fields\Field;
 class Plugin extends \WordPress_ToolKit\ToolKit {
 
   public static $textdomain;
+  public static $config;
 
   function __construct() {
 
     // Load plugin configuration
-    $this->init( dirname( __DIR__ ), trailingslashit( dirname( __DIR__ ) ) . 'plugin.json' );
+    self::$config = $this->init( dirname( __DIR__ ), trailingslashit( dirname( __DIR__ ) ) . 'plugin.json' );
     self::$config->merge( new ConfigRegistry( [ 'plugin' => $this->get_current_plugin_meta( ARRAY_A ) ] ) );
 
     // Set Text Domain
