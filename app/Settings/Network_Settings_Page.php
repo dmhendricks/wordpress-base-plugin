@@ -30,7 +30,8 @@ class Network_Settings_Page extends Plugin {
     */
   public function create_network_options_page() {
 
-    Container::make( 'network', $this->prefix( self::$config->get( 'network/default_options_container' ) ), __( 'Global Settings', self::$textdomain ) )
+    $container_name = $this->prefix( self::$config->get( 'network/default_options_container' ) );
+    Container::make( 'network', $container_name, __( 'Global Settings', self::$textdomain ) )
       ->set_page_parent( 'settings.php' )
       ->add_tab( __( 'General', self::$textdomain ), array(
         Field::make( 'textarea', $this->prefix( 'network_site_footer' ), __( 'WP Admin Site Footer', self::$textdomain ) )

@@ -4,7 +4,7 @@
  * Plugin Name:       WordPress Base Plugin
  * Plugin URI:        https://github.com/dmhendricks/wordpress-base-plugin
  * Description:       A boilerplate for WordPress plugins
- * Version:           0.5.1
+ * Version:           0.5.2
  * Author:            Daniel M. Hendricks
  * Author URI:        https://www.danhendricks.com
  * License:           GPL-2.0
@@ -34,7 +34,6 @@
 if( !defined( 'ABSPATH' ) ) die();
 
 require( __DIR__ . '/vendor/autoload.php' );
-include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
 // Initialize plugin
 new \VendorName\PluginName\Plugin();
