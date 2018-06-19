@@ -38,7 +38,7 @@ class Plugin extends \WordPress_ToolKit\ToolKit {
 
     if( !$this->verify_dependencies( 'carbon_fields' ) ) return;
 
-    // Add TGM plugin activation notices for required/recommended plugins
+    // Add TGM Plugin Activation notices for required/recommended plugins
     new TGMPA();
 
     // Add admin settings page using Carbon Fields framework
@@ -150,11 +150,11 @@ class Plugin extends \WordPress_ToolKit\ToolKit {
 
         case 'carbon_fields':
 
-          //if( defined('\\Carbon_Fields\\VERSION') || ( defined('\\Carbon_Fields\\VERSION') && version_compare( \Carbon_Fields\VERSION, $version, '<' ) ) ) {
+          $cf_version = defined('\\Carbon_Fields\\VERSION') ? current( explode( '-', \Carbon_Fields\VERSION ) ) : null;
           if( !$args['activate'] && !defined('\\Carbon_Fields\\VERSION') ) {
             $notices[] = __( 'An unknown error occurred while trying to load the Carbon Fields framework.', self::$textdomain );
-          } else if ( defined('\\Carbon_Fields\\VERSION') && version_compare( \Carbon_Fields\VERSION, $version, '<' ) ) {
-            $notices[] = __( 'An outdated version of Carbon Fields has been detected:', self::$textdomain ) . ' ' . \Carbon_Fields\VERSION . ' (&gt;= ' . self::$config->get( 'dependencies/carbon_fields' ) . ' ' . __( 'required', self::$textdomain ) . ').' . ' <strong>' . self::$config->get( 'plugin/meta/Name' ) . '</strong> ' . __( 'deactivated.', self::$textdomain ) ;
+          } else if ( defined('\\Carbon_Fields\\VERSION') && version_compare( $cf_version, $version, '<' ) ) {
+            $notices[] = __( 'An outdated version of Carbon Fields has been detected:', self::$textdomain ) . ' ' . $cf_version . ' (&gt;= ' . self::$config->get( 'dependencies/carbon_fields' ) . ' ' . __( 'required', self::$textdomain ) . ').' . ' <strong>' . self::$config->get( 'plugin/meta/Name' ) . '</strong> ' . __( 'deactivated.', self::$textdomain ) ;
           }
           break;
 
@@ -201,7 +201,7 @@ class Plugin extends \WordPress_ToolKit\ToolKit {
       // Attempt to get value from cache, else fetch value from database
       return self::$cache->get_object( $key, function() use ( &$key ) {
         return carbon_get_theme_option( $key );
-      });
+      }, self::$config->get( 'object_cache/group' ), false );
     } else {
       // Return uncached value
       return carbon_get_theme_option( $key );
@@ -221,24 +221,23 @@ class Plugin extends \WordPress_ToolKit\ToolKit {
     * @since 0.5.0
     *
     */
-  public static function get_carbon_network_option( $key, $container = null, $cache = true, $site_id = null ) {
+  public static function get_carbon_network_option( $key, $cache = true, $site_id = null ) {
 
     if( !$site_id ) {
       if( !defined( 'SITE_ID_CURRENT_SITE' ) ) return null;
       $site_id = SITE_ID_CURRENT_SITE;
     }
 
-    if( !$container ) $container = self::$config->get( 'network/default_options_container' );
     $key = self::prefix( $key );
 
     if( $cache ) {
       // Attempt to get value from cache, else fetch value from database
-      return self::$cache->get_object( $key, function() use ( &$key ) {
-        return carbon_get_network_option( $site_id, $key, $container );
-      });
+      return self::$cache->get_object( $key, function() use ( &$site_id, &$key ) {
+        return carbon_get_network_option( $site_id, $key );
+      }, self::$config->get( 'object_cache/group' ), true );
     } else {
       // Return uncached value
-      return carbon_get_network_option( $site_id, $key, $container );
+      return carbon_get_network_option( $site_id, $key );
     }
 
   }
