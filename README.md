@@ -78,6 +78,8 @@ See the [Getting Started](https://github.com/dmhendricks/wordpress-base-plugin/w
 * Add plugin uninstall support
 * Add support for Gulp 4.0
 * Switch to npm and WebPack for frontend dependency management
+* Replace or remove [tareq1988/wordpress-settings-api-class](https://github.com/tareq1988/wordpress-settings-api-class) with something more actively developed
+* Clean up Carbon Fields custom CSS classes
 
 ## Change Log
 
@@ -85,7 +87,9 @@ Release changes are noted on the [Releases](https://github.com/dmhendricks/wordp
 
 #### Branch: `master`
 
-* None since release
+* Change: Added option to specify cache group
+* Fix: Moved some methods from `wordpress-toolkit` due to conflicts when multiple versions installed
+* Fix: Various multisite issues and boolean false values incorrectly signaling a miss (`wordpress-toolkit`)
 
 ## Screenshot
 
