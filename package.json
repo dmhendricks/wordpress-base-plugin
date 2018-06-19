@@ -1,7 +1,7 @@
 {
   "name": "wordpress-base-plugin",
   "author": "Daniel M. Hendricks",
-  "license": "GPL-2.0",
+  "license": "GPL-2.0-or-later",
   "config": {
     "plugin_name": "WordPress Base Plugin",
     "plugin_short_name": "Base Plugin",
