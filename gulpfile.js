@@ -20,7 +20,7 @@ var pkg = require('./package.json');
  */
 var project             = pkg.name; // Project slug
 var cssOutputStyle      = 'expanded'; // Values: compact, compressed, nested, expanded
-var cssOutputCoumments  = false; // Output SASS source/line numbers in compiled CSS files
+var cssOutputComments   = false; // Output SASS source/line numbers in compiled CSS files
 
 var styleSourcePath     = './src/scss/'; // Path to source SASS files
 var jsSourcePath        = './src/js/'; // Path to source JavaScript files
@@ -139,7 +139,7 @@ styleTasks.forEach( function( task ) {
     gulp.src( styleSourcePath + task.source )
       .pipe( sourcemaps.init() )
       .pipe( sass( {
-        sourceComments: cssOutputCoumments ? 'map' : null,
+        sourceComments: cssOutputComments ? 'map' : null,
         errLogToConsole: true,
         outputStyle: cssOutputStyle,
         precision: 10
