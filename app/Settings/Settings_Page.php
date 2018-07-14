@@ -11,7 +11,7 @@ use Carbon_Fields\Field;
   * @link https://carbonfields.net/docs/containers-theme-options/ Carbon Fields Theme Options
   * @since 0.1.0
   */
-class Carbon_Page extends Plugin {
+class Settings_Page extends Plugin {
 
   protected $settings_containers;
 

@@ -31,7 +31,7 @@ class EnqueueScripts extends Plugin {
   public function enqueue_frontend_scripts() {
 
     // Enqueue script dependencies
-    $this->enqueue_bower_scripts();
+    $this->enqueue_common_scripts();
 
     // Enqueuing custom CSS for child theme (Twentysixteen was used for testing)
     wp_enqueue_style( 'wordpress-base-plugin', Helpers::get_script_url( 'assets/css/wordpress-base-plugin.css' ), null, Helpers::get_script_version( 'assets/css/wordpress-base-plugin.css' ) );
@@ -49,7 +49,7 @@ class EnqueueScripts extends Plugin {
   public function enqueue_admin_scripts() {
 
     // Enqueue script dependencies
-    $this->enqueue_bower_scripts();
+    $this->enqueue_common_scripts();
 
     // Enqueuing custom CSS for child theme (Twentysixteen was used for testing)
     wp_enqueue_style( 'wordpress-base-plugin', Helpers::get_script_url( 'assets/css/wordpress-base-plugin-admin.css' ), null, Helpers::get_script_version( 'assets/css/wordpress-base-plugin-admin.css' ) );
@@ -61,10 +61,10 @@ class EnqueueScripts extends Plugin {
   }
 
   /**
-    * Enqueue Bower components from assets/components
+    * Enqueue scripts common to the public site and WP Admin
     * @since 0.3.0
     */
-  private function enqueue_bower_scripts() {
+  private function enqueue_common_scripts() {
 
     // Enqueue common (frontend/backend) JavaScript
     wp_enqueue_script( 'jquery-waituntilexists', Helpers::get_script_url( 'assets/components/jq.waituntilexists/jquery.waitUntilExists.min.js', false ), array( 'jquery' ), '0.1.0' );

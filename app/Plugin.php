@@ -42,7 +42,7 @@ class Plugin extends \WordPress_ToolKit\ToolKit {
     new TGMPA();
 
     // Add admin settings page using Carbon Fields framework
-    new Settings\Carbon_Page();
+    new Settings\Settings_Page();
 
     // Add a settings page to the Network Admin (requires multisite)
     if ( is_multisite() ) new Settings\Network_Settings_Page();

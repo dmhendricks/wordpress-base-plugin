@@ -1,6 +1,5 @@
 <?php
 namespace VendorName\PluginName;
-//use WordPress_ToolKit\ObjectCache;
 
 class Core extends Plugin {
 
