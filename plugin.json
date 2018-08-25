@@ -6,9 +6,9 @@
     "expire": 86400
   },
   "dependencies": {
-    "php": "5.6",
+    "php": "5.6.4",
     "carbon_fields": "2.2.0",
-    "wordpress-toolkit": "0.3.4"
+    "wordpress-toolkit": "0.4.0"
   },
   "network": {
     "default_options_container": "global_settings"
