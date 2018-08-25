@@ -3,7 +3,7 @@
   "short_name": "My Plugin",
   "object_cache": {
     "group": "wordpress_base_plugin_cache",
-    "expire_hours": 72
+    "expire": 86400
   },
   "dependencies": {
     "php": "5.6",

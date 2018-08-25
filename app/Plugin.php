@@ -201,7 +201,7 @@ class Plugin extends \WordPress_ToolKit\ToolKit {
       // Attempt to get value from cache, else fetch value from database
       return self::$cache->get_object( $key, function() use ( &$key ) {
         return carbon_get_theme_option( $key );
-      }, self::$config->get( 'object_cache/group' ), false );
+      });
     } else {
       // Return uncached value
       return carbon_get_theme_option( $key );
@@ -234,7 +234,7 @@ class Plugin extends \WordPress_ToolKit\ToolKit {
       // Attempt to get value from cache, else fetch value from database
       return self::$cache->get_object( $key, function() use ( &$site_id, &$key ) {
         return carbon_get_network_option( $site_id, $key );
-      }, self::$config->get( 'object_cache/group' ), true );
+      }, null, [ 'network_global' => true ] );
     } else {
       // Return uncached value
       return carbon_get_network_option( $site_id, $key );
@@ -271,22 +271,6 @@ class Plugin extends \WordPress_ToolKit\ToolKit {
     }
 
     return isset( $options[ $key ] ) ? $options[ $key ] : null;
-
-  }
-
-  /**
-    * Append a field prefix as defined in $config
-    *
-    * @param string|null $field_name The string/field to prefix
-    * @param string $before String to add before the prefix
-    * @param string $after String to add after the prefix
-    * @return string Prefixed string/field value
-    * @since 0.1.0
-    */
-  public static function prefix( $field_name = null, $before = '', $after = '_' ) {
-
-    $prefix = $before . self::$config->get( 'prefix' ) . $after;
-    return $field_name !== null ? $prefix . $field_name : $prefix;
 
   }
 

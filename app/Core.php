@@ -6,16 +6,16 @@ class Core extends Plugin {
   function __construct() {
 
     // Example - Add page, post type and parent classes to <body> tag for selector targeting
-    add_filter( 'body_class', array( &$this, 'add_body_classes' ) );
+    add_filter( 'body_class', array( $this, 'add_body_classes' ) );
 
     // Example - Remove Emoji code from header
-    if( $this->get_carbon_plugin_option( 'remove_header_emojicons' ) ) {
-      if( !$this->is_ajax() ) add_filter( 'init', array( &$this, 'disable_wp_emojicons' ) );
+    if( !$this->is_ajax() && $this->get_carbon_plugin_option( 'remove_header_emojicons' ) ) {
+      add_filter( 'init', array( $this, 'disable_wp_emojicons' ) );
     }
 
     // Multisite Example - Change WP Admin footer text
     if( is_multisite() && trim( $this->get_carbon_network_option( 'network_site_footer' ) ) ) {
-      add_filter( 'admin_footer_text', array( &$this, 'set_admin_footer_text' ) );
+      add_filter( 'admin_footer_text', array( $this, 'set_admin_footer_text' ) );
     }
 
     /**
@@ -27,8 +27,8 @@ class Core extends Plugin {
       */
     if( current_user_can( 'manage_options' ) && $this->get_carbon_plugin_option( 'admin_bar_add_clear_cache' ) ) {
       add_action( 'admin_bar_menu', array( $this, 'admin_bar_add_clear_cache' ), 900 );
-      //add_action( 'wp_ajax_nopriv_clear_object_cache_ajax', array( self::$cache, 'flush' ) );
-      add_action( 'wp_ajax_clear_object_cache_ajax', array( self::$cache, 'flush' ) );
+      //add_action( 'wp_ajax_nopriv_clear_object_cache_ajax', array( $this, 'clear_object_cache_ajax' )  );
+      add_action( 'wp_ajax_clear_object_cache_ajax', array( $this, 'clear_object_cache_ajax' ) );
     }
 
   }
@@ -111,11 +111,11 @@ class Core extends Plugin {
     */
   public function clear_object_cache_ajax() {
 
-    $result = ['success' => true];
+    $result = [ 'success' => true ];
 
     try {
       self::$cache->flush();
-    } catch (Exception $e) {
+    } catch ( Exception $e ) {
       $result = [ 'success' => false, 'message' => $e->getMessage() ];
     }
 
