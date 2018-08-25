@@ -13,7 +13,7 @@ use Carbon_Fields\Field;
   */
 class Settings_Page extends Plugin {
 
-  protected $settings_containers;
+  private $settings_containers;
 
   public function __construct() {
 
@@ -28,7 +28,7 @@ class Settings_Page extends Plugin {
 
     // Register uninstall hook to delete settings
     if( $this->get_carbon_plugin_option( 'uninstall_remove_settings' ) ) {
-      register_uninstall_hook( self::$config->get( 'plugin/identifier' ), array( $this, 'plugin_settings_uninstall' ) );
+      register_uninstall_hook( self::$config->get( 'plugin/identifier' ), array( __CLASS__, 'plugin_settings_uninstall' ) );
     }
 
   }
@@ -146,7 +146,7 @@ class Settings_Page extends Plugin {
     *
     * @since 0.3.0
     */
-  public function plugin_settings_uninstall() {
+  public static function plugin_settings_uninstall() {
 
     foreach( $this->settings_containers as $container ) {
 
@@ -159,12 +159,12 @@ class Settings_Page extends Plugin {
   }
 
   /**
-    * Logic that is run when settings are saved.
+    * Callback when settings are saved
     */
   public function options_saved_hook() {
 
-    // Clear the cache so that new settings are loaded
-    self::$cache->flush();
+    // Flush the plugin group cache
+    self::$cache->flush_group();
 
   }
 

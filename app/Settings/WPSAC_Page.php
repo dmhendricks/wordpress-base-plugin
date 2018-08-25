@@ -36,8 +36,8 @@ class WPSAC_Page extends Plugin {
     */
   public function wpsac_admin_init() {
 
-    // Flush cache when settings saved
-    if( isset( $_POST['option_page'] ) && $_POST['option_page'] == $this->prefix( $this->section_id ) ) self::$cache->flush();
+    // Flush cache group when settings saved
+    if( isset( $_POST['option_page'] ) && $_POST['option_page'] == $this->prefix( $this->section_id ) ) self::$cache->flush_group();
 
     $this->settings_api->set_sections( $this->get_settings_sections() );
     $this->settings_api->set_fields( $this->get_settings_fields() );

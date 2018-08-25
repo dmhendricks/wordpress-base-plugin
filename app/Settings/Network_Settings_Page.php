@@ -43,12 +43,12 @@ class Network_Settings_Page extends Plugin {
   }
 
   /**
-    * Logic that is run when settings are saved.
+    * Callback when settings are saved
     */
   public function options_saved_hook() {
 
-    // Clear the cache so that new settings are loaded
-    self::$cache->flush();
+    // Flush the plugin group cache
+    self::$cache->flush_group();
 
   }
 
