@@ -32,7 +32,7 @@ Here are some ways that you can contribute:
 ## Features
 
 * Namespaces & dependency autoloading
-* Version checking (PHP, Carbon Fields)
+* Dependency checking via [Requirements](https://github.com/Kubitomakita/Requirements)
 * Powered by [Composer](https://getcomposer.org/?utm_source=github.com&utm_medium=referral&utm_content=button&utm_campaign=dmhendricks%2Fwordpress-base-plugin), [Gulp](https://gulpjs.com/?utm_source=github.com&utm_medium=referral&utm_content=button&utm_campaign=dmhendricks%2Fwordpress-base-plugin) and [Bower](https://bower.io/?utm_source=github.com&utm_medium=referral&utm_content=button&utm_campaign=dmhendricks%2Fwordpress-base-plugin)
 * Object caching (where available; [usage examples](https://github.com/dmhendricks/wordpress-toolkit/wiki/ObjectCache))
 * Easy installable ZIP file generation: `npm run zip`
@@ -42,8 +42,6 @@ Here are some ways that you can contribute:
 * Customizer examples using [WP Customizer Framework](https://github.com/inc2734/wp-customizer-framework/)
 * Define environmental variables via `.env` files ([reference](https://github.com/dmhendricks/wordpress-toolkit/wiki/ToolKit#environment))
 * [More to come...](#future-plans)
-
-**Note:** Gulp and Bower are optional, but handy. If you do not wish to use them, you can delete the references.
 
 ## Requirements
 
@@ -79,16 +77,7 @@ See the [Getting Started](https://github.com/dmhendricks/wordpress-base-plugin/w
 * Switch to npm and WebPack for frontend dependency management
 * Remove or replace [tareq1988/wordpress-settings-api-class](https://github.com/tareq1988/wordpress-settings-api-class/) examples with something actively developed
 * Clean up Carbon Fields custom CSS classes
-* Allow cache flushing by group
 * Add Gutenberg examples
-
-## Change Log
-
-Release changes are noted on the [Releases](https://github.com/dmhendricks/wordpress-base-plugin/releases) page.
-
-#### Branch: `master`
-
-* None since release
 
 ## Screenshot
 
