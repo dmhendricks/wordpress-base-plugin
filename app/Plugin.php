@@ -36,7 +36,10 @@ class Plugin extends \WordPress_ToolKit\ToolKit {
     */
   public function load_plugin() {
 
-    if( !$this->verify_dependencies( 'carbon_fields' ) ) return;
+    if( !$this->verify_dependencies() ) {
+      deactivate_plugins( self::$config->get( 'plugin/identifier' ) );
+      return;
+    }
 
     // Add TGM Plugin Activation notices for required/recommended plugins
     new TGMPA();
@@ -77,8 +80,7 @@ class Plugin extends \WordPress_ToolKit\ToolKit {
     */
   public function activate() {
 
-    $dependency_check = $this->verify_dependencies( true, array( 'activate' => true, 'echo' => false ) );
-    if( $dependency_check !== true ) die( $dependency_check );
+    $this->verify_dependencies( true );
 
   }
 
@@ -95,9 +97,7 @@ class Plugin extends \WordPress_ToolKit\ToolKit {
       new TGMPA();
     }
 
-    if( $this->verify_dependencies( 'carbon_fields' ) === true ) {
-      add_action( 'carbon_fields_fields_registered', array( $this, 'load_plugin' ));
-    }
+    add_action( 'carbon_fields_fields_registered', array( $this, 'load_plugin' ));
 
   }
 
@@ -105,79 +105,55 @@ class Plugin extends \WordPress_ToolKit\ToolKit {
     * Function to verify dependencies, such as if an outdated version of Carbon
     *    Fields is detected.
     *
-    * Normally, we wouldn't be so persistant about checking for dependencies and
-    *    I would just pass it off to TGMPA, however, if they have an ancient version
-    *    of Carbon Fields loaded (via plugin or dependency), it causes problems.
-    *
-    * @param string|array|bool $deps A string (single) or array of deps to check. `true`
-    *    checks all defined dependencies.
-    * @param array $args An array of arguments.
-    * @return bool|string Result of dependency check. Returns bool if $args['echo']
-    *    is false, string if true.
+    * @param bool $die If true, plugin execution is halted with die(), useful for
+    *    outputting error(s) in during activate()
+    * @return bool
     * @since 0.2.0
     */
-  private function verify_dependencies( $deps = true, $args = array() ) {
+  private function verify_dependencies( $die = false ) {
 
-    if( is_bool( $deps ) && $deps ) $deps = self::$config->get( 'dependencies' );
-    if( !is_array( $deps ) ) $deps = array( $deps => self::$config->get( 'dependencies/' . $deps ) );
-
-    $args = ArrayHelper::set_default_atts( array(
-      'echo' => true,
-      'activate' => true
-    ), $args);
-
-    $notices = array();
-
-    foreach( $deps as $dep => $version ) {
-
-      switch( $dep ) {
-
-        case 'php':
-
-          if( version_compare( phpversion(), $version, '<' ) ) {
-            $notices[] = __( 'This plugin is not supported on versions of PHP below', self::$textdomain ) . ' ' . self::$config->get( 'dependencies/php' ) . '.' ;
-          }
-          break;
-
-        case 'wordpress-toolkit':
-
-          $wordpress_toolkit_version = defined( '\WordPress_ToolKit\VERSION' ) ? \WordPress_ToolKit\VERSION : null;
-
-          if( !$wordpress_toolkit_version || version_compare( $wordpress_toolkit_version, $version, '<' ) ) {
-            $notices[] = sprintf( __( 'Unable to activate %s. An outdated version of WordPress ToolKit has been detected: %s (&gt;= %s required)', self::$textdomain ), self::$config->get( 'plugin/meta/Name' ), $wordpress_toolkit_version, $version );
-          }
-          break;
-
-        case 'carbon_fields':
-
-          $cf_version = defined('\\Carbon_Fields\\VERSION') ? current( explode( '-', \Carbon_Fields\VERSION ) ) : null;
-          if( !$args['activate'] && !defined('\\Carbon_Fields\\VERSION') ) {
-            $notices[] = __( 'An unknown error occurred while trying to load the Carbon Fields framework.', self::$textdomain );
-          } else if ( defined('\\Carbon_Fields\\VERSION') && version_compare( $cf_version, $version, '<' ) ) {
-            $notices[] = __( 'An outdated version of Carbon Fields has been detected:', self::$textdomain ) . ' ' . $cf_version . ' (&gt;= ' . self::$config->get( 'dependencies/carbon_fields' ) . ' ' . __( 'required', self::$textdomain ) . ').' . ' <strong>' . self::$config->get( 'plugin/meta/Name' ) . '</strong> ' . __( 'deactivated.', self::$textdomain ) ;
-          }
-          break;
-
-        }
-
-    }
-
-    if( $notices ) {
-
-      deactivate_plugins( self::$config->get( 'plugin/identifier' ) );
-
-      $notices = '<ul><li>' . implode( "</li>\n<li>", $notices ) . '</li></ul>';
-
-      if( $args['echo'] ) {
-        Helpers::show_notice( $notices, [ 'type' => 'error', 'dismissible' => false ] );
-        return false;
+    // Check if underDEV_Requirements class is loaded
+    if( !class_exists( 'underDEV_Requirements' ) ) {
+      if( $die ) {
+        die( sprintf( __( '<strong>%s</strong>: One or more dependencies failed to load', self::$textdomain ), __( self::$config->get( 'plugin/meta/Name' ) ) ) );
       } else {
-        return $notices;
+        return false;
       }
-
     }
 
-    return !$notices;
+    $requirements = new \underDEV_Requirements( __( self::$config->get( 'plugin/meta/Name' ), self::$textdomain ), self::$config->get( 'dependencies' ) );
+
+    // Check for WordPress Toolkit
+    $requirements->add_check( 'wordpress-toolkit', function( $val, $res ) {
+      $wordpress_toolkit_version = defined( '\WordPress_ToolKit\VERSION' ) ? \WordPress_ToolKit\VERSION : null;
+      if( !$wordpress_toolkit_version ) {
+        $res->add_error( __( 'WordPress ToolKit not loaded.', self::$textdomain ) );
+      } else if( version_compare( $wordpress_toolkit_version, self::$config->get( 'dependencies/wordpress-toolkit' ), '<' ) ) {
+        $res->add_error( sprintf( __( 'An outdated version of WordPress ToolKit has been detected: %s (&gt;= %s required).', self::$textdomain ), $wordpress_toolkit_version, self::$config->get( 'dependencies/wordpress-toolkit' ) ) );
+      }
+    });
+
+    // Check for Carbon Fields
+    $requirements->add_check( 'carbon_fields', function( $val, $res ) {
+      $cf_version = defined('\\Carbon_Fields\\VERSION') ? current( explode( '-', \Carbon_Fields\VERSION ) ) : null;
+      if( !$cf_version ) {
+        $res->add_error( __( 'The Carbon Fields framework is not loaded.', self::$textdomain ) );
+      } else if( version_compare( $cf_version, self::$config->get( 'dependencies/carbon_fields' ), '>' ) ) {
+        $res->add_error( sprintf( __( 'An outdated version of Carbon Fields has been detected: %s (&gt;= %s required).', self::$textdomain ), $cf_version, self::$config->get( 'dependencies/carbon_fields' ) ) );
+      }
+    });
+
+    // Display errors if requirements not met
+    if( !$requirements->satisfied() ) {
+      if( $die ) {
+        die( $requirements->notice() );
+      } else {
+        add_action( 'admin_notices', array( $requirements, 'notice' ) );
+        return false;
+      }
+    }
+
+    return true;
 
   }
 
