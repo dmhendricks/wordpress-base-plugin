@@ -15,23 +15,24 @@
     "zip-dev": "zip -q -r ../$npm_package_name.zip * -x 'node_modules/*' '.git*' '.DS_Store' './*.bak' "
   },
   "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-sass": "^3.1.0",
-    "gulp-uglify": "^3.0.0",
-    "gulp-uglifycss": "^1.0.9",
+    "del": "^3.0",
+    "gulp": "^4.0",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-batch-replace": "*",
     "gulp-concat": "^2.6.1",
     "gulp-filter": "^5.1.0",
-    "gulp-line-ending-corrector": "^1.0.2",
+    "gulp-line-ending-corrector": "^1.0.3",
     "gulp-merge-media-queries": "^0.2.1",
     "gulp-notify": "^3.1.0",
-    "gulp-rename": "^1.2.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^3.2.1",
     "gulp-simple-rename": "^0.1.3",
     "gulp-sourcemaps": "^1.5.2",
+    "gulp-uglify": "^3.0.1",
+    "gulp-uglifycss": "^1.1.0",
     "vinyl-paths": "^2.1.0",
-    "wp-pot-cli": "^1.0",
-    "del": "^3.0"
+    "gulp-plumber": "^1.2",
+    "wp-pot-cli": "1.0.0"
   },
   "repository": {
     "type": "git",

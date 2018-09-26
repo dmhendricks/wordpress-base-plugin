@@ -73,7 +73,6 @@ See the [Getting Started](https://github.com/dmhendricks/wordpress-base-plugin/w
 ## Future Goals
 
 * Add plugin uninstall support
-* Add support for Gulp 4.0
 * Switch to npm and WebPack for frontend dependency management
 * Remove or replace [tareq1988/wordpress-settings-api-class](https://github.com/tareq1988/wordpress-settings-api-class/) examples with something actively developed
 * Clean up Carbon Fields custom CSS classes

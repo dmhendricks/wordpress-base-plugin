@@ -118,6 +118,17 @@ var notify       = require('gulp-notify'); // Displays notification message
 var batchRename  = require('gulp-simple-rename'); // Rename files with wildcard
 var vinylPaths   = require('vinyl-paths'); // Return each path in a stream
 var del          = require('del'); // Delete files that are renamed
+var plumber      = require( 'gulp-plumber' ); // Prevent pipe breaking caused by errors from gulp plugins.
+
+/**
+ * Custom Error Handler.
+ *
+ * @param Mixed err
+ */
+const errorHandler = r => {
+	notify.onError( '\n\n ===> ERROR: <%= error.message %>\n' )( r );
+	beep();
+};
 
 /* Arrays to hold created task info */
 var tasks_css = [];
@@ -135,8 +146,9 @@ styleTasks.forEach( function( task ) {
 
   tasks_css.push( task.name + 'CSS' );
 
-  gulp.task( task.name + 'CSS', function () {
+  gulp.task( task.name + 'CSS', (done) => {
     gulp.src( styleSourcePath + task.source )
+      .pipe( plumber( errorHandler ) )
       .pipe( sourcemaps.init() )
       .pipe( sass( {
         sourceComments: cssOutputComments ? 'map' : null,
@@ -168,7 +180,8 @@ styleTasks.forEach( function( task ) {
     .pipe( gulp.dest( styleDestination ) )
 
     .pipe( filter( '**/*.css' ) ) // Filtering stream to only css files
-    .pipe( notify( { message: 'TASK: "' + task.name + 'CSS" completed.', onLast: true } ) )
+    .pipe( notify( { message: 'TASK: "' + task.name + 'CSS" completed.', onLast: true } ) );
+    done();
   });
 
 });
@@ -197,9 +210,10 @@ jsTasks.forEach( function( task ) {
 
   tasks_js.push( { id: task.name + 'JS', name: task.name, watch: jsSources } );
 
-  gulp.task( task.name + 'JS', function() {
+  gulp.task( task.name + 'JS', (done) => {
 
     gulp.src( jsSources )
+    .pipe( plumber( errorHandler ) )
     .pipe( concat( task.source + '.js' ) )
     .pipe( rename( {
       basename: project + basename_suffix,
@@ -214,29 +228,45 @@ jsTasks.forEach( function( task ) {
     .pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
     .pipe( gulp.dest( jsDestination ) )
     .pipe( notify( { message: 'TASK: "' + task.name + 'JS" completed.', onLast: true } ) );
+    done();
   });
+
 
 });
 
 /**
  * Watches for file changes and runs specified tasks.
  */
-gulp.task( 'default', object_property_to_array( tasks_js, 'id', tasks_css ), function () {
+//gulp.task( 'default', object_property_to_array( tasks_js, 'id', tasks_css ), function () {
 
-  gulp.watch( styleSourcePath + '**/*.scss', tasks_css );
+//  gulp.watch( styleSourcePath + '**/*.scss', tasks_css );
 
-  tasks_js.forEach( function( task ) {
-    gulp.watch( task.watch, [ task.id ] );
-  });
+//  tasks_js.forEach( function( task ) {
+//    gulp.watch( task.watch, [ task.id ] );
+//  });
 
-});
+//});
+
+gulp.task(
+	'default',
+	 gulp.series( gulp.parallel( object_property_to_array( tasks_js, 'id', tasks_css ) ), () => {
+
+    gulp.watch( styleSourcePath + '**/*.scss', gulp.parallel( tasks_css ) );
+
+    tasks_js.forEach( function( task ) {
+      gulp.watch( task.watch, gulp.series( task.id ) );
+    });
+
+	})
+);
 
 /**
  * Task to rename files and variables
  */
-gulp.task( 'rename', function () {
+gulp.task( 'rename', () => {
 
   return gulp.src( [ './**/*.php', './*.json', './**/*.js', './**/*.scss', './*.txt', './*.md', '!./node_modules/**', '!./vendor/**', '!./.git/**', '!./languages/**', '!./*lock*', '!./gulpfile.js' ] )
+    .pipe( plumber( errorHandler ) )
     .pipe( replace( renameStrings ) )
     .pipe( vinylPaths( del ) )
     .pipe( batchRename( function (path) {
