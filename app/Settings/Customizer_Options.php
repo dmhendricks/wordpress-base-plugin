@@ -17,7 +17,7 @@ class Customizer_Options extends Plugin {
   function __construct() {
 
     // Create a default section name based on the plugin's slug
-    $slug = StringHelper::underscores( self::$config->get( 'plugin/slug' ) );
+    $slug = StringHelper::slugify( self::$config->get( 'plugin/slug' ), '_' );
 
     // Define Customizer sections and fields
     $this->customizer = Customizer_Framework::init();

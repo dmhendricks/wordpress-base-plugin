@@ -138,7 +138,7 @@ class Plugin extends \WordPress_ToolKit\ToolKit {
       $cf_version = defined('\\Carbon_Fields\\VERSION') ? current( explode( '-', \Carbon_Fields\VERSION ) ) : null;
       if( !$cf_version ) {
         $res->add_error( __( 'The Carbon Fields framework is not loaded.', self::$textdomain ) );
-      } else if( version_compare( $cf_version, self::$config->get( 'dependencies/carbon_fields' ), '>' ) ) {
+      } else if( version_compare( $cf_version, self::$config->get( 'dependencies/carbon_fields' ), '<' ) ) {
         $res->add_error( sprintf( __( 'An outdated version of Carbon Fields has been detected: %s (&gt;= %s required).', self::$textdomain ), $cf_version, self::$config->get( 'dependencies/carbon_fields' ) ) );
       }
     });
