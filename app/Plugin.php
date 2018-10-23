@@ -146,7 +146,7 @@ class Plugin extends \WordPress_ToolKit\ToolKit {
     $requirements->add_check( 'carbon_fields', function( $val, $res ) {
       $cf_version = defined('\\Carbon_Fields\\VERSION') ? current( explode( '-', \Carbon_Fields\VERSION ) ) : null;
       if( !$cf_version ) {
-        $res->add_error( __( 'The Carbon Fields framework is not loaded.', self::$textdomain ) );
+        $res->add_error( sprintf( __( 'The <a href="%s" target="_blank">Carbon Fields</a> framework is not loaded.', self::$textdomain ), 'https://carbonfields.net/release-archive/' ) );
       } else if( version_compare( $cf_version, self::$config->get( 'dependencies/carbon_fields' ), '<' ) ) {
         $res->add_error( sprintf( __( 'An outdated version of Carbon Fields has been detected: %s (&gt;= %s required).', self::$textdomain ), $cf_version, self::$config->get( 'dependencies/carbon_fields' ) ) );
       }
