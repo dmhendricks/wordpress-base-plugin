@@ -3,7 +3,8 @@ Contributors: hendridm
 Tags: wordpress,base,plugin,boilerplate,composer,carbonfields
 Donate link: https://paypal.me/danielhendricks
 Requires at least: 4.6
-Tested up to: 4.9.2
+Requires PHP: 5.6
+Tested up to: 5.0
 Stable tag: 0.4.0
 License: GPL-2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -17,7 +18,7 @@ It is intended to be used as a starting point for creating WordPress plugins.
 
 = Requirements =
 
-* WordPress 4.0 or higher
+* WordPress 4.6 or higher
 * PHP 5.6 or higher
 * [Carbon Fields](https://github.com/htmlburger/carbon-fields) 2.0 or higher (see the wiki section on [Carbon Fields](https://github.com/dmhendricks/wordpress-base-plugin/wiki#carbon-fields) for more info)
 
