@@ -1,9 +1,9 @@
-[![Author](https://img.shields.io/badge/author-Daniel%20M.%20Hendricks-lightgrey.svg?colorB=9900cc )](https://www.danhendricks.com/?utm_source=github.com&utm_medium=campaign&utm_content=button&utm_campaign=wordpress-base-plugin)
-[![Latest Version](https://img.shields.io/github/release/dmhendricks/wordpress-base-plugin.svg)](https://github.com/dmhendricks/wordpress-base-plugin/releases)
-[![GitHub License](https://img.shields.io/badge/license-GPLv2-yellow.svg)](https://raw.githubusercontent.com/dmhendricks/wordpress-base-plugin/master/LICENSE)
-[![StackShare](https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/dmhendricks/wordpress-base-plugin?utm_source=github.com&utm_medium=referral&utm_content=button&utm_campaign=dmhendricks%2Fwordpress-base-plugin)
-[![CloudVerve, LLC](https://img.shields.io/badge/style-CloudVerve-green.svg?style=flat&label=get%20hosted&colorB=AE2A21)](https://2lab.net/?utm_source=github.com&utm_medium=campaign&utm_content=button&utm_campaign=wordpress-base-plugin)
-[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://paypal.me/danielhendricks)
+[![Author](https://img.shields.io/badge/author-Daniel%20M.%20Hendricks-lightgrey.svg?colorB=9900cc&style=flat-square)](https://www.danhendricks.com/?utm_source=github.com&utm_medium=campaign&utm_content=button&utm_campaign=wordpress-base-plugin)
+[![Latest Version](https://img.shields.io/github/release/dmhendricks/wordpress-base-plugin.svg?style=flat-square)](https://github.com/dmhendricks/wordpress-base-plugin/releases)
+[![GitHub License](https://img.shields.io/badge/license-GPLv2-yellow.svg?style=flat-square)](https://raw.githubusercontent.com/dmhendricks/wordpress-base-plugin/master/LICENSE)
+[![Flywheel](https://img.shields.io/badge/style-Flywheel-green.svg?style=flat-square&label=get%20hosted&colorB=AE2A21)](https://share.getf.ly/e25g6k?utm_source=github.com&utm_medium=campaign&utm_content=button&utm_campaign=dmhendricks%2Fwordpress-base-plugin)
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg?style=flat-square)](https://paypal.me/danielhendricks)
+[![Analytics](https://ga-beacon.appspot.com/UA-67333102-2/dmhendricks/wordpress-base-plugin?flat)](https://github.com/igrigorik/ga-beacon/?utm_source=github.com&utm_medium=referral&utm_content=button&utm_campaign=dmhendricks%2Fwordpress-base-plugin)
 [![Twitter](https://img.shields.io/twitter/url/https/github.com/dmhendricks/wordpress-base-plugin.svg?style=social)](https://twitter.com/danielhendricks)
 
 # WordPress Base Plugin
@@ -26,8 +26,9 @@ It may also be used as the means of [separating custom code](http://www.billeric
 Here are some ways that you can contribute:
 
 * Suggest improvements and/or code them.
-* Test the translation mechanisms - they have not been extensively tested yet.
-* [Report bugs](https://github.com/dmhendricks/wordpress-base-plugin/issues) and/or incompatibilities
+* [Report bugs](https://github.com/dmhendricks/wordpress-base-plugin/issues) and/or incompatibilities.
+* Host your sites with [Flywheel](https://share.getf.ly/e25g6k?utm_source=github.com&utm_medium=campaign&utm_content=button&utm_campaign=dmhendricks%2Fwordpress-base-plugin), use [KeyCDN](https://www.keycdn.com/?a=42672&utm_source=github.com&utm_medium=campaign&utm_content=button&utm_campaign=dmhendricks%2Fwordpress-base-plugin
+) for speedy delivery of assets.
 
 ## Features
 
@@ -60,6 +61,8 @@ If you need tips on installing Node.js, Composer, Gulp & Bower, see [Installing 
 1. Run `npm install; gulp rename; composer install`
 1. (optional) For some of the included examples to work, you'll also want to run: `bower install; gulp;`
 
+You'll want to delete features that you don't like (such as references to [TGMPA](http://tgmpluginactivation.com/) if you don't need it).
+
 ### Clone Repository
 
 1. At command prompt, change to your `wp-content/plugins` directory.
@@ -72,14 +75,13 @@ See the [Getting Started](https://github.com/dmhendricks/wordpress-base-plugin/w
 
 ## Future Goals
 
-* Add plugin uninstall support
-* Switch to npm and WebPack for frontend dependency management
-* Remove or replace [tareq1988/wordpress-settings-api-class](https://github.com/tareq1988/wordpress-settings-api-class/) examples with something actively developed
-* Clean up Carbon Fields custom CSS classes
-* Add Gutenberg examples
+* Add plugin `uninstall.php`
+* Switch to [webpack](https://webpack.js.org/) for frontend dependency management
+* Remove or replace [wordpress-settings-api-class](https://github.com/tareq1988/wordpress-settings-api-class/) example with something actively developed
+* Clean up Carbon Fields _custom_ CSS classes
+* Add integrated GitHub updates
+* Add Gutenberg blocks
 
 ## Screenshot
 
 ![Settings Page](https://raw.githubusercontent.com/dmhendricks/wordpress-base-plugin/master/assets/screenshot-1.png "Settings Page")
-
-[![Analytics](https://ga-beacon.appspot.com/UA-67333102-2/dmhendricks/wordpress-base-plugin)](https://github.com/igrigorik/ga-beacon/?utm_source=github.com&utm_medium=referral&utm_content=button&utm_campaign=dmhendricks%2Fwordpress-base-plugin)
