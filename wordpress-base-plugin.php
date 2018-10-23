@@ -36,4 +36,4 @@ if( !defined( 'ABSPATH' ) ) die();
 require( __DIR__ . '/vendor/autoload.php' );
 
 // Initialize plugin
-new \VendorName\PluginName\Plugin();
+\VendorName\PluginName\Plugin::instance();

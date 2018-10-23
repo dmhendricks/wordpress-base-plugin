@@ -8,24 +8,33 @@ use Carbon_Fields\Field;
 
 class Plugin extends \WordPress_ToolKit\ToolKit {
 
+  private static $instance;
   public static $textdomain;
   public static $config;
 
-  function __construct() {
+  public static function instance() {
 
-    // Load plugin configuration
-    self::$config = $this->init( dirname( __DIR__ ), trailingslashit( dirname( __DIR__ ) ) . 'plugin.json' );
-    self::$config->merge( new ConfigRegistry( [ 'plugin' => $this->get_current_plugin_meta( ARRAY_A ) ] ) );
+    if ( !isset( self::$instance ) && !( self::$instance instanceof Plugin ) ) {
 
-    // Set Text Domain
-    self::$textdomain = self::$config->get( 'plugin/meta/TextDomain' ) ?: self::$config->get( 'plugin/slug' );
+      self::$instance = new Plugin;
 
-    // Define plugin version
-    if ( !defined( __NAMESPACE__ . '\VERSION' ) ) define( __NAMESPACE__ . '\VERSION', self::$config->get( 'plugin/meta/Version' ) );
+      // Load plugin configuration
+      self::$config = self::$instance->init( dirname( __DIR__ ), trailingslashit( dirname( __DIR__ ) ) . 'plugin.json' );
+      self::$config->merge( new ConfigRegistry( [ 'plugin' => self::$instance->get_current_plugin_meta( ARRAY_A ) ] ) );
 
-    // Load dependecies and load plugin logic
-    register_activation_hook( self::$config->get( 'plugin/identifier' ), array( $this, 'activate' ) );
-    add_action( 'plugins_loaded', array( $this, 'load_dependencies' ) );
+      // Set Text Domain
+      self::$textdomain = self::$config->get( 'plugin/meta/TextDomain' ) ?: self::$config->get( 'plugin/slug' );
+
+      // Define plugin version
+      if ( !defined( __NAMESPACE__ . '\VERSION' ) ) define( __NAMESPACE__ . '\VERSION', self::$config->get( 'plugin/meta/Version' ) );
+
+      // Load dependecies and load plugin logic
+      register_activation_hook( self::$config->get( 'plugin/identifier' ), array( self::$instance, 'activate' ) );
+      add_action( 'plugins_loaded', array( self::$instance, 'load_dependencies' ) );
+
+    }
+
+    return self::$instance;
 
   }
 
