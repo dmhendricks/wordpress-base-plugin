@@ -89,7 +89,7 @@ class Plugin extends \WordPress_ToolKit\ToolKit {
     */
   public function activate() {
 
-    $this->verify_dependencies( true );
+    $this->verify_dependencies( true, true );
 
   }
 
@@ -119,7 +119,7 @@ class Plugin extends \WordPress_ToolKit\ToolKit {
     * @return bool
     * @since 0.2.0
     */
-  private function verify_dependencies( $die = false ) {
+  private function verify_dependencies( $die = false, $activate = false ) {
 
     // Check if underDEV_Requirements class is loaded
     if( !class_exists( 'underDEV_Requirements' ) ) {
@@ -143,7 +143,8 @@ class Plugin extends \WordPress_ToolKit\ToolKit {
     });
 
     // Check for Carbon Fields
-    $requirements->add_check( 'carbon_fields', function( $val, $res ) {
+    $requirements->add_check( 'carbon_fields', function( $val, $res ) use ( &$activate ) {
+      if( $activate ) return;
       $cf_version = defined('\\Carbon_Fields\\VERSION') ? current( explode( '-', \Carbon_Fields\VERSION ) ) : null;
       if( !$cf_version ) {
         $res->add_error( sprintf( __( 'The <a href="%s" target="_blank">Carbon Fields</a> framework is not loaded.', self::$textdomain ), 'https://carbonfields.net/release-archive/' ) );
