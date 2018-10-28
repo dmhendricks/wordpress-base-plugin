@@ -22,7 +22,7 @@
     "jjgrainger/posttypes": "^2.0.1",
     "tgmpa/tgm-plugin-activation": "^2.6.1",
     "tareq1988/wordpress-settings-api-class": "dev-master",
-    "dmhendricks/wordpress-toolkit": "0.4.0",
+    "dmhendricks/wordpress-toolkit": "^0.4.1",
     "underdev/requirements": "^1.3",
     "inc2734/wp-customizer-framework": "3.2.3",
     "composer/installers": "^1.0.6"

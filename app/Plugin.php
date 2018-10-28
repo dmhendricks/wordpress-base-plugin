@@ -168,6 +168,22 @@ class Plugin extends \WordPress_ToolKit\ToolKit {
   }
 
   /**
+    * Append a field prefix as defined in $config
+    *
+    * @param string $field_name The string/field to prefix
+    * @param string $before String to add before the prefix
+    * @param string $after String to add after the prefix
+    * @return string Prefixed string/field value
+    * @since 0.1.0
+    */
+  public static function prefix( $field_name = null, $before = '', $after = '_' ) {
+
+    $prefix = $before . self::$config->get( 'prefix' ) . $after;
+    return $field_name !== null ? $prefix . $field_name : $prefix;
+
+  }
+
+  /**
     * Get Carbon Fields option, with object caching (if available). Currently
     *   only supports plugin options because meta fields would need to have the
     *   cache flushed appropriately.
