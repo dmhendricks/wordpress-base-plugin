@@ -1,7 +1,7 @@
 [![Author](https://img.shields.io/badge/author-Daniel%20M.%20Hendricks-lightgrey.svg?colorB=9900cc&style=flat-square)](https://www.danhendricks.com/?utm_source=github.com&utm_medium=campaign&utm_content=button&utm_campaign=wordpress-base-plugin)
 [![Latest Version](https://img.shields.io/github/release/dmhendricks/wordpress-base-plugin.svg?style=flat-square)](https://github.com/dmhendricks/wordpress-base-plugin/releases)
 [![GitHub License](https://img.shields.io/badge/license-GPLv2-yellow.svg?style=flat-square)](https://raw.githubusercontent.com/dmhendricks/wordpress-base-plugin/master/LICENSE)
-[![Flywheel](https://img.shields.io/badge/style-Flywheel-green.svg?style=flat-square&label=get%20hosted&colorB=AE2A21)](https://share.getf.ly/e25g6k?utm_source=github.com&utm_medium=campaign&utm_content=button&utm_campaign=dmhendricks%2Fwordpress-base-plugin)
+[![Flywheel](https://img.shields.io/badge/hosting-Flywheel-green.svg?style=flat-square&label=get%20hosted&colorB=AE2A21)](https://share.getf.ly/e25g6k?utm_source=github.com&utm_medium=campaign&utm_content=button&utm_campaign=dmhendricks%2Fwordpress-base-plugin)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg?style=flat-square)](https://paypal.me/danielhendricks)
 [![Analytics](https://ga-beacon.appspot.com/UA-67333102-2/dmhendricks/wordpress-base-plugin?flat)](https://github.com/igrigorik/ga-beacon/?utm_source=github.com&utm_medium=referral&utm_content=button&utm_campaign=dmhendricks%2Fwordpress-base-plugin)
 [![Twitter](https://img.shields.io/twitter/url/https/github.com/dmhendricks/wordpress-base-plugin.svg?style=social)](https://twitter.com/danielhendricks)
@@ -49,6 +49,7 @@ Here are some ways that you can contribute:
 * WordPress 4.7 or higher
 * PHP 5.6 or higher
 * [Carbon Fields](https://github.com/htmlburger/carbon-fields) 2.2 or higher. See the wiki section [Carbon Fields](https://github.com/dmhendricks/wordpress-base-plugin/wiki#carbon-fields) for more info.
+	* Carbon Fields is only required for the demo. You're welcome to strip out references if you do not wish to use it.
 
 ## Installation
 
@@ -79,8 +80,8 @@ See the [Getting Started](https://github.com/dmhendricks/wordpress-base-plugin/w
 * Switch to [webpack](https://webpack.js.org/) for frontend dependency management
 * Remove or replace [wordpress-settings-api-class](https://github.com/tareq1988/wordpress-settings-api-class/) example with something actively developed
 * Clean up Carbon Fields _custom_ CSS classes
-* Add integrated GitHub updates
-* Add Gutenberg blocks
+* Add automatic GitHub update example
+* Add Gutenberg block examples
 
 ## Screenshot
 
