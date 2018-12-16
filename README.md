@@ -78,7 +78,7 @@ See the [Getting Started](https://github.com/dmhendricks/wordpress-base-plugin/w
 
 * Add plugin `uninstall.php`
 * Switch to [webpack](https://webpack.js.org/) for frontend dependency management
-* Remove or replace [wordpress-settings-api-class](https://github.com/tareq1988/wordpress-settings-api-class/) example with something actively developed
+* ~~Remove or replace [wordpress-settings-api-class](https://github.com/tareq1988/wordpress-settings-api-class/) example with something actively developed~~
 * Clean up Carbon Fields _custom_ CSS classes
 * Add automatic GitHub update example
 * Add Gutenberg block examples

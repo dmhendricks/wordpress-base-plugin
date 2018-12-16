@@ -59,9 +59,6 @@ class Plugin extends \WordPress_ToolKit\ToolKit {
     // Add a settings page to the Network Admin (requires multisite)
     if ( is_multisite() ) new Settings\Network_Settings_Page();
 
-    // Alternatively, add admin settings page using wordpress-settings-api-class
-    new Settings\WPSAC_Page();
-
     // Add Customizer panels and options
     new Settings\Customizer_Options();
 
