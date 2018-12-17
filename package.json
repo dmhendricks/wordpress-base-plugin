@@ -11,7 +11,7 @@
     "prefix": "wpbp"
   },
   "scripts": {
-    "translate": "wp-pot -s 'app/**/*.php' -o ./languages/$npm_package_name.pot -p $npm_package_name",
+    "translate": "wp-pot --src 'app/**/*.php' --dest-file ./languages/$npm_package_name.pot --package $npm_package_name",
     "zip": "zip -q -r ../$npm_package_name.zip * -x 'node_modules/*' '.git*' './src/*' './.*' './package*.*' './composer.*' './*.md' './*.bak' './bower.json' './gulpfile.js' ",
     "zip-dev": "zip -q -r ../$npm_package_name.zip * -x 'node_modules/*' '.git*' '.DS_Store' './*.bak' "
   },
@@ -25,6 +25,7 @@
     "gulp-line-ending-corrector": "^1.0.3",
     "gulp-merge-media-queries": "^0.2.1",
     "gulp-notify": "^3.1.0",
+    "gulp-plumber": "^1.2",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^3.2.1",
     "gulp-simple-rename": "^0.1.3",
@@ -32,8 +33,7 @@
     "gulp-uglify": "^3.0.1",
     "gulp-uglifycss": "^1.1.0",
     "vinyl-paths": "^2.1.0",
-    "gulp-plumber": "^1.2",
-    "wp-pot-cli": "1.0.3"
+    "wp-pot-cli": "^1.0"
   },
   "repository": {
     "type": "git",
