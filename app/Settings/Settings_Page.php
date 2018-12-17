@@ -49,7 +49,7 @@ class Settings_Page extends Plugin {
         Field::make( 'checkbox', $this->prefix( 'remove_header_emojicons' ), __( 'Remove Emoji Code From Page Headers', self::$textdomain ) )
           ->help_text( __( 'Checking this box will remove the default Emoji code from page headers.', self::$textdomain ) ),
         Field::make( 'set', $this->prefix( 'enqueue_font_awesome' ), __( 'Load Font Awesome from CDN', self::$textdomain ) )
-          ->help_text( __( 'Load <a href="http://fontawesome.io/" target="_blank">Font Awesome</a> from <a href="https://www.bootstrapcdn.com/fontawesome/" target="_blank">CDN</a>.', self::$textdomain ) )
+          ->help_text( __( 'Load <a href="http://fontawesome.io/" target="_blank">Font Awesome</a> from <a href="https://fontawesome.com/start" target="_blank">CDN</a>.', self::$textdomain ) )
           ->set_default_value( 'backend' )
           ->add_options( array(
             'frontend' => __( 'Frontend', self::$textdomain ),
