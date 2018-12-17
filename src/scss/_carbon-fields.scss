@@ -2,7 +2,7 @@
  * Carbon Fields style
  */
 
-div[id^='carbon_fields_container_'] {
+div[id^="carbon_fields_container_"] {
 
   // Change the default Carbon Fields H3 header font size
   div.carbon-separator {
@@ -18,7 +18,7 @@ div[id^='carbon_fields_container_'] {
       padding-left: 29px;
     }
 
-    .field-holder {
+    .field-holder, .cf-field__body {
 
       &:before {
         position: absolute;
@@ -34,19 +34,19 @@ div[id^='carbon_fields_container_'] {
 
   // Input field background dashicons
   .carbon-fields-custom-field-url {
-    .field-holder:before {
+    .field-holder:before, .cf-field__body:before {
       content: '\f319';
     }
   }
 
   .carbon-fields-custom-field-email {
-    .field-holder:before {
+    .field-holder:before, .cf-field__body:before {
       content: '\f466';
     }
   }
 
   .carbon-fields-custom-field-tel {
-    .field-holder:before {
+    .field-holder:before, .cf-field__body:before {
       content: '\f525';
     }
   }
