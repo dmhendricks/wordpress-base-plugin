@@ -18,14 +18,7 @@ class Shortcode_Loader extends Plugin {
     );
 
     foreach( $this->shortcodes as $shortcodeClass ) {
-
-      $shortcode = new $shortcodeClass();
-      if( $shortcode instanceof ShortcodeInterface ) {
-        new $shortcode();
-      } else {
-        // Log or show error notices
-      }
-
+      if( class_exists( $shortcodeClass ) ) new $shortcodeClass();
     }
 
   }

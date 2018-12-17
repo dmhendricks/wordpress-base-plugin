@@ -99,8 +99,6 @@ class Plugin extends \WordPress_ToolKit\ToolKit {
 
     if( class_exists( 'Carbon_Fields\\Carbon_Fields' ) ) {
       add_action( 'after_setup_theme', array( 'Carbon_Fields\\Carbon_Fields', 'boot' ) );
-    } else {
-      new TGMPA();
     }
 
     add_action( 'carbon_fields_fields_registered', array( $this, 'load_plugin' ));

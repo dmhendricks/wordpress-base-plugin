@@ -16,13 +16,8 @@ class PostTypes_Loader extends Plugin {
       Clients::class
     );
 
-    foreach( $this->posttypes as $posttypesClass ) {
-
-      $posttype = new $posttypesClass();
-      if( $posttype instanceof PostTypeInterface ) {
-        new $posttype();
-      }
-
+    foreach( $this->posttypes as $postTypesClass ) {
+      if( class_exists( $postTypesClass ) ) new $postTypesClass();
     }
 
   }

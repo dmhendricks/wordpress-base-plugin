@@ -62,8 +62,10 @@ class Clients extends Plugin {
     Container::make( 'post_meta', 'Contact Info' )
       ->show_on_post_type( $cpt->name )
       ->add_fields( array(
-        Field::make( 'text', $this->prefix( 'url' ), __( 'Web Site', self::$textdomain ) ),
-        Field::make( 'text', $this->prefix( 'phone' ), __( 'Phone Number', self::$textdomain ) ),
+        Field::make( 'text', $this->prefix( 'url' ), __( 'Web Site', self::$textdomain ) )
+          ->set_classes( 'carbon-fields-custom-field-url' ),
+        Field::make( 'text', $this->prefix( 'phone' ), __( 'Phone Number', self::$textdomain ) )
+          ->set_classes( 'carbon-fields-custom-field-tel' ),
         Field::make( 'textarea', $this->prefix( 'address' ), __( 'Address', self::$textdomain ) )
           ->set_rows( 4 )
       )

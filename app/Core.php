@@ -9,7 +9,7 @@ class Core extends Plugin {
     add_filter( 'body_class', array( $this, 'add_body_classes' ) );
 
     // Example - Remove Emoji code from header
-    if( !$this->is_ajax() && $this->get_carbon_plugin_option( 'remove_header_emojicons' ) ) {
+    if( $this->get_carbon_plugin_option( 'remove_header_emojicons' ) ) {
       add_filter( 'init', array( $this, 'disable_wp_emojicons' ) );
     }
 
