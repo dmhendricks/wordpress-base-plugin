@@ -77,7 +77,8 @@ class EnqueueScripts extends Plugin {
     */
   public function enqueue_font_awesome() {
 
-    wp_enqueue_style( 'font-awesome', 'https://use.fontawesome.com/releases/v5.6.1/css/all.css', null, null, true );
+    wp_enqueue_style( 'font-awesome', 'https://use.fontawesome.com/releases/v5.6.1/css/all.css', null, null );
+    wp_enqueue_style( 'font-awesome-shims', 'https://use.fontawesome.com/releases/v5.6.1/css/v4-shims.css', [ 'font-awesome' ], null );
 
   }
 
